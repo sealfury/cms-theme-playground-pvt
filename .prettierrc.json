@@ -1,0 +1,16 @@
+{
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "hubl"
+      }
+    },
+    {
+      "files": "*.js",
+      "options": {
+        "singleQuote": true
+      }
+    }
+  ]
+}

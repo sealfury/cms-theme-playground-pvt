@@ -24,5 +24,8 @@
   "browserslist": [
     "defaults",
     "IE 11"
-  ]
+  ],
+  "dependencies": {
+    "@hubspot/prettier-plugin-hubl": "^0.2.4"
+  }
 }
