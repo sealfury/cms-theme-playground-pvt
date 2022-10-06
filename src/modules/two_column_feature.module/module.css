@@ -1,0 +1,28 @@
+.two-col-feature {
+  display: flex;
+}
+
+.two-col-feature.img-left {
+  flex-direction: row-reverse;
+}
+
+.two-col-feature.dark {
+  background-color: rgba(55, 55, 55, 1);
+}
+
+.text {
+  font-size: 22px;
+  padding: 12px;
+}
+
+.text.dark {
+  color: #EEE;
+}
+
+.col {
+  width: 50%;
+}
+
+.img {
+  max-width: 75%;
+}

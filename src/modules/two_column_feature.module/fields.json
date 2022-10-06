@@ -1,0 +1,53 @@
+[ {
+  "id" : "5b11c48a-6bc7-5a91-d662-8c8e4e708255",
+  "name" : "feature_text",
+  "display_width" : null,
+  "label" : "Rich text",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "default" : "Cats are fantastic"
+}, {
+  "id" : "c760eb84-195a-b92c-3e0b-0b3edc0cde56",
+  "name" : "feature_image",
+  "display_width" : null,
+  "label" : "Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "src" : "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/other-dentist-tools.jpg",
+    "alt" : "other-dentist-tools",
+    "loading" : "lazy",
+    "width" : 1232,
+    "height" : 924,
+    "max_width" : 1232,
+    "max_height" : 924
+  }
+}, {
+  "id" : "88eb64c4-241d-f7a2-cd11-d4989f87194b",
+  "name" : "choice_field",
+  "display_width" : null,
+  "label" : "Choice",
+  "required" : false,
+  "locked" : false,
+  "display" : "select",
+  "choices" : [ [ "img-right", "Image Right" ], [ "img-left", "Image Left" ] ],
+  "type" : "choice",
+  "default" : "img-right"
+}, {
+  "id" : "434f1690-aaeb-b9d4-de4a-d7bb14293102",
+  "name" : "dark_radio",
+  "display_width" : null,
+  "label" : "Choice",
+  "required" : false,
+  "locked" : false,
+  "display" : "radio",
+  "choices" : [ [ "light", "Light Mode" ], [ "dark", "Dark Mode" ] ],
+  "type" : "choice",
+  "default" : "light"
+} ]

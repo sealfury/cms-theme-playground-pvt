@@ -1,0 +1,21 @@
+
+<div class="two-col-feature {{ module.choice_field }} {{ module.dark_radio }}">
+  
+  <div class="col text {{ module.dark_radio }}">
+    {% inline_rich_text field="feature_text" value="{{ module.feature_text }}" %}
+  </div>
+  
+  <div class="col image">
+    {% if module.feature_image.src %}
+	    {% set sizeAttrs = 'width="{{ module.feature_image.width }}" height="{{ module.feature_image.height }}"' %}
+	    {% if module.feature_image.size_type == 'auto' %}
+		    {% set sizeAttrs = 'width="{{ module.feature_image.width }}" height="{{ module.feature_image.height }}" style="max-width: 100%; height: auto;"' %}
+	    {% elif module.feature_image.size_type == 'auto_custom_max' %}
+		    {% set sizeAttrs = 'width="{{ module.feature_image.max_width }}" height="{{ module.feature_image.max_height }}" style="max-width: 100%; height: auto;"' %}
+	    {% endif %}
+	  {% set loadingAttr = module.feature_image.loading != 'disabled' ? 'loading="{{ module.feature_image.loading }}"' : '' %}
+	  <img src="{{ module.feature_image.src }}" alt="{{ module.feature_image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+    {% endif %}
+  </div>
+  
+</div>
