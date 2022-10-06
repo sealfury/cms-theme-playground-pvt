@@ -1,21 +1,68 @@
+{# Module styles #}
 
-<div class="two-col-feature {{ module.choice_field }} {{ module.dark_radio }}">
-  
+{% require_css %}
+  <style>
+    {% scope_css %}
+      {% if module.styles.gradient_field %}
+        .two-col-feature.dark {
+          background: ; {{ module.styles.gradient_field }}
+        }
+      {% endif %}
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+<div class="two-col-feature {{ module.choice_field }} {{ module.dark_radio }}" style="background-color: {{ module.style.gradient_field }}">
   <div class="col text {{ module.dark_radio }}">
-    {% inline_rich_text field="feature_text" value="{{ module.feature_text }}" %}
+    {% inline_rich_text
+      field="feature_text",
+      value="{{ module.feature_text }}" %}
+
+    <div class="links">
+      {% set href = module.link_field.url.href %}
+      {% if module.link_field.url.type is equalto("EMAIL_ADDRESS") %}
+        {% set href = "mailto:" + href %}
+      {% endif %}
+      <a
+        class="links__trial"
+        href="{{ href }}"
+        {% if module.link_field.open_in_new_tab %}target="_blank"
+        {% endif %}
+        {% if module.link_field.rel %}rel="{{ module.link_field.rel }}"
+        {% endif %}
+        >Start Free Trial
+      </a>
+
+      {% if module.link_field_demo and module.link_field %}
+        <p>Or</p>
+      {% endif %}
+
+      {% set href = module.link_field_demo.url.href %}
+      {% if module.link_field_demo.url.type is equalto("EMAIL_ADDRESS") %}
+        {% set href = "mailto:" + href %}
+      {% endif %}
+      <a
+        class="links__book"
+        href="{{ href }}"
+        {% if module.link_field_demo.open_in_new_tab %}target="_blank"
+        {% endif %}
+        {% if module.link_field_demo.rel %}rel="{{ module.link_field_demo.rel }}"
+        {% endif %}
+        >Book a demo
+      </a>
+    </div>
   </div>
-  
+
   <div class="col image">
     {% if module.feature_image.src %}
-	    {% set sizeAttrs = 'width="{{ module.feature_image.width }}" height="{{ module.feature_image.height }}"' %}
-	    {% if module.feature_image.size_type == 'auto' %}
-		    {% set sizeAttrs = 'width="{{ module.feature_image.width }}" height="{{ module.feature_image.height }}" style="max-width: 100%; height: auto;"' %}
-	    {% elif module.feature_image.size_type == 'auto_custom_max' %}
-		    {% set sizeAttrs = 'width="{{ module.feature_image.max_width }}" height="{{ module.feature_image.max_height }}" style="max-width: 100%; height: auto;"' %}
-	    {% endif %}
-	  {% set loadingAttr = module.feature_image.loading != 'disabled' ? 'loading="{{ module.feature_image.loading }}"' : '' %}
-	  <img src="{{ module.feature_image.src }}" alt="{{ module.feature_image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+      {% set sizeAttrs = "width=\"{{ module.feature_image.width }}\" height=\"{{ module.feature_image.height }}\"" %}
+      {% if module.feature_image.size_type == "auto" %}
+        {% set sizeAttrs = "width=\"{{ module.feature_image.width }}\" height=\"{{ module.feature_image.height }}\" style=\"max-width: 100%; height: auto;\"" %}
+      {% elif module.feature_image.size_type == "auto_custom_max" %}
+        {% set sizeAttrs = "width=\"{{ module.feature_image.max_width }}\" height=\"{{ module.feature_image.max_height }}\" style=\"max-width: 100%; height: auto;\"" %}
+      {% endif %}
+      {% set loadingAttr = module.feature_image.loading != "disabled" ? "loading=\"{{ module.feature_image.loading }}\"" : "" %}
+      <img class="{{ module.image_shape }}" src="{{ module.feature_image.src }}" alt="{{ module.feature_image.alt }}" {{ loadingAttr }} {{ sizeAttrs }} />
     {% endif %}
   </div>
-  
 </div>

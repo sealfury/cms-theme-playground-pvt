@@ -1,6 +1,20 @@
 {
-  "global" : false,
-  "host_template_types" : [ "PAGE" ],
-  "module_id" : 54091404523,
-  "is_available_for_new_content" : true
+  "global": false,
+  "host_template_types": ["PAGE"],
+  "module_id": 54091404523,
+  "css_assets": [
+    {
+      "autoload": true,
+      "path": "../../css/elements/_buttons.css",
+      "name": "_buttons.css"
+    }
+  ],
+  "js_assets": [
+    {
+      "autoload": true,
+      "path": "../../js/main.js",
+      "name": "main.js"
+    }
+  ],
+  "is_available_for_new_content": true
 }
