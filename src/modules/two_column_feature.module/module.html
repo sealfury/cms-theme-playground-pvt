@@ -3,11 +3,18 @@
 {% require_css %}
   <style>
     {% scope_css %}
-      {% if module.styles.gradient_field %}
-        .two-col-feature.dark {
-          background: ; {{ module.styles.gradient_field }}
-        }
-      {% endif %}
+      .links__trial {
+        background-color: {{ module.style.button_color_teal.color }};
+        color: {{ module.style.color_dark.color }};
+      }
+
+      .links__book {
+        color: {{ module.style.color_dark.color }};
+      }
+
+      .links__book:hover {
+        border-color: {{ module.style.button_color_teal.color }};
+      }
     {% end_scope_css %}
   </style>
 {% end_require_css %}
@@ -42,7 +49,7 @@
         {% set href = "mailto:" + href %}
       {% endif %}
       <a
-        class="links__book"
+        class="links__book {{ module.dark_radio }}"
         href="{{ href }}"
         {% if module.link_field_demo.open_in_new_tab %}target="_blank"
         {% endif %}

@@ -80,9 +80,9 @@
             "type": "group",
             "children": [
               {
-                "label" : "Border",
-                "name" : "border",
-                "type" : "border"
+                "label": "Border",
+                "name": "border",
+                "type": "border"
               }
             ]
           }
