@@ -1,0 +1,31 @@
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.logos__logo {
+  display: block;
+  height: 40px;
+  width: 60px;
+}
+
+.logo__link, 
+.logo__image {
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 100%;
+}
+  
+.logo__link {
+  background-color: transparent;
+  z-index: 10;
+}
+
+.logo__image {
+  background: contain;
+}
+
