@@ -14,28 +14,91 @@
 
       {# Button #}
 
+      {% set buttonBgColor = "#58b5bc" %}
+      {% set buttonTextColor = "#141d2c" %}
+      {% set buttonHoverColor = "rgba({{ color_variant(buttonBgColor, -30)|convert_rgb }}, 1)" %}
+      {% if module.button_style is equalto("dark") %}
+        {% set buttonBgColor = "#141d2c" %}
+        {% set buttonTextColor = "#fff" %}
+        {% set buttonHoverColor = "rgba({{ color_variant(buttonBgColor, 20)|convert_rgb }}, 1)" %}
+      {% elif module.button_style is equalto("light") %}
+        {% set buttonBgColor = "#FFF" %}
+        {% set buttonTextColor = "#28282a" %}
+        {% set buttonHoverColor = "rgba({{ color_variant(buttonBgColor, -20)|convert_rgb }}, 1)" %}
+      {% endif %}
+
+      {% if module.arrow %}
+        .button::after {
+          color: {{ buttonTextColor }};
+          content: "→";
+          display: inline;
+          padding-left: 4px;
+          {{ module.styles.text.font.css }}
+        }
+      {% else %}
+        .button::after {
+          content: "";
+          padding: 0;
+        }
+      {% endif %}
+
       .button {
-        {% if module.styles.background.color.color %}
-          background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
-        {% endif %}
-        {{ module.styles.border.border.css }}
-        {% if module.styles.corner.radius >= 0 %}
-          border-radius: {{ module.styles.corner.radius ~ "px" }};
-        {% endif %}
         {{ module.styles.text.font.css }}
         {{ module.styles.spacing.spacing.css }}
+
+        {% if module.button_type is equalto("standard") %}
+          background-color: {{ buttonBgColor }};
+          border-color: {{ buttonBgColor }};
+          border-radius: 100px;
+          color: {{ buttonTextColor }};
+
+        {% endif %}
+
+        {% if module.button_type is equalto("no_bg") %}
+          background-color: transparent;
+          border-bottom: 3px solid transparent;
+          border-left: none;
+          border-right: none;
+          border-top: none;
+          border-radius: 0;
+
+          {% if module.button_transparent is equalto("dark") %}
+            color: #28282a;
+          {% elif module.button_transparent is equalto("light") %}
+            color: #fff;
+          {% endif %}
+        {% endif %}
+
+        transition: all 0.3s ease;
       }
 
       .button:hover,
       .button:focus {
-        {% if module.styles.background.color.color %}
-          background-color: rgba({{ color_variant(module.styles.background.color.color, -80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% if module.button_type is equalto("standard") %}
+          background-color: {{ buttonHoverColor }};
+          border-color: {{ buttonHoverColor }};
+        {% endif %}
+
+        {% if module.button_type is equalto("no_bg") %}
+          {% if module.button_transparent is equalto("dark") %}
+            border-color: #58b5bc;
+          {% elif module.button_transparent is equalto("light") %}
+            border-color: #fff;
+          {% endif %}
         {% endif %}
       }
 
       .button:active {
-        {% if module.styles.background.color.color %}
-          background-color: rgba({{ color_variant(module.styles.background.color.color, 80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% if module.button_type is equalto("standard") %}
+          background-color: rgba({{ color_variant(buttonBgColor, -40)|convert_rgb }}, 1);
+        {% endif %}
+
+        {% if module.button_type is equalto("no_bg") %}
+          {% if module.button_transparent is equalto("dark") %}
+            border-color: #58b5bc;
+          {% elif module.button_transparent is equalto("light") %}
+            border-color: #fff;
+          {% endif %}
         {% endif %}
       }
 
@@ -60,9 +123,13 @@
 {# Button #}
 
 <div class="button-wrapper">
-  <a class="button" href="{{ href }}"
-  {% if module.link.open_in_new_tab %}target="_blank"{% endif %}
-  {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+  <a
+    class="button"
+    href="{{ href }}"
+    {% if module.link.open_in_new_tab %}target="_blank"
+    {% endif %}
+    {% if rel %}rel="{{ rel|join(" ") }}"
+    {% endif %}
   >
     {{ module.button_text }}
   </a>

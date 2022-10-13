@@ -3,7 +3,8 @@ button,
   cursor: pointer;
   display: inline-block;
   text-align: center;
-  transition: all 0.15s linear;
+  /* transition: all 0.15s linear; */
+  width: fit-content;
   white-space: normal;
 }
 
