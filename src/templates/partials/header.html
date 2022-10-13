@@ -43,13 +43,6 @@
             </div>
           </div>
         {% endif %}
-        <div class="header__search header--element">
-          {% module "site_search"
-            path="@hubspot/search_input",
-            label="Search",
-            field_label="Search",
-            placeholder="" %}
-        </div>
       </div>
 
       {# Header navigation row two #}
@@ -65,6 +58,11 @@
           {% module "navigation-primary"
             path="../../modules/menu",
             label="Primary navigation" %}
+        </div>
+        <div class="header__navigation header--element">
+          {% module "trial-cta"
+            path="../../modules/button",
+            label="Trial CTA" %}
         </div>
       </div>
     </div>
