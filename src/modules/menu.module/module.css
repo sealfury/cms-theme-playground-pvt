@@ -64,7 +64,8 @@
 .menu__item--depth-1 {
   display: inline-block;
   padding: 0.7rem 0.875rem;
-  text-transform: uppercase;
+  white-space: nowrap;
+  width: fit-content;
 }
 
 .menu__item--depth-1 > .menu__link--active-link:after {
