@@ -3,7 +3,7 @@
     {% inline_rich_text
       field="richtext_field",
       value="{{ module.richtext_field }}",
-      html="<div><h1>Sign up for our newsletter</h1><p>Get the latest news, events, courses and a lot more</p></div>" %}
+      html={{ context.content or "<div><h1>Sign up for our newsletter</h1><p>Get the latest news, events, courses and a lot more</p></div>" }} %}
   </div>
   <div class="col form">
     {% form
