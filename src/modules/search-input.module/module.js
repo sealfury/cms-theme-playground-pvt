@@ -62,6 +62,7 @@ var search = function (_instance) {
     searchField.focus();
     searchForm.classList.remove('search-field--open');
   };
+
   var fillSearchResults = function (res) {
     var items = [];
     items.push(
