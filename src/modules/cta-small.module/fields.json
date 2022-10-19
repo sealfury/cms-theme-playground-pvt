@@ -1,0 +1,64 @@
+[
+  {
+    "id": "207df8f9-41f4-9f25-2de0-d7fb9258cc32",
+    "name": "heading",
+    "display_width": null,
+    "label": "Heading",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "placeholder": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text"
+  },
+  {
+    "id": "5dbb3f5c-6308-e06a-2aed-339b2f6c3248",
+    "name": "description",
+    "display_width": null,
+    "label": "Description",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text"
+  },
+  {
+    "id": "c174ba95-8551-5624-55f4-45a20549fe17",
+    "name": "cta_link",
+    "display_width": null,
+    "label": "CTA Link",
+    "required": false,
+    "locked": false,
+    "supported_types": ["CONTENT", "FILE", "BLOG", "CALL_TO_ACTION"],
+    "show_advanced_rel_options": false,
+    "type": "link",
+    "default": {
+      "url": {
+        "content_id": null,
+        "href": "",
+        "type": "CONTENT"
+      },
+      "open_in_new_tab": false,
+      "no_follow": false
+    }
+  },
+  {
+    "id": "fe66e761-ecfb-f413-3333-4fcf5d39aedf",
+    "name": "mode",
+    "display_width": null,
+    "label": "Light/Dark Mode",
+    "required": false,
+    "locked": false,
+    "display": "radio",
+    "choices": [
+      ["light", "Light"],
+      ["dark", "Dark"]
+    ],
+    "multiple": false,
+    "reordering_enabled": true,
+    "type": "choice",
+    "default": "light"
+  }
+]

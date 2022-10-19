@@ -1,0 +1,28 @@
+.cta-small {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2% 10%;
+}
+
+.cta-small__heading {
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.teal {
+  color: #58B5BC;
+}
+
+.cta-small__button-wrapper {
+  padding: 2% 0;
+}
+
+.cta-small__link {
+  border: none;
+  border-radius: 40px;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}

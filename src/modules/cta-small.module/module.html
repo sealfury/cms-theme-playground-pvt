@@ -1,0 +1,82 @@
+{% require_css %}
+  <style>
+    {% scope_css %}
+      {% if module.mode is equalto("light") %}
+        {% set buttonBgColor = "#58b5bc" %}
+        {% set buttonTextColor = "#141d2c" %}
+        {% set buttonHover = "rgba({{ color_variant(buttonBgColor, -30)|convert_rgb }}, 1)" %}
+
+        .cta-small {
+          background-color: #f1f5f9;
+        }
+
+        .cta-small__heading,
+        .cta-small__description {
+          color: #28282a;
+        }
+      {% endif %}
+
+      {% if module.mode is equalto("dark") %}
+        {% set buttonBgColor = "#fff" %}
+        {% set buttonTextColor = "#141d2c" %}
+        {% set buttonHover = "rgba({{ color_variant(buttonBgColor, -20)|convert_rgb }}, 1)" %}
+
+        .cta-small {
+          background-color: #333c4a;
+        }
+
+        .cta-small__heading,
+        .cta-small__description {
+          color: #fff;
+        }
+      {% endif %}
+
+      .cta-small__link {
+        background-color: {{ buttonBgColor }};
+        color: {{ buttonTextColor }};
+      }
+
+      .cta-small__link:hover,
+      .cta-small__link:focus {
+        background-color: {{ buttonHover }};
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{% if module.mode is equalto("light") %}
+  {% set heading = "Free trial <span class='teal'>for 30 days</span>" %}
+  {% set description = "No obligations, no credit card" %}
+  {% set button_text = "Get started" %}
+{% elif module.mode is equalto("dark") %}
+  {% set heading = "Book <span class='teal'>a demo</span>" %}
+  {% set description = "Learn more about the system" %}
+  {% set button_text = "Book demo" %}
+{% endif %}
+
+<div class="cta-small">
+  <h2 class="cta-small__heading">
+    {% inline_text
+      field="heading",
+      value="{{ heading or module.heading }}" %}
+  </h2>
+  <h5 class="cta-small__description">
+    {% inline_text
+      field="description",
+      value="{{ description or module.description }}" %}
+  </h5>
+  <div class="cta-small__button-wrapper">
+    {% set href = module.cta_link.url.href %}
+    <a
+      class="cta-small__link"
+      href="{{ href }}"
+      {% if module.cta_link.open_in_new_tab %}target="_blank"
+      {% endif %}
+      {% if module.cta_link.rel %}rel="{{ module.cta_link.rel }}"
+      {% endif %}
+    >
+      {{ button_text }}
+    </a>
+  </div>
+</div>
