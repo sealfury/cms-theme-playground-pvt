@@ -1,0 +1,34 @@
+<!-- module html  -->
+
+<div class="search-field">
+  <div class="search-field__bar">
+    <form data-do-not-collect="true" action="/{{ site_settings.content_search_results_page_path }}">
+      {% if module.field_label %}
+        <label for="term">{{ module.field_label }}</label>
+      {% endif %}
+      <input
+        type="text"
+        class="search-field__input"
+        name="term"
+        autocomplete="on"
+        aria-label="{{ module.field_label or "Search" }}"
+        placeholder="{{ module.placeholder }}"
+      />
+
+      {% if module.content_types.website_pages %}
+        <input type="hidden" name="type" value="SITE_PAGE" />
+      {% endif %}
+      {% if module.content_types.landing_pages %}
+        <input type="hidden" name="type" value="LANDING_PAGE" />
+      {% endif %}
+      {% if module.content_types.blog_posts %}
+        <input type="hidden" name="type" value="BLOG_POST" />
+        <input type="hidden" name="type" value="LISTING_PAGE" />
+      {% endif %}
+      {% if module.content_types.knowledge_articles %}
+        <input type="hidden" name="type" value="KNOWLEDGE_ARTICLE" />
+      {% endif %}
+    </form>
+  </div>
+  <ul class="search-field__suggestions"></ul>
+</div>

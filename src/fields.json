@@ -19,7 +19,7 @@
           }
         },
         "default": {
-          "color": "#494A52"
+          "color": "#58B5BC"
         }
       },
       {
@@ -37,7 +37,7 @@
           }
         },
         "default": {
-          "color": "#F8FAFC"
+          "color": "#141D2C"
         }
       }
     ]
@@ -160,7 +160,7 @@
               ["lowercase", "Lowercase"]
             ],
             "display": "select",
-            "default": "none"
+            "default": "uppercase"
           }
         ]
       },
@@ -821,7 +821,7 @@
                 "max": 100,
                 "step": 1,
                 "suffix": "px",
-                "default": 3
+                "default": 4
               }
             ]
           }
@@ -1259,7 +1259,7 @@
             },
             "inherited_value": {
               "property_value_paths": {
-                "color": "#FFFFFF"
+                "color": "theme.global_fonts.primary.color"
               }
             }
           }
@@ -1276,7 +1276,7 @@
             "type": "color",
             "inherited_value": {
               "property_value_paths": {
-                "color": "#141D2C"
+                "color": "theme.global_colors.secondary.color"
               }
             },
             "default": {

@@ -15,8 +15,8 @@
     {# Hero banner #}
 
     {% dnd_section
-      background_color="#f8fafc",
-      max_width=600,
+      background_color="#f1f2f7",
+      max_width=1280,
       padding={
         "default": {
           "top": 80,
@@ -35,13 +35,25 @@
         {% dnd_row %}
           {% dnd_module
             path="@hubspot/rich_text",
-            html="<div style=\"text-align: center;\"><h1>Blog</h1><p>Use this space to tell everyone about what you have to offer.</p></div>" %}
+            html="<div style=\"text-align: left;\"><h1>Blog</h1><p>Use this space to tell everyone about what you have to offer.</p></div>" %}
           {% end_dnd_module %}
         {% end_dnd_row %}
         {% dnd_row %}
           {% dnd_module
             path="@hubspot/blog_subscribe",
             title="" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section
+      max_width=800,
+      horizontal_alignment="CENTER" %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/search-input" %}
           {% end_dnd_module %}
         {% end_dnd_row %}
       {% end_dnd_column %}
