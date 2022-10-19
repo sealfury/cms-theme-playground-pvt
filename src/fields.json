@@ -949,6 +949,10 @@
                   "property_value_paths": {
                     "color": "theme.global_fonts.primary.color"
                   }
+                },
+                "default": {
+                  "color": "#FFFFFF",
+                  "opacity": 100
                 }
               }
             ]
@@ -963,7 +967,7 @@
                 "name": "color",
                 "type": "color",
                 "default": {
-                  "color": "#FFFFFF",
+                  "color": "#141D2C",
                   "opacity": 100
                 }
               }
@@ -1255,7 +1259,7 @@
             },
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.primary.color"
+                "color": "#FFFFFF"
               }
             }
           }
@@ -1272,7 +1276,7 @@
             "type": "color",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_colors.secondary.color"
+                "color": "#141D2C"
               }
             },
             "default": {
