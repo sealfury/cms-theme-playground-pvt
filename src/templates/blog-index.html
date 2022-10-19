@@ -47,6 +47,8 @@
       {% end_dnd_column %}
     {% end_dnd_section %}
 
+    {# Search bar #}
+
     {% dnd_section
       max_width=800,
       horizontal_alignment="CENTER" %}
@@ -72,6 +74,39 @@
         {% dnd_row %}
           {% dnd_module
             path="../modules/blog-pagination" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/newsletter-cta" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_column
+        width=6,
+        offset=0 %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/cta-small",
+            mode="light" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+      {% dnd_column
+        width=6,
+        offset=6 %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/cta-small",
+            mode="dark" %}
           {% end_dnd_module %}
         {% end_dnd_row %}
       {% end_dnd_column %}
