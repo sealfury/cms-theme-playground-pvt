@@ -1,0 +1,19 @@
+.newsletter-cta {
+  background-color: #6B2EFB;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.col {
+  height: 80%;
+}
+
+.col .text {
+  display: flex;
+  flex-direction: column;
+}
+
+.col .form input {
+  border-radius: 8px;
+}
