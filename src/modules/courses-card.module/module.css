@@ -1,0 +1,68 @@
+.courses-card {
+  display: flex;
+}
+
+.card__image {
+  max-width: 15%;
+}
+
+.card__text {
+  align-items: space-around;
+  border: 1px solid #F1F2F7;
+  border-left: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  max-height: 95%;
+  padding: 0 3%;
+}
+
+.card__category {
+  color: #939393;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.card__title, 
+.card__price {
+  color: #28282A;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.card__desc {
+  color: #28282A;
+  font-size: 18px;
+  max-width: 75%;
+}
+
+.card__info {
+  display: flex;
+}
+
+.card__info--text {
+  color: #141D2C;
+  font-weight: 700;
+  max-width: 20%;
+  padding: 2% 5%;
+}
+
+.card__final-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__link {
+  color: #4FA3A7;
+  border-bottom: 2px solid transparent;
+  font-size: 16px;
+  font-weight: 700;
+  height: 22px;
+  padding: 0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.card__link:hover {
+  border-color: #58B5BC;
+}

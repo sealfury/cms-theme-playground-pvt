@@ -1,0 +1,89 @@
+{# Module styles #}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      .duration::before,
+      .location::before {
+        color: #4fa3a7;
+        display: inline-block;
+        position: absolute;
+      }
+
+      .duration::before {
+        content: {{ module.duration_field.icon_calendar.unicode }};
+      }
+
+      .location::before {
+        content: {{ module.location_field.icon_marker.unicode }};
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+<div class="courses-card">
+  <div class="card__image">
+    {% if module.feature_image.src %}
+      {% set sizeAttrs = "width=\"{{ module.feature_image.width }}\" height=\"{{ module.feature_image.height }}\"" %}
+      {% if module.feature_image.size_type == "auto" %}
+        {% set sizeAttrs = "width=\"{{ module.feature_image.width }}\" height=\"{{ module.feature_image.height }}\" style=\"max-width: 100%; height: auto;\"" %}
+      {% elif module.feature_image.size_type == "auto_custom_max" %}
+        {% set sizeAttrs = "width=\"{{ module.feature_image.max_width }}\" height=\"{{ module.feature_image.max_height }}\" style=\"max-width: 100%; height: auto;\"" %}
+      {% endif %}
+      {% set loadingAttr = module.feature_image.loading != "disabled" ? "loading=\"{{ module.feature_image.loading }}\"" : "" %}
+      <img src="{{ module.feature_image.src }}" alt="{{ module.feature_image.alt }}" {{ loadingAttr }} {{ sizeAttrs }} />
+    {% endif %}
+  </div>
+
+  <div class="card__text">
+    <h3 class="card__category">
+      {% inline_text
+        field="cat_text",
+        value="{{ module.cat_text }}" %}
+    </h3>
+    <h2 class="card__title">
+      {% inline_text
+        field="course_title",
+        value="{{ module.course_title }}" %}
+    </h2>
+    <p class="card__desc">
+      {% inline_rich_text
+        field="course_desc",
+        value="{{ module.course_desc }}" %}
+    </p>
+
+    <div class="card__info">
+      <p class="card__info--text location">
+        {% inline_text
+          field="location_field.location",
+          value="{{ module.location_field.location }}" %}
+      </p>
+      <p class="card__info--text duration">
+        {% inline_text
+          field="duration_field.duration",
+          value="{{ module.duration_field.duration }}" %}
+      </p>
+    </div>
+
+    <div class="card__final-row">
+      <h2 class="card__price">
+        {% inline_text
+          field="price",
+          value="{{ module.price }}" %}
+      </h2>
+      {% set href = module.register_link.url.href %}
+      <a
+        class="card__link"
+        href="{{ href }}"
+        {% if module.register_link.open_in_new_tab %}target="_blank"
+        {% endif %}
+        {% if module.register_link.rel %}rel="{{ module.register_link.rel }}"
+        {% endif %}
+      >
+        Read more & register
+      </a>
+    </div>
+  </div>
+</div>

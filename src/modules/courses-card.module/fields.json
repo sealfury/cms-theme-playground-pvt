@@ -1,0 +1,191 @@
+[
+  {
+    "id": "1dee9494-6359-3edc-2f21-defbf5858e26",
+    "name": "feature_image",
+    "display_width": null,
+    "label": "Image",
+    "required": false,
+    "locked": false,
+    "responsive": true,
+    "resizable": true,
+    "show_loading": false,
+    "type": "image",
+    "default": {
+      "size_type": "auto",
+      "src": "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/temp-course-bg.png",
+      "alt": "temp-course-bg",
+      "loading": "lazy",
+      "width": 506,
+      "height": 536,
+      "max_width": 506,
+      "max_height": 536
+    }
+  },
+  {
+    "id": "0ab62a71-295d-629a-e3f9-7e727f6e0765",
+    "name": "cat_text",
+    "display_width": null,
+    "label": "Category",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "default": "Advanced course"
+  },
+  {
+    "id": "6c37bd55-8e4b-63d9-43a0-f88d905be848",
+    "name": "course_title",
+    "display_width": null,
+    "label": "Course Title",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "default": "Add course title here"
+  },
+  {
+    "id": "58f0f4b5-078e-65dc-e729-2bfaed0ada50",
+    "name": "course_desc",
+    "display_width": null,
+    "label": "Course Description",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "This is the area where some text can be added to describe the course.&nbsp; Multiple sentences can be included in this rich text area.&nbsp; Plus, one final sentence describing the course but nothing too long."
+  },
+  {
+    "id": "40722502-ac81-a980-60b5-829828402ba1",
+    "name": "duration_field",
+    "display_width": null,
+    "label": "Info Field",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "894fcde4-369e-96e6-1d51-e9d57111701c",
+        "name": "duration",
+        "display_width": null,
+        "label": "Duration",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "default": "8 hours"
+      },
+      {
+        "id": "3d0db117-60ef-8308-7ab2-ae59e121e8be",
+        "name": "icon_calendar",
+        "display_width": null,
+        "label": "Icon Calendar",
+        "required": false,
+        "locked": false,
+        "icon_set": "fontawesome-5.14.0",
+        "type": "icon",
+        "default": {
+          "name": "Calendar",
+          "unicode": "f133",
+          "type": "REGULAR"
+        }
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "type": "group",
+    "default": {
+      "duration": "8 hours",
+      "icon_calendar": {
+        "name": "Calendar",
+        "unicode": "f133",
+        "type": "REGULAR"
+      }
+    }
+  },
+  {
+    "id": "b7d572b4-4a05-f307-fadd-ad9a29008d64",
+    "name": "location_field",
+    "display_width": null,
+    "label": "Icon Field",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "1085939a-0283-f914-2549-8d4193051de3",
+        "name": "icon_marker",
+        "display_width": null,
+        "label": "Icon Marker",
+        "required": false,
+        "locked": false,
+        "icon_set": "fontawesome-5.14.0",
+        "type": "icon",
+        "default": {
+          "name": "Alternate Map Marker",
+          "unicode": "f3c5",
+          "type": "SOLID"
+        }
+      },
+      {
+        "id": "75b0b530-f73f-4002-cd98-9a0f3cace275",
+        "name": "location",
+        "display_width": null,
+        "label": "Location",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "default": "Linköping"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "type": "group",
+    "default": {
+      "icon_marker": {
+        "name": "Alternate Map Marker",
+        "unicode": "f3c5",
+        "type": "SOLID"
+      },
+      "location": "Linköping"
+    }
+  },
+  {
+    "id": "30619e8d-1054-c7df-2917-cd972e1e279b",
+    "name": "price",
+    "display_width": null,
+    "label": "Price",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "default": "9 900 SEK"
+  },
+  {
+    "id": "2b9b3235-45b9-9403-e749-ec04598790fb",
+    "name": "register_link",
+    "display_width": null,
+    "label": "Register",
+    "required": false,
+    "locked": false,
+    "supported_types": ["EXTERNAL", "CONTENT", "BLOG", "CALL_TO_ACTION"],
+    "show_advanced_rel_options": false,
+    "type": "link",
+    "default": {
+      "url": {
+        "type": "EXTERNAL",
+        "href": "https://www.google.com/",
+        "content_id": null
+      },
+      "open_in_new_tab": false,
+      "no_follow": false
+    }
+  }
+]
