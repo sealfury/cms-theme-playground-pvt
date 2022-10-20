@@ -1,28 +1,3 @@
-{# Module styles #}
-
-{% require_css %}
-  <style>
-    {% scope_css %}
-
-      .duration::before,
-      .location::before {
-        color: #4fa3a7;
-        display: inline-block;
-        position: absolute;
-      }
-
-      .duration::before {
-        content: {{ module.duration_field.icon_calendar.unicode }};
-      }
-
-      .location::before {
-        content: {{ module.location_field.icon_marker.unicode }};
-      }
-
-    {% end_scope_css %}
-  </style>
-{% end_require_css %}
-
 <div class="courses-card">
   <div class="card__image">
     {% if module.feature_image.src %}
@@ -55,16 +30,22 @@
     </p>
 
     <div class="card__info">
-      <p class="card__info--text location">
-        {% inline_text
-          field="location_field.location",
-          value="{{ module.location_field.location }}" %}
-      </p>
-      <p class="card__info--text duration">
-        {% inline_text
-          field="duration_field.duration",
-          value="{{ module.duration_field.duration }}" %}
-      </p>
+      <div class="card__info--group">
+        <img class="card__info--image" src="{{ get_asset_url("../../images/module-icons/map-marker-teal.svg") }}" />
+        <div class="card__info--text">
+          {% inline_text
+            field="location_field.location",
+            value="{{ module.location_field.location }}" %}
+        </div>
+      </div>
+      <div class="card__info--group">
+        <img class="card__info--image" src="{{ get_asset_url("../../images/module-icons/calendar-empty-teal.svg") }}" />
+        <div class="card__info--text">
+          {% inline_text
+            field="duration_field.duration",
+            value="{{ module.duration_field.duration }}" %}
+        </div>
+      </div>
     </div>
 
     <div class="card__final-row">

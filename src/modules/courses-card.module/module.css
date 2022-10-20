@@ -37,14 +37,27 @@
 }
 
 .card__info {
+  align-items: center;
   display: flex;
+  width: 25%;
+}
+
+.card__info--group {
+  align-items: center;
+  display: inline-flex;
+  width: 100%;
 }
 
 .card__info--text {
   color: #141D2C;
   font-weight: 700;
-  max-width: 20%;
-  padding: 2% 5%;
+  padding: 3% 5% 2%;
+}
+
+.card__info--image {
+  height: 15%;
+  margin-right: 2%;
+  width: 15%;
 }
 
 .card__final-row {
