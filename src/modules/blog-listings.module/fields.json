@@ -4,8 +4,9 @@
     "name": "layout_style",
     "type": "choice",
     "choices": [
-      [ "list", "List" ],
-      [ "card", "Card" ]
+      ["list", "List"],
+      ["card", "Card"],
+      ["combo", "Combo"]
     ],
     "display": "select",
     "required": true,
@@ -25,7 +26,7 @@
     "id": "tags",
     "type": "boolean",
     "display": "checkbox",
-    "default": false
+    "default": true
   },
   {
     "label": "Title",
@@ -65,19 +66,19 @@
     "id": "button",
     "type": "boolean",
     "display": "checkbox",
-    "default": false
+    "default": true
   },
   {
     "label": "Button text",
     "name": "button_text",
     "type": "text",
-    "required" : true,
+    "required": true,
     "visibility": {
       "controlling_field": "button",
       "controlling_value_regex": "true",
       "operator": "EQUAL"
     },
-    "default": "Read More"
+    "default": "Read more"
   },
   {
     "label": "Blog author listing",
@@ -89,7 +90,7 @@
         "label": "Subheading",
         "name": "subheading",
         "type": "text",
-        "required" : true,
+        "required": true,
         "default": "Posts by"
       }
     ]
@@ -104,10 +105,24 @@
         "label": "Subheading",
         "name": "subheading",
         "type": "text",
-        "required" : true,
+        "required": true,
         "default": "Posts about"
       }
     ]
+  },
+  {
+    "type": "image",
+    "id": "c8487fd8-4a56-453c-17f4-64bf411fa637",
+    "default": {
+      "size_type": "auto",
+      "src": "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/temp-course-bg.png",
+      "alt": "temp-course-bg",
+      "loading": "lazy",
+      "width": 506,
+      "height": 536,
+      "max_width": 506,
+      "max_height": 536
+    }
   },
   {
     "label": "Styles",
@@ -346,9 +361,9 @@
             "type": "group",
             "children": [
               {
-                "label" : "Border",
-                "name" : "border",
-                "type" : "border"
+                "label": "Border",
+                "name": "border",
+                "type": "border"
               }
             ]
           },
