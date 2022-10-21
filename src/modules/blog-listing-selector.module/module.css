@@ -1,0 +1,70 @@
+.blog-selector__container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.blog-selector__button-wrapper {
+  align-items: center;
+  background-color: #FFF;
+  border: 1px solid #939393;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0 1%;
+  padding: 2% 0 1%;
+  transition: all 0.3s ease;
+  width: 22%;
+}
+
+.blog-selector__button-text {
+  color: #141D2C;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 7% 0 0;
+}
+
+.image {
+  height: auto;
+  width: 1rem;
+  transition: all 0.3s ease;
+}
+
+.blog-selector__button-image--hover {
+  display: none;
+}
+
+.blog-selector__button-wrapper:hover,
+.blog-selector__button-wrapper:focus,
+.blog-selector__button-wrapper:active {
+  background-color: #141D2C;
+  border-color: #141D2C;
+  cursor: pointer;
+}
+
+.blog-selector__button-wrapper:hover p {
+  color: #FFF;
+}
+
+.blog-selector__button-wrapper:focus p {
+  color: #FFF;
+}
+
+.blog-selector__button-wrapper:active p {
+  color: #FFF;
+}
+
+.blog-selector__button-wrapper:hover .blog-selector__button-image--hover,
+.blog-selector__button-wrapper:focus .blog-selector__button-image--hover,
+.blog-selector__button-wrapper:active .blog-selector__button-image--hover {
+  display: block;
+}
+
+.blog-selector__button-wrapper:hover .blog-selector__button-image,
+.blog-selector__button-wrapper:focus .blog-selector__button-image,
+.blog-selector__button-wrapper:active .blog-selector__button-image {
+  display: none;
+}

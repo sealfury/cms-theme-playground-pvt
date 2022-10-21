@@ -1,0 +1,17 @@
+<!-- module html  -->
+
+<div class="blog-selector__container">
+  {% for button in module.blog_selector_buttons %}
+  <a class="blog-selector__button-wrapper" href="{{ button.selector }}">
+    <img class="image blog-selector__button-image" src="{{ get_asset_url(button.button_display.icon_src) }}" alt="{{ button.button_display.icon_alt }}" />
+    <img
+      class="image blog-selector__button-image--hover"
+      src="{{ get_asset_url(button.button_display.icon_hover_src) }}"
+      alt="{{ button.button_display.icon_alt }}"
+    />
+    <p class="blog-selector__button-text">
+      {{ button.button_display.selector_text }}
+    </p>
+  </a>
+  {% endfor %}
+</div>

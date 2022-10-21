@@ -1,0 +1,97 @@
+[
+  {
+    "children": [
+      {
+        "default": 54820904135,
+        "display_width": null,
+        "id": "a8bf9a9c-07f9-7730-ce76-93fbb8a23147",
+        "label": "selector",
+        "locked": false,
+        "name": "selector",
+        "placeholder": "Selector",
+        "required": false,
+        "type": "blog"
+      },
+      {
+        "type": "group",
+        "id": "788990db-994e-936c-69dd-506fafdea5a5",
+        "label": "Button Display",
+        "children": [
+          {
+            "type": "text",
+            "id": "3718c24d-eb15-6c64-431f-b8a943574921",
+            "validation_regex": "",
+            "label": "Text",
+            "name": "selector_text",
+            "default": "All",
+            "required": true
+          }
+        ],
+        "name": "button_display",
+        "default": {
+          "selector_text": "All"
+        }
+      }
+    ],
+    "default": [
+      {
+        "selector": 54820904135,
+        "button_display": {
+          "selector_text": "All",
+          "icon_src": "../../images/module-icons/four-squares.svg",
+          "icon_hover_src": "../../images/module-icons/four-squares-teal.svg",
+          "icon_alt": "icon for all"
+        }
+      },
+      {
+        "selector": 54820904135,
+        "button_display": {
+          "selector_text": "Blog",
+          "icon_src": "../../images/module-icons/speech-bubble.svg",
+          "icon_hover_src": "../../images/module-icons/speech-bubble-teal.svg",
+          "icon_alt": "icon for blog"
+        }
+      },
+      {
+        "selector": 54820904135,
+        "button_display": {
+          "selector_text": "Webinar & event",
+          "icon_src": "../../images/module-icons/computer-screen.svg",
+          "icon_hover_src": "../../images/module-icons/computer-screen-teal.svg",
+          "icon_alt": "icon for webinar and event"
+        }
+      },
+      {
+        "selector": 54820904135,
+        "button_display": {
+          "selector_text": "E-book & guide",
+          "icon_src": "../../images/module-icons/book.svg",
+          "icon_hover_src": "../../images/module-icons/book-teal.svg",
+          "icon_alt": "icon for e-book and guide"
+        }
+      },
+      {
+        "selector": 54820904135,
+        "button_display": {
+          "selector_text": "Courses",
+          "icon_src": "../../images/module-icons/graduation-cap.svg",
+          "icon_hover_src": "../../images/module-icons/graduation-cap-teal.svg",
+          "icon_alt": "icon for courses"
+        }
+      }
+    ],
+    "display_width": null,
+    "expanded": false,
+    "id": "blog_selector_buttons",
+    "label": "Blog selector buttons",
+    "locked": false,
+    "name": "blog_selector_buttons",
+    "occurrence": {
+      "max": 5,
+      "default": 5
+    },
+    "required": false,
+    "tab": "CONTENT",
+    "type": "group"
+  }
+]

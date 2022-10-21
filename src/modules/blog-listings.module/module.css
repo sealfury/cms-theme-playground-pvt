@@ -54,7 +54,7 @@
 
 .blog-index__post-image {
   height: 100%;
-  max-width: 25%;
+  max-width: 30%;
 }
 
 /* display purpose only, revert after getting img assets */
@@ -115,12 +115,12 @@
 
 .blog-index__post-title--large {
   font-size: 1.25rem;
-  margin: 0 0 0.2rem 0;
+  margin: 0 0 0.2rem;
 }
 
 .blog-index__post-title--small {
   font-size: 1rem;
-  margin: 0 0 0.2rem 0;
+  margin: 0 0 0.3rem 0;
 }
 
 .blog-index__post--combo:first-of-type h2 {
@@ -129,11 +129,12 @@
 
 .blog-index__post--combo:nth-of-type(n + 2) h2 {
   font-size: 1rem;
-  margin: 0 0 0.2rem 0;
+  margin: 0 0 0.3rem;
 }
 
 .blog-index__post--small p {
   font-size: 0.8rem;
+  margin: 0 0 0.2rem;
 }
 
 .blog-index__post--combo:nth-of-type(n + 2) p {
