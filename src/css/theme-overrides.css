@@ -69,7 +69,7 @@
 
 {% set button_font = theme.buttons.text.font %}
 {% set button_text_transform = theme.buttons.text.transform %}
-{% set button_bg_color = color(theme.buttons.background.color) %}
+{% set button_bg_color = theme.buttons.background.color %}
 {% set button_border = theme.buttons.border.border.css %}
 {% set button_corner_radius = theme.buttons.corner.radius ~ 'px' %}
 {% set button_spacing = theme.buttons.spacing.spacing.css %}
@@ -84,19 +84,19 @@
 
 {% set form_field_placeholder_color = theme.forms.fields.placeholder.color.color %}
 {% set form_field_font_color = theme.forms.fields.text.color.color %}
-{% set form_field_bg_color = color(theme.forms.fields.background.color) %}
+{% set form_field_bg_color = theme.forms.fields.background.color %}
 {% set form_field_border = theme.forms.fields.border.border.css %}
 {% set form_field_corner_radius = theme.forms.fields.corner.radius ~ 'px' %}
 
 /* 1f. Tables */
 
-{% set table_head_bg_color = color(theme.tables.header.background.color) %}
+{% set table_head_bg_color = theme.tables.header.background.color %}
 {% set table_head_font_color = theme.tables.header.text.color.color %}
 
-{% set table_bg_color = color(theme.tables.table_body.background.color) %}
+{% set table_bg_color = theme.tables.table_body.background.color %}
 {% set table_font_color = theme.tables.table_body.text.color.color %}
 
-{% set table_footer_bg_color = color(theme.tables.footer.background.color) %}
+{% set table_footer_bg_color = theme.tables.footer.background.color %}
 {% set table_footer_font_color = theme.tables.footer.text.color.color %}
 
 {% set table_cell_spacing = theme.tables.cells.spacing.spacing.css %}
@@ -106,14 +106,14 @@
 
 {% set nav_font_color = theme.header.menu.text.color.color %}
 {% set nav_drop_down_font_color = theme.header.menu.drop_downs.text.color.color %}
-{% set nav_drop_down_bg_color = color(theme.header.menu.drop_downs.background.color) %}
+{% set nav_drop_down_bg_color = theme.header.menu.drop_downs.background.color %}
 {% set nav_drop_down_border = theme.header.menu.drop_downs.border.border.css %}
 
-{% set header_bg_color = color(theme.header.background.color) %}
+{% set header_bg_color = theme.header.background.color %}
 
 /* 1h. Website footer */
 
-{% set footer_bg_color = color(theme.footer.background.color) %}
+{% set footer_bg_color = theme.footer.background.color %}
 {% set footer_font_color = theme.footer.text.color.color %}
 
 {###########################################################################}

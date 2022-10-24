@@ -7,12 +7,11 @@
 }
 
 .card__text {
-  align-items: space-around;
   border: 1px solid #F1F2F7;
   border-left: none;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   max-height: 95%;
   padding: 0 3%;
 }
@@ -61,6 +60,7 @@
 }
 
 .card__final-row {
+  align-items: center;
   display: flex;
   justify-content: space-between;
 }
