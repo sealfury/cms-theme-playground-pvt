@@ -14,16 +14,16 @@
 
       {# Button #}
 
-      {% set buttonBgColor = "#58b5bc" %}
-      {% set buttonTextColor = "#141d2c" %}
+      {% set buttonBgColor = "#00B9BC" %}
+      {% set buttonTextColor = "#2F3C49" %}
       {% set buttonHoverColor = "rgba({{ color_variant(buttonBgColor, -30)|convert_rgb }}, 1)" %}
       {% if module.button_style is equalto("dark") %}
-        {% set buttonBgColor = "#141d2c" %}
+        {% set buttonBgColor = "#0F1E2D" %}
         {% set buttonTextColor = "#fff" %}
         {% set buttonHoverColor = "rgba({{ color_variant(buttonBgColor, 20)|convert_rgb }}, 1)" %}
       {% elif module.button_style is equalto("light") %}
         {% set buttonBgColor = "#FFF" %}
-        {% set buttonTextColor = "#28282a" %}
+        {% set buttonTextColor = "#2F3C49" %}
         {% set buttonHoverColor = "rgba({{ color_variant(buttonBgColor, -20)|convert_rgb }}, 1)" %}
       {% endif %}
 
@@ -63,7 +63,7 @@
           border-radius: 0;
 
           {% if module.button_transparent is equalto("dark") %}
-            color: #28282a;
+            color: #0f1e2d;
           {% elif module.button_transparent is equalto("light") %}
             color: #fff;
           {% endif %}
@@ -81,7 +81,7 @@
 
         {% if module.button_type is equalto("no_bg") %}
           {% if module.button_transparent is equalto("dark") %}
-            border-color: #58b5bc;
+            border-color: #00b9bc;
           {% elif module.button_transparent is equalto("light") %}
             border-color: #fff;
           {% endif %}
@@ -95,7 +95,7 @@
 
         {% if module.button_type is equalto("no_bg") %}
           {% if module.button_transparent is equalto("dark") %}
-            border-color: #58b5bc;
+            border-color: #00b9bc;
           {% elif module.button_transparent is equalto("light") %}
             border-color: #fff;
           {% endif %}

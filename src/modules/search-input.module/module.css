@@ -5,7 +5,7 @@
 }
 
 .search-field__input {
-  border: 1px solid #F1F2F7 !important;
+  border: 1px solid #B8C1C9 !important;
   border-radius: 100px !important;
   box-sizing: border-box;
   position: relative;
@@ -13,8 +13,8 @@
 }
 
 .search-field__input--icon {
-  background-color: #141D2C;
-  border-bottom: 1px solid #F1F2F7;
+  background-color: #0F1E2D;
+  border-bottom: 1px solid #B8C1C9;
   border-radius: 8px 8px 0 0;
   filter: drop-shadow(0 0 0.8rem #939393);
   padding: 16px;
@@ -36,22 +36,22 @@
 }
 
 .search-field--open .search-field {
-  background-color: #141D2C;
-  border-bottom: 1px solid #F1F2F7;
+  background-color: #0F1E2D;
+  border-bottom: 1px solid #B8C1C9;
 }
 
 .search-field--open .search-field__suggestions {
   align-items: center;
-  background-color: #141D2C;
+  background-color: #0F1E2D;
   border-radius: 8px;
   display: flex;
-  filter: drop-shadow(0 0 0.8rem #939393);
+  filter: drop-shadow(0 0 0.8rem #2F3C49);
   flex-direction: column;
   justify-content: center;
 }
 
 .search-field__suggestions li {
-  border-bottom: 1px solid #F1F2F7;
+  border-bottom: 1px solid #B8C1C9;
   display: block;
   margin: 0;
   padding: 2% 4%;
@@ -68,17 +68,17 @@
 
 .search-field__suggestions a:hover,
 .search-field__suggestions a:focus {
-  background-color: rgba(#141D2C, 0.1);
+  background-color: rgba(#0F1E2D, 0.1);
   outline: none;
 }
 
 .search-field__show-all {
   align-items: center;
-  background-color: #141D2C;
+  background-color: #0F1E2D;
   border-radius: 0 0 8px 8px;
-  border-top: 1px solid #F1F2F7;
+  border-top: 1px solid #B8C1C9;
   display: flex;
-  filter: drop-shadow(0 0.2rem 0.8rem #939393);
+  filter: drop-shadow(0 0.2rem 0.8rem #2F3C49);
   justify-content: center;
   padding: 22px 0;
   width: 100%;
@@ -86,10 +86,10 @@
 
 .search-field__show-all--btn {
   align-items: center;
-  background-color: #141D2C;
-  border: 2px solid #58B5BC;
+  background-color: #0F1E2D;
+  border: 2px solid #00B9BC;
   border-radius: 100px;
-  color: #58B5BC;
+  color: #00B9BC;
   display: flex;
   font-size: 18px;
   font-weight: 800px;
@@ -102,7 +102,7 @@
 .search-field__show-all--btn:hover,
 .search-field__show-all--btn:focus,
 .search-field__show-all--btn:active {
-  border: 2px solid #58B5BC;
+  border: 2px solid #00B9BC;
   filter: brightness(102%);
 }
 
