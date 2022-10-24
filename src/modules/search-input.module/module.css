@@ -8,7 +8,17 @@
   border: 1px solid #F1F2F7 !important;
   border-radius: 100px !important;
   box-sizing: border-box;
+  position: relative;
   width: 100%;
+}
+
+.search-field__input--icon {
+  background-color: #141D2C;
+  border-bottom: 1px solid #F1F2F7;
+  border-radius: 8px 8px 0 0;
+  filter: drop-shadow(0 0 0.8rem #939393);
+  padding: 16px;
+  position: relative;
 }
 
 .search-field__bar button svg {
@@ -16,6 +26,10 @@
 }
 
 .search-field__suggestions {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -27,9 +41,13 @@
 }
 
 .search-field--open .search-field__suggestions {
+  align-items: center;
   background-color: #141D2C;
   border-radius: 8px;
-  filter: drop-shadow(0 0 1rem #000);
+  display: flex;
+  filter: drop-shadow(0 0 0.8rem #939393);
+  flex-direction: column;
+  justify-content: center;
 }
 
 .search-field__suggestions li {
@@ -52,4 +70,44 @@
 .search-field__suggestions a:focus {
   background-color: rgba(#141D2C, 0.1);
   outline: none;
+}
+
+.search-field__show-all {
+  align-items: center;
+  background-color: #141D2C;
+  border-radius: 0 0 8px 8px;
+  border-top: 1px solid #F1F2F7;
+  display: flex;
+  filter: drop-shadow(0 0.2rem 0.8rem #939393);
+  justify-content: center;
+  padding: 22px 0;
+  width: 100%;
+}
+
+.search-field__show-all--btn {
+  align-items: center;
+  background-color: #141D2C;
+  border: 2px solid #58B5BC;
+  border-radius: 100px;
+  color: #58B5BC;
+  display: flex;
+  font-size: 18px;
+  font-weight: 800px;
+  justify-content: center;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+  width: 30%;
+}
+
+.search-field__show-all--btn:hover,
+.search-field__show-all--btn:focus,
+.search-field__show-all--btn:active {
+  border: 2px solid #58B5BC;
+  filter: brightness(102%);
+}
+
+.search-field__show-all--icon {
+  position: relative;
+  transform: translate(30%, 5%);
+  width: 28px;
 }

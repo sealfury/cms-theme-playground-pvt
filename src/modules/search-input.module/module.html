@@ -1,4 +1,25 @@
 <!-- module html  -->
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {% set inputIcon = "../../images/module-icons/search-icon.svg" %}
+
+      {# Seach bar #}
+      .search-field__input--icon::after {
+        content: "";
+        background: url("{{ get_asset_url(inputIcon) }}") no-repeat;
+        height: 24px;
+        left: 92.5%;
+        position: absolute;
+        top: 37.5%;
+        transform: scale(1.25);
+        width: 24px;
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
 
 <div class="search-field">
   <div class="search-field__bar">
@@ -6,14 +27,16 @@
       {% if module.field_label %}
         <label for="term">{{ module.field_label }}</label>
       {% endif %}
-      <input
-        type="text"
-        class="search-field__input"
-        name="term"
-        autocomplete="on"
-        aria-label="{{ module.field_label or "Search" }}"
-        placeholder="{{ module.placeholder }}"
-      />
+      <label for="input" class="search-field__input--icon">
+        <input
+          type="text"
+          class="search-field__input"
+          name="term"
+          autocomplete="on"
+          aria-label="{{ module.field_label or "Search" }}"
+          placeholder="{{ module.placeholder }}"
+        />
+      </label>
 
       {% if module.content_types.website_pages %}
         <input type="hidden" name="type" value="SITE_PAGE" />
@@ -30,5 +53,12 @@
       {% endif %}
     </form>
   </div>
-  <ul class="search-field__suggestions"></ul>
+  <ul class="search-field__suggestions">
+    <div class="search-field__show-all">
+      <button id="show-all" class="search-field__show-all--btn">
+        Show all results
+        <img class="search-field__show-all--icon" src="{{ get_asset_url("../../images/module-icons/search-icon-tt.svg") }}" />
+      </button>
+    </div>
+  </ul>
 </div>
