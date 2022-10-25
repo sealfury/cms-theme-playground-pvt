@@ -38,8 +38,8 @@
         "selector": 54820904135,
         "button_display": {
           "selector_text": "All",
-          "icon_src": "../../images/module-icons/four-squares.svg",
-          "icon_hover_src": "../../images/module-icons/four-squares-teal.svg",
+          "icon_src": "../../images/module-icons/all-icon-black.png",
+          "icon_hover_src": "../../images/module-icons/all-icon-teal.png",
           "icon_alt": "icon for all"
         }
       },
@@ -47,8 +47,8 @@
         "selector": 54820904135,
         "button_display": {
           "selector_text": "Blog",
-          "icon_src": "../../images/module-icons/speech-bubble.svg",
-          "icon_hover_src": "../../images/module-icons/speech-bubble-teal.svg",
+          "icon_src": "../../images/module-icons/blog-icon-black.png",
+          "icon_hover_src": "../../images/module-icons/blog-icon-teal.png",
           "icon_alt": "icon for blog"
         }
       },
@@ -56,8 +56,8 @@
         "selector": 54820904135,
         "button_display": {
           "selector_text": "Webinar & event",
-          "icon_src": "../../images/module-icons/computer-screen.svg",
-          "icon_hover_src": "../../images/module-icons/computer-screen-teal.svg",
+          "icon_src": "../../images/module-icons/webinar-icon-black.png",
+          "icon_hover_src": "../../images/module-icons/webinar-icon-teal.png",
           "icon_alt": "icon for webinar and event"
         }
       },
@@ -65,8 +65,8 @@
         "selector": 54820904135,
         "button_display": {
           "selector_text": "E-book & guide",
-          "icon_src": "../../images/module-icons/book.svg",
-          "icon_hover_src": "../../images/module-icons/book-teal.svg",
+          "icon_src": "../../images/module-icons/book-icon-black.png",
+          "icon_hover_src": "../../images/module-icons/book-icon-teal.png",
           "icon_alt": "icon for e-book and guide"
         }
       },
@@ -74,8 +74,8 @@
         "selector": 54820904135,
         "button_display": {
           "selector_text": "Courses",
-          "icon_src": "../../images/module-icons/graduation-cap.svg",
-          "icon_hover_src": "../../images/module-icons/graduation-cap-teal.svg",
+          "icon_src": "../../images/module-icons/course-icon-black.png",
+          "icon_hover_src": "../../images/module-icons/course-icon-teal.png",
           "icon_alt": "icon for courses"
         }
       }

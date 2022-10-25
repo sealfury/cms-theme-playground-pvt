@@ -1,28 +1,30 @@
 {% require_css %}
   <style>
     {% scope_css %}
+      {% set buttonTextColor = "#2F3C49" %}
+
       {% if module.mode is equalto("light") %}
-        {% set buttonBgColor = "#58b5bc" %}
-        {% set buttonTextColor = "#141d2c" %}
+        {% set buttonBgColor = "#00B9BC" %}
+        {% set teal = "#00A5A8" %}
         {% set buttonHover = "rgba({{ color_variant(buttonBgColor, -30)|convert_rgb }}, 1)" %}
 
         .cta-small {
-          background-color: #f1f5f9;
+          background-color: #f0f5fa;
         }
 
         .cta-small__heading,
         .cta-small__description {
-          color: #28282a;
+          color: #0f1e2d;
         }
       {% endif %}
 
       {% if module.mode is equalto("dark") %}
         {% set buttonBgColor = "#fff" %}
-        {% set buttonTextColor = "#141d2c" %}
+        {% set teal = "#00" %}
         {% set buttonHover = "rgba({{ color_variant(buttonBgColor, -20)|convert_rgb }}, 1)" %}
 
         .cta-small {
-          background-color: #333c4a;
+          background-color: #2f3c49;
         }
 
         .cta-small__heading,
@@ -39,6 +41,10 @@
       .cta-small__link:hover,
       .cta-small__link:focus {
         background-color: {{ buttonHover }};
+      }
+
+      .teal {
+        color: {{ teal }};
       }
 
     {% end_scope_css %}

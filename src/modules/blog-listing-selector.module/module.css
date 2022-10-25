@@ -7,29 +7,30 @@
 .blog-selector__button-wrapper {
   align-items: center;
   background-color: #FFF;
-  border: 1px solid #939393;
+  border: 1.4px solid #DFE4E9;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 88px;
   justify-content: space-between;
-  margin: 0 1%;
-  padding: 2% 0 1%;
+  margin: 0 1.6%;
+  padding: 1%;
   transition: all 0.3s ease;
-  width: 22%;
+  width: 20%;
 }
 
 .blog-selector__button-text {
-  color: #141D2C;
-  font-size: 0.8rem;
+  color: #0F1E2D;
+  font-size: 16px;
   font-weight: 600;
+  line-height: 26px;
   margin: 0;
-  padding: 7% 0 0;
+  /* padding: 7% 0 0; */
 }
 
 .image {
   height: auto;
-  width: 1rem;
+  width: auto;
   transition: all 0.3s ease;
 }
 
@@ -40,8 +41,8 @@
 .blog-selector__button-wrapper:hover,
 .blog-selector__button-wrapper:focus,
 .blog-selector__button-wrapper:active {
-  background-color: #141D2C;
-  border-color: #141D2C;
+  background-color: #0F1E2D;
+  border-color: #0F1E2D;
   cursor: pointer;
 }
 

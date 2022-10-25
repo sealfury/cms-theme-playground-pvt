@@ -3,18 +3,19 @@
   <style>
     {% scope_css %}
 
-      {% set inputIcon = "../../images/module-icons/search-icon.svg" %}
+      {% set inputIcon = "../../images/module-icons/search-icon-black.png" %}
 
       {# Seach bar #}
       .search-field__input--icon::after {
         content: "";
         background: url("{{ get_asset_url(inputIcon) }}") no-repeat;
-        height: 24px;
-        left: 92.5%;
+        height: 40px;
+        left: 91%;
+        padding: 1%;
         position: absolute;
-        top: 37.5%;
-        transform: scale(1.25);
-        width: 24px;
+        top: 33.3%;
+        transform: scale(1.15);
+        width: 40px;
       }
 
     {% end_scope_css %}
@@ -57,7 +58,7 @@
     <div class="search-field__show-all">
       <button id="show-all" class="search-field__show-all--btn">
         Show all results
-        <img class="search-field__show-all--icon" src="{{ get_asset_url("../../images/module-icons/search-icon-tt.svg") }}" />
+        <img class="search-field__show-all--icon" src="{{ get_asset_url("../../images/module-icons/search-icon-teal.png") }}" />
       </button>
     </div>
   </ul>
