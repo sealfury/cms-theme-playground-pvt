@@ -7,7 +7,7 @@
 }
 
 .card__text {
-  border: 1px solid #F1F2F7;
+  border: 1.4px solid #DFE4E9;
   border-left: none;
   display: flex;
   flex-direction: column;
@@ -17,20 +17,20 @@
 }
 
 .card__category {
-  color: #939393;
+  color: #525E6A;
   font-size: 12px;
   text-transform: uppercase;
 }
 
 .card__title, 
 .card__price {
-  color: #28282A;
+  color: #0F1E2D;
   font-size: 22px;
   font-weight: 700;
 }
 
 .card__desc {
-  color: #28282A;
+  color: #0F1E2D;
   font-size: 18px;
   max-width: 75%;
 }
@@ -48,7 +48,7 @@
 }
 
 .card__info--text {
-  color: #141D2C;
+  color: #0F1E2D;
   font-weight: 700;
   padding: 3% 5% 2%;
 }
@@ -66,7 +66,7 @@
 }
 
 .card__link {
-  color: #4FA3A7;
+  color: #396D78;
   border-bottom: 2px solid transparent;
   font-size: 16px;
   font-weight: 700;
@@ -77,5 +77,5 @@
 }
 
 .card__link:hover {
-  border-color: #58B5BC;
+  border-color: #00B9BC;
 }

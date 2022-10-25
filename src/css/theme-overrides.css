@@ -82,6 +82,8 @@
 
 {% set form_help_text_font_color = theme.forms.help_text.text.color.color %}
 
+{% set form_background_color = theme.forms.background.color.color %}
+
 {% set form_field_placeholder_color = theme.forms.fields.placeholder.color.color %}
 {% set form_field_font_color = theme.forms.fields.text.color.color %}
 {% set form_field_bg_color = theme.forms.fields.background.color %}
@@ -178,6 +180,7 @@ h1,
   {{ h1_font.style }};
   color: {{ h1_font.color }};
   font-size: {{ h1_font.size ~ h1_font.size_unit }};
+  line-height: {{ h1_font.size * 1.304 ~ h1_font.size.unit }};
   text-transform: {{ h1_text_transform }};
 }
 
@@ -248,14 +251,14 @@ button:focus,
 .button:hover,
 .button:focus {
   {{ button_font.style }};
-  background-color: rgba({{ color_variant(theme.buttons.background.color.color, -40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
+  
   border-color: {{ color_variant(theme.buttons.border.border.top.color, -40) }};
 }
 
 button:active,
 .button:active {
   {{ button_font.style }};
-  background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
+  
   border-color: {{ color_variant(theme.buttons.border.border.top.color, 40) }};
 }
 
@@ -266,6 +269,7 @@ button:active,
 form,
 .submitted-message {
   {{ body_font.style }};
+  background-color: {{ form_background_color }};
 }
 
 /* Form title */
@@ -305,19 +309,19 @@ form textarea {
 /* Form placeholder text */
 
 ::-webkit-input-placeholder {
-  color: {{ form_field_placeholder_color }};
+  color: rgba({{ form_field_placeholder_color|convert_rgb }}, 0.5);
 }
 
 ::-moz-placeholder {
-  color: {{ form_field_placeholder_color }};
+  color: rgba({{ form_field_placeholder_color|convert_rgb }}, 0.5);
 }
 
 :-ms-input-placeholder {
-  color: {{ form_field_placeholder_color }};
+  color: rgba({{ form_field_placeholder_color|convert_rgb }}, 0.5);
 }
 
 ::placeholder {
-  color: {{ form_field_placeholder_color }};
+  color: rgba({{ form_field_placeholder_color|convert_rgb }}, 0.5);
 }
 
 /* Inputs - date picker */
@@ -356,13 +360,13 @@ form input[type=submit]:hover,
 form input[type=submit]:focus,
 form .hs-button:hover,
 form .hs-button:focus {
-  background-color: rgba({{ color_variant(theme.buttons.background.color.color, -40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
+  
   border-color: {{ color_variant(theme.buttons.border.border.top.color, -40) }};
 }
 
 form input[type=submit]:active,
 form .hs-button:active {
-  background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
+  
   border-color: {{ color_variant(theme.buttons.border.border.top.color, 40) }};
 }
 

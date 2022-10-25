@@ -19,7 +19,7 @@
           }
         },
         "default": {
-          "color": "#00B9BC"
+          "color": "#0F1E2D"
         }
       },
       {
@@ -37,7 +37,7 @@
           }
         },
         "default": {
-          "color": "#0F1E2D"
+          "color": "#00B9BC"
         }
       }
     ]
@@ -141,12 +141,12 @@
               }
             },
             "default": {
-              "size": 50,
+              "size": 46,
               "size_unit": "px",
               "styles": {
                 "text-decoration": "none"
               },
-              "variant": "700"
+              "variant": "600"
             }
           },
           {
@@ -303,7 +303,7 @@
               }
             },
             "default": {
-              "color": "#000000",
+              "color": "#0F1E2D",
               "size": 16,
               "size_unit": "px",
               "styles": {
@@ -389,7 +389,7 @@
               }
             },
             "default": {
-              "size": 24,
+              "size": 20,
               "size_unit": "px"
             }
           }
@@ -417,7 +417,7 @@
               }
             },
             "default": {
-              "color": "#0270E0",
+              "color": "#396D78",
               "styles": {
                 "text-decoration": "none"
               }
@@ -450,7 +450,7 @@
             },
             "default": {
               "color": "#FFFFFF",
-              "size": 22,
+              "size": 14,
               "size_unit": "px"
             }
           },
@@ -514,7 +514,7 @@
                 },
                 "opacity": 100,
                 "style": "solid",
-                "color": "#494A52"
+                "color": "transparent"
               },
               "right": {
                 "width": {
@@ -523,7 +523,7 @@
                 },
                 "opacity": 100,
                 "style": "solid",
-                "color": "#494A52"
+                "color": "transparent"
               },
               "bottom": {
                 "width": {
@@ -532,7 +532,7 @@
                 },
                 "opacity": 100,
                 "style": "solid",
-                "color": "#494A52"
+                "color": "transparent"
               },
               "left": {
                 "width": {
@@ -541,7 +541,7 @@
                 },
                 "opacity": 100,
                 "style": "solid",
-                "color": "#494A52"
+                "color": "transparent"
               }
             }
           }
@@ -560,7 +560,7 @@
             "max": 100,
             "step": 1,
             "suffix": "px",
-            "default": 6
+            "default": 24
           }
         ]
       },
@@ -581,19 +581,19 @@
             "default": {
               "padding": {
                 "top": {
-                  "value": 15,
+                  "value": 11,
                   "units": "px"
                 },
                 "right": {
-                  "value": 53,
+                  "value": 32,
                   "units": "px"
                 },
                 "bottom": {
-                  "value": 15,
+                  "value": 11,
                   "units": "px"
                 },
                 "left": {
-                  "value": 53,
+                  "value": 32,
                   "units": "px"
                 }
               }
@@ -629,6 +629,9 @@
                 },
                 "inherited_value": {
                   "default_value_path": "theme.global_colors.secondary"
+                },
+                "default": {
+                  "color": "#FFFFFF"
                 }
               }
             ]
@@ -658,6 +661,9 @@
                   "property_value_paths": {
                     "color": "theme.global_fonts.primary.color"
                   }
+                },
+                "default": {
+                  "color": "#FFFFFF"
                 }
               }
             ]
@@ -770,39 +776,39 @@
                 "default": {
                   "top": {
                     "width": {
-                      "value": 2,
+                      "value": 1.4,
                       "units": "px"
                     },
                     "opacity": 100,
                     "style": "solid",
-                    "color": "#D1D6DC"
+                    "color": "#BBC1C9"
                   },
                   "right": {
                     "width": {
-                      "value": 2,
+                      "value": 1.4,
                       "units": "px"
                     },
                     "opacity": 100,
                     "style": "solid",
-                    "color": "#D1D6DC"
+                    "color": "#BBC1C9"
                   },
                   "bottom": {
                     "width": {
-                      "value": 2,
+                      "value": 1.4,
                       "units": "px"
                     },
                     "opacity": 100,
                     "style": "solid",
-                    "color": "#D1D6DC"
+                    "color": "#BBC1C9"
                   },
                   "left": {
                     "width": {
-                      "value": 2,
+                      "value": 1.4,
                       "units": "px"
                     },
                     "opacity": 100,
                     "style": "solid",
-                    "color": "#D1D6DC"
+                    "color": "#BBC1C9"
                   }
                 }
               }
@@ -824,6 +830,26 @@
                 "default": 4
               }
             ]
+          }
+        ]
+      },
+      {
+        "label": "Background",
+        "name": "background",
+        "type": "group",
+        "children": [
+          {
+            "label": "Color",
+            "name": "color",
+            "type": "color",
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_colors.primary.color"
+              }
+            },
+            "default": {
+              "opacity": 100
+            }
           }
         ]
       }
