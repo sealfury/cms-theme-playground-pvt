@@ -5,14 +5,25 @@
     {% scope_css %}
 
       {# Menu items - top level #}
+      {% set toggleIconUrl = "../../images/module-icons/chevron-icon-black.png" %}
+
+      .menu__child-toggle-icon {
+        background: url("{{ get_asset_url(toggleIconUrl) }}") no-repeat;
+        display: block;
+        height: 16px;
+        margin-left: 6px;
+        transition: all 0.2s ease;
+        width: 16px;
+      }
+
+      .menu__item--open > .menu__child-toggle {
+        margin-left: 6px;
+        transform: rotate(-180deg);
+      }
 
       {% if module.styles.text.color.color %}
         .menu__link {
           color: {{ module.styles.text.color.color }};
-        }
-
-        .menu__child-toggle-icon {
-          border-top-color: {{ module.styles.text.color.color }};
         }
 
         .menu .menu__link:hover,
@@ -41,7 +52,7 @@
       {# Menu items - submenus #}
 
       .menu .menu__submenu {
-        {{ module.styles.drop_downs.border.border.css }}
+        {# {{ module.styles.drop_downs.border.border.css }} #}
         {% if module.styles.drop_downs.background.color.color %}
           background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
         {% endif %}
@@ -86,7 +97,9 @@
   {% set menu = menu(module.menu, "site_root").children %}
 
   {% macro render_link_item(link, depth) %}
-    <li class="menu__item menu__item--depth-{{ depth }} {{ "menu__item--has-submenu" if link.children and depth < module.max_levels }} hs-skip-lang-url-rewrite">
+    <li
+      class="menu__item menu__item--depth-{{ depth }} {{ "menu__item--has-submenu" if link.children and depth < module.max_levels }} menu__item--{{ link.label|lower }} hs-skip-lang-url-rewrite"
+    >
       {% if link.url %}
         <a class="menu__link {{ "menu__link--toggle" if link.children and depth < module.max_levels }} {{ "menu__link--active-branch" if link.activeBranch }} {{ "menu__link--active-link" if link.activeNode }}" href="{{ link.url }}" {{ "aria-haspopup=\"true\" aria-expanded=\"false\"" if link.children and depth < module.max_levels }} {{ "aria-current=\"page\"" if link.activeNode }} {{ "target=\"_blank\" rel=\"noopener\"" if link.linkTarget }}
           >{{ link.label }}</a
@@ -113,7 +126,7 @@
             >
             <span class="menu__child-toggle-icon"></span>
           </button>
-          <ul class="menu__submenu menu__submenu--level-{{ depth + 1 }} no-list">
+          <ul class="menu__submenu menu__submenu--level-{{ depth + 1 }}">
             {% set depth = depth + 1 %}
             {% for sublink in link.children %}
             {{ render_link_item(sublink, depth) }}

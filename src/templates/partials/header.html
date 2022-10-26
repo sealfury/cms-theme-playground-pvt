@@ -19,10 +19,10 @@
   <div class="header__container content-wrapper">
     {# Header logo column #}
 
-    <div class="header__logo header__logo--main">
+    {# <div class="header__logo header__logo--main">
       {% module "site_logo"
         path="@hubspot/logo" %}
-    </div>
+    </div> #}
 
     {# Header navigation column #}
 
@@ -30,6 +30,14 @@
       {# Header navigation row one #}
 
       <div class="header__row-1">
+        <div class="header__logo header__logo--main">
+          {% module "site_logo"
+            path="@hubspot/logo" %}
+        </div>
+
+        {% if content.translated_content|length or is_listing_view and group.translations %}
+          <div class="header--toggle header__language-switcher--toggle"></div>
+        {% endif %}
         {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
           <div class="header__language-switcher header--element">
             <div class="header__language-switcher--label">
@@ -48,12 +56,9 @@
       {# Header navigation row two #}
 
       <div class="header__row-2">
-        <div class="header--toggle header__navigation--toggle"></div>
-        {% if content.translated_content|length or is_listing_view and group.translations %}
-          <div class="header--toggle header__language-switcher--toggle"></div>
-        {% endif %}
+        {# <div class="header--toggle header__navigation--toggle"></div>
         <div class="header--toggle header__search--toggle"></div>
-        <div class="header__close--toggle"></div>
+        <div class="header__close--toggle"></div> #}
         <div class="header__navigation header--element">
           {% module "navigation-primary"
             path="../../modules/menu",

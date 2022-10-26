@@ -15,27 +15,27 @@ if (menuParentItems) {
 
     var childToggle = el.querySelector('.menu__child-toggle');
 
-    // Handles hover over
+    // // Handles hover over
 
-    el.addEventListener('mouseover', function () {
-      this.classList.add('menu__item--open');
-      this.querySelector('a').setAttribute('aria-expanded', 'true');
-      this.querySelector('button').setAttribute('aria-expanded', 'true');
-    });
+    // el.addEventListener('mouseover', function () {
+    //   this.classList.add('menu__item--open');
+    //   this.querySelector('a').setAttribute('aria-expanded', 'true');
+    //   this.querySelector('button').setAttribute('aria-expanded', 'true');
+    // });
 
-    // Handles hover out
+    // // Handles hover out
 
-    el.addEventListener('mouseout', function () {
-      document
-        .querySelector('.menu__item--open > a')
-        .setAttribute('aria-expanded', 'false');
-      document
-        .querySelector('.menu__item--open > button')
-        .setAttribute('aria-expanded', 'false');
-      document
-        .querySelector('.menu__item--open')
-        .classList.remove('menu__item--open');
-    });
+    // el.addEventListener('mouseout', function () {
+    //   document
+    //     .querySelector('.menu__item--open > a')
+    //     .setAttribute('aria-expanded', 'false');
+    //   document
+    //     .querySelector('.menu__item--open > button')
+    //     .setAttribute('aria-expanded', 'false');
+    //   document
+    //     .querySelector('.menu__item--open')
+    //     .classList.remove('menu__item--open');
+    // });
 
     // Handles toggle of submenus
 

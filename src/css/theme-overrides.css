@@ -69,7 +69,7 @@
 
 {% set button_font = theme.buttons.text.font %}
 {% set button_text_transform = theme.buttons.text.transform %}
-{% set button_bg_color = theme.buttons.background.color %}
+{% set button_bg_color = theme.buttons.background.color.color %}
 {% set button_border = theme.buttons.border.border.css %}
 {% set button_corner_radius = theme.buttons.corner.radius ~ 'px' %}
 {% set button_spacing = theme.buttons.spacing.spacing.css %}
@@ -78,11 +78,16 @@
 
 {% set form_title_font_color = theme.forms.title.text.color.color %}
 
-{% set form_label_font_color = theme.forms.labels.text.color.color %}
+{% set form_label_font_color = theme.forms.labels.text.font.color %}
+{% set form_label_font_size = theme.forms.labels.text.font.size %}
+{% set form_label_font_size_unit = theme.forms.labels.text.font.size_unit %}
+{% set form_label_font = theme.forms.labels.text.font %}
 
 {% set form_help_text_font_color = theme.forms.help_text.text.color.color %}
 
 {% set form_background_color = theme.forms.background.color.color %}
+
+{% set form_spacing = theme.forms.spacing.spacing.css %}
 
 {% set form_field_placeholder_color = theme.forms.fields.placeholder.color.color %}
 {% set form_field_placeholder_opacity = theme.forms.fields.placeholder.color.opacity %}
@@ -228,6 +233,10 @@ h6,
   text-transform: {{ h6_text_transform }};
 }
 
+.teal {
+  color: {{ secondary_color }};
+}
+
 /* Blockquote */
 
 blockquote {
@@ -273,6 +282,7 @@ button:active,
 form,
 .submitted-message {
   {{ body_font.style }};
+  {{ form_spacing }};
   background-color: {{ form_background_color }};
 }
 
@@ -285,7 +295,9 @@ form,
 /* Labels */
 
 form label {
-  color: {{ form_label_font_color }};
+  {{ form_label_font.style }};
+  color: {{ form_label_font.color }};
+  font-size: {{ form_label_font.size ~ form_label_font.size_unit }};
 }
 
 /* Help text */
@@ -417,6 +429,7 @@ tfoot td {
 }
 
 .menu__link,
+.menu__link li a,
 .header__logo .logo-company-name,
 .header__language-switcher-label-current,
 .header__language-switcher .lang_list_class li a {

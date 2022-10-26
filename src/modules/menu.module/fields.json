@@ -36,6 +36,9 @@
               "hidden_subfields": {
                 "opacity": true
               }
+            },
+            "default": {
+              "color": "#202225"
             }
           }
         ]
@@ -70,7 +73,11 @@
               {
                 "label": "Color",
                 "name": "color",
-                "type": "color"
+                "type": "color",
+                "default": {
+                  "color": "#FFFFFF",
+                  "opacity": 100
+                }
               }
             ]
           },

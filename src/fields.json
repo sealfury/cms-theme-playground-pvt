@@ -452,7 +452,8 @@
             "default": {
               "color": "#FFFFFF",
               "size": 16,
-              "size_unit": "px"
+              "size_unit": "px",
+              "variant": "600"
             }
           },
           {
@@ -650,21 +651,14 @@
             "type": "group",
             "children": [
               {
-                "label": "Color",
-                "name": "color",
-                "type": "color",
-                "visibility": {
-                  "hidden_subfields": {
-                    "opacity": true
-                  }
-                },
-                "inherited_value": {
-                  "property_value_paths": {
-                    "color": "theme.global_fonts.primary.color"
-                  }
-                },
+                "label": "Font",
+                "name": "font",
+                "type": "font",
                 "default": {
-                  "color": "#FFFFFF"
+                  "color": "#FFFFFF",
+                  "size": 14,
+                  "size_unit": "px",
+                  "variant": "600"
                 }
               }
             ]
@@ -853,6 +847,43 @@
             },
             "default": {
               "opacity": 100
+            }
+          }
+        ]
+      },
+      {
+        "label": "Spacing",
+        "name": "spacing",
+        "type": "group",
+        "children": [
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "spacing",
+            "visibility": {
+              "hidden_subfields": {
+                "margin": true
+              }
+            },
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 24,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 24,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 24,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 24,
+                  "units": "px"
+                }
+              }
             }
           }
         ]
@@ -1125,21 +1156,19 @@
             "type": "group",
             "children": [
               {
-                "label": "Color",
-                "name": "color",
-                "type": "color",
-                "visibility": {
-                  "hidden_subfields": {
-                    "opacity": true
-                  }
-                },
+                "label": "Font",
+                "name": "font",
+                "type": "font",
                 "inherited_value": {
                   "property_value_paths": {
                     "color": "theme.global_fonts.primary.color"
                   }
                 },
                 "default": {
-                  "color": "#202225"
+                  "color": "#202225",
+                  "size": 14,
+                  "size_unit": "px",
+                  "variant": "600"
                 }
               }
             ]

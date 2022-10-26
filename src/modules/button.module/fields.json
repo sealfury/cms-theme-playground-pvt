@@ -133,19 +133,19 @@
             "default": {
               "padding": {
                 "top": {
-                  "value": 12,
+                  "value": 10,
                   "units": "px"
                 },
                 "right": {
-                  "value": 26,
+                  "value": 32,
                   "units": "px"
                 },
                 "bottom": {
-                  "value": 12,
+                  "value": 10,
                   "units": "px"
                 },
                 "left": {
-                  "value": 26,
+                  "value": 32,
                   "units": "px"
                 }
               }
