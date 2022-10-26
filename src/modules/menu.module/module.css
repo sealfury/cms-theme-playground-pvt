@@ -247,14 +247,15 @@
   }
 
   .menu__child-toggle-icon {
+    background: url("{{ get_asset_url('../../images/module-icons/chevron_icon_black.png') }}") no-repeat;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top-style: solid;
     border-top-width: 7px;
     display: block;
-    height: 0;
+    height: 16px;
     margin-left: 1px;
-    width: 0;
+    width: 16px;
   }
 }
 

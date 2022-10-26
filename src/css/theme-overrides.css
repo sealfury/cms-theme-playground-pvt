@@ -85,6 +85,7 @@
 {% set form_background_color = theme.forms.background.color.color %}
 
 {% set form_field_placeholder_color = theme.forms.fields.placeholder.color.color %}
+{% set form_field_placeholder_opacity = theme.forms.fields.placeholder.color.opacity %}
 {% set form_field_font_color = theme.forms.fields.text.color.color %}
 {% set form_field_bg_color = theme.forms.fields.background.color %}
 {% set form_field_border = theme.forms.fields.border.border.css %}
@@ -106,8 +107,11 @@
 
 /* 1g. Website header */
 
-{% set nav_font_color = theme.header.menu.text.color.color %}
-{% set nav_drop_down_font_color = theme.header.menu.drop_downs.text.color.color %}
+{% set nav_font_color = theme.header.menu.text.font.color %}
+{% set nav_font_size = theme.header.menu.text.font.size %}
+{% set nav_font_size_unit = theme.header.menu.text.font.size_unit %}
+{% set nav_font_weight = theme.header.menu.text.font.variant %}
+{% set nav_drop_down_font_color = theme.header.menu.drop_downs.text.font.color %}
 {% set nav_drop_down_bg_color = theme.header.menu.drop_downs.background.color %}
 {% set nav_drop_down_border = theme.header.menu.drop_downs.border.border.css %}
 
@@ -180,7 +184,7 @@ h1,
   {{ h1_font.style }};
   color: {{ h1_font.color }};
   font-size: {{ h1_font.size ~ h1_font.size_unit }};
-  line-height: {{ h1_font.size * 1.304 ~ h1_font.size.unit }};
+  line-height: 56px;
   text-transform: {{ h1_text_transform }};
 }
 
@@ -309,7 +313,7 @@ form textarea {
 /* Form placeholder text */
 
 ::-webkit-input-placeholder {
-  color: rgba({{ form_field_placeholder_color|convert_rgb }}, 0.5);
+  color: color({{ form_field_placeholder_color }}, {{ form_field_placeholder_opacity }});
 }
 
 ::-moz-placeholder {
@@ -418,6 +422,8 @@ tfoot td {
 .header__language-switcher .lang_list_class li a {
   color: {{ nav_font_color }};
   font-family: {{ body_font.font }};
+  font-size: {{ nav_font_size ~ nav_font_size_unit }};
+  font-weight: {{ nav_font_weight }};
 }
 
 .menu__child-toggle-icon {

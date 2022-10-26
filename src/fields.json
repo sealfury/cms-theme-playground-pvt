@@ -146,7 +146,7 @@
               "styles": {
                 "text-decoration": "none"
               },
-              "variant": "600"
+              "variant": "700"
             }
           },
           {
@@ -201,7 +201,7 @@
               ["lowercase", "Lowercase"]
             ],
             "display": "select",
-            "default": "none"
+            "default": "uppercase"
           }
         ]
       },
@@ -723,6 +723,9 @@
                   "property_value_paths": {
                     "color": "theme.global_fonts.primary.color"
                   }
+                },
+                "default": {
+                  "opacity": 50
                 }
               }
             ]
@@ -1067,36 +1070,36 @@
                       "value": 1,
                       "units": "px"
                     },
-                    "opacity": 100,
+                    "opacity": 15,
                     "style": "solid",
-                    "color": "#494A52"
+                    "color": "#FFFFFF"
                   },
                   "right": {
                     "width": {
                       "value": 1,
                       "units": "px"
                     },
-                    "opacity": 100,
+                    "opacity": 15,
                     "style": "solid",
-                    "color": "#494A52"
+                    "color": "#FFFFFF"
                   },
                   "bottom": {
                     "width": {
                       "value": 1,
                       "units": "px"
                     },
-                    "opacity": 100,
+                    "opacity": 15,
                     "style": "solid",
-                    "color": "#494A52"
+                    "color": "#FFFFFF"
                   },
                   "left": {
                     "width": {
                       "value": 1,
                       "units": "px"
                     },
-                    "opacity": 100,
+                    "opacity": 15,
                     "style": "solid",
-                    "color": "#494A52"
+                    "color": "#FFFFFF"
                   }
                 }
               }
@@ -1134,6 +1137,9 @@
                   "property_value_paths": {
                     "color": "theme.global_fonts.primary.color"
                   }
+                },
+                "default": {
+                  "color": "#202225"
                 }
               }
             ]
@@ -1307,7 +1313,7 @@
             "type": "color",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_colors.primay.color"
+                "color": "theme.global_colors.primary.color"
               }
             },
             "default": {
