@@ -1352,5 +1352,37 @@
         ]
       }
     ]
+  },
+  {
+    "label": "Overlay",
+    "name": "overlay",
+    "type": "group",
+    "children": [
+      {
+        "label": "Background",
+        "name": "background",
+        "type": "group",
+        "children": [
+          {
+            "label": "Color",
+            "name": "color",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_colors.primary.color"
+              }
+            },
+            "default": {
+              "opacity": 70
+            }
+          }
+        ]
+      }
+    ]
   }
 ]

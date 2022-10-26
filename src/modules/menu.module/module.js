@@ -6,6 +6,7 @@ var menuParentItems = document.querySelectorAll(
 var childToggle = document.querySelectorAll(
   '.menu--mobile .menu__child-toggle'
 );
+var overlay = document.querySelectorAll('.overlay');
 
 // Desktop menu
 
@@ -40,6 +41,8 @@ if (menuParentItems) {
     // Handles toggle of submenus
 
     childToggle.addEventListener('click', function () {
+      var overlay = document.getElementById('overlay');
+
       if (this.parentNode.classList.contains('menu__item--open')) {
         this.parentNode.classList.remove('menu__item--open');
         this.parentNode
@@ -48,6 +51,8 @@ if (menuParentItems) {
         this.parentNode
           .querySelector('button')
           .setAttribute('aria-expanded', 'false');
+
+        overlay.classList.remove('show-overlay');
       } else {
         this.parentNode.classList.add('menu__item--open');
         this.parentNode
@@ -56,6 +61,8 @@ if (menuParentItems) {
         this.parentNode
           .querySelector('button')
           .setAttribute('aria-expanded', 'true');
+
+        overlay.classList.add('show-overlay');
       }
     });
   });

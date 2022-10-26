@@ -11,6 +11,7 @@
     1f. Tables
     1g. Website header
     1h. Website footer
+    1i. Overlay
   2. Containers / Grid / DND areas
   3. Typography
   4. Buttons
@@ -126,6 +127,10 @@
 
 {% set footer_bg_color = theme.footer.background.color %}
 {% set footer_font_color = theme.footer.text.color.color %}
+
+/* 1i. Overlay */
+{% set overlay_color = theme.overlay.background.color %}
+{% set overlay_opacity = theme.overlay.background.opacity %}
 
 {###########################################################################}
 {##################   2. Containers / Grid / DND areas   ###################}
@@ -325,7 +330,7 @@ form textarea {
 /* Form placeholder text */
 
 ::-webkit-input-placeholder {
-  color: color({{ form_field_placeholder_color }}, {{ form_field_placeholder_opacity }});
+  color: {{ color(form_field_placeholder_color, form_field_placeholder_opacity) }};
 }
 
 ::-moz-placeholder {
@@ -714,4 +719,18 @@ tfoot td {
   {{ h3_font.style }};
   color: {{ h3_font.color }};
   font-size: {{ h3_font.size ~ h3_font.size_unit }};
+}
+
+.overlay {
+  opacity: 0;
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+  z-index: 10;
+}
+
+.overlay.show-overlay {
+  background-color: {{ color(overlay_color, overlay_opacity) }};
+  display: block;
+  opacity: 1;  
 }
