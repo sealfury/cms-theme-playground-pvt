@@ -174,17 +174,18 @@ p {
 a {
   {{ anchor_font.style }};
   color: {{ anchor_font.color }};
+  font-size: {{ anchor_font.size ~ anchor_font.size_unit }};
 }
 
 a:hover,
 a:focus {
   {{ anchor_font.style }};
-  color: {{ color_variant(anchor_font.color, -40) }};
+  color: {{ color_variant(anchor_font.color, -20) }};
 }
 
 a:active {
   {{ anchor_font.style }};
-  color: {{ color_variant(anchor_font.color, 40) }};
+  color: {{ color_variant(anchor_font.color, 20) }};
 }
 
 /* Headings */

@@ -418,6 +418,9 @@
             },
             "default": {
               "color": "#396D78",
+              "size": 16,
+              "size_unit": "px",
+              "variant": "600",
               "styles": {
                 "text-decoration": "none"
               }

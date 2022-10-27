@@ -50,12 +50,23 @@
       {% endif %}
 
       {# Menu items - submenus #}
+      {% set linkIconUrl = "../../images/module-icons/arrow-right-teal.png" %}
 
       .menu .menu__submenu {
-        {# {{ module.styles.drop_downs.border.border.css }} #}
         {% if module.styles.drop_downs.background.color.color %}
           background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
         {% endif %}
+      }
+
+      .menu__submenu--main-link:after {
+        background: url("{{ get_asset_url(linkIconUrl) }}") no-repeat;
+        content: '';
+        display: inline-block;
+        height: 16px;
+        margin-left: 2px;
+        position: absolute;
+        top: 1%;
+        width: 16px;
       }
 
       @media (min-width: 767px) {
@@ -126,12 +137,20 @@
             >
             <span class="menu__child-toggle-icon"></span>
           </button>
+
           <ul class="menu__submenu menu__submenu--level-{{ depth + 1 }}">
+            {% if link.label != "Products" %}
+              <a class="menu__submenu--main-link">
+                {{ link.label }}
+                overview
+              </a>
+            {% endif %}
             {% set depth = depth + 1 %}
             {% for sublink in link.children %}
             {{ render_link_item(sublink, depth) }}
             {% endfor %}
           </ul>
+
         {% endif %}
       {% endif %}
     </li>

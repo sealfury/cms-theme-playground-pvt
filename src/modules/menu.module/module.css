@@ -105,8 +105,6 @@
 /* Menu items - submenus */
 
 .menu__submenu {
-  box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
   display: none;
   height: 0;
   left: 0;
@@ -148,8 +146,18 @@
   transform: unset;
 }
 
+.menu__submenu--main-link {
+  border-bottom: 2px solid transparent;
+  padding: 2px 1px;
+  transition: all 0.2s ease;
+}
+
+.menu__submenu--main-link:hover {
+  border-color: #00B9BC;
+  filter: brightness(100%);
+}
+
 .menu__submenu .menu__item {
-  border-bottom: 1px solid #D1D6DC;
   padding: 0;
   width: 100%;
 }
