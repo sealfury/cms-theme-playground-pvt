@@ -6,7 +6,8 @@ var menuParentItems = document.querySelectorAll(
 var childToggle = document.querySelectorAll(
   '.menu--mobile .menu__child-toggle'
 );
-var overlay = document.querySelectorAll('.overlay');
+var overlay = document.getElementById('overlay');
+var mainContent = document.getElementById('main-content');
 
 // Get element siblings
 const getElementSiblings = function (el) {
@@ -45,9 +46,8 @@ if (menuParentItems) {
       return siblings;
     };
 
-    // Handles toggle of submenus
+    // Handle toggle of submenus
     childToggle.addEventListener('click', function () {
-      var overlay = document.getElementById('overlay');
       var parentSiblings = getSiblings(this.parentNode);
 
       if (this.parentNode.classList.contains('menu__item--open')) {
@@ -82,6 +82,16 @@ if (menuParentItems) {
         });
 
         overlay.classList.add('show-overlay');
+      }
+    });
+  });
+
+  // Close dropdown on click outside
+  mainContent.addEventListener('click', function () {
+    menuParentItems.forEach(function (el) {
+      if (el.classList.contains('menu__item--open')) {
+        el.classList.remove('menu__item--open');
+        overlay.classList.remove('show-overlay');
       }
     });
   });

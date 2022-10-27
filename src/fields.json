@@ -389,7 +389,7 @@
               }
             },
             "default": {
-              "size": 20,
+              "size": 16,
               "size_unit": "px"
             }
           }

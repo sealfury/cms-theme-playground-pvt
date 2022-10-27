@@ -69,7 +69,7 @@
 .menu__item--depth-1 {
   align-items: center;
   display: inline-flex;
-  padding: 1rem 0;
+  padding: 1rem 2px;
   white-space: nowrap;
   width: fit-content;
 }
@@ -107,11 +107,12 @@
 .menu__submenu {
   display: none;
   height: 0;
-  left: 0;
+  left: -100%;
   position: absolute;
   text-align: left;
   text-transform: none;
   top: 100%;
+  transition: all 0.3s ease-in-out;
   width: 0;
   z-index: 99;
 }
@@ -133,11 +134,20 @@
   display: block;
   height: fit-content;
   margin: 4px auto 0;
+  padding: 2.5rem 3.25rem;
   width: clamp(800px, 80vw, 1440px);
 }
 
-.menu__submenu--level-2 {
-  transform: translateX(-50%);
+.menu__submenu--level-2:nth-of-type(2) {
+  transform: translateX(-11%);
+}
+
+.menu__submenu--level-2:nth-of-type(3) {
+  transform: translateX(-27%);
+}
+
+.menu__submenu--level-2:nth-of-type(4) {
+  transform: translateX(-38%);
 }
 
 /* Keeps the first menu item's drop down menu aligned to the left of the top level menu item */
@@ -146,14 +156,28 @@
   transform: unset;
 }
 
+.menu__item--depth-1:nth-child(3) .menu__submenu--level-2 {
+  transform: translateX(-11%);
+}
+
+.menu__item--depth-1:nth-child(4) .menu__submenu--level-2 {
+  transform: translateX(-27%);
+}
+
+.menu__item--depth-1:nth-child(5) .menu__submenu--level-2 {
+  transform: translateX(-38%);
+}
+
 .menu__submenu--main-link {
+  align-items: center;
   border-bottom: 2px solid transparent;
-  padding: 2px 1px;
+  display: inline-flex;
+  padding: 3px 1px;
   transition: all 0.2s ease;
 }
 
 .menu__submenu--main-link:hover {
-  border-color: #00B9BC;
+  border-bottom: 2px solid #00B9BC;
   filter: brightness(100%);
 }
 
@@ -268,18 +292,20 @@
   }
 
   .menu__child-toggle {
-    position: absolute;
-    right: 5px;
-    top: 30px;
+    margin-left: 6px;
     z-index: 2;
   }
 
-  .menu__item--depth-1 > .menu__child-toggle {
+  .menu__item--open > .menu__child-toggle {
+    transform: rotate(-180deg);
+  }
+
+  /* .menu__item--depth-1 > .menu__child-toggle {
     position: static;
     right: 0;
     top: 0;
     vertical-align: middle;
-  }
+  } */
 }
 
 /* Menu items mobile */
