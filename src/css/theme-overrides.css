@@ -204,6 +204,7 @@ h2,
   {{ h2_font.style }};
   color: {{ h2_font.color }};
   font-size: {{ h2_font.size ~ h2_font.size_unit }};
+  line-height: 50px;
   text-transform: {{ h2_text_transform }};
 }
 
@@ -480,12 +481,12 @@ tfoot td {
 @media (min-width: 767px) {
   .menu .menu__submenu,
   .header__language-switcher .lang_list_class {
-    {{ nav_drop_down_border }}
+    /* {{ nav_drop_down_border }} */
     background-color: {{ nav_drop_down_bg_color }};
   }
 
   .menu__submenu--level-2 > .menu__item:first-child:before {
-    {{ nav_drop_down_border }}
+    /* {{ nav_drop_down_border }} */
     background-color: {{ nav_drop_down_bg_color }};
   }
 }
