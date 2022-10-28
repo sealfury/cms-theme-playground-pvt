@@ -31,59 +31,61 @@ const getElementSiblings = function (el) {
 
 if (menuParentItems) {
   Array.prototype.forEach.call(menuParentItems, function (el) {
-    // Menu item variables
-    var childToggle = el.querySelector('.menu__child-toggle');
+    if (el.classList.contains('menu__item--depth-1')) {
+      // Menu item variables
+      var childToggle = el.querySelector('.menu__child-toggle');
 
-    var getSiblings = function (element) {
-      var siblings = [];
-      var sibling = element.parentNode.firstChild;
-      while (sibling) {
-        if (sibling.nodeType === 1 && sibling !== element) {
-          siblings.push(sibling);
-        }
-        sibling = sibling.nextSibling;
-      }
-      return siblings;
-    };
-
-    // Handle toggle of submenus
-    childToggle.addEventListener('click', function () {
-      var parentSiblings = getSiblings(this.parentNode);
-
-      if (this.parentNode.classList.contains('menu__item--open')) {
-        this.parentNode.classList.remove('menu__item--open');
-        this.parentNode
-          .querySelector('a')
-          .setAttribute('aria-expanded', 'false');
-        this.parentNode
-          .querySelector('button')
-          .setAttribute('aria-expanded', 'false');
-
-        overlay.classList.remove('show-overlay');
-      } else {
-        this.parentNode.classList.add('menu__item--open');
-        this.parentNode
-          .querySelector('a')
-          .setAttribute('aria-expanded', 'true');
-        this.parentNode
-          .querySelector('button')
-          .setAttribute('aria-expanded', 'true');
-
-        // Close all open dropdowns except nav item clicked
-        parentSiblings.forEach(function (sibling) {
-          if (sibling.classList.contains('menu__item--open')) {
-            sibling.classList.remove('menu__item--open');
-            sibling.querySelector('a').setAttribute('aria-expanded', 'false');
-            sibling
-              .querySelector('button')
-              .setAttribute('aria-expanded', 'false');
-            // console.log(sibling);
+      var getSiblings = function (element) {
+        var siblings = [];
+        var sibling = element.parentNode.firstChild;
+        while (sibling) {
+          if (sibling.nodeType === 1 && sibling !== element) {
+            siblings.push(sibling);
           }
-        });
+          sibling = sibling.nextSibling;
+        }
+        return siblings;
+      };
 
-        overlay.classList.add('show-overlay');
-      }
-    });
+      // Handle toggle of submenus
+      childToggle.addEventListener('click', function () {
+        var parentSiblings = getSiblings(this.parentNode);
+
+        if (this.parentNode.classList.contains('menu__item--open')) {
+          this.parentNode.classList.remove('menu__item--open');
+          this.parentNode
+            .querySelector('a')
+            .setAttribute('aria-expanded', 'false');
+          this.parentNode
+            .querySelector('button')
+            .setAttribute('aria-expanded', 'false');
+
+          overlay.classList.remove('show-overlay');
+        } else {
+          this.parentNode.classList.add('menu__item--open');
+          this.parentNode
+            .querySelector('a')
+            .setAttribute('aria-expanded', 'true');
+          this.parentNode
+            .querySelector('button')
+            .setAttribute('aria-expanded', 'true');
+
+          // Close all open dropdowns except nav item clicked
+          parentSiblings.forEach(function (sibling) {
+            if (sibling.classList.contains('menu__item--open')) {
+              sibling.classList.remove('menu__item--open');
+              sibling.querySelector('a').setAttribute('aria-expanded', 'false');
+              sibling
+                .querySelector('button')
+                .setAttribute('aria-expanded', 'false');
+              // console.log(sibling);
+            }
+          });
+
+          overlay.classList.add('show-overlay');
+        }
+      });
+    }
   });
 
   // Close dropdown on click outside
