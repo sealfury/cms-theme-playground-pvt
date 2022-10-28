@@ -39,6 +39,132 @@
         "default": {
           "color": "#00B9BC"
         }
+      },
+      {
+        "label": "Blue Steel",
+        "name": "blue_steel",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "brandSettings.colors[2]"
+          }
+        },
+        "default": {
+          "color": "#2F3C49"
+        }
+      },
+      {
+        "label": "Purple",
+        "name": "purple",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "brandSettings.colors[3]"
+          }
+        },
+        "default": {
+          "color": "#6734FF"
+        }
+      },
+      {
+        "label": "Gold",
+        "name": "gold",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "brandSettings.colors[4]"
+          }
+        },
+        "default": {
+          "color": "#FADC61"
+        }
+      },
+      {
+        "label": "Background Grey",
+        "name": "bg_grey",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "brandSettings.colors[5]"
+          }
+        },
+        "default": {
+          "color": "#EFF3F7"
+        }
+      },
+      {
+        "label": "White",
+        "name": "white",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "default_value_paths": {
+            "color": "brandSettings.colors[6]"
+          }
+        },
+        "default": {
+          "color": "#FFFFFF"
+        }
+      },
+      {
+        "label": "Green",
+        "name": "green",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "brandSettings.colors[7]"
+          }
+        },
+        "default": {
+          "color": "#008C5A"
+        }
+      },
+      {
+        "label": "Red",
+        "name": "red",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "brandSettings.colors[8]"
+          }
+        },
+        "default": {
+          "color": "#C8102E"
+        }
       }
     ]
   },
@@ -182,7 +308,7 @@
               }
             },
             "default": {
-              "size": 38,
+              "size": 36,
               "size_unit": "px",
               "styles": {
                 "text-decoration": "none"
