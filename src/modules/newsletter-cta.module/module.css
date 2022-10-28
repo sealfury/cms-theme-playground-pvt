@@ -10,6 +10,7 @@
 }
 
 .col .text {
+  color: #FFFFFF;
   display: flex;
   flex-direction: column;
 }
@@ -20,4 +21,8 @@
 
 .col .form input {
   border-radius: 8px;
+}
+
+.text-purple {
+  color: #C2ADFF;
 }
