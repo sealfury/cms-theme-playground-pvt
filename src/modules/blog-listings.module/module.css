@@ -78,7 +78,7 @@
 }
 
 .blog-index__post-content {
-  border: 1px solid #476B76;
+  border: 1px solid #DFE4E9;
   border-left: none;
   display: flex;
   flex-direction: column;
@@ -88,7 +88,7 @@
 }
 
 .blog-index__post-tag {
-  color: #939393;
+  color: #525E6A;
   font-size: 0.8rem;
   text-transform: uppercase;
 }
@@ -100,7 +100,7 @@
   border-bottom: 2px solid transparent;
   border-left: none;
   border-radius: 0;
-  color: #4FA3A7;
+  color: #396D78;
   font-size: 0.8rem;
   font-weight: 700;
   transition: all 0.2s ease;
@@ -108,8 +108,8 @@
 
 .blog-index__post-button:hover {
   background-color: transparent;
-  border-color: #58B5BC;
-  color: #4FA3A7;
+  border-color: #00B9BC;
+  color: #396D78;
   filter: brightness(0.9);
 }
 

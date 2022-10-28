@@ -177,7 +177,7 @@
         "locked": false,
         "type": "color",
         "default": {
-          "color": "#58b5bc"
+          "color": "#00B9BC"
         }
       },
       {
@@ -189,7 +189,7 @@
         "locked": "false",
         "type": "color",
         "default": {
-          "color": "#28282A"
+          "color": "#0F1E2D"
         }
       }
     ],

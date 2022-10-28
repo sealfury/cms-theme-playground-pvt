@@ -35,10 +35,10 @@
             path="@hubspot/logo" %}
         </div>
 
-        {% if content.translated_content|length or is_listing_view and group.translations %}
+        {# {% if content.translated_content|length or is_listing_view and group.translations %} #}
           <div class="header--toggle header__language-switcher--toggle"></div>
-        {% endif %}
-        {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
+        {# {% endif %} #}
+        {# {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %} #}
           <div class="header__language-switcher header--element">
             <div class="header__language-switcher--label">
               {% module "language-switcher"
@@ -50,7 +50,7 @@
               </div>
             </div>
           </div>
-        {% endif %}
+        {# {% endif %} #}
       </div>
 
       {# Header navigation row two #}
@@ -64,9 +64,11 @@
             path="../../modules/menu",
             label="Primary navigation" %}
         </div>
+        {# TODO: add extra class to reduce button font size #}
         <div class="header__navigation header--element">
           {% module "trial-cta"
             path="../../modules/button",
+            extra_classes="button-header",
             label="Trial CTA" %}
         </div>
       </div>

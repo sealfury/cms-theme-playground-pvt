@@ -75,6 +75,12 @@
   width: auto;
 }
 
+/* Header Buttons */
+.button-header > .button-wrapper a {
+  color: #0F1E2D !important;
+  font-size: 14px;
+}
+
 /* Logo */
 
 .header__logo {
@@ -258,16 +264,14 @@
   margin-left: 0.7rem;
 }
 
-.header__language-switcher--label-current:after {
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 6px solid #494A52;
+.header__language-switcher--label-current:before {
+  background: url("{{ get_asset_url('../../images/module-icons/chevron-icon-light.png') }}") no-repeat;
   content: "";
   display: block;
-  height: 0px;
+  height: 16px;
   margin-left: 0.7rem;
   margin-top: 0.175rem;
-  width: 0px;
+  width: 16px;
 }
 
 @media (max-width: 767px) {
