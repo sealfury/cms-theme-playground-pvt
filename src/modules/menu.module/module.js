@@ -8,6 +8,7 @@ var childToggle = document.querySelectorAll(
 );
 var overlay = document.getElementById('overlay');
 var mainContent = document.getElementById('main-content');
+var dropdownSubmenus = document.querySelectorAll('.menu__item--depth-2');
 
 // Get element siblings
 const getElementSiblings = function (el) {
@@ -96,6 +97,20 @@ if (menuParentItems) {
         overlay.classList.remove('show-overlay');
       }
     });
+  });
+}
+
+if (dropdownSubmenus) {
+  dropdownSubmenus.forEach(function (submenu) {
+    if (submenu.parentNode.classList.contains('client-cases')) {
+      var childMenu = submenu.querySelectorAll('.menu__submenu--level-3');
+      childMenu.forEach(function (menu) {
+        var links = menu.querySelectorAll('.menu__link');
+        links.forEach(function (l) {
+          l.classList.add('menu__link--client-cases');
+        });
+      });
+    }
   });
 }
 

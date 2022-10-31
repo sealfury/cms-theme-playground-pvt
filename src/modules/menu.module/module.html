@@ -91,8 +91,17 @@
   {% set menu = menu(module.menu, "site_root").children %}
 
   {% macro render_link_item(link, depth) %}
+    {% if depth = 1 %}
+      {% set topLabelArr = [
+        "menu__item--",
+        link.label|split|join("-")|lower
+      ] %}
+      {% set topLabelClass = topLabelArr|join %}
+    {% else %}
+      {% set topLabelClass = "" %}
+    {% endif %}
     <li
-      class="menu__item menu__item--depth-{{ depth }} {{ "menu__item--has-submenu" if link.children and depth < module.max_levels }} menu__item--{{ depth == 1 and link.label|lower }} hs-skip-lang-url-rewrite"
+      class="menu__item menu__item--depth-{{ depth }} {{ "menu__item--has-submenu" if link.children and depth < module.max_levels }} {{ topLabelClass }} hs-skip-lang-url-rewrite"
     >
       {% if link.url %}
         <a class="menu__link {{ "menu__link--toggle" if link.children and depth < module.max_levels }} {{ "menu__link--active-branch" if link.activeBranch }} {{ "menu__link--active-link" if link.activeNode }}" href="{{ link.url }}" {{ "aria-haspopup=\"true\" aria-expanded=\"false\"" if link.children and depth < module.max_levels }} {{ "aria-current=\"page\"" if link.activeNode }} {{ "target=\"_blank\" rel=\"noopener\"" if link.linkTarget }}
@@ -129,7 +138,14 @@
               </a>
             {% endif %}
             {% set depth = depth + 1 %}
-            <div class="menu__wrapper--level-{{ depth }}">
+
+            {% if link.label == "Client Cases" and depth > 1 %}
+              {% set labelClass = link.label|split|join("-")|lower %}
+            {% else %}
+              {% set labelClass = "" %}
+            {% endif %}
+            
+            <div class="menu__wrapper--level-{{ depth }} {{ labelClass }}">
               {% for sublink in link.children %}
               {{ render_link_item(sublink, depth) }}
               {% endfor %}
