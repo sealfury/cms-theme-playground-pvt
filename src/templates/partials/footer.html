@@ -7,6 +7,58 @@
     label="Footer",
     class="footer__container content-wrapper" %}
 
+    {# Menu items #}
+
+    {% dnd_section
+      max_width=1400,
+      horizontal_alignment="CENTER",
+      vertical_alignment="TOP" %}
+
+      {# Col 1 #}
+      {% dnd_column
+        width=4,
+        offset=0 %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/simple_menu" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/simple_menu" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+
+      {# Col 2 #}
+      {% dnd_column
+        width=4,
+        offset=4 %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/simple_menu" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/simple_menu" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+
+      {# Col 3 #}
+      {% dnd_column
+        width=4,
+        offset=8 %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/simple_menu" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+
+    {% end_dnd_section %}
+
     {# Social follow and copyright #}
 
     {% dnd_section %}

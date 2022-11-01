@@ -141,6 +141,25 @@
   width: clamp(800px, 80vw, 1440px);
 }
 
+.menu__item--products > .menu__submenu--level-2 {
+  flex-direction: column-reverse;
+}
+
+.hs-menu-depth-1 {
+  padding: 0.6rem 1rem;
+}
+
+.hs-menu-depth-1 > a {
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+.hs-menu-depth-1 > a:hover {
+  border-bottom: 2px solid #00B9BC;
+  filter: brightness(100%);
+}
+
 /* Keeps the first menu item's drop down menu aligned to the left of the top level menu item */
 
 .menu__item--depth-1:first-child .menu__submenu--level-2 {

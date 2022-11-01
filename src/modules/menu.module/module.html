@@ -91,17 +91,18 @@
   {% set menu = menu(module.menu, "site_root").children %}
 
   {% macro render_link_item(link, depth) %}
-    {% if depth = 1 %}
+    {# {% if depth = 1 %}
       {% set topLabelArr = [
         "menu__item--",
         link.label|split|join("-")|lower
       ] %}
-      {% set topLabelClass = topLabelArr|join %}
-    {% else %}
-      {% set topLabelClass = "" %}
-    {% endif %}
+      {% set topLabelClass = topLabelArr|join %} #}
+    {# {% else %}
+      {% set topLabelClass = "" %} #}
+    {# {% endif %} #}
+
     <li
-      class="menu__item menu__item--depth-{{ depth }} {{ "menu__item--has-submenu" if link.children and depth < module.max_levels }} {{ topLabelClass }} hs-skip-lang-url-rewrite"
+      class="menu__item menu__item--depth-{{ depth }} {{ "menu__item--has-submenu" if link.children and depth < module.max_levels }} {{ "menu__item--products" if link.label is equalto("Products") }} hs-skip-lang-url-rewrite"
     >
       {% if link.url %}
         <a class="menu__link {{ "menu__link--toggle" if link.children and depth < module.max_levels }} {{ "menu__link--active-branch" if link.activeBranch }} {{ "menu__link--active-link" if link.activeNode }}" href="{{ link.url }}" {{ "aria-haspopup=\"true\" aria-expanded=\"false\"" if link.children and depth < module.max_levels }} {{ "aria-current=\"page\"" if link.activeNode }} {{ "target=\"_blank\" rel=\"noopener\"" if link.linkTarget }}
@@ -137,6 +138,51 @@
                 overview
               </a>
             {% endif %}
+
+            {% if link.label == "Products" and depth < 2 %}
+              {% widget_block simple_menu "products_simple_menu"
+                overrideable=True,
+                orientation="horizontal",
+                class="products-submenu",
+                label="Simple Menu" %} 
+                {% widget_attribute "menu_tree" is_json=True %} 
+                  [ 
+                    { 
+                      "contentType": null, 
+                      "subCategory": null, 
+                      "pageLinkName": null, 
+                      "pageLinkId": null, 
+                      "isPublished": false, 
+                      "categoryId": null,
+                      "linkParams": null, 
+                      "linkLabel": "Download" 
+                    }, 
+                    { 
+                      "contentType": null,
+                      "subCategory": null, 
+                      "linkLabel": "Pricing" 
+                    }, 
+                    { 
+                      "contentType": null,
+                      "linkLabel": "Support" 
+                    }, 
+                    {
+                      "contentType": null,
+                      "linkLabel": "For your industry" 
+                    }, 
+                    { 
+                      "contentType": null, 
+                      "linkLabel": "For your role" 
+                    }, 
+                    {
+                      "contentType": null, 
+                      "linkLabel": "What's new?" 
+                    } 
+                  ]
+                {% end_widget_attribute %} 
+              {% end_widget_block %} 
+            {% endif %}
+
             {% set depth = depth + 1 %}
 
             {% if link.label == "Client Cases" and depth > 1 %}
@@ -144,7 +190,7 @@
             {% else %}
               {% set labelClass = "" %}
             {% endif %}
-            
+
             <div class="menu__wrapper--level-{{ depth }} {{ labelClass }}">
               {% for sublink in link.children %}
               {{ render_link_item(sublink, depth) }}
