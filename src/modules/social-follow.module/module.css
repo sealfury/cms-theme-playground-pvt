@@ -5,6 +5,10 @@
   justify-content: center;
 }
 
+.social-links__link:first-child > .social-links__icon {
+  margin-left: 0;
+}
+
 .social-links__icon {
   border-radius: 50%;
   display: inline-flex;

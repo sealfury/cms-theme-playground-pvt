@@ -4,7 +4,7 @@
     "name": "social_links",
     "type": "group",
     "occurrence": {
-      "default": 4,
+      "default": 3,
       "min": 1
     },
     "children": [
@@ -41,7 +41,7 @@
         "required": true,
         "default": {
           "name": "arrow-alt-circle-up",
-          "type" : "SOLID",
+          "type": "SOLID",
           "unicode": "f35b"
         }
       },
@@ -158,6 +158,9 @@
               "hidden_subfields": {
                 "opacity": true
               }
+            },
+            "default": {
+              "color": "#0F1E2D"
             }
           }
         ]
@@ -175,7 +178,8 @@
             "max": 50,
             "min": 1,
             "step": 1,
-            "suffix": "px"
+            "suffix": "px",
+            "default": 16
           }
         ]
       },
@@ -187,7 +191,11 @@
           {
             "label": "Color",
             "name": "color",
-            "type": "color"
+            "type": "color",
+            "default": {
+              "color": "#FFFFFF",
+              "opacity": 100
+            }
           }
         ]
       },
