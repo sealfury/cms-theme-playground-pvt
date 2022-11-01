@@ -3,66 +3,43 @@
   label: Footer
 -->
 <footer class="footer">
+  {# Menu items #}
+  <div class="footer__container content-wrapper">
+    {% menu "footer_menu"
+      id=55479164115,
+      site_map_name="Footer menu",
+      overrideable=False,
+      root_type="site_root",
+      flyouts="false",
+      max_levels="2",
+      flow="horizontal",
+      extra_classes="footer__menu",
+      label="Footer menu" %}
+  </div>
+
   {% dnd_area "footer"
     label="Footer",
     class="footer__container content-wrapper" %}
 
-    {# Menu items #}
+    {# Social follow and copyright #}
 
     {% dnd_section
       max_width=1400,
       horizontal_alignment="CENTER",
       vertical_alignment="TOP" %}
-
-      {# Col 1 #}
       {% dnd_column
-        width=4,
+        width=8,
         offset=0 %}
         {% dnd_row %}
-          {% dnd_module
-            path="@hubspot/simple_menu" %}
+          {% dnd_module "site_logo"
+            img={
+              "override_inherited_src": true,
+              "src": "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/logo-white.png",
+              "alt": "logo white"
+            },
+            path="@hubspot/logo" %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {% dnd_row %}
-          {% dnd_module
-            path="@hubspot/simple_menu" %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-
-      {# Col 2 #}
-      {% dnd_column
-        width=4,
-        offset=4 %}
-        {% dnd_row %}
-          {% dnd_module
-            path="@hubspot/simple_menu" %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row %}
-          {% dnd_module
-            path="@hubspot/simple_menu" %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-
-      {# Col 3 #}
-      {% dnd_column
-        width=4,
-        offset=8 %}
-        {% dnd_row %}
-          {% dnd_module
-            path="@hubspot/simple_menu" %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-
-    {% end_dnd_section %}
-
-    {# Social follow and copyright #}
-
-    {% dnd_section %}
-      {% dnd_column %}
         {% dnd_row %}
           {% dnd_module
             path="../../modules/social-follow" %}
@@ -83,6 +60,10 @@
             html="<div style=\"text-align: center; font-size: 0.7rem;\"><span>© {{ year }} All rights reserved.</span></div>" %}
           {% end_dnd_module %}
         {% end_dnd_row %}
+      {% end_dnd_column %}
+      {% dnd_column
+        width=4,
+        offset=8 %}
       {% end_dnd_column %}
     {% end_dnd_section %}
 
