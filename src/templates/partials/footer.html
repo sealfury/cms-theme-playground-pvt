@@ -8,16 +8,14 @@
     position="footer" %}
     <script>
       var listItems = document.querySelectorAll(".hs-menu-depth-2");
-      console.log(listItems);
       var lastItem = listItems[listItems.length - 1];
-      console.log(lastItem);
       var form = document.getElementById("hs_form_target_stay_up_to_date");
       lastItem.insertAdjacentElement("afterend", form);
     </script>
   {% end_require_js %}
 
   {# Menu items #}
-  <div class="footer__container content-wrapper">
+  <div class="footer__container">
     {% menu "footer_menu"
       id=55479164115,
       site_map_name="Footer menu",
@@ -29,13 +27,13 @@
       extra_classes="footer__menu",
       label="Footer menu" %}
     {% form "stay_up_to_date"
-      form_to_use="deef7351-b975-4b43-b06e-321ea4da7bc8",
+      form_to_use="56dd0d9c-bb91-432e-b5f1-166513284545",
       no_title=True %}
   </div>
 
   {% dnd_area "footer"
     label="Footer",
-    class="footer__container content-wrapper" %}
+    class="footer__container" %}
 
     {# Social follow and copyright #}
 
