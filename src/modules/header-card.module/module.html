@@ -1,0 +1,26 @@
+{% require_css %}
+  <style>
+    {% scope_css %}
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+
+<div class="header__card--{{ module.card_size }}">
+  <ul class="header__card-content--{{ module.card_size }}">
+    <li class="header__card--title">
+      <span>ICON GOES HERE</span>
+      <span>{{ module.title.text }}</span>
+    </li>
+    <li class="header__card--subtitle-{{ module.card_size }}">
+      <span>{{ module.subtitle.text }}</span>
+    </li>
+    {% if module.features_group.children and module.card_size is equalto("large") %}
+      {% for feature in module.features_group.children %}
+        <li class="header__card--feature">
+          {{ feature.text }}
+        </li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+</div>
