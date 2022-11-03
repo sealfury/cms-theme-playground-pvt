@@ -393,6 +393,17 @@ form .hs-button:active {
   border-color: {{ color_variant(theme.buttons.border.border.top.color, 40) }};
 }
 
+/* Remove focus outlines unless user is navigating with keyboard */
+
+body:not(.is-tabbing) button:focus,
+body:not(.is-tabbing) input:focus,
+body:not(.is-tabbing) input:focus-within,
+body:not(.is-tabbing) select:focus,
+body:not(.is-tabbing) textarea:focus,
+body:not(.is-tabbing) textarea:focus-within {
+  outline: none;
+}
+
 {###########################################################################}
 {#############################   6. Tables   ###############################}
 {###########################################################################}

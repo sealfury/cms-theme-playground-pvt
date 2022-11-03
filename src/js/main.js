@@ -87,6 +87,14 @@
     });
   }
 
+  // Function to add focus ring if user is navigating with keyboard
+  function handleFirstTab (e) {
+    if (e.keyCode === 9) {
+      document.body.classList.add('is-tabbing');
+      window.removeEventListener('keydown', handleFirstTab);
+    } 
+  }
+
   // Execute JavaScript on document ready
   domReady(function () {
     if (!document.body) {
@@ -116,6 +124,9 @@
       if (emailGlobalUnsub) {
         emailGlobalUnsub.addEventListener('change', toggleDisabled);
       }
+
+      // Add keydown listener
+      window.addEventListener('keydown', handleFirstTab);
     }
   });
 })();
