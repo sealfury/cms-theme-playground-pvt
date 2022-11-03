@@ -26,8 +26,8 @@
     "validation_regex": "",
     "label": "Subtitle",
     "name": "subtitle",
-    "required": true,
-    "default": "Max 3 lines for large cards, max 1 line for small"
+    "required": false,
+    "default": ""
   },
   {
     "type": "group",
@@ -40,7 +40,8 @@
         "id": "d25c58ef-d5d9-1170-3009-c3612eaf067e",
         "validation_regex": "",
         "label": "Feature",
-        "name": "feature"
+        "name": "feature",
+        "default": "Flexible, efficient & dynamic"
       },
       {
         "type": "text",
@@ -48,16 +49,26 @@
         "label": "Second feature",
         "name": "second_feature",
         "oldId": "d25c58ef-d5d9-1170-3009-c3612eaf067e",
-        "id": "3fba3c66-cd63-0196-61a3-b248336e3567"
+        "id": "3fba3c66-cd63-0196-61a3-b248336e3567",
+        "default": "The right information at the right time"
       },
       {
         "type": "text",
         "id": "53cf2ac2-dc89-57f8-7254-e6b76629fe0b",
         "validation_regex": "",
         "label": "Third Feature",
-        "name": "third_feature"
+        "name": "third_feature",
+        "default": "Report within 30 seconds"
       }
     ],
     "default": {}
+  },
+  {
+    "type": "text",
+    "label": "Hidden Link",
+    "name": "card_link",
+    "default": "#",
+    "required": false,
+    "hidden": true
   }
 ]

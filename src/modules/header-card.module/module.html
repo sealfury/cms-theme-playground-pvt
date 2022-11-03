@@ -1,23 +1,73 @@
 {% require_css %}
   <style>
     {% scope_css %}
+      {% set base_path = "../../images/module-icons/" %}
+      
+      {% set checkmark_path = base_path ~ "checkmark-icon-light.png" %}
+
+      .header-card__feature::before {
+        background: url("{{ get_asset_url(checkmark_path) }}") no-repeat;
+        content: '';
+        display: block;
+        height: 10px;
+        margin-right: 6px;
+        width: 12px;
+      }
+
+      {# TODO: replace with array of possible icon paths and write macro
+      assigning nth-child(n) / nth-of-type(n) module url at index n in array  
+      to account for eventual language switching #}
+      {% set title_lower = module.title.value|lower %}
+
+      {% if title_lower is string_containing "maintmaster" %}
+        {% set title_icon_path = base_path ~ "process-icon-teal.png" %}
+      {% elif title_lower is string_containing "scheduling" %}
+        {% set title_icon_path = base_path ~ "scheduling-icon-teal.png" %}
+      {% elif title_lower is string_containing "picture" %}
+        {% set title_icon_path = base_path ~ "picture-icon-teal.png" %}
+      {% elif title_lower is string_startingwith "qr" %}
+        {% set title_icon_path = base_path ~ "qr-icon-teal.png" %}
+      {% elif title_lower is string_containing "analyze" %}
+        {% set title_icon_path = base_path ~ "analyze-icon-teal.png" %}
+      {% elif title_lower is string_startingwith "lorem" %}
+        {% set title_icon_path = base_path ~ "itmanager-icon-teal.png" %}
+      {% elif title_lower is string_startingwith "praesent" %}
+        {% set title_icon_path = base_path ~ "edit-icon-teal.png" %}
+      {% endif %}
+
+      .header-card__title::before {
+        background: url("{{ get_asset_url(title_icon_path) }}") no-repeat;
+        content: '';
+        height: 2.5rem;
+        padding: 10px;
+        width: 2.5rem;
+      }
+
     {% end_scope_css %}
   </style>
 {% end_require_css %}
 
+{# Temporarily handle large card subtitles #}
+{% if module.subtitle.value == "" %}
+  {% set subtitle = "Sed posuere consectetur est at lobortis. " %}
+  {% set subtitle = subtitle ~ "Cras mattis consectetur purus sit amet fermentum. " %}
+  {% set subtitle = subtitle ~ "Etiam porta sem." %}
+{% else %}
+  {% set subtitle = module.subtitle.value %}
+{% endif %}
 
-<div class="header__card--{{ module.card_size }}">
-  <ul class="header__card-content--{{ module.card_size }}">
-    <li class="header__card--title">
-      <span>ICON GOES HERE</span>
-      <span>{{ module.title.text }}</span>
+<div class="header-card header-card__{{ module.card_size }}">
+  <ul class="header-card__content--{{ module.card_size }}">
+    <li class="header-card__title">
+      {# <span>ICON GOES HERE</span> #}
+      <span>{{ module.title }}</span>
     </li>
-    <li class="header__card--subtitle-{{ module.card_size }}">
-      <span>{{ module.subtitle.text }}</span>
+    <li class="header-card__subtitle--{{ module.card_size }}">
+      <span>{{ module.subtitle }}</span>
     </li>
     {% if module.features_group.children and module.card_size is equalto("large") %}
       {% for feature in module.features_group.children %}
-        <li class="header__card--feature">
+        <li class="header-card__feature">
           {{ feature.text }}
         </li>
       {% endfor %}
