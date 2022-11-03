@@ -44,3 +44,50 @@ Example:
   rgba({{ colorhex }}, {{ coloropacity }})
 
 {% endmacro %}
+
+{% macro convertToRem(prop, value) %}
+
+  {% if !baseFontSize %}
+    {% if theme.text.body_font.font.size is defined %}
+      {% set baseFontSize = theme.text.body_font.font.size %}
+    {% else %}
+      {% set baseFontSize = 16 %}
+    {% endif %}
+  {% endif %}
+
+  {% if (prop|length > 0) and (val|length == 0) %}
+    {% set values = prop|split(' ') %}
+    {% for v in values %}
+      {% if v|float == 0 %}
+        {% set remVal = v %}
+      {% else %}
+        {% set remVal = v/baseFontSize %}
+      {% endif %}
+      {% set remArr = remArr ~ remVal ~"," %}
+      {% if loop.last %}
+        {% set remArr = remArr|split(',', 9) %}
+        {% for r in remArr %} {{ r }}{% if r|float != 0%}rem{% endif %}{% endfor %}
+      {% endif %}
+    {% endfor %}
+
+  {% else %}
+    {% set values = value|split(' ') %}
+    {% for v in values %}
+      {% if v|float == 0 %}
+        {% set remVal = v %}
+      {% else %}
+        {% set remVal = v/baseFontSize %}
+      {% endif %}
+      {% set pxArr = pxArr ~ v ~"," %}
+      {% set remArr = remArr ~ remVal ~"," %}
+      {% if loop.last %}
+        {% set pxArr = pxArr|split(',', 9) %}
+        {% set remArr = remArr|split(',', 0) %}
+        {{ prop }}:{% for p in pxArr %} {{ p }}{% if p|float != 0 %}px{% endif %}{% endfor %};
+        {{ prop }}:{% for r in remArr %} {{ r }}{% if r|float != 0 %}rem{% endif %}{% endfor %};
+      {% endif %}
+    {% endfor %}
+
+  {% endif %}
+
+{%endmacro%}
