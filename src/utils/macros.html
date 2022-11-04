@@ -1,46 +1,33 @@
-{# TODO: CONVERT HEADER-CARD MODULE TO MACRO FOR USE IN MENU #}
+{# Header nav menu card #}
 
-{% macro headerCard(title, size, location = "") %}
-  {% if location == "modules" or location == "sections" %}
-    {% set base_path = "../../images/module-icons/" %}
-  {% else %}
-    {% set base_path = "../images/module-icons/" %}
-  {% endif %}
+{% macro headerCard(title, size,
+sub="",
+features=[]) %}
 
-  {% if title|lower is string_containing("maintmaster") %}
-    {% set title_icon_path = base_path ~ "process-icon-teal.png" %}
-  {% elif title|lower is string_containing("scheduling") %}
-    {% set title_icon_path = base_path ~ "scheduling-icon-teal.png" %}
-  {% elif title|lower is string_containing("picture") %}
-    {% set title_icon_path = base_path ~ "picture-icon-teal" %}
-  {% elif title|lower is string_startingwith("qr") %}
-    {% set title_icon_path = base_path ~ "qr-icon-teal.png" %}
-  {% elif title|lower is string_containing("analyze") %}
-    {% set title_icon_path = base_path ~ "analyze-icon-teal.png" %}
-  {% elif title|lower is string_startingwith("lorem") %}
-    {% set title_icon_path = base_path ~ "itmanager-icon-teal.png" %}
-  {% elif title|lower is string_startingwith("praesent") %}
-    {% set title_icon_path = base_path ~ "edit-icon-teal.png" %}
-  {% else %}
-    {% set title_icon_path = "../../images/module-icons/process-icon-teal.png" %}
-  {% endif %}
-
-  {% set subtitle = "Sed posuere consectetur est at lobortis. " %}
-  {% if size == "large" %}
+  {% if sub == "" %}
+    {% set subtitle = "Sed posuere consectetur est at lobortis. " %}
     {% set subtitle = subtitle ~ "Cras mattis consectetur purus sit amet fermentum. " %}
     {% set subtitle = subtitle ~ "Etiam porta sem." %}
+  {% else %}
+    {% set subtitle = sub %}
   {% endif %}
 
-  {% set features_group = [
-    "Flexible, efficient & dynamic",
-    "The right information at the right time",
-    "Report within 30 seconds"
-  ] %}
+  {% if !features.length %}
+    {% set features_group = [
+      "Flexible, efficient & dynamic",
+      "The right information at the right time",
+      "Report within 30 seconds"
+    ] %}
+  {% else %}
+    {% set features_group = features %}
+  {% endif %}
+
+  {% set title_string = title|string|lower|split(" ", 3) %}
+  {% set title_class = title_string.pop(0) %}
 
   <div class="header-card header-card__{{ size }}">
     <ul class="header-card__content--{{ size }}">
-      <li class="header-card__title">
-        <img src="{{ title_icon_path }}" />
+      <li class="header-card__title header-card__title--{{ title_class }}">
         <span>{{ title }}</span>
       </li>
       <li class="header-card__subtitle--{{ size }}">
@@ -48,9 +35,9 @@
       </li>
       {% if (features_group|length > 0) and (size == "large") %}
         {% for feature in features_group %}
-          <li class="header-card__feature">
-            {{ feature }}
-          </li>
+        <li class="header-card__feature">
+          {{ feature }}
+        </li>
         {% endfor %}
       {% endif %}
     </ul>

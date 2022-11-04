@@ -83,6 +83,44 @@
         {% endif %}
       }
 
+      {% set checkmark_path = "../../images/module-icons/checkmark-icon-light.png" %}
+
+      .header-card__feature::before {
+        background: url("{{ get_asset_url(checkmark_path) }}") no-repeat;
+        content: '';
+        display: block;
+        height: 14px;
+        margin-right: 6px;
+        width: 14px;
+      }
+
+      {% set base_path = "../../images/module-icons/" %}
+
+      {% set icon_associations = {
+        "maintmaster": "process-icon-teal.png",
+        "scheduling": "scheduling-icon-teal.png",
+        "picture": "picture-icon-teal.png",
+        "qr": "qr-icon-teal.png",
+        "analyze": "analyze-icon-teal.png",
+        "lorem": "itmanager-icon-teal.png",
+        "praesent": "edit-icon-teal.png" 
+      } %}
+
+      {% for key, val in icon_associations.items() %}
+        {% set path = base_path ~ val %}
+        {% set class = ".header-card__title--" ~ key %}
+
+        {{ class }}::before {
+          background: url("{{ get_asset_url(path) }}") no-repeat;
+          content: '';
+          display: block;
+          height: 2.5rem;
+          padding: 10px;
+          transform: translateY(2px);
+          width: 2.5rem;
+        }
+      {% endfor %}
+
     {% end_scope_css %}
   </style>
 {% end_require_css %}
@@ -97,9 +135,6 @@
     <li
       class="menu__item menu__item--depth-{{ depth }} {{ "menu__item--has-submenu" if link.children and depth < module.max_levels }} {{ "menu__item--products" if link.label is equalto("Products") }} hs-skip-lang-url-rewrite"
     >
-      {# {% if depth == 2 %}
-        <span>{{ depth }}{{ link.children.label }}</span>
-      {% endif %} #}
       {% if link.url %}
         <a class="menu__link {{ "menu__link--toggle" if link.children and depth < module.max_levels }} {{ "menu__link--active-branch" if link.activeBranch }} {{ "menu__link--active-link" if link.activeNode }}" href="{{ link.url }}" {{ "aria-haspopup=\"true\" aria-expanded=\"false\"" if link.children and depth < module.max_levels }} {{ "aria-current=\"page\"" if link.activeNode }} {{ "target=\"_blank\" rel=\"noopener\"" if link.linkTarget }}
           >{{ link.label }}</a
@@ -192,9 +227,9 @@
             <div class="menu__wrapper--level-{{ depth }} {{ labelClass }}">
               {% for sublink in link.children %}
                 {% if (depth == 3) and (link.label|lower == "product") %}
-                  {{ headerCard(sublink.label|string, "large", "modules") }}
+                  {{ headerCard(sublink.label, "large") }}
                 {% elif (depth == 3) and (link.label|lower == "key features") %}
-                  {{ headerCard(sublink.label|string, "small", "modules") }}
+                  {{ headerCard(sublink.label, "small") }}
                 {% else %}
                   {{ render_link_item(sublink, depth) }}
                 {% endif %}

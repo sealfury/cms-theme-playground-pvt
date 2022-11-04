@@ -80,7 +80,6 @@ if (menuParentItems) {
               sibling
                 .querySelector('button')
                 .setAttribute('aria-expanded', 'false');
-              // console.log(sibling);
             }
           });
 
@@ -101,6 +100,7 @@ if (menuParentItems) {
   });
 }
 
+// Assign classes for targeted styling of various nav dropdowns
 if (dropdownSubmenus) {
   dropdownSubmenus.forEach(function (submenu) {
     if (submenu.parentNode.classList.contains('client-cases')) {
@@ -118,9 +118,9 @@ if (dropdownSubmenus) {
 if (productsMenuItems) {
   productsMenuItems.forEach(function (item) {
     if (item.classList.contains('menu__item--products')) {
-      var submenuItems = item.querySelectorAll('.menu__wrapper--level-3');
+      var submenuItems = item.querySelectorAll('.menu__submenu--level-3');
       submenuItems.forEach(function (i) {
-        i.classList.add('menu__wrapper--products');
+        i.classList.add('menu__submenu--products');
       });
     }
   });

@@ -115,22 +115,21 @@
 }
 
 /* Custom nav menu item cards */
-/* TODO: add widths? TRY REM MACRO */
 .header-card {
   background-color: transparent;
   border: 1px solid #DFE4E9;
   border-radius: 4px;
-  /* padding: 6.15%; */
-  transition: all 0.3s ease-in-out;
-  width: 100%;
-}
-
-.header-card__large {
-  padding: 6.15%;
+  padding: 24px;
+  transition: all 0.2s ease-in-out;
+  width: 390px;
 }
 
 .header-card__small {
-  padding: 24px;
+  margin-right: 14px;
+}
+
+.header-card__large {
+  height: 100%;
 }
 
 .header-card:hover,
@@ -145,11 +144,11 @@
 }
 
 .header-card ul {
-  align-items: center;
   display: flex;
   flex-direction: column;
   gap: 0.5rem !important;
   list-style: none;
+  padding: 0;
 }
 
 .header-card__title {
@@ -162,7 +161,7 @@
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.75rem;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .header-card__title > img {
@@ -172,7 +171,7 @@
 }
 
 .header-card__subtitle--large {
-  padding: 6px 0 8px;
+  padding: 4px 0 8px;
 }
 
 .header-card__subtitle--large > span {
@@ -180,14 +179,16 @@
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.5rem;
+  white-space: pre-wrap;
 }
 
 .header-card__subtitle--small {
-  padding: 6px 0 0;
+  padding: 0;
 }
 
 .header-card__subtitle--small > span {
   color: #4B565D;
+  display: block;
   font-size: 0.875rem;
   font-weight: 500;
   overflow: hidden;
@@ -204,14 +205,14 @@
   line-height: 24px;
 }
 
-.header-card__feature::before {
-  background: url("../../images/module-icons/checkmark-icon-light.png") no-repeat;
+/* .header-card__feature::before {
+  background: url("{{ get_asset_url('../../images/module-icons/checkmark-icon-light.png') }}") no-repeat;
   content: '';
   display: block;
   height: 10px;
   margin-right: 6px;
   width: 12px;
-}
+} */
 
 /* Search bar */
 
