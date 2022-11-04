@@ -1,0 +1,59 @@
+{# TODO: CONVERT HEADER-CARD MODULE TO MACRO FOR USE IN MENU #}
+
+{% macro headerCard(title, size, location = "") %}
+  {% if location == "modules" or location == "sections" %}
+    {% set base_path = "../../images/module-icons/" %}
+  {% else %}
+    {% set base_path = "../images/module-icons/" %}
+  {% endif %}
+
+  {% if title|lower is string_containing("maintmaster") %}
+    {% set title_icon_path = base_path ~ "process-icon-teal.png" %}
+  {% elif title|lower is string_containing("scheduling") %}
+    {% set title_icon_path = base_path ~ "scheduling-icon-teal.png" %}
+  {% elif title|lower is string_containing("picture") %}
+    {% set title_icon_path = base_path ~ "picture-icon-teal" %}
+  {% elif title|lower is string_startingwith("qr") %}
+    {% set title_icon_path = base_path ~ "qr-icon-teal.png" %}
+  {% elif title|lower is string_containing("analyze") %}
+    {% set title_icon_path = base_path ~ "analyze-icon-teal.png" %}
+  {% elif title|lower is string_startingwith("lorem") %}
+    {% set title_icon_path = base_path ~ "itmanager-icon-teal.png" %}
+  {% elif title|lower is string_startingwith("praesent") %}
+    {% set title_icon_path = base_path ~ "edit-icon-teal.png" %}
+  {% else %}
+    {% set title_icon_path = "../../images/module-icons/process-icon-teal.png" %}
+  {% endif %}
+
+  {% set subtitle = "Sed posuere consectetur est at lobortis. " %}
+  {% if size == "large" %}
+    {% set subtitle = subtitle ~ "Cras mattis consectetur purus sit amet fermentum. " %}
+    {% set subtitle = subtitle ~ "Etiam porta sem." %}
+  {% endif %}
+
+  {% set features_group = [
+    "Flexible, efficient & dynamic",
+    "The right information at the right time",
+    "Report within 30 seconds"
+  ] %}
+
+  <div class="header-card header-card__{{ size }}">
+    <ul class="header-card__content--{{ size }}">
+      <li class="header-card__title">
+        <img src="{{ title_icon_path }}" />
+        <span>{{ title }}</span>
+      </li>
+      <li class="header-card__subtitle--{{ size }}">
+        <span>{{ subtitle }}</span>
+      </li>
+      {% if (features_group|length > 0) and (size == "large") %}
+        {% for feature in features_group %}
+          <li class="header-card__feature">
+            {{ feature }}
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </div>
+
+{% endmacro %}

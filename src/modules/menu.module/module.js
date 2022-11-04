@@ -9,6 +9,7 @@ var childToggle = document.querySelectorAll(
 var overlay = document.getElementById('overlay');
 var mainContent = document.getElementById('main-content');
 var dropdownSubmenus = document.querySelectorAll('.menu__item--depth-2');
+var productsMenuItems = document.querySelectorAll('.menu__item--depth-1');
 
 // Get element siblings
 const getElementSiblings = function (el) {
@@ -109,6 +110,17 @@ if (dropdownSubmenus) {
         links.forEach(function (l) {
           l.classList.add('menu__link--client-cases');
         });
+      });
+    }
+  });
+}
+
+if (productsMenuItems) {
+  productsMenuItems.forEach(function (item) {
+    if (item.classList.contains('menu__item--products')) {
+      var submenuItems = item.querySelectorAll('.menu__wrapper--level-3');
+      submenuItems.forEach(function (i) {
+        i.classList.add('menu__wrapper--products');
       });
     }
   });

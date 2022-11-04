@@ -9,7 +9,7 @@
 .header-card:hover,
 .header-card:active {
   background-color: #F0F5FA;
-  border-color: transparent;
+  border-color: #F0F5FA;
 }
 
 .header-card:hover .header-card__title > span {

@@ -1,3 +1,6 @@
+{# Import macros #}
+{% from "../../utils/macros.html" import headerCard %}
+
 {# Module styles #}
 
 {% require_css %}
@@ -94,6 +97,9 @@
     <li
       class="menu__item menu__item--depth-{{ depth }} {{ "menu__item--has-submenu" if link.children and depth < module.max_levels }} {{ "menu__item--products" if link.label is equalto("Products") }} hs-skip-lang-url-rewrite"
     >
+      {# {% if depth == 2 %}
+        <span>{{ depth }}{{ link.children.label }}</span>
+      {% endif %} #}
       {% if link.url %}
         <a class="menu__link {{ "menu__link--toggle" if link.children and depth < module.max_levels }} {{ "menu__link--active-branch" if link.activeBranch }} {{ "menu__link--active-link" if link.activeNode }}" href="{{ link.url }}" {{ "aria-haspopup=\"true\" aria-expanded=\"false\"" if link.children and depth < module.max_levels }} {{ "aria-current=\"page\"" if link.activeNode }} {{ "target=\"_blank\" rel=\"noopener\"" if link.linkTarget }}
           >{{ link.label }}</a
@@ -177,13 +183,21 @@
 
             {% if link.label == "Client Cases" and depth > 1 %}
               {% set labelClass = link.label|split|join("-")|lower %}
+            {% elif link.label == "Products" and depth > 1 %}
+              {% set labelClass = "products" %}
             {% else %}
               {% set labelClass = "" %}
             {% endif %}
 
             <div class="menu__wrapper--level-{{ depth }} {{ labelClass }}">
               {% for sublink in link.children %}
-              {{ render_link_item(sublink, depth) }}
+                {% if (depth == 3) and (link.label|lower == "product") %}
+                  {{ headerCard(sublink.label|string, "large", "modules") }}
+                {% elif (depth == 3) and (link.label|lower == "key features") %}
+                  {{ headerCard(sublink.label|string, "small", "modules") }}
+                {% else %}
+                  {{ render_link_item(sublink, depth) }}
+                {% endif %}
               {% endfor %}
             </div>
           </ul>
