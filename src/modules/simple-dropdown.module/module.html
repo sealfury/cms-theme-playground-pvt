@@ -7,18 +7,26 @@
     {% set hoverCheveronPath = "../../images/module-icons/chevron-icon-black.png" %}
 
     {% if module.styles.text.color.color %}
-      .top-menu__item--depth-1 > .top-menu__link {
+      .top-menu__item--depth-1 {
         {{ module.styles.border.border.css }}
+      }
+
+      .top-menu__item--depth-1 .top-menu__link {
         color: {{ module.styles.text.color.color }};
       }
 
       .top-menu__child-toggle-icon {
         background: url({{ get_asset_url(chevronPath) }}) no-repeat;
         border-top-color: {{ module.styles.text.color.color }};
+        display: block;
+        height: 16px;
+        transition: all 0.2s ease;
+        width: 16px;
       }
 
       .top-menu .top-menu__link:hover,
-      .top-menu .top-menu__link:focus {   
+      .top-menu .top-menu__link:focus,
+      .top-menu__child-toggle--open .top-menu__link {   
         color: {{ module.styles.hover.color.color }};
       }
 
@@ -39,6 +47,24 @@
 
       .top-menu .top-menu__item--depth-1 > .top-menu__link--active-link:after {
         background-color: {{ module.styles.text.color.color }};
+      }
+
+      .top-menu__item--open .top-menu__link {
+        color: {{ module.styles.hover.color.color }};
+      }
+
+      .top-menu__item--open .top-menu__link:hover,
+      .top-menu__item--open .top-menu__link:focus {
+        color: {{ module.styles.text.color.color }};
+      }
+
+      .top-menu__item--open > .top-menu__child-toggle .top-menu__child-toggle-icon {
+        background: url({{ get_asset_url(hoverCheveronPath) }}) no-repeat;
+      }
+
+      .top-menu__item--open > .top-menu__child-toggle .top-menu__child-toggle-icon:hover,
+      .top-menu__item--open > .top-menu__child-toggle .top-menu__child-toggle-icon:focus {
+        background: url({{ get_asset_url(chevronPath) }}) no-repeat;
       }
     {% endif %}
 
@@ -73,8 +99,21 @@
       {% endif %}
     }
 
-    {% set basePath = "../../images/module-icons" %}
-    {% set menuIcons = [""] %}
+    {% set basePath = "../../images/module-icons/" %}
+    {# TODO: change these when you get the proper icons #}
+    {% set menuIcons = ["analyze-icon-teal.png", "course-icon-teal.png", "process-icon-teal.png"] %}
+    {% for icon in menuIcons %}
+      {% set icon = basePath ~ icon %}
+
+      .top-menu__item--depth-2:nth-child({{ loop.index }}) .top-menu__link::before {
+        background: url("{{ get_asset_url(icon) }}") no-repeat;
+        content: '';
+        display: block;
+        height: 32px;
+        margin-right: 8px;
+        width: 32px;
+      }
+    {% endfor %}
 
     {% end_scope_css %}
   </style>
@@ -109,10 +148,10 @@
       {% if link.children %}
         {% if depth and depth < module.max_levels %}
           <button class="top-menu__child-toggle no-button" aria-expanded="false">
-            <span ckass="show-for-sr">Show submenu for {{ link.label }}</span>
+            <span class="show-for-sr">Show submenu for {{ link.label }}</span>
             <span class="top-menu__child-toggle-icon"></span>
           </button>
-          <ul class="top-menu__submenu top-menu__submenu--level-{{ depth + 1 }} no-list">
+          <ul class="top-menu__submenu top-menu__submenu--level-{{ depth + 1 }}">
             {% set depth = depth + 1 %}
             {% for sublink in link.children %}
               {{ render_link_item(sublink, depth) }}

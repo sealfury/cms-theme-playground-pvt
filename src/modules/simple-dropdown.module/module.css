@@ -1,6 +1,8 @@
-{% from "../../css/tools/_macros.css" import convertToRem %}
-
 /* Menu */
+
+.top-menu  ul {
+  list-style: none;
+}
 
 .top-menu--desktop {
   display: block;
@@ -23,8 +25,8 @@
 }
 
 .top-menu__link {
-  {{ convertToRem('font-size', '14') }}
-  {{ convertToRem('line-height', '24') }}
+  font-size: 14px;
+  line-height: 24px;
   text-decoration: none;
 }
 
@@ -45,7 +47,15 @@
 /* Menu items - top level */
 
 .top-menu__item--depth-1 {
-  padding: 1rem;
+  padding: 0.4rem 1rem;
+}
+
+.top-menu__child-toggle {
+  transform: translate(20%, 17%);
+}
+
+.top-menu__item--open .top-menu__child-toggle > .top-menu__child-toggle-icon {
+  transform: rotate(180deg);
 }
 
 /* Submenus */
@@ -58,6 +68,7 @@
   flex-direction: column;
   left: 0;
   position: absolute;
+  padding: 0;
   text-transform: none;
   top: 100%;
   width: 142px;
@@ -82,18 +93,25 @@
 }
 
 .top-menu__submenu .top-menu__link {
+  align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  display: block;
-  padding: 10px 0;
+  display: inline-flex;
+  padding: 10px;
   width: 100%;
 }
+
+/* .top-menu__item--depth-2 .top-menu__link {
+  align-items: center;
+  display: inline-flex;
+  padding: 10px;
+} */
 
 .top-menu__item--depth-2:last-child .top-menu__link {
   border: none;
 }
 
 /* Triangle for the dropdown menu */
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .top-menu__submenu--level-2 > .top-menu__item:first-child:before {
     border-radius: 6px;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
@@ -108,4 +126,4 @@
     transform: rotate(45deg);
     transition: background-color 0.3s ease;
   }
-}
+} */
