@@ -1,6 +1,7 @@
 {# Header nav menu card #}
 
 {% macro headerCard(title, size,
+href,
 sub="",
 features=[]) %}
 
@@ -25,7 +26,7 @@ features=[]) %}
   {% set title_string = title|string|lower|split(" ", 3) %}
   {% set title_class = title_string.pop(0) %}
 
-  <div class="header-card header-card__{{ size }}">
+  <a class="header-card header-card__{{ size }}" href="{{ href }}">
     <ul class="header-card__content--{{ size }}">
       <li class="header-card__title header-card__title--{{ title_class }}">
         <span>{{ title }}</span>
@@ -41,6 +42,6 @@ features=[]) %}
         {% endfor %}
       {% endif %}
     </ul>
-  </div>
+  </a>
 
 {% endmacro %}

@@ -227,9 +227,9 @@
             <div class="menu__wrapper--level-{{ depth }} {{ labelClass }}">
               {% for sublink in link.children %}
                 {% if (depth == 3) and (link.label|lower == "product") %}
-                  {{ headerCard(sublink.label, "large") }}
+                  {{ headerCard(sublink.label, "large", link.url) }}
                 {% elif (depth == 3) and (link.label|lower == "key features") %}
-                  {{ headerCard(sublink.label, "small") }}
+                  {{ headerCard(sublink.label, "small", link.url) }}
                 {% else %}
                   {{ render_link_item(sublink, depth) }}
                 {% endif %}

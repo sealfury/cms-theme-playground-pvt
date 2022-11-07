@@ -262,7 +262,7 @@
   margin-bottom: 24px;
 }
 
-.products > .menu__item--depth-2 a {
+.products > .menu__item--depth-2 a:not(.header-card) {
   padding-left: 0;
 }
 
