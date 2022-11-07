@@ -323,6 +323,12 @@
   padding-right: 3rem;
 }
 
+/* Top menu */
+
+.header-top-row .menu__item--depth-1 > .menu__link--toggle {
+  color: #777E89;
+}
+
 /* Creates the triangle at the top of the submenu drop down */
 
 @media (min-width: 768px) {
