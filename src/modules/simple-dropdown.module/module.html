@@ -15,6 +15,11 @@
         color: {{ module.styles.text.color.color }};
       }
 
+      .top-menu__item--depth-1:hover .top-menu__link--toggle,
+      .top-menu__item--depth-1:focus .top-menu__link--toggle {
+        color: {{ module.styles.hover.color.color }};
+      }
+
       .top-menu__child-toggle-icon {
         background: url({{ get_asset_url(chevronPath) }}) no-repeat;
         border-top-color: {{ module.styles.text.color.color }};
@@ -24,47 +29,28 @@
         width: 16px;
       }
 
-      .top-menu .top-menu__link:hover,
-      .top-menu .top-menu__link:focus,
-      .top-menu__child-toggle--open .top-menu__link {   
-        color: {{ module.styles.hover.color.color }};
-      }
-
-      .top-menu__child-toggle-icon:hover,
-      .top-menu__child-toggle-icon:focus {
+      .top-menu__item--depth-1:hover .top-menu__child-toggle-icon,
+      .top-menu__item--depth-1:focus .top-menu__child-toggle-icon {
         background: url({{ get_asset_url(hoverCheveronPath) }}) no-repeat;
-        border-top-color: {{ module.styles.hover.color.color }};
-      }
-
-      .top-menu .top-menu__link:active {
-        color: {{ color_variant(module.styles.hover.color.color, 40) }};
-      }
-
-      .top-menu__child-toggle-icon:active {
-        background: url({{ get_asset_url(hoverCheveronPath) }}) no-repeat;
-        border-top-color: {{ color_variant(module.styles.hover.color.color, 40) }};
-      }
-
-      .top-menu .top-menu__item--depth-1 > .top-menu__link--active-link:after {
-        background-color: {{ module.styles.text.color.color }};
       }
 
       .top-menu__item--open .top-menu__link {
         color: {{ module.styles.hover.color.color }};
       }
 
-      .top-menu__item--open .top-menu__link:hover,
-      .top-menu__item--open .top-menu__link:focus {
-        color: {{ module.styles.text.color.color }};
+      .top-menu__item--open:hover .top-menu__link--toggle,
+      .top-menu__item--open:hover .top-menu__link--toggle {
+        color: #202225;
+        filter: brightness(1.2);
       }
 
-      .top-menu__item--open > .top-menu__child-toggle .top-menu__child-toggle-icon {
+      .top-menu__item--open .top-menu__child-toggle-icon {
         background: url({{ get_asset_url(hoverCheveronPath) }}) no-repeat;
       }
 
-      .top-menu__item--open > .top-menu__child-toggle .top-menu__child-toggle-icon:hover,
-      .top-menu__item--open > .top-menu__child-toggle .top-menu__child-toggle-icon:focus {
-        background: url({{ get_asset_url(chevronPath) }}) no-repeat;
+      .top-menu__item--open:hover .top-menu__child-toggle-icon,
+      .top-menu__item--open:focus > .top-menu__child-toggle .top-menu__child-toggle-icon {
+        filter: brightness(1.2);
       }
     {% endif %}
 
@@ -100,20 +86,27 @@
       {% endif %}
     }
 
+    {# Assign appropriate icons to submenu list items #}
     {% set basePath = "../../images/module-icons/" %}
     {# TODO: change these when you get the proper icons #}
-    {% set menuIcons = ["analyze-icon-teal.png", "course-icon-teal.png", "process-icon-teal.png"] %}
+    {% set menuIcons = ["book-icon-teal.png", "course-icon-teal.png", "all-icon-teal.png"] %}
     {% for icon in menuIcons %}
       {% set icon = basePath ~ icon %}
 
       .top-menu__item--depth-2:nth-child({{ loop.index }}) .top-menu__link::before {
         background: url("{{ get_asset_url(icon) }}") no-repeat;
-        content: '';
-        display: block;
-        height: 32px;
-        margin-right: 8px;
-        width: 32px;
+        filter: brightness(1) invert(0);
       }
+    {% endfor %}
+
+    {% set hoverIcons = ["book-icon-black.png", "course-icon-black.png", "all-icon-black.png"] %}
+    {% for icon in hoverIcons %}
+      {% set icon = basePath ~ icon %}
+
+        .top-menu__item--depth-2:nth-child({{ loop.index }}) .top-menu__link:hover::before {
+          background: url("{{ get_asset_url(icon) }}") no-repeat;
+          filter: brightness(1.2) invert(1);
+        }
     {% endfor %}
 
     {% end_scope_css %}
