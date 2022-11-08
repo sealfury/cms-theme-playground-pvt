@@ -78,12 +78,13 @@
     }
 
     @media (min-width: 767px) {
-      {{ module.styles.dropdowns.border.border.css }}
+    .top-menu__submenu--level-2::before {
+      {{ module.styles.dropdown.border.border.bottom.css }}
+      {{ module.styles.dropdown.border.border.left.css }}
       {% if module.styles.dropdowns.background.color.color %}
-      .top-menu__submenu--level-2 > .top-menu__item:first-child:before {
         background-color: rgba({{ module.styles.dropdowns.background.color.color|convert_rgb }}, {{ module.styles.dropdowns.background.color.opacity / 100 }});
-      }
       {% endif %}
+      }
     }
 
     .top-menu__submenu .top-menu__link {
