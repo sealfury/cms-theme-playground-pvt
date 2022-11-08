@@ -1,0 +1,68 @@
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Control max wrapper size based on background #}
+      {% if module.background_type.choice == "image" %}
+        {% set maxWidth = 1240 %}
+      {% else %}
+        {% set maxWidth = 1440 %}
+      {% endif %}
+      {% set maxWidth = maxWidth ~ "px" %}
+
+      {# Add fallback image src #}
+      {% if not module.background_image.src %}
+        {% set backgroundImageSrc = "../../images/stock-banner-image-stats.png" %}
+      {% else %}
+        {% set backgroundImageSrc = module.background_image.src %}
+      {% endif %}
+
+      {# Dynamically set module background #}
+      {% if module.background_type.choice == "image" %}
+        .stats-banner__wrapper {
+          background: contain url({{ get_asset_url(backgroundImageSrc) }}) no-repeat;
+          border-radius: 4px;
+        }
+      {% elif module.background_type.choice == "light" %}
+        .stats-banner__wrapper {
+          background: {{ module.styles.background.color.color }};
+          border-radius: 0;
+        }
+      {% else %}
+        .stats-banner__wrapper {
+          background: transparent;
+        }
+      {% endif %}
+
+      .stats-banner__wrapper {
+        width: clamp(328px, 100vw, {{ maxWidth }});
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+<div class="stats-banner__wrapper">
+  <div class="stats-banner__container stats-container--{{ module.background_type.choice }}">
+    {% if module.add_description and module.description != "" %}
+      <h4 class="stats-banner__headline">
+        {{ module.description }}
+      </h4>
+    {% endif %}
+    {% if module.features|length > 1 %}
+      <ul class="stats-banner__features-list">
+        {% for feature in module.features %}
+        <li class="stats-banner__feature">
+          <span class="stats-banner__feature--value">
+            {{ feature.value }}%
+          </span>
+          <span class="stats-banner__feature--text">
+            {{ feature.feature }}
+          </span>
+        </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>
