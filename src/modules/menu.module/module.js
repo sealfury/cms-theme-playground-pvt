@@ -37,6 +37,16 @@ if (menuParentItems) {
       // Menu item variables
       var childToggle = el.querySelector('.menu__child-toggle');
 
+      // DOM Manipulation helper functions
+      var closeTopMenus = function (queryClass, openClass) {
+        var menuItems = document.querySelectorAll(queryClass);
+        menuItems.forEach(function (item) {
+          if (item.classList.contains(openClass)) {
+            item.classList.remove(openClass);
+          }
+        });
+      };
+
       var getSiblings = function (element) {
         var siblings = [];
         var sibling = element.parentNode.firstChild;
@@ -83,6 +93,12 @@ if (menuParentItems) {
             }
           });
 
+          // Close top menu on main menu open
+          var topMenuItemClass = '.top-menu--desktop .top-menu__item';
+          var topMenuOpenClass = 'top-menu__item--open';
+          closeTopMenus(topMenuItemClass, topMenuOpenClass);
+
+          // Toggle overlay
           overlay.classList.add('show-overlay');
         }
       });
