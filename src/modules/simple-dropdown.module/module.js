@@ -7,6 +7,12 @@ var menuChildToggle = document.querySelectorAll(
   '.top-menu--mobile .top-menu__child-toggle'
 );
 
+// Document variables 
+var mainContent = document.getElementById('main-content');
+var headerBottomRow = document.querySelector('.header__row-2');
+var headerLogo = document.querySelector('.header__logo');
+var outsideElements = Array.from([mainContent, headerBottomRow, headerLogo]);
+
 if (parentMenuItems) {
   parentMenuItems.forEach(function (item) {
     var menuChildToggle = item.querySelector('.top-menu__child-toggle');
@@ -50,6 +56,17 @@ if (parentMenuItems) {
           .querySelector('button')
           .setAttribute('aria-expanded', 'true');
       }
+    });
+  });
+
+  // Close open top menu dropdowns on click outside
+  outsideElements.forEach(function (element) {
+    element.addEventListener('click', function () {
+      parentMenuItems.forEach(function (item) {
+        if (item.classList.contains('top-menu__item--open')) {
+          item.classList.remove('top-menu__item--open');
+        }
+      });
     });
   });
 }
