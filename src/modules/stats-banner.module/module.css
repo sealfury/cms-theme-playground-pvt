@@ -44,6 +44,17 @@
   line-height: 79px;
 }
 
+.stats-banner__feature--value::after {
+  color: inherit;
+  content: '%';
+  display: inline-block;
+  height: fit-content;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  width: fit-content;
+}
+
 .stats-banner__feature--text {
   font-size: 18px;
   line-height: 25px;

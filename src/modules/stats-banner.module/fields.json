@@ -168,7 +168,7 @@
                 "name": "bold",
                 "type": "color",
                 "default": {
-                  "color": "#928DFB",
+                  "color": "#6734FF",
                   "opacity": 100
                 },
                 "hidden_subfields": {

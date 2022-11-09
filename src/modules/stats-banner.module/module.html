@@ -1,4 +1,3 @@
-
 {% require_css %}
   <style>
     {% scope_css %}
@@ -21,7 +20,7 @@
       {# Dynamically set module background #}
       {% if module.background_type.choice == "image" %}
         .stats-banner__wrapper {
-          background: contain url({{ get_asset_url(backgroundImageSrc) }}) no-repeat;
+          background: contain url(styleblock20) no-repeat;
           border-radius: 4px;
         }
       {% elif module.background_type.choice == "light" %}
@@ -39,11 +38,39 @@
         width: clamp(328px, 100vw, {{ maxWidth }});
       }
 
+      .stats-banner__headline {
+        {{ module.styles.description.text.font.css }}
+      }
+
+      .stats-banner__headline > strong {
+        color: {{ module.styles.text.bold.color }};
+      }
+
+      .stats-banner__feature--value {
+        {{ module.styles.features.value.font.css }}
+      }
+
+      .stats-banner__feature--text {
+        {{ module.styles.features.feature.font.css }}
+      }
+
+      {% if module.background_type.choice == "image" %}
+        .stats-banner__headline,
+        .stats-banner__feature--value,
+        .stats-banner__feature--text {
+          color: #ffffff;
+        }
+
+        .stats-banner__headline > strong {
+          color: #928dfb;
+        }
+      {% endif %}
+
     {% end_scope_css %}
   </style>
 {% end_require_css %}
 
-<div class="stats-banner__wrapper">
+<div class="stats-banner__wrapper" id="stats-banner">
   <div class="stats-banner__container stats-container--{{ module.background_type.choice }}">
     {% if module.add_description and module.description != "" %}
       <h4 class="stats-banner__headline">
@@ -54,8 +81,12 @@
       <ul class="stats-banner__features-list">
         {% for feature in module.features %}
         <li class="stats-banner__feature">
-          <span class="stats-banner__feature--value">
-            {{ feature.value }}%
+          <span
+            id="stats-feature-value-{{ loop.index }}"
+            class="stats-banner__feature--value"
+            data-feature-val="{{ feature.value }}"
+          >
+            {{ feature.value }}
           </span>
           <span class="stats-banner__feature--text">
             {{ feature.feature }}
