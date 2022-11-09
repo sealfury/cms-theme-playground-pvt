@@ -3,7 +3,7 @@
     {% scope_css %}
 
       {# Control max wrapper size based on background #}
-      {% if module.background_type.choice == "image" %}
+      {% if module.background_type == "image" %}
         {% set maxWidth = 1240 %}
       {% else %}
         {% set maxWidth = 1440 %}
@@ -18,12 +18,12 @@
       {% endif %}
 
       {# Dynamically set module background #}
-      {% if module.background_type.choice == "image" %}
+      {% if module.background_type == "image" %}
         .stats-banner__wrapper {
           background: contain url(styleblock20) no-repeat;
           border-radius: 4px;
         }
-      {% elif module.background_type.choice == "light" %}
+      {% elif module.background_type == "light" %}
         .stats-banner__wrapper {
           background: {{ module.styles.background.color.color }};
           border-radius: 0;
@@ -54,7 +54,7 @@
         {{ module.styles.features.feature.font.css }}
       }
 
-      {% if module.background_type.choice == "image" %}
+      {% if module.background_type == "image" %}
         .stats-banner__headline,
         .stats-banner__feature--value,
         .stats-banner__feature--text {
@@ -71,7 +71,7 @@
 {% end_require_css %}
 
 <div class="stats-banner__wrapper" id="stats-banner">
-  <div class="stats-banner__container stats-container--{{ module.background_type.choice }}">
+  <div class="stats-banner__container stats-container--{{ module.background_type }}">
     {% if module.add_description and module.description != "" %}
       <h4 class="stats-banner__headline">
         {{ module.description }}

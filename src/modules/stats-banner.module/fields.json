@@ -1,14 +1,5 @@
 [
   {
-    "default": "<h1>Hello, world!</h1>",
-    "label": "Rich text field",
-    "locked": false,
-    "name": "text",
-    "required": false,
-    "type": "richtext",
-    "validation_regex": ""
-  },
-  {
     "label": "Background Type",
     "name": "background_type",
     "id": "background_type",
@@ -58,10 +49,7 @@
     "label": "Features Description",
     "name": "description",
     "type": "richtext",
-    "enabled_features": [
-      "font_size",
-      "standard_emphasis"
-    ],
+    "enabled_features": ["font_size", "standard_emphasis"],
     "required": false,
     "help_text": "Add a persuasive description of features",
     "inline_help_text": "Words in bold will be coloured to stand out",
