@@ -43,7 +43,11 @@
       }
 
       .stats-banner__headline > strong {
-        color: {{ module.styles.text.bold.color }};
+        {% if module.styles.text.bold.color %}
+          color: {{ module.styles.text.bold.color }};
+        {% else %}
+          color: #6733FF;
+        {% endif %}
       }
 
       .stats-banner__feature--value {
