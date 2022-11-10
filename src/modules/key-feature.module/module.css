@@ -1,0 +1,109 @@
+.key-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.key-features__feature {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 4px 0.5rem;
+  width: min(300px, calc(33.4% - 44px));
+}
+
+.key-features__player {
+  border-radius: 0 0 150px 150px;
+  height: 345px;
+  position: relative;
+  width: 75.4%;
+}
+
+.key-features__player--background-circle {
+  border-radius: 100%;
+  display: block;
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 1;
+}
+
+.key-features__player--phone-grey {
+  background-color: linear-gradient(#525E6A, #3C3C3C 33%);
+  border-radius: 10px;
+  display: block;
+  height: 345px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 40px);
+  z-index: 2;
+}
+
+.key-features__player--phone-black {
+  background-color: transparent;
+  border: solid #030303;
+  border-width: 12px 4px 0;
+  height: 100%;
+  width: calc(100% - 8px);
+  z-index: 2;
+}
+
+.autoplay__overlay {
+  background: linear-gradient(#525D69, #253C49 5%, #23374C 30%, #182E44 50%);
+  height: 100%;
+  opacity: 0.7;
+  width: 100%;
+  z-index: 3;
+}
+
+.autoplay_button {
+  background-color: #FFF;
+  border-radius: 30px;
+  display: block;
+  filter: brightness(1);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
+  z-index: 4;
+}
+
+.autoplay_button::after {
+  background-color: #202225;
+  border-bottom: 17px solid transparent;
+  border-left: 17px solid #202225;
+  border-top: 17px solid transparent;
+  content: '';
+  display: block;
+  height: 0.1px;
+  transform: translate(-50%, -50%);
+  width: 0.1px;
+}
+
+.key-features__player--img {
+  background: cover;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+.key-features__text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.key-features__title {
+  align-items: center;
+  color: #0F1E2D;
+  display: inline-flex;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+}

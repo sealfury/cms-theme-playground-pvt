@@ -1,0 +1,80 @@
+<!-- module html  -->
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+    {# Provide background color based on user choice #}
+
+    {% set bgColor = "#00B9BC" %}
+    {% if module.styles.background_color == "purple" %}
+      {% set bgColor = "#6734FF" %}
+    {% elif module.styles.background_color == "grey" %}
+      {% set bgColor = "#DFE4E9" %}
+    {% endif %}
+
+    .key-features__player--background--circle {
+      background-color: {{ bgColor }};
+    }
+
+    {# Show selected icon in feature title #}
+
+    {% set titleIconUrl = "../../images/module-icons/scheduling-icon-teal.png" %}
+    {% set width = 22 ~ "px" %}
+    {% set height = 20 ~ "px" %}
+    {% for feature in module.features %}
+      {% if feature.feature_title.icon.src != "" %}
+        {% set titleIconUrl = feature.feature_title.icon.src %}
+        {% endif %}
+      {% if feature.feature_title.icon.width %}
+        {% set width = feature.feature_title.icon.width ~ "px" %}
+      {% endif %}
+      {% if feature.feature_title.icon.height %}
+        {% set height = feature.feature_title.icon.height ~ "px" %}
+      {% endif %}
+    {% endfor %}
+
+    .key-features__title::before {
+      background: url("{{ get_asset_url(titleIconUrl) }}") no-repeat;
+      content: '';
+      display: block;
+      height: {{ height }};
+      margin-right: 10px;
+      width: {{ width }};
+    }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+<div class="key-features">
+  {% for feature in module.feature %}
+    {% if feature.feature_link.url.type == "CONTENT" and feature.feature_link.url.content_id %}
+      {% set content = content_by_id(feature.feature_link.url.content_id) %}
+      {% set linkHref = content.absolute_url %}
+    {% else %}
+      {% set linkHref = feature.feature_link.url.href %}
+    {% endif %}
+
+    <section class="key-features__feature">
+      <div class="key-features__player">
+        <div class="key-features__player--background-circle"></div>
+        <div class="key-features__player--phone-grey">
+          <div class="key-features__player--phone-black">
+            {% if feature.image_options.autoplay == true %}
+              <span class="autoplay__overlay">
+                <a class="autoplay__button" href="{{ get_asset_url(feature.image_options.image) }}"></a>
+              </span>
+            {% else %}
+              <img class="key-features__player--img" src="{{ feature.image_options.image }}">
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="key-features__text-container">
+        <span class="key-features__title">{{ feature.feature_title.title }}</span>
+        <p class="key-features__description">{{ feature.feature_decription }}</p>
+        <a class="key-features__link" href="{{ linkHref }}">{{ feature.feature_link.text }}</a>
+      </div>
+    </section>
+  {% endfor %}
+</div>

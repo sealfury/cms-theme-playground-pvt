@@ -1,0 +1,126 @@
+[
+  {
+    "locked": false,
+    "required": false,
+    "label": "Key Feature",
+    "name": "feature",
+    "type": "group",
+    "ocurrence": {
+      "default": 6,
+      "min": 3,
+      "max": 6,
+      "sorting_label_field": "feature.title"
+    },
+    "children": [
+      {
+        "label": "Image Options",
+        "name": "image_options",
+        "type": "group",
+        "children": [
+          {
+            "label": "Image",
+            "name": "image",
+            "type": "image",
+            "responsive": true,
+            "show_loading": true,
+            "default": {
+              "loading": "lazy"
+            }
+          },
+          {
+            "label": "Auto-play",
+            "name": "autoplay",
+            "type": "boolean",
+            "display": "toggle",
+            "default": true,
+            "help_text": "Toggle on to remove play button and auto-play gifs"
+          }
+        ]
+      },
+      {
+        "label": "Feature Title",
+        "name": "feature_title",
+        "type": "group",
+        "children": [
+          {
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "allow_new_line": false,
+            "show_emoji_picker": false,
+            "required": true,
+            "default": "Scheduling tool"
+          },
+          {
+            "label": "Icon",
+            "name": "icon",
+            "type": "image",
+            "responsive": false,
+            "resizeable": false,
+            "show_loading": false,
+            "default": {
+              "loading": "eager",
+              "width": 22,
+              "height": 20,
+              "max_width": 25,
+              "max_height": 23,
+              "size_type": "exact",
+              "src": ""
+            }
+          }
+        ]
+      },
+      {
+        "label": "Feature Description",
+        "name": "feature_description",
+        "type": "richtext",
+        "enabled_features": null
+      },
+      {
+        "label": "Read More Link",
+        "name": "feature_link",
+        "type": "group",
+        "children": [
+          {
+            "label": "Link URL",
+            "name": "url",
+            "type": "url",
+            "supported_types": ["EXTERNAL", "CONTENT", "FILE", "BLOG"],
+            "default": {
+              "content_id": "54406970346",
+              "href": "",
+              "type": "CONTENT"
+            }
+          },
+          {
+            "label": "Link Text",
+            "name": "text",
+            "type": "text",
+            "allow_new_line": false,
+            "show_emoji_picker": false,
+            "default": "Read more"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Background Color",
+        "name": "background_color",
+        "type": "choice",
+        "choices": [
+          ["teal", "Teal"],
+          ["purple", "Purple"],
+          ["grey", "Grey"]
+        ],
+        "default": "teal"
+      }
+    ]
+  }
+]
