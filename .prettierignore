@@ -1,3 +1,4 @@
 *.css
 src/modules/menu.module/module.html
 src/modules/simple-dropdown.module/module.html
+src/modules/key-features.module/module.html

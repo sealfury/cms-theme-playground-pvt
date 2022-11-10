@@ -42,12 +42,18 @@
       width: {{ width }};
     }
 
+    .key-features__header > strong {
+      color: #00B9BC;
+    }
+
     {% end_scope_css %}
   </style>
 {% end_require_css %}
 
+{# <h2 class="key-features__header">{{ module.header }}</h2> #}
+
 <div class="key-features">
-  {% for feature in module.feature %}
+  {% for feature in module.features %}
     {% if feature.feature_link.url.type == "CONTENT" and feature.feature_link.url.content_id %}
       {% set content = content_by_id(feature.feature_link.url.content_id) %}
       {% set linkHref = content.absolute_url %}

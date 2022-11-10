@@ -1,0 +1,107 @@
+<!--
+  templateType: section
+  label: Key Features
+  isAvailableForNewContent: true
+  description: "Show short animations advertising features and links to more info"
+-->
+{% dnd_section %}
+  {% dnd_row %}
+    {% dnd_module "section_header"
+      path="@hubspot/rich_text",
+      html={{ context.content or "<h2>Key features <span class=\"teal\">you will enjoy</span>" }},
+      offset=3,
+      width=6 %}
+    {% end_dnd_module %}
+  {% end_dnd_row %}
+  {% dnd_row %}
+    {% dnd_module
+      path="../modules/key-feature",
+      features=[
+        {
+          image_options: {
+            image: {
+              src: "../images/giphy.gif"
+            }
+          },
+          feature_title: {
+            text: "Scheduling tool",
+            image: {
+              src: "../images/module-icons/scheduling-icon-teal.png"
+            }
+          },
+          feature_description: "Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus partitor. Aenean eu leo quam. Pollentesque ernare sem lacinia quam venenatis."
+        },
+        {
+          image_options: {
+            image: {
+              src: "../images/giphy.gif"
+            }
+          },
+          feature_title: {
+            text: "Picture navigation",
+            image: {
+              src: "../images/module-icons/scheduling-icon-teal.png"
+            }
+          },
+          feature_description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Sed posuere consectetur est at lobortis."
+        },
+        {
+          image_options: {
+            image: {
+              src: "../images/giphy.gif"
+            }
+          },
+          feature_title: {
+            text: "Qr codes and voice recognition",
+            image: {
+              src: "../images/module-icons/qr-icon-teal.png"
+            }
+          },
+          feature_description: "Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nilla sed consectetur. Donec ullamcorper nilla non metus auctor fringilla. Pollentesque ernare sem."
+        },
+        {
+          image_options: {
+            image: {
+              src: "../images/giphy.gif"
+            }
+          },
+          feature_title: {
+            text: "Analyze with filter and trendlines",
+            image: {
+              src: "../images/module-icons/analyze-icon-teal.png"
+            }
+          },
+          feature_description: "Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus partitor. Aenean eu leo quam. Pollentesque ernare sem lacinia quam venenatis."
+        },
+        {
+          image_options: {
+            image: {
+              src: "../images/giphy.gif"
+            }
+          },
+          feature_title: {
+            text: "Lorem ipsum dolor",
+            image: {
+              src: "../images/module-icons/webinar-icon-teal.png"
+            }
+          },
+          feature_description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Sed posuere consectetur est at lobortis."
+        },
+        {
+          image_options: {
+            image: {
+              src: "../images/giphy.gif"
+            }
+          },
+          feature_title: {
+            text: "Praesent commodo cursus magna",
+            image: {
+              src: "../images/module-icons/edit-icon-teal.png"
+            }
+          },
+          feature_description: "Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nilla sed consectetur. Donec ullamcorper nilla non metus auctor fringilla. Pollentesque ernare sem."
+        }
+      ] %}
+    {% end_dnd_module %}
+  {% end_dnd_row %}
+{% end_dnd_section %}

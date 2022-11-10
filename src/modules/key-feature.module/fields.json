@@ -3,7 +3,7 @@
     "locked": false,
     "required": false,
     "label": "Key Feature",
-    "name": "feature",
+    "name": "features",
     "type": "group",
     "ocurrence": {
       "default": 6,
@@ -23,6 +23,7 @@
             "type": "image",
             "responsive": true,
             "show_loading": true,
+            "help_text": "Supported format: .gif",
             "default": {
               "loading": "lazy"
             }

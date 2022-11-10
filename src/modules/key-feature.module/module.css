@@ -4,11 +4,17 @@
   gap: 22px;
 }
 
+.key-features__header {
+  margin: 0 auto;
+  padding-top: 4rem;
+  width: fit-content;
+}
+
 .key-features__feature {
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 6rem 4px 0.5rem;
+  padding: 4rem 4px 0.5rem;
   width: min(300px, calc(33.4% - 44px));
 }
 
