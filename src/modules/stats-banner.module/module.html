@@ -20,8 +20,9 @@
       {# Dynamically set module background #}
       {% if module.background_type == "image" %}
         .stats-banner__wrapper {
-          background: contain url(styleblock20) no-repeat;
+          background: url({{ get_asset_url(backgroundImageSrc) }});
           border-radius: 4px;
+          margin: 0 auto;
         }
       {% elif module.background_type == "light" %}
         .stats-banner__wrapper {
