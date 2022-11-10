@@ -28,6 +28,10 @@
   margin-left: 1.5%;
 }
 
+.stats-container--image .stats-banner__headline {
+  -webkit-text-stroke: 0.2px #0F1E2D;
+}
+
 .stats-banner__headline {
   font-size: 30px;
   line-height: 38px;
