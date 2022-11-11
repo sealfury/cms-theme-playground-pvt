@@ -28,19 +28,26 @@ if (features) {
       playButton.addEventListener('mouseover', function () {
         this.parentNode.classList.add('playing');
         this.classList.add('playing');
-        var image = this.parentNode.parentNode.querySelector('.key-features__player--img');
+        var image = this.parentNode.parentNode.querySelector(
+          '.key-features__player--img'
+        );
         if (image.classList.contains('not-playing')) {
           image.classList.remove('not-playing');
         }
 
         // Stop all other players when one is playing
         var parentCard =
-        this.parentNode.parentNode.parentNode.parentNode.parentNode;
+          this.parentNode.parentNode.parentNode.parentNode.parentNode;
         var featureSiblings = getSiblings(parentCard);
 
         featureSiblings.forEach(function (sibling) {
           var player = sibling.querySelector('.autoplay__overlay');
           var siblingImg = sibling.querySelector('.key-features__player--img');
+          var button = sibling.querySelector('.autoplay__button');
+
+          if (button.classList.contains('playing')) {
+            button.classList.remove('playing');
+          }
 
           if (player.classList.contains('playing')) {
             player.classList.remove('playing');

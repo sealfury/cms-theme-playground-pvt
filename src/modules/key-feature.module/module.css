@@ -79,7 +79,7 @@
   position: absolute;
   top: 50%;
   transform: translate(-50%, -47%);
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.5s ease-out;
   width: 93%;
   z-index: 3;
 }
@@ -96,10 +96,11 @@
   filter: brightness(1);
   height: 48px;
   left: 50%;
+  opacity: 1;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: all 0.3s ease-in-out;
+  transition: opacity 0.3s ease-out;
   width: 48px;
   z-index: 3;
 }
