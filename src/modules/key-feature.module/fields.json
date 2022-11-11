@@ -63,10 +63,10 @@
             "show_loading": false,
             "default": {
               "loading": "eager",
-              "width": 22,
-              "height": 20,
-              "max_width": 25,
-              "max_height": 23,
+              "width": 40,
+              "height": 40,
+              "max_width": 40,
+              "max_height": 40,
               "size_type": "exact"
             }
           }
