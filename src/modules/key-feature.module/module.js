@@ -5,8 +5,13 @@ var features = document.querySelectorAll('.key-features__feature');
 // Play on click (disabled autoplay) functionality
 if (features) {
   features.forEach(function (feature) {
-    const getSiblings = (el) => {
-      let siblings;
+    const getSiblings = function (el) {
+      let siblings = [];
+
+      if (!el.parentNode) {
+        return siblings;
+      }
+
       let sibling = el.parentNode.firstChild;
       while (sibling) {
         if (sibling.nodeType === 1 && sibling !== el) {
@@ -17,47 +22,35 @@ if (features) {
       return siblings;
     };
 
-    var playButton = feature.querySelector('.autoplay_button');
+    var playButton = feature.querySelector('.autoplay__button');
 
-    playButton.addEventListener('click', (e) => {
-      var featureSiblings = getSiblings(feature);
-      var siblingPlayers = featureSiblings.querySelector('.autoplay__overlay');
-      var href = e.target.getAttribute('href');
-      var image = document.createElement('img');
-      e.preventDefault();
-
-      image.setAttribute('src', href);
-      image.classList.add('key-features__player--img');
-      document.body.insertBefore(image, e.target);
-      e.target.remove();
-      e.target.parentNode.classList.add('playing');
-
-      siblingPlayers.forEach(function (player) {
-        var siblingImg = player
-          .querySelector('key-features__player--img');
-        var siblingImgSrc = siblingImg.getAttribute('src');
-        var newButton = document
-          .createElement('a')
-          .setAttribute('href', siblingImgSrc)
-          .classList.add('autoplay__button');
-        if (player.classList.contains('playing')) {
-          player.classList.remove('playing');
-          document.body.insertBefore(siblingImg, newButton);
+    if (playButton) {
+      playButton.addEventListener('mouseover', function () {
+        this.parentNode.classList.add('playing');
+        this.classList.add('playing');
+        var image = this.parentNode.parentNode.querySelector('.key-features__player--img');
+        if (image.classList.contains('not-playing')) {
+          image.classList.remove('not-playing');
         }
+
+        // Stop all other players when one is playing
+        var parentCard =
+        this.parentNode.parentNode.parentNode.parentNode.parentNode;
+        var featureSiblings = getSiblings(parentCard);
+
+        featureSiblings.forEach(function (sibling) {
+          var player = sibling.querySelector('.autoplay__overlay');
+          var siblingImg = sibling.querySelector('.key-features__player--img');
+
+          if (player.classList.contains('playing')) {
+            player.classList.remove('playing');
+          }
+
+          if (!siblingImg.classList.contains('not-playing')) {
+            siblingImg.classList.add('not-playing');
+          }
+        });
       });
-    });
+    }
   });
 }
-
-// playButtons.forEach(function (button) {
-//   button.addEventListener('click', (e) => {
-//     const href = e.target.getAttribute('href');
-//     const image = document.createElement('img');
-//     e.preventDefault();
-
-//     image.setAttribute('src', href);
-//     image.classList.add('key-features__player--img');
-//     document.body.insertBefore(image, e.target);
-//     e.target.remove();
-//   });
-// });

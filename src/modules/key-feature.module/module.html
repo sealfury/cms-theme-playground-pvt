@@ -70,11 +70,10 @@
         <div class="key-features__player--phone-black">
           {% if feature.image_options.autoplay == false %}
             <span class="autoplay__overlay">
-              <a class="autoplay__button" href="{{ get_asset_url(feature.image_options.image.src) }}"></a>
+              <span class="autoplay__button" data-source="{{ feature.image_options.image.src }}"></span>
             </span>
-          {% else %}
-            <img class="key-features__player--img" src="{{ feature.image_options.image.src }}">
           {% endif %}
+            <img class="key-features__player--img {{ "not-playing" if feature.image_options.autoplay == false }}" src="{{ feature.image_options.image.src }}">
         </div>
       </div>
     </div>
