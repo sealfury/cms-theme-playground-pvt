@@ -9,12 +9,13 @@
       "default": 6,
       "min": 3,
       "max": 6,
-      "sorting_label_field": "feature.title"
+      "sorting_label_field": "features.feature_title"
     },
     "children": [
       {
         "label": "Image Options",
         "name": "image_options",
+        "id": "feature.image_options",
         "type": "group",
         "children": [
           {
@@ -41,6 +42,7 @@
       {
         "label": "Feature Title",
         "name": "feature_title",
+        "id": "feature.feature_title",
         "type": "group",
         "children": [
           {
@@ -65,8 +67,7 @@
               "height": 20,
               "max_width": 25,
               "max_height": 23,
-              "size_type": "exact",
-              "src": ""
+              "size_type": "exact"
             }
           }
         ]
@@ -74,12 +75,16 @@
       {
         "label": "Feature Description",
         "name": "feature_description",
-        "type": "richtext",
-        "enabled_features": null
+        "id": "feature.feature_description",
+        "type": "text",
+        "show_emoji_picker": false,
+        "allow_new_line": true,
+        "default": "Etiam porta sem malesuada magna mollis eusimod. Aenean lacinia bibendum nilla sed consectetur. Donec ullamcorper nilla non metus auctor fringilla. Pollentesque ernare sem"
       },
       {
         "label": "Read More Link",
         "name": "feature_link",
+        "id": "feature.feature_link",
         "type": "group",
         "children": [
           {
@@ -104,6 +109,24 @@
         ]
       }
     ]
+  },
+  {
+    "label": "Section Header",
+    "name": "header",
+    "type": "richtext",
+    "default": "Key features <span class=\"teal\">you will enjoy</span>"
+  },
+  {
+    "label": "Background Color",
+    "name": "background_color",
+    "type": "choice",
+    "display": "radio",
+    "choices": [
+      ["teal", "Teal"],
+      ["purple", "Purple"],
+      ["grey", "Grey"]
+    ],
+    "default": "teal"
   },
   {
     "label": "Styles",

@@ -1,6 +1,7 @@
 .key-features {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: 22px;
 }
 
@@ -14,8 +15,8 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 4rem 4px 0.5rem;
-  width: min(300px, calc(33.4% - 44px));
+  padding: 4rem 4px 1.5rem;
+  width: clamp(300px, 33%, 398px);
 }
 
 .key-features__player {
@@ -38,8 +39,8 @@
 }
 
 .key-features__player--phone-grey {
-  background-color: linear-gradient(#525E6A, #3C3C3C 33%);
-  border-radius: 10px;
+  background: linear-gradient(180deg, #525E6A, 33%, #3C3C3C);
+  border-radius: 10px 10px 150px 150px;
   display: block;
   height: 345px;
   left: 50%;
@@ -53,14 +54,17 @@
 .key-features__player--phone-black {
   background-color: transparent;
   border: solid #030303;
+  border-radius: 8px 8px 150px 150px;
   border-width: 12px 4px 0;
   height: 100%;
+  margin: 0 auto;
   width: calc(100% - 8px);
   z-index: 2;
 }
 
 .autoplay__overlay {
-  background: linear-gradient(#525D69, #253C49 5%, #23374C 30%, #182E44 50%);
+  background: linear-gradient(180deg, #525D69, #253C49 5%, #23374C 30%, 50%, #182E44);
+  border-radius: 0 0 150px 150px;
   height: 100%;
   opacity: 0.7;
   width: 100%;
@@ -93,7 +97,8 @@
 }
 
 .key-features__player--img {
-  background: cover;
+  /* background: cover; */
+  border-radius: 0 0 150px 150px;
   height: 100%;
   width: 100%;
   z-index: 2;
