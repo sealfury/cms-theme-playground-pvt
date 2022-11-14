@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 22px;
+  width: clamp(320px, 100vw, 1240px);
 }
 
 .key-features__header {
@@ -61,12 +62,12 @@
   border-width: 12px 4px 0;
   height: 100%;
   margin: 0 auto;
-  width: calc(100% - 16px);
+  width: calc(100% - 8px);
   z-index: 2;
 }
 
 .autoplay__overlay {
-  background: linear-gradient(180deg, #525D69, #253C49 10%, #23374C 30%, 50%, #182E44);
+  background: linear-gradient(180deg, #525D69, #253C49 5%, #23374C 40%, 70%, #182E44);
   opacity: 0.9;
   /* transition: opacity 0.5s ease-in-out; */
 }
@@ -80,7 +81,7 @@
   top: 50%;
   transform: translate(-50%, -47%);
   transition: opacity 0.5s ease-out;
-  width: 93%;
+  width: 94%;
   z-index: 3;
 }
 
