@@ -1,0 +1,149 @@
+[
+  {
+    "label": "Section Header",
+    "locked": false,
+    "name": "header",
+    "required": false,
+    "type": "richtext",
+    "default": "<strong>See houw other teams</strong> use maintmaster"
+  },
+  {
+    "label": "Background image",
+    "name": "background_image",
+    "type": "image",
+    "responsive": true,
+    "required": false,
+    "resizeable": false,
+    "show_loading": false,
+    "default": {
+      "size_type": "exact",
+      "src": "",
+      "alt": "teams-background-alt-text",
+      "loading": "lazy",
+      "max_height": 685,
+      "max_width": 1240
+    }
+  },
+  {
+    "label": "Menu items",
+    "name": "menu_items",
+    "type": "group",
+    "occurence": {
+      "default": 6,
+      "min": 6,
+      "max": 8,
+      "sorting_label_field": "menu_items.category"
+    },
+    "children": [
+      {
+        "label": "Category",
+        "name": "category",
+        "type": "group",
+        "id": "menu_items.category",
+        "children": [
+          {
+            "label": "Category Title",
+            "name": "title",
+            "type": "text",
+            "allow_new_line": false,
+            "show_emoji_picker": false,
+            "default": "Process industry"
+          },
+          {
+            "label": "Category Icon",
+            "name": "icon",
+            "type": "image",
+            "responsive": false,
+            "resizeable": false,
+            "show_loading": false,
+            "default": {
+              "loading": "lazy",
+              "width": 40,
+              "height": 40,
+              "max_width": 40,
+              "max_height": 40,
+              "size_type": "exact"
+            }
+          },
+          {
+            "label": "Category Icon Hover",
+            "name": "hover_icon",
+            "type": "image",
+            "responsive": false,
+            "resizeable": false,
+            "show_loading": false,
+            "default": {
+              "loading": "lazy",
+              "width": 40,
+              "height": 40,
+              "max_width": 40,
+              "max_height": 40,
+              "size_type": "exact"
+            }
+          }
+        ]
+      },
+      {
+        "label": "Cases",
+        "name": "cases",
+        "type": "group",
+        "id": "menu_items.cases",
+        "occurence": {
+          "default": 2,
+          "min": 1,
+          "max": 2,
+          "sorting_label_field": "cases.case"
+        },
+        "children": [
+          {
+            "label": "Logo",
+            "name": "logo",
+            "type": "image",
+            "id": "case.logo",
+            "responsive": true,
+            "show_loading": false,
+            "default": {
+              "size_type": "auto_custom_max",
+              "max_width": 130,
+              "loading": "lazy"
+            }
+          },
+          {
+            "label": "Quote",
+            "name": "quote",
+            "type": "text",
+            "id": "case.quote"
+          },
+          {
+            "label": "Attribution",
+            "name": "attribution",
+            "type": "text",
+            "id": "case.attribution"
+          },
+          {
+            "label": "Read More Link",
+            "name": "link",
+            "type": "group",
+            "id": "case.link",
+            "children": [
+              {
+                "label": "Link URL",
+                "name": "url",
+                "type": "url",
+                "supported_types": ["EXTERNAL", "CONTENT", "BLOG"]
+              },
+              {
+                "label": "Link Text",
+                "name": "text",
+                "type": "text",
+                "allow_new_line": false,
+                "show_emoji_picker": false,
+                "default": "Read more"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

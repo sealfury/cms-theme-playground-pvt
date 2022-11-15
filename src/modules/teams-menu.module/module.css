@@ -1,0 +1,69 @@
+.teams-menu__container {
+  padding: 3.5rem 6.5rem;
+}
+
+.teams-menu__header {
+  color: #FFFFFF;
+}
+
+.teams-menu__header > strong {
+  color: #00B9BC;
+}
+
+.teams-menu__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: clamp(320px, 29%, 350px);
+}
+
+.teams-menu__menu--item {
+  background-color: transparent;
+  border: 1px solid;
+  border-color: rgba(184, 193, 201, 0.5);
+  padding: 0.75rem 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.teams-menu__menu--item:hover {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  cursor: pointer;
+}
+
+.teams-menu__cases {
+  padding-left: 3.5rem;
+}
+
+.teams-menu__cases--cases {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.teams-menu__cases--cases:not(:last-child) {
+  border-bottom: #5B7187;
+}
+
+.teams-menu__cases--quote,
+.teams-menu__cases--attribution {
+  color: #FFFFFF;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.teams-menu__cases--quote {
+  text-transform: italic;
+}
+
+.teams-menu__cases--attribution {
+  font-weight: 600;
+}
+
+.teams-menu__cases--link {
+  border-color: #00B9BC;
+  color: #00B9BC;
+}
+
+.teams-menu__cases--link:hover {
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
