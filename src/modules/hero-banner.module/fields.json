@@ -1,0 +1,89 @@
+[
+  {
+    "label": "Mode",
+    "name": "mode",
+    "type": "choice",
+    "choices": [
+      ["light", "Light"],
+      ["dark", "Dark"]
+    ],
+    "display": "radio",
+    "default": "light"
+  },
+  {
+    "label": "Breadcrumb Text",
+    "name": "breadcrumb_text",
+    "type": "text"
+  },
+  {
+    "label": "Header Text",
+    "name": "header",
+    "type": "richtext",
+    "enabled_features": ["font_size", "standard_emphasis"],
+    "inline_help_text": "Embolden words you'd like to be coloured teal"
+  },
+  {
+    "label": "Subheader Text",
+    "name": "subheader",
+    "type": "richtext"
+  },
+  {
+    "label": "Buttons",
+    "name": "buttons",
+    "type": "group",
+    "occurrence": {
+      "default": 2,
+      "min": 1,
+      "max": 2,
+      "sorting_label_field": "buttons.button"
+    },
+    "children": [
+      {
+        "label": "Button Text",
+        "name": "text",
+        "type": "text",
+        "default": "Start free trial",
+        "show_emoji_picker": false,
+        "allow_new_line": false
+      },
+      {
+        "label": "Button Type",
+        "name": "type",
+        "type": "choice",
+        "choices": [
+          ["teal", "Teal"],
+          ["dark", "Dark"],
+          ["transparent", "Transparent"]
+        ],
+        "default": "teal",
+        "visibility": {
+          "controlling_field": "mode",
+          "controlling_value_regex": "dark",
+          "operator": "NOT_EQUAL"
+        }
+      }
+    ]
+  },
+  {
+    "label": "Logo Image",
+    "name": "logo_image",
+    "type": "image",
+    "show_loading": true,
+    "responsive": true,
+    "resizeable": true,
+    "default": {
+      "size_type": "auto",
+      "src": "",
+      "alt": "maintmaster-hero-logo-image",
+      "loading": "lazy",
+      "max_height": 420,
+      "max_width": 500
+    }
+  },
+  {
+    "label": "Video Player",
+    "name": "video",
+    "type": "videoplayer",
+    "show_advanced_options": true
+  }
+]

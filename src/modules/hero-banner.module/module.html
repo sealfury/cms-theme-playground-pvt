@@ -1,0 +1,45 @@
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+    {# Light vs Dark mode colors #}
+
+    {% if module.mode == "light" %}
+      .hero-banner {
+        background-color: #EFF3F7;
+      }
+
+      .hero-banner__header {
+        color: #0F1E2D;
+      }
+
+      .hero-banner__breadcrumb {
+        color: #525E6A;
+        text-transform: uppercase;
+      }
+    {% endif %}
+
+    {% if module.mode == "dark" %}
+      .hero-banner {
+        background-color: #2F3C49;
+      }
+
+      .hero-banner__header {
+        color: #FFFFFF;
+      }
+
+      .hero-banner__breadcrumb {
+        color: #EFF3F7;
+      }
+
+      .hero-banner__subheader {
+        color: #FFFFFF;
+      }
+    {% endif %}
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+
+<!-- module html  -->
