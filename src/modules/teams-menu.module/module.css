@@ -8,24 +8,26 @@
 
 .teams-menu__header {
   color: #FFFFFF;
-}
-
-.teams-menu__content {
-  display: flex;
-}
-
-.teams-menu__content > ul {
-  list-style: none;
+  padding: 0 18rem 1rem;
 }
 
 .teams-menu__header > strong {
   color: #00B9BC;
 }
 
+.teams-menu__content {
+  display: flex;
+  width: 100%;
+}
+
+.teams-menu__content > ul {
+  list-style: none;
+}
+
 .teams-menu__menu {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   width: clamp(320px, 29%, 350px);
 }
 
@@ -61,15 +63,27 @@
 }
 
 .teams-menu__cases {
-  padding-left: 3.5rem;
+  padding-left: 6em;
+  width: clamp(320px, 50%, 600px);
 }
 
-.teams-menu__cases--cases {
-  padding: 0 1.5rem 1.5rem;
+.teams-menu__cases:nth-child(n+3) {
+  display: none;
 }
 
-.teams-menu__cases--cases:not(:last-child) {
-  border-bottom: #5B7187;
+.teams-menu__cases--case {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.teams-menu__cases--case:not(:last-child) {
+  border-bottom: 1px solid #5B7187;
+  padding-bottom: 1.5rem;
+}
+
+.teams-menu__cases--case:last-child {
+  padding-top: 1.5rem;
 }
 
 .teams-menu__cases--quote,
@@ -80,16 +94,18 @@
 }
 
 .teams-menu__cases--quote {
-  text-transform: italic;
+  font-style: italic;
 }
 
 .teams-menu__cases--attribution {
   font-weight: 600;
+  padding-bottom: 8px;
 }
 
 .teams-menu__cases--link {
   border-color: #00B9BC;
   color: #00B9BC;
+  transition: all 0.3s ease-in-out;
 }
 
 .teams-menu__cases--link:hover {

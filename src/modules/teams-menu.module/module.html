@@ -52,6 +52,19 @@
         width: {{ width }};
       }
 
+      {% for case in item.cases %}
+        {% if case.logo.max_width %}
+          {% set maxWidth = case.logo.max_width ~ "px" %}
+        {% else %}
+          {% set maxWidth = 140 ~ "px" %}
+        {% endif %}
+
+        .teams-menu__cases--logo {
+          max-width: {{ maxWidth }};
+          padding-bottom:8px;
+        }
+      {% endfor %}
+
     {% endfor %}
 
       {% set arrowIconUrl = "../../images/module-icons/arrow-right-black.png" %}
@@ -102,7 +115,7 @@
         {% endif %}
 
         <li class="teams-menu__cases--case">
-          <img class="teams-menu__cases--logo" src="{{ case.logo.src }}" />
+          <img class="teams-menu__cases--logo" width="{{ case.logo.max_width }}" src="{{ case.logo.src }}" />
           <span class="teams-menu__cases--quote" >"{{ case.quote }}"</span>
           <span class="teams-menu__cases--attribution">{{ case.attribution }}</span>
           <a class="teams-menu__cases--link" href="{{ linkHref }}">{{ case.link.text }}</a>
