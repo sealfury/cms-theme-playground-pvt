@@ -102,6 +102,7 @@
   opacity: 1;
   top: 100%;
   transition: all 0.3s ease-in-out;
+  z-index: 999;
 }
 
 .top-menu__submenu--level-2 {
