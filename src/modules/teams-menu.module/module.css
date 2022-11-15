@@ -1,22 +1,30 @@
 .teams-menu__container {
   align-items: center;
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 3.5rem 6.5rem;
+  padding: 3.5rem 4rem;
 }
 
 .teams-menu__header {
+  align-items: center;
   color: #FFFFFF;
-  padding: 0 18rem 1rem;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  gap: 0;
+  padding-bottom: 2rem;
 }
 
 .teams-menu__header > strong {
   color: #00B9BC;
+  font-weight: inherit;
 }
 
 .teams-menu__content {
   display: flex;
+  gap: 4rem;
   width: 100%;
 }
 
@@ -28,7 +36,8 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  width: clamp(320px, 29%, 350px);
+  padding: 0;
+  width: clamp(320px, 35%, 350px);
 }
 
 .teams-menu__menu--item {
@@ -39,7 +48,7 @@
   border-radius: 4px;
   display: flex;
   gap: 0.75rem;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem;
   transition: all 0.3s ease;
   width: 100%;
 }
@@ -63,8 +72,8 @@
 }
 
 .teams-menu__cases {
-  padding-left: 6em;
-  width: clamp(320px, 50%, 600px);
+  padding: 0;
+  width: clamp(320px, 65%, 685px);
 }
 
 .teams-menu__cases {
@@ -111,12 +120,13 @@
 }
 
 .teams-menu__cases--link {
-  border-color: #00B9BC;
   color: #00B9BC;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-underline-thickness: 2px;
   transition: all 0.3s ease-in-out;
 }
 
 .teams-menu__cases--link:hover {
-  border-color: #FFFFFF;
   color: #FFFFFF;
 }
