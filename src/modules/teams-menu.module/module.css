@@ -1,9 +1,21 @@
 .teams-menu__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 3.5rem 6.5rem;
 }
 
 .teams-menu__header {
   color: #FFFFFF;
+}
+
+.teams-menu__content {
+  display: flex;
+}
+
+.teams-menu__content > ul {
+  list-style: none;
 }
 
 .teams-menu__header > strong {
@@ -18,17 +30,34 @@
 }
 
 .teams-menu__menu--item {
+  align-items: center;
   background-color: transparent;
   border: 1px solid;
   border-color: rgba(184, 193, 201, 0.5);
-  padding: 0.75rem 1.2rem;
+  border-radius: 4px;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
   transition: all 0.3s ease;
+  width: 100%;
+}
+
+.teams-menu__menu--item span {
+  align-items: center;
+  color: #FFFFFF;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .teams-menu__menu--item:hover {
   background-color: #FFFFFF;
   border-color: #FFFFFF;
   cursor: pointer;
+}
+
+.teams-menu__menu--item:hover span {
+  color: #0F1E2D;
 }
 
 .teams-menu__cases {

@@ -5,7 +5,7 @@
     "name": "header",
     "required": false,
     "type": "richtext",
-    "default": "<strong>See houw other teams</strong> use maintmaster"
+    "default": "<strong>See how other teams</strong> use maintmaster"
   },
   {
     "label": "Background image",
@@ -39,7 +39,7 @@
         "label": "Category",
         "name": "category",
         "type": "group",
-        "id": "menu_items.category",
+        "id": "menu_item.category",
         "children": [
           {
             "label": "Category Title",
@@ -57,7 +57,7 @@
             "resizeable": false,
             "show_loading": false,
             "default": {
-              "loading": "lazy",
+              "loading": "eager",
               "width": 40,
               "height": 40,
               "max_width": 40,
@@ -73,7 +73,7 @@
             "resizeable": false,
             "show_loading": false,
             "default": {
-              "loading": "lazy",
+              "loading": "eager",
               "width": 40,
               "height": 40,
               "max_width": 40,
@@ -87,7 +87,7 @@
         "label": "Cases",
         "name": "cases",
         "type": "group",
-        "id": "menu_items.cases",
+        "id": "menu_item.cases",
         "occurence": {
           "default": 2,
           "min": 1,

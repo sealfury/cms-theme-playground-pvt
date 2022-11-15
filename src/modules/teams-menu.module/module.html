@@ -6,7 +6,8 @@
 
     .teams-menu__container {
       {% if module.background_image.src %}
-        background: url({{ get_asset_url(module.background_image.src) }}) no-repeat cover;
+        background: url("{{ module.background_image.src }}") no-repeat;
+        background-size: cover;
       {% else %}
         background: #0F1E2D;
       {% endif %}
@@ -31,33 +32,35 @@
         {% set height = item.category.icon.height ~ "px" %}
       {% endif %}
 
-      .teams-menu__menu--item:nth-child({{ loop.index }}) span::before {
-        background: url({{ menuItemIconUrl }}) no-repeat;
+      .teams-menu__menu--item:nth-child({{ loop.index }})::before {
+        background: url("{{ menuItemIconUrl }}") no-repeat;
         content: '';
         display: block;
-        height: 100%;
-        margin-right: 2px;
-        transition: all 0.3s ease;
+        height: 32px;
+        padding-right: 0.5rem;
+        transition: all 0.1s ease;
         width: {{ width }};
       }
 
-      .teams-menu__menu--item:nth-child({{ loop.index }}):hover span::before {
-        background: url({{ menuItemIconHover }}) no-repeat;
+      .teams-menu__menu--item:nth-child({{ loop.index }}):hover::before {
+        background: url("{{ menuItemIconHover }}") no-repeat;
         content: '';
         display: block;
-        height: 100%;
-        transition: all 0.3s ease;
+        height: 32px;
+        padding-right: 0.5rem;
+        transition: all 0.1s ease;
         width: {{ width }};
       }
 
-      {% endfor %}
+    {% endfor %}
 
       {% set arrowIconUrl = "../../images/module-icons/arrow-right-black.png" %}
       .teams-menu__menu--item span::after {
         background: url("{{ get_asset_url(arrowIconUrl) }}") no-repeat;
         content: '';
         display: block;
-        height: 100%;
+        height: 16px;
+        justify-self: flex-end;
         opacity: 0;
         transition: opacity 0.3s ease;
         width: 16px;
@@ -84,26 +87,28 @@
 
         <li class="teams-menu__menu--item">
           <span>{{ item.category.title }}</span>
-          <ul class="teams-menu__cases">
-            {% for case in item.cases %}
-
-              {% if case.link.url.type == "CONTENT" and case.link.url.content_id %}
-                {% set content = content_by_id(case.link.url.content_id) %}
-                {% set linkHref = content.absolute_url %}
-              {% else %}
-                {% set linkHref = case.link.url.href %}
-              {% endif %}
-
-              <li class="teams-menu__cases--case">
-                <img class="teams-menu__cases--logo" src="{{ case.logo.src }}" />
-                <span class="teams-menu__cases--quote" >"{{ case.quote }}"</span>
-                <span class="teams-menu__cases--attribution">{{ case.attribution }}</span>
-                <a class="teams-menu__cases--link" href="{{ linkHref }}">{{ case.link.text }}</a>
-              </li>
-            {% endfor %}
-          </ul>
         </li>
       {% endfor %}
     </ul>
+    {% for item in module.menu_items %}
+    <ul class="teams-menu__cases">
+      {% for case in item.cases %}
+
+        {% if case.link.url.type == "CONTENT" and case.link.url.content_id %}
+          {% set content = content_by_id(case.link.url.content_id) %}
+          {% set linkHref = content.absolute_url %}
+        {% else %}
+          {% set linkHref = case.link.url.href %}
+        {% endif %}
+
+        <li class="teams-menu__cases--case">
+          <img class="teams-menu__cases--logo" src="{{ case.logo.src }}" />
+          <span class="teams-menu__cases--quote" >"{{ case.quote }}"</span>
+          <span class="teams-menu__cases--attribution">{{ case.attribution }}</span>
+          <a class="teams-menu__cases--link" href="{{ linkHref }}">{{ case.link.text }}</a>
+        </li>
+      {% endfor %}
+      </ul>
+    {% endfor %}
   </div>
 </div>
