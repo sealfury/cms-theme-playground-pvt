@@ -98,13 +98,13 @@
     <ul class="teams-menu__menu">
       {% for item in module.menu_items %}
 
-        <li class="teams-menu__menu--item">
+        <li class="teams-menu__menu--item item--{{ loop.index }}">
           <span>{{ item.category.title }}</span>
         </li>
       {% endfor %}
     </ul>
     {% for item in module.menu_items %}
-    <ul class="teams-menu__cases">
+    <ul class="teams-menu__cases cases--{{ loop.index }} {{ "show" if loop.index == 1 }}">
       {% for case in item.cases %}
 
         {% if case.link.url.type == "CONTENT" and case.link.url.content_id %}
