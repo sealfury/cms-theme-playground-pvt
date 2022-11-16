@@ -3,7 +3,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 22px;
-  width: clamp(320px, 100vw, 1240px);
+  margin: 0 auto;
+  width: clamp(320px, 100vw, 1260px);
 }
 
 .key-features__header {

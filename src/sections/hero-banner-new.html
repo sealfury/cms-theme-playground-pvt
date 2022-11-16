@@ -1,0 +1,28 @@
+<!--
+  templateType: section
+  label: Hero banner (new)
+  isAvailableForNewContent: true
+  description: "Full size background image section separated in two columns. Left column has heading and text and right column has a video player and logo."
+-->
+{% dnd_section %}
+  {% dnd_module
+    path="../modules/hero-banner",
+    mode="light",
+    breadcrumb_text="lorem ipsum",
+    header="maintenance systems built <strong>for unique needs</strong>",
+    subheader="MaintMaster gives you all the tools you need for an effective maintenance work. You can easily handle and customize your system.",
+    buttons=[
+      {
+        text: "Start free trial",
+        type: "teal"
+      },
+      {
+        text: "Book a demo",
+        type: "transparent"
+      }
+    ],
+    logo_image={
+      src: "../images/mm-stylized-symbol.png"
+    } %}
+  {% end_dnd_module %}
+{% end_dnd_section %}

@@ -1,5 +1,10 @@
+.dnd-section > .row-fluid:has(#hero-banner) {
+  max-width: 1440px;
+}
+
 .hero-banner {
   display: flex;
+  margin: 0 auto;
   padding: 2.5rem 6.25rem;
   width: 1440px;
 }
@@ -95,6 +100,6 @@
   left: 50%;
   top: 50%;
   position: absolute;
-  transform: translate(-35%, -40%);
+  transform: translate(-25%, -45%);
   max-width: 495px;
 }
