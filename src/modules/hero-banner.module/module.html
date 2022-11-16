@@ -2,44 +2,63 @@
   <style>
     {% scope_css %}
 
-    {# Light vs Dark mode colors #}
+      {# Light vs Dark mode colors #}
 
-    {% if module.mode == "light" %}
-      .hero-banner {
-        background-color: #EFF3F7;
-      }
+      {% if module.mode == "light" %}
+        .hero-banner {
+          background-color: #eff3f7;
+        }
 
-      .hero-banner__header {
-        color: #0F1E2D;
-      }
+        .hero-banner__header {
+          color: #0f1e2d;
+        }
 
-      .hero-banner__breadcrumb {
-        color: #525E6A;
-        text-transform: uppercase;
-      }
-    {% endif %}
+        .hero-banner__breadcrumb {
+          color: #525e6a;
+        }
+      {% endif %}
 
-    {% if module.mode == "dark" %}
-      .hero-banner {
-        background-color: #2F3C49;
-      }
+      {% if module.mode == "dark" %}
+        .hero-banner {
+          background-color: #2f3c49;
+        }
 
-      .hero-banner__header {
-        color: #FFFFFF;
-      }
+        .hero-banner__header {
+          color: #ffffff;
+        }
 
-      .hero-banner__breadcrumb {
-        color: #EFF3F7;
-      }
+        .hero-banner__breadcrumb {
+          color: #eff3f7;
+        }
 
-      .hero-banner__subheader {
-        color: #FFFFFF;
-      }
-    {% endif %}
+        .hero-banner__subheader {
+          color: #ffffff;
+        }
+      {% endif %}
 
     {% end_scope_css %}
   </style>
 {% end_require_css %}
 
-
 <!-- module html  -->
+<section class="hero-banner">
+  <div class="hero-banner__text-section">
+    <span class="hero-banner__breadcrumb">{{ module.breadcrumb_text }}</span>
+    <h1 class="hero-banner__header">{{ module.header }}</h1>
+    <p class="hero-banner__subheader">{{ module.subheader }}</p>
+    <div class="hero-banner__buttons">
+      {% for button in module.buttons %}
+        <a href="{{ button.link_url }}" class="hero-banner__buttons button">{{ button.text }}</a>
+
+        {% if loop.index == 1 %}
+          <span>or</span>
+        {% endif %}
+
+      {% endfor %}
+    </div>
+  </div>
+  <div class="hero-banner__media-section">
+    <img src="{{ module.logo_image.src }}" class="hero-banner__logo" />
+    <div class="hero-media-player__wrapper"></div>
+  </div>
+</section>

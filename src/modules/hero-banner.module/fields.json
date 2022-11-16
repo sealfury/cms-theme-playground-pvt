@@ -41,10 +41,17 @@
       {
         "label": "Button Text",
         "name": "text",
+        "id": "button.text",
         "type": "text",
-        "default": "Start free trial",
         "show_emoji_picker": false,
         "allow_new_line": false
+      },
+      {
+        "label": "Button Link URL",
+        "name": "link_url",
+        "id": "button.link_url",
+        "type": "url",
+        "supported_types": ["EXTERNAL", "CONTENT", "FILE", "BLOG"]
       },
       {
         "label": "Button Type",

@@ -131,3 +131,8 @@ yarn.lock
 
 # Scratch files
 scratch.*
+
+# Temp image files
+*.gif
+floby-logo.png
+nevs-logo-white.svg

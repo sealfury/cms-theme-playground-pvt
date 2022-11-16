@@ -1,6 +1,52 @@
+.hero-banner {
+  display: flex;
+  padding: 2.5rem 6.25rem;
+  width: 1440px;
+}
 
+.hero-banner__text-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 2rem 0 0;
+  width: clamp(320px, 57%, 705px);
+}
 
 .hero-banner__header > strong {
   color: #00B9BC;
   font-weight: inherit;
+}
+
+.hero-banner__subheader {
+  padding: 0.5rem 0;
+}
+
+.hero-banner__breadcrumb {
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.hero-banner__buttons {
+  align-items: center;
+  display: flex;
+  max-height: 3rem;
+}
+
+.hero-banner__buttons > span {
+  padding: 1rem;
+}
+
+.hero-banner__media-section {
+  position: relative;
+  width: 43%;
+}
+
+.hero-banner__logo {
+  display: block;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-35%, -40%);
+  max-width: 495px;
 }
