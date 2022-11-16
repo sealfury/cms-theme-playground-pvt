@@ -34,6 +34,12 @@
         .hero-banner__subheader {
           color: #ffffff;
         }
+
+        .hero-banner__buttons .button {
+          background-color: #FFFFFF;
+          border-radius: 24px;
+          color: #2F3C49;
+        }
       {% endif %}
 
     {% end_scope_css %}
@@ -48,7 +54,7 @@
     <p class="hero-banner__subheader">{{ module.subheader }}</p>
     <div class="hero-banner__buttons">
       {% for button in module.buttons %}
-        <a href="{{ button.link_url }}" class="hero-banner__buttons button">{{ button.text }}</a>
+        <a href="{{ button.link_url }}" class="hero-banner__buttons button{{"--" ~ button.type if module.mode == "light" }}">{{ button.text }}</a>
 
         {% if loop.index == 1 %}
           <span>or</span>

@@ -12,6 +12,10 @@
   width: clamp(320px, 57%, 705px);
 }
 
+.hero-banner__header {
+  margin: 0;
+}
+
 .hero-banner__header > strong {
   color: #00B9BC;
   font-weight: inherit;
@@ -31,6 +35,50 @@
   align-items: center;
   display: flex;
   max-height: 3rem;
+}
+
+.hero-banner__buttons a {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 26px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.hero-banner__buttons .button--transparent {
+  background-color: transparent;
+  border-bottom: 2px inset transparent;
+  color: #0F1E2D;
+  padding: 0;
+  transform: translateY(7.5%);
+}
+
+.hero-banner__buttons .button--transparent:hover {
+  border-color: #00B9BC;
+}
+
+.hero-banner__buttons .button--teal {
+  background-color: #00B9BC;
+  border-radius: 24px;
+  color: #0F1E2D;
+  filter: brightness(1);
+  padding: 0.7rem 2.5rem;
+}
+
+.hero-banner__buttons .button--teal:hover {
+  filter: brightness(0.9);
+}
+
+.hero-banner__buttons .button--dark {
+  background-color: #2F3C49;
+  border-radius: 24px;
+  color: #FFFFFF;
+  filter: brightness(1);
+  padding: 0.7rem 2.5rem;
+}
+
+.hero-banner__buttons .button--dark:hover {
+  filter: brightness(1.1);
 }
 
 .hero-banner__buttons > span {
