@@ -10,7 +10,8 @@
 .key-features__header {
   margin: 0 auto;
   padding-top: 4rem;
-  width: fit-content;
+  text-align: center;
+  width: clamp(320px, 70%, 810px);
 }
 
 .key-features__feature {
