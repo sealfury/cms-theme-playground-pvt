@@ -14,11 +14,16 @@
     </script>
   {% end_require_js %}
 
+  {% if (content.slug is string_startingwith('sv/')) or (content.slug == "sv") %}
+    {% set siteMapName = 'Footer menu SV' %}
+  {% else %}
+    {% set siteMapName = 'Footer menu' %}
+  {% endif %}
   {# Menu items #}
   <div class="footer__container">
     {% menu "footer_menu"
       id=55479164115,
-      site_map_name="Footer menu",
+      site_map_name={{ siteMapName }},
       overrideable=False,
       root_type="site_root",
       flyouts="false",

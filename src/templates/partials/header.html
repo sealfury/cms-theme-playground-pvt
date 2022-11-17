@@ -43,29 +43,28 @@
             label="Header Top Menu" %}
         </div>
 
-        {# {% if content.translated_content|length or is_listing_view and group.translations %} #}
+        {% if content.translated_content|length or is_listing_view and group.translations %}
         <div class="header--toggle header__language-switcher--toggle"></div>
-        {# {% endif %} #}
-        {# {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %} #}
+        {% endif %}
+        {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
         <div class="header__language-switcher header--element">
           <div class="header__language-switcher--label">
             {% module "language-switcher"
               path="@hubspot/language_switcher",
               label="Language switcher",
-              display_mode="localized" %}
+              display_mode="pagelang" %}
             <div class="header__language-switcher--label-current">
               {{ locale_name(locale) }}
             </div>
           </div>
         </div>
-        {# {% endif %} #}
+        {% endif %}
       </div>
 
       {# Header navigation row two #}
 
       <div class="header__row-2">
         {# <div class="header--toggle header__navigation--toggle"></div>
-        <div class="header--toggle header__search--toggle"></div>
         <div class="header__close--toggle"></div> #}
         <div class="header__navigation header--element">
           {% module "navigation-primary"
