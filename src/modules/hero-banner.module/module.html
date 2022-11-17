@@ -47,6 +47,16 @@
 {% end_require_css %}
 
 <!-- module html  -->
+{# Translate markup not included in editable fields #}
+{% set reqPath = request.path|split('/', 2)|last %}
+{% if reqPath == "sv" %}
+  {% set joiningWord = "eller" %}
+{% elif reqPath == "de" %}
+  {% set joiningWord = "oder" %}
+{% else %}
+  {% set joiningWord = "or" %}
+{% endif %}
+
 <section class="hero-banner" id="hero-banner">
   <div class="hero-banner__text-section">
     <span class="hero-banner__breadcrumb">{{ module.breadcrumb_text }}</span>
@@ -57,7 +67,7 @@
         <a href="{{ button.link_url }}" class="hero-banner__buttons button{{"--" ~ button.type if module.mode == "light" }}">{{ button.text }}</a>
 
         {% if loop.index == 1 %}
-          <span>or</span>
+          <span>{{ joiningWord }}</span>
         {% endif %}
 
       {% endfor %}
