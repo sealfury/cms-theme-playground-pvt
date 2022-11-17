@@ -1,20 +1,15 @@
 [
   {
+    "default": "<strong>See how other teams</strong> use maintmaster",
+    "display_width": null,
+    "id": "header",
     "label": "Section Header",
     "locked": false,
     "name": "header",
     "required": false,
-    "type": "richtext",
-    "default": "<strong>See how other teams</strong> use maintmaster"
+    "type": "richtext"
   },
   {
-    "label": "Background image",
-    "name": "background_image",
-    "type": "image",
-    "responsive": true,
-    "required": false,
-    "resizeable": false,
-    "show_loading": false,
     "default": {
       "size_type": "exact",
       "src": "",
@@ -22,56 +17,56 @@
       "loading": "lazy",
       "max_height": 685,
       "max_width": 1240
-    }
+    },
+    "display_width": null,
+    "id": "background_image",
+    "label": "Background image",
+    "locked": false,
+    "name": "background_image",
+    "required": false,
+    "resizable": true,
+    "responsive": true,
+    "show_loading": false,
+    "type": "image"
   },
   {
-    "label": "Menu items",
-    "name": "menu_items",
-    "type": "group",
-    "occurence": {
-      "default": 6,
-      "min": 6,
-      "max": 8,
-      "sorting_label_field": "menu_items.category"
-    },
     "children": [
       {
-        "label": "Category",
-        "name": "category",
-        "type": "group",
-        "id": "menu_item.category",
         "children": [
           {
-            "label": "Category Title",
-            "name": "title",
-            "type": "text",
             "allow_new_line": false,
+            "default": "Process industry",
+            "display_width": null,
+            "id": "menu_items.category.title",
+            "label": "Category Title",
+            "locked": false,
+            "name": "title",
+            "required": false,
             "show_emoji_picker": false,
-            "default": "Process industry"
+            "type": "text",
+            "validation_regex": ""
           },
           {
+            "default": {
+              "loading": "eager",
+              "width": 40,
+              "height": 40,
+              "max_width": 40,
+              "max_height": 40,
+              "size_type": "exact"
+            },
+            "display_width": null,
+            "id": "menu_items.category.icon",
             "label": "Category Icon",
+            "locked": false,
             "name": "icon",
-            "type": "image",
+            "required": false,
+            "resizable": true,
             "responsive": false,
-            "resizeable": false,
             "show_loading": false,
-            "default": {
-              "loading": "eager",
-              "width": 40,
-              "height": 40,
-              "max_width": 40,
-              "max_height": 40,
-              "size_type": "exact"
-            }
+            "type": "image"
           },
           {
-            "label": "Category Icon Hover",
-            "name": "hover_icon",
-            "type": "image",
-            "responsive": false,
-            "resizeable": false,
-            "show_loading": false,
             "default": {
               "loading": "eager",
               "width": 40,
@@ -79,71 +74,408 @@
               "max_width": 40,
               "max_height": 40,
               "size_type": "exact"
-            }
+            },
+            "display_width": null,
+            "id": "menu_items.category.hover_icon",
+            "label": "Category Icon Hover",
+            "locked": false,
+            "name": "hover_icon",
+            "required": false,
+            "resizable": true,
+            "responsive": false,
+            "show_loading": false,
+            "type": "image"
           }
-        ]
+        ],
+        "default": {
+          "title": "Process industry",
+          "icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact"
+          },
+          "hover_icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact"
+          }
+        },
+        "display_width": null,
+        "expanded": false,
+        "id": "menu_item.category",
+        "label": "Category",
+        "locked": false,
+        "name": "category",
+        "required": false,
+        "tab": "CONTENT",
+        "type": "group"
       },
       {
-        "label": "Cases",
-        "name": "cases",
-        "type": "group",
-        "id": "menu_item.cases",
-        "occurence": {
-          "default": 2,
-          "min": 1,
-          "max": 2,
-          "sorting_label_field": "cases.case"
-        },
         "children": [
           {
-            "label": "Logo",
-            "name": "logo",
-            "type": "image",
-            "id": "case.logo",
-            "responsive": true,
-            "show_loading": false,
             "default": {
               "size_type": "auto_custom_max",
               "max_width": 130,
               "loading": "lazy"
-            }
+            },
+            "display_width": null,
+            "id": "case.logo",
+            "label": "Logo",
+            "locked": false,
+            "name": "logo",
+            "required": false,
+            "resizable": true,
+            "responsive": true,
+            "show_loading": false,
+            "type": "image"
           },
           {
+            "allow_new_line": false,
+            "display_width": null,
+            "id": "case.quote",
             "label": "Quote",
+            "locked": false,
             "name": "quote",
-            "type": "text",
-            "id": "case.quote"
+            "required": false,
+            "show_emoji_picker": false,
+            "type": "text"
           },
           {
+            "allow_new_line": false,
+            "display_width": null,
+            "id": "case.attribution",
             "label": "Attribution",
+            "locked": false,
             "name": "attribution",
-            "type": "text",
-            "id": "case.attribution"
+            "required": false,
+            "show_emoji_picker": false,
+            "type": "text"
           },
           {
-            "label": "Read More Link",
-            "name": "link",
-            "type": "group",
-            "id": "case.link",
             "children": [
               {
+                "default": {
+                  "type": "EXTERNAL",
+                  "content_id": null,
+                  "href": ""
+                },
+                "display_width": null,
+                "id": "menu_items.cases.link.url",
                 "label": "Link URL",
+                "locked": false,
                 "name": "url",
-                "type": "url",
-                "supported_types": ["EXTERNAL", "CONTENT", "BLOG"]
+                "required": false,
+                "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+                "type": "url"
               },
               {
-                "label": "Link Text",
-                "name": "text",
-                "type": "text",
                 "allow_new_line": false,
+                "default": "Read more",
+                "display_width": null,
+                "id": "menu_items.cases.link.text",
+                "label": "Link Text",
+                "locked": false,
+                "name": "text",
+                "required": false,
                 "show_emoji_picker": false,
-                "default": "Read more"
+                "type": "text"
               }
-            ]
+            ],
+            "default": {
+              "url": {
+                "type": "EXTERNAL",
+                "content_id": null,
+                "href": ""
+              },
+              "text": "Read more"
+            },
+            "display_width": null,
+            "expanded": false,
+            "id": "case.link",
+            "label": "Read More Link",
+            "locked": false,
+            "name": "link",
+            "required": false,
+            "tab": "CONTENT",
+            "type": "group"
           }
-        ]
+        ],
+        "default": {
+          "logo": {
+            "size_type": "auto_custom_max",
+            "max_width": 130,
+            "loading": "lazy"
+          },
+          "link": {
+            "url": {
+              "type": "EXTERNAL",
+              "content_id": null,
+              "href": ""
+            },
+            "text": "Read more"
+          }
+        },
+        "display_width": null,
+        "expanded": false,
+        "id": "menu_item.cases",
+        "label": "Cases",
+        "locked": false,
+        "name": "cases",
+        "required": false,
+        "tab": "CONTENT",
+        "type": "group"
       }
-    ]
+    ],
+    "default": [
+      {
+        "category": {
+          "title": "Process industry",
+          "icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact",
+            "src": "../../images/module-icons/process-icon-white.png"
+          },
+          "hover_icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact",
+            "src": "../../images/module-icons/process-icon-teal.png"
+          }
+        },
+        "cases": {
+          "logo": {
+            "size_type": "auto_custom_max",
+            "max_width": 130,
+            "loading": "lazy"
+          },
+          "link": {
+            "url": {
+              "type": "EXTERNAL",
+              "content_id": null,
+              "href": ""
+            },
+            "text": "Read more"
+          }
+        }
+      },
+      {
+        "category": {
+          "title": "Food & beverages",
+          "icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact",
+            "src": "../../images/module-icons/food-icon-white.png"
+          },
+          "hover_icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact",
+            "src": "../../images/module-icons/food-icon-teal.png"
+          }
+        },
+        "cases": {
+          "logo": {
+            "size_type": "auto_custom_max",
+            "max_width": 130,
+            "loading": "lazy"
+          },
+          "link": {
+            "url": {
+              "type": "EXTERNAL",
+              "content_id": null,
+              "href": ""
+            },
+            "text": "Read more"
+          }
+        }
+      },
+      {
+        "category": {
+          "title": "Transport & logistics",
+          "icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact",
+            "src": "../../images/module-icons/transport-icon-white.png"
+          },
+          "hover_icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact",
+            "src": "../../images/module-icons/transport-icon-teal.png"
+          }
+        },
+        "cases": {
+          "logo": {
+            "size_type": "auto_custom_max",
+            "max_width": 130,
+            "loading": "lazy"
+          },
+          "link": {
+            "url": {
+              "type": "EXTERNAL",
+              "content_id": null,
+              "href": ""
+            },
+            "text": "Read more"
+          }
+        }
+      },
+      {
+        "category": {
+          "title": "Automotive",
+          "icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact",
+            "src": "../../images/module-icons/auto-icon-white.png"
+          },
+          "hover_icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact",
+            "src": "../../images/module-icons/auto-icon-teal.png"
+          }
+        },
+        "cases": {
+          "logo": {
+            "size_type": "auto_custom_max",
+            "max_width": 130,
+            "loading": "lazy"
+          },
+          "link": {
+            "url": {
+              "type": "EXTERNAL",
+              "content_id": null,
+              "href": ""
+            },
+            "text": "Read more"
+          }
+        }
+      },
+      {
+        "category": {
+          "title": "Energy & environment",
+          "icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact",
+            "src": "../../images/module-icons/energy-icon-white.png"
+          },
+          "hover_icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact",
+            "src": "../../images/module-icons/energy-icon-teal.png"
+          }
+        },
+        "cases": {
+          "logo": {
+            "size_type": "auto_custom_max",
+            "max_width": 130,
+            "loading": "lazy"
+          },
+          "link": {
+            "url": {
+              "type": "EXTERNAL",
+              "content_id": null,
+              "href": ""
+            },
+            "text": "Read more"
+          }
+        }
+      },
+      {
+        "category": {
+          "title": "Manufacturing",
+          "icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact",
+            "src": "../../images/module-icons/manufacturing-icon-white.png"
+          },
+          "hover_icon": {
+            "loading": "eager",
+            "width": 40,
+            "height": 40,
+            "max_width": 40,
+            "max_height": 40,
+            "size_type": "exact",
+            "src": "../../images/module-icons/manufacturing-icon.teal.png"
+          }
+        },
+        "cases": {
+          "logo": {
+            "size_type": "auto_custom_max",
+            "max_width": 130,
+            "loading": "lazy"
+          },
+          "link": {
+            "url": {
+              "type": "EXTERNAL",
+              "content_id": null,
+              "href": ""
+            },
+            "text": "Read more"
+          }
+        }
+      }
+    ],
+    "display_width": null,
+    "expanded": false,
+    "id": "menu_items",
+    "label": "Menu items",
+    "locked": false,
+    "name": "menu_items",
+    "occurrence": {
+      "default": 6,
+      "max": 7,
+      "min": 4,
+      "sorting_label_field": "menu_item.category"
+    },
+    "required": false,
+    "tab": "CONTENT",
+    "type": "group"
   }
 ]
