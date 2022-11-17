@@ -1,0 +1,271 @@
+
+
+{
+  "add_description.help_text": {
+    "message": "Toggla för att visa fält för att redigera beskrivningens text"
+  },
+  "add_description.inline_help_text": {
+    "message": "* Inte tillgängligt om bakgrund är 'ingen'"
+  },
+  "add_description.label": {
+    "message": "Aktivera Feature Beskrivning"
+  },
+  "add_description.placeholder": {
+    "message": ""
+  },
+  "background_image.default.alt": {
+    "message": "stats-background-alt-text"
+  },
+  "background_image.help_text": {
+    "message": ""
+  },
+  "background_image.inline_help_text": {
+    "message": ""
+  },
+  "background_image.label": {
+    "message": "Bakgrundsbild"
+  },
+  "background_image.placeholder": {
+    "message": ""
+  },
+  "background_type.choices.image": {
+    "message": "Bild bakgrund"
+  },
+  "background_type.choices.light": {
+    "message": "Ljus bakgrund"
+  },
+  "background_type.choices.none": {
+    "message": "Ingen bakgrund"
+  },
+  "background_type.help_text": {
+    "message": ""
+  },
+  "background_type.inline_help_text": {
+    "message": ""
+  },
+  "background_type.label": {
+    "message": "Typ av Bakgrund"
+  },
+  "background_type.placeholder": {
+    "message": ""
+  },
+  "description.default": {
+    "message": ""
+  },
+  "description.help_text": {
+    "message": "Lägg till en övertygande beskriving på features"
+  },
+  "description.inline_help_text": {
+    "message": "Fettext ska få en färg för att stå ut"
+  },
+  "description.label": {
+    "message": "Features Beskrivning"
+  },
+  "description.placeholder": {
+    "message": ""
+  },
+  "features[0].feature.default": {
+    "message": "Färre administrationstimmar"
+  },
+  "features[1].feature.default": {
+    "message": "Ökad produktivitet"
+  },
+  "features.feature.help_text": {
+    "message": ""
+  },
+  "features.feature.inline_help_text": {
+    "message": ""
+  },
+  "features.feature.label": {
+    "message": "Feature"
+  },
+  "features.feature.placeholder": {
+    "message": ""
+  },
+  "features.feature.validation_regex": {
+    "message": ""
+  },
+  "features.help_text": {
+    "message": ""
+  },
+  "features.inline_help_text": {
+    "message": ""
+  },
+  "features.label": {
+    "message": "Features Statistik"
+  },
+  "features.placeholder": {
+    "message": ""
+  },
+  "features.value.help_text": {
+    "message": ""
+  },
+  "features.value.inline_help_text": {
+    "message": ""
+  },
+  "features.value.label": {
+    "message": "Värde (i procent)"
+  },
+  "features.value.placeholder": {
+    "message": ""
+  },
+  "name": {
+    "message": "stats-banner"
+  },
+  "styles.background.color.help_text": {
+    "message": ""
+  },
+  "styles.background.color.inline_help_text": {
+    "message": ""
+  },
+  "styles.background.color.label": {
+    "message": "Färg"
+  },
+  "styles.background.color.placeholder": {
+    "message": ""
+  },
+  "styles.background.help_text": {
+    "message": ""
+  },
+  "styles.background.inline_help_text": {
+    "message": ""
+  },
+  "styles.background.label": {
+    "message": "Bakgrund"
+  },
+  "styles.background.overlay.help_text": {
+    "message": "Toggla för att lägga till en overlay på bakgrundsbilden"
+  },
+  "styles.background.overlay.inline_help_text": {
+    "message": ""
+  },
+  "styles.background.overlay.label": {
+    "message": "Lägg till overlay"
+  },
+  "styles.background.overlay.placeholder": {
+    "message": ""
+  },
+  "styles.background.placeholder": {
+    "message": ""
+  },
+  "styles.description.help_text": {
+    "message": ""
+  },
+  "styles.description.inline_help_text": {
+    "message": ""
+  },
+  "styles.description.label": {
+    "message": "Features Beskrivning"
+  },
+  "styles.description.placeholder": {
+    "message": ""
+  },
+  "styles.description.text.bold.help_text": {
+    "message": ""
+  },
+  "styles.description.text.bold.inline_help_text": {
+    "message": ""
+  },
+  "styles.description.text.bold.label": {
+    "message": "Fettext Färg"
+  },
+  "styles.description.text.bold.placeholder": {
+    "message": ""
+  },
+  "styles.description.text.font.help_text": {
+    "message": ""
+  },
+  "styles.description.text.font.inline_help_text": {
+    "message": ""
+  },
+  "styles.description.text.font.label": {
+    "message": "Font"
+  },
+  "styles.description.text.font.placeholder": {
+    "message": ""
+  },
+  "styles.description.text.help_text": {
+    "message": ""
+  },
+  "styles.description.text.inline_help_text": {
+    "message": ""
+  },
+  "styles.description.text.label": {
+    "message": "Text"
+  },
+  "styles.description.text.placeholder": {
+    "message": ""
+  },
+  "styles.features.feature.font.help_text": {
+    "message": ""
+  },
+  "styles.features.feature.font.inline_help_text": {
+    "message": ""
+  },
+  "styles.features.feature.font.label": {
+    "message": "Font"
+  },
+  "styles.features.feature.font.placeholder": {
+    "message": ""
+  },
+  "styles.features.feature.help_text": {
+    "message": ""
+  },
+  "styles.features.feature.inline_help_text": {
+    "message": ""
+  },
+  "styles.features.feature.label": {
+    "message": "Feature"
+  },
+  "styles.features.feature.placeholder": {
+    "message": ""
+  },
+  "styles.features.help_text": {
+    "message": ""
+  },
+  "styles.features.inline_help_text": {
+    "message": ""
+  },
+  "styles.features.label": {
+    "message": "Features"
+  },
+  "styles.features.placeholder": {
+    "message": ""
+  },
+  "styles.features.value.font.help_text": {
+    "message": ""
+  },
+  "styles.features.value.font.inline_help_text": {
+    "message": ""
+  },
+  "styles.features.value.font.label": {
+    "message": "Font"
+  },
+  "styles.features.value.font.placeholder": {
+    "message": ""
+  },
+  "styles.features.value.help_text": {
+    "message": ""
+  },
+  "styles.features.value.inline_help_text": {
+    "message": ""
+  },
+  "styles.features.value.label": {
+    "message": "Värde"
+  },
+  "styles.features.value.placeholder": {
+    "message": ""
+  },
+  "styles.help_text": {
+    "message": ""
+  },
+  "styles.inline_help_text": {
+    "message": ""
+  },
+  "styles.label": {
+    "message": "Styles"
+  },
+  "styles.placeholder": {
+    "message": ""
+  }
+}
