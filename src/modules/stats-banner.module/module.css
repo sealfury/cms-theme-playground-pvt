@@ -57,7 +57,10 @@
 
 .stats-banner__feature--value {
   font-size: 80px;
+  letter-spacing: 0.6px;
   line-height: 79px;
+  padding: 0 4% 0 6%;
+  text-align: center;
 }
 
 .stats-banner__feature--value::after {
@@ -68,6 +71,7 @@
   font-family: inherit;
   font-weight: inherit;
   font-size: inherit;
+  transform: translateX(-25%);
   width: fit-content;
 }
 
