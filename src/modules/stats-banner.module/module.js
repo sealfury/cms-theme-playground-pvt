@@ -35,6 +35,7 @@ function onComponentVisible(el, cb) {
   }).observe(el);
 }
 
+// Count-to-value animation
 onComponentVisible(featuresWrapper, () => {
   animateMultipleValues(featureValues);
 });

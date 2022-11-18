@@ -14,8 +14,8 @@
         padding: 3.5rem 6.5rem; 
     }
 
-    {% set menuItemIconUrl = "../../images/module-icons/process-icon-white.png" %}
-    {% set menuItemIconHover = "../../images/module-icons/process-icon-teal.png" %}
+    {% set menuItemIconUrl = get_asset_url("../../images/module-icons/process-icon-white.png") %}
+    {% set menuItemIconHover = get_asset_url("../../images/module-icons/process-icon-teal.png") %}
     {% set width = 40 ~ "px" %}
     {% set height = 20 ~ "px" %}
     {% for item in module.menu_items %}
@@ -67,16 +67,20 @@
 
     {% endfor %}
 
-      {% set arrowIconUrl = "../../images/module-icons/arrow-right-black.png" %}
+    {% if module.styles.arrow_icon.src %}
+      {% set arrowIconUrl = module.styles.arrow_icon.src %}
+    {% else %}
+      {% set arrowIconUrl = get_asset_url("../../images/module-icons/arrow-right-black.png") %}
+    {% endif %}
       .teams-menu__menu--item span::after {
-        background: url("{{ get_asset_url(arrowIconUrl) }}") no-repeat;
+        background: url("{{ arrowIconUrl }}") no-repeat;
         content: '';
         display: block;
-        height: 16px;
+        height: {{ module.styles.arrow_icon.height ~ 'px' }};
         justify-self: flex-end;
         opacity: 0;
         transition: opacity 0.3s ease;
-        width: 16px;
+        width: {{ module.styles.arrow_icon.width ~ 'px' }};
       }
 
       .teams-menu__menu--item:hover span::after {
@@ -115,7 +119,7 @@
         {% endif %}
 
         <li class="teams-menu__cases--case">
-          <img class="teams-menu__cases--logo" width="{{ case.logo.max_width }}" src="{{ case.logo.src }}" />
+          <img class="teams-menu__cases--logo" width="{{ case.logo.max_width }}" src="{{ get_asset_url(case.logo.src) }}" />
           <span class="teams-menu__cases--quote" >"{{ case.quote }}"</span>
           <span class="teams-menu__cases--attribution">{{ case.attribution }}</span>
           <a class="teams-menu__cases--link" href="{{ linkHref }}">{{ case.link.text }}</a>

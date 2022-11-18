@@ -1,15 +1,22 @@
 [
   {
-    "default": "<strong>See how other teams</strong> use maintmaster",
-    "display_width": null,
-    "id": "header",
     "label": "Section Header",
-    "locked": false,
     "name": "header",
+    "type": "richtext",
+    "id": "header",
     "required": false,
-    "type": "richtext"
+    "locked": false,
+    "default": "<strong>See how other teams</strong> use maintmaster"
   },
   {
+    "label": "Background image",
+    "name": "background_image",
+    "type": "image",
+    "id": "background_image",
+    "required": false,
+    "resizable": true,
+    "responsive": true,
+    "show_loading": false,
     "default": {
       "size_type": "exact",
       "src": "",
@@ -17,219 +24,200 @@
       "loading": "lazy",
       "max_height": 685,
       "max_width": 1240
-    },
-    "display_width": null,
-    "id": "background_image",
-    "label": "Background image",
-    "locked": false,
-    "name": "background_image",
-    "required": false,
-    "resizable": true,
-    "responsive": true,
-    "show_loading": false,
-    "type": "image"
+    }
   },
   {
+    "label": "Menu Items",
+    "name": "menu_items",
+    "type": "group",
+    "id": "menu_items",
+    "required": false,
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "default": 6,
+      "max": 8,
+      "min": 4,
+      "sorting_label_field": "menu_item.category"
+    },
     "children": [
       {
-        "children": [
-          {
-            "allow_new_line": false,
-            "default": "Process industry",
-            "display_width": null,
-            "id": "menu_items.category.title",
-            "label": "Category Title",
-            "locked": false,
-            "name": "title",
-            "required": false,
-            "show_emoji_picker": false,
-            "type": "text",
-            "validation_regex": ""
-          },
-          {
-            "default": {
-              "loading": "eager",
-              "width": 40,
-              "height": 40,
-              "max_width": 40,
-              "max_height": 40,
-              "size_type": "exact"
-            },
-            "display_width": null,
-            "id": "menu_items.category.icon",
-            "label": "Category Icon",
-            "locked": false,
-            "name": "icon",
-            "required": false,
-            "resizable": true,
-            "responsive": false,
-            "show_loading": false,
-            "type": "image"
-          },
-          {
-            "default": {
-              "loading": "eager",
-              "width": 40,
-              "height": 40,
-              "max_width": 40,
-              "max_height": 40,
-              "size_type": "exact"
-            },
-            "display_width": null,
-            "id": "menu_items.category.hover_icon",
-            "label": "Category Icon Hover",
-            "locked": false,
-            "name": "hover_icon",
-            "required": false,
-            "resizable": true,
-            "responsive": false,
-            "show_loading": false,
-            "type": "image"
-          }
-        ],
-        "default": {
-          "title": "Process industry",
-          "icon": {
-            "loading": "eager",
-            "width": 40,
-            "height": 40,
-            "max_width": 40,
-            "max_height": 40,
-            "size_type": "exact"
-          },
-          "hover_icon": {
-            "loading": "eager",
-            "width": 40,
-            "height": 40,
-            "max_width": 40,
-            "max_height": 40,
-            "size_type": "exact"
-          }
-        },
-        "display_width": null,
-        "expanded": false,
-        "id": "menu_item.category",
         "label": "Category",
-        "locked": false,
         "name": "category",
-        "required": false,
+        "type": "group",
+        "id": "menu_item.category",
+        "expanded": false,
         "tab": "CONTENT",
-        "type": "group"
-      },
-      {
         "children": [
           {
-            "default": {
-              "size_type": "auto_custom_max",
-              "max_width": 130,
-              "loading": "lazy"
-            },
-            "display_width": null,
-            "id": "case.logo",
-            "label": "Logo",
-            "locked": false,
-            "name": "logo",
+            "label": "Category Title",
+            "name": "title",
+            "type": "text",
+            "id": "menu_items.category.title",
+            "allow_new_line": false,
+            "show_emoji_picker": false,
+            "default": "Process industry"
+          },
+          {
+            "label": "Category Icon",
+            "name": "icon",
+            "type": "image",
+            "id": "menu_items.category.icon",
             "required": false,
             "resizable": true,
-            "responsive": true,
+            "responsive": false,
             "show_loading": false,
-            "type": "image"
+            "default": {
+              "loading": "eager",
+              "width": 40,
+              "height": 40,
+              "max_width": 44,
+              "max_height": 40,
+              "size_type": "exact"
+            }
           },
           {
-            "allow_new_line": false,
-            "display_width": null,
-            "id": "case.quote",
-            "label": "Quote",
-            "locked": false,
-            "name": "quote",
+            "label": "Category Icon - Hover",
+            "name": "hover_icon",
+            "type": "image",
+            "id": "menu_items.category.hover_icon",
             "required": false,
-            "show_emoji_picker": false,
-            "type": "text"
+            "resizable": true,
+            "responsive": false,
+            "show_loading": false,
+            "default": {
+              "loading": "eager",
+              "width": 40,
+              "height": 40,
+              "max_width": 44,
+              "max_height": 40,
+              "size_type": "exact"
+            }
           },
           {
-            "allow_new_line": false,
-            "display_width": null,
-            "id": "case.attribution",
-            "label": "Attribution",
+            "label": "Cases",
+            "name": "cases",
+            "type": "group",
+            "id": "menu_items.cases",
             "locked": false,
-            "name": "attribution",
             "required": false,
-            "show_emoji_picker": false,
-            "type": "text"
-          },
-          {
+            "expanded": false,
+            "tab": "CONTENT",
+            "occurrence": {
+              "min": 1,
+              "max": 3,
+              "default": 2,
+              "sorting_label_field": "cases.case"
+            },
             "children": [
               {
-                "default": {
-                  "type": "EXTERNAL",
-                  "content_id": null,
-                  "href": ""
-                },
-                "display_width": null,
-                "id": "menu_items.cases.link.url",
-                "label": "Link URL",
+                "label": "Logo",
+                "name": "logo",
+                "type": "image",
+                "id": "case.logo",
                 "locked": false,
-                "name": "url",
                 "required": false,
-                "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
-                "type": "url"
+                "resizable": true,
+                "responsive": true,
+                "show_loading": false,
+                "default": {
+                  "size_type": "auto_custom_max",
+                  "max_width": 130,
+                  "loading": "lazy",
+                  "src": ""
+                }
               },
               {
-                "allow_new_line": false,
-                "default": "Read more",
-                "display_width": null,
-                "id": "menu_items.cases.link.text",
-                "label": "Link Text",
+                "label": "Quote",
+                "name": "quote",
+                "type": "text",
+                "id": "case.quote",
                 "locked": false,
-                "name": "text",
+                "allow_new_line": true,
+                "show_emoji_picker": false
+              },
+              {
+                "label": "Attribution",
+                "name": "attribution",
+                "type": "text",
+                "id": "case.attribution",
+                "locked": false,
                 "required": false,
-                "show_emoji_picker": false,
-                "type": "text"
+                "allow_new_line": "true",
+                "visibility": {
+                  "controlling_field": "case.quote",
+                  "operator": "NOT_EMPTY"
+                }
+              },
+              {
+                "label": "Read More Link",
+                "name": "link",
+                "type": "group",
+                "id": "case.link",
+                "locked": false,
+                "required": false,
+                "tab": "CONTENT",
+                "children": [
+                  {
+                    "label": "Link URL",
+                    "name": "url",
+                    "type": "url",
+                    "id": "menu_items.cases.link.url",
+                    "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+                    "default": {
+                      "type": "EXTERNAL",
+                      "content_id": null,
+                      "href": "https://www.maintmaster.com"
+                    }
+                  },
+                  {
+                    "label": "Link Text",
+                    "name": "text",
+                    "type": "text",
+                    "id": "menu_items.cases.link.text",
+                    "locked": false,
+                    "required": false,
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "default": "Read more"
+                  }
+                ]
               }
             ],
-            "default": {
-              "url": {
-                "type": "EXTERNAL",
-                "content_id": null,
-                "href": ""
+            "default": [
+              {
+                "logo": {
+                  "size_type": "auto_custom_max",
+                  "max_width": 130,
+                  "loading": "lazy"
+                },
+                "link": {
+                  "text": "Read more",
+                  "url": {
+                    "type": "EXTERNAL",
+                    "content_id": null,
+                    "href": "https://www.maintmaster.com"
+                  }
+                }
               },
-              "text": "Read more"
-            },
-            "display_width": null,
-            "expanded": false,
-            "id": "case.link",
-            "label": "Read More Link",
-            "locked": false,
-            "name": "link",
-            "required": false,
-            "tab": "CONTENT",
-            "type": "group"
+              {
+                "logo": {
+                  "size_type": "auto_custom_max",
+                  "max_width": 130,
+                  "loading": "lazy"
+                },
+                "link": {
+                  "text": "Read more",
+                  "url": {
+                    "type": "EXTERNAL",
+                    "content_id": null,
+                    "href": "https://www.maintmaster.com"
+                  }
+                }
+              }
+            ]
           }
-        ],
-        "default": {
-          "logo": {
-            "size_type": "auto_custom_max",
-            "max_width": 130,
-            "loading": "lazy"
-          },
-          "link": {
-            "url": {
-              "type": "EXTERNAL",
-              "content_id": null,
-              "href": ""
-            },
-            "text": "Read more"
-          }
-        },
-        "display_width": null,
-        "expanded": false,
-        "id": "menu_item.cases",
-        "label": "Cases",
-        "locked": false,
-        "name": "cases",
-        "required": false,
-        "tab": "CONTENT",
-        "type": "group"
+        ]
       }
     ],
     "default": [
@@ -242,8 +230,7 @@
             "height": 40,
             "max_width": 40,
             "max_height": 40,
-            "size_type": "exact",
-            "src": "../../images/module-icons/process-icon-white.png"
+            "size_type": "exact"
           },
           "hover_icon": {
             "loading": "eager",
@@ -251,37 +238,56 @@
             "height": 40,
             "max_width": 40,
             "max_height": 40,
-            "size_type": "exact",
-            "src": "../../images/module-icons/process-icon-teal.png"
+            "size_type": "exact"
           }
         },
-        "cases": {
-          "logo": {
-            "size_type": "auto_custom_max",
-            "max_width": 130,
-            "loading": "lazy"
-          },
-          "link": {
-            "url": {
-              "type": "EXTERNAL",
-              "content_id": null,
-              "href": ""
+        "cases": [
+          {
+            "logo": {
+              "size_type": "auto_custom_max",
+              "max_width": 130,
+              "loading": "lazy"
             },
-            "text": "Read more"
+            "quote": "Nillam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus.",
+            "attribution": "Jonas Eliasson, Service Manager",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "content_id": null,
+                "href": "https://www.maintmaster.com"
+              },
+              "text": "Read more"
+            }
+          },
+          {
+            "logo": {
+              "size_type": "auto_custom_max",
+              "max_width": 130,
+              "loading": "lazy"
+            },
+            "quote": "MaintMaster gives us control and I like that we can develop the system ourselves and change it to suit our way of working",
+            "attribution": "Claes Norén, IT manager",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "content_id": null,
+                "href": "https://www.maintmaster.com"
+              },
+              "text": "Read more"
+            }
           }
-        }
+        ]
       },
       {
         "category": {
-          "title": "Food & beverages",
+          "title": "Food & beverage",
           "icon": {
             "loading": "eager",
             "width": 40,
             "height": 40,
             "max_width": 40,
             "max_height": 40,
-            "size_type": "exact",
-            "src": "../../images/module-icons/food-icon-white.png"
+            "size_type": "exact"
           },
           "hover_icon": {
             "loading": "eager",
@@ -289,25 +295,45 @@
             "height": 40,
             "max_width": 40,
             "max_height": 40,
-            "size_type": "exact",
-            "src": "../../images/module-icons/food-icon-teal.png"
+            "size_type": "exact"
           }
         },
-        "cases": {
-          "logo": {
-            "size_type": "auto_custom_max",
-            "max_width": 130,
-            "loading": "lazy"
-          },
-          "link": {
-            "url": {
-              "type": "EXTERNAL",
-              "content_id": null,
-              "href": ""
+        "cases": [
+          {
+            "logo": {
+              "size_type": "auto_custom_max",
+              "max_width": 130,
+              "loading": "lazy"
             },
-            "text": "Read more"
+            "quote": "This is the first case quote about food & beverage.  This one is about a a food-related service.",
+            "attribution": "Mats Matsson, Chef",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "content_id": null,
+                "href": "https://www.maintmaster.com"
+              },
+              "text": "Read more"
+            }
+          },
+          {
+            "logo": {
+              "size_type": "auto_custom_max",
+              "max_width": 130,
+              "loading": "lazy"
+            },
+            "quote": "Being the second case quote about food & beverage,  this one is naturally about a a beverage-related service.",
+            "attribution": "Mads Mikkelson, Spokesperson",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "content_id": null,
+                "href": "https://www.maintmaster.com"
+              },
+              "text": "Read more"
+            }
           }
-        }
+        ]
       },
       {
         "category": {
@@ -318,8 +344,7 @@
             "height": 40,
             "max_width": 40,
             "max_height": 40,
-            "size_type": "exact",
-            "src": "../../images/module-icons/transport-icon-white.png"
+            "size_type": "exact"
           },
           "hover_icon": {
             "loading": "eager",
@@ -327,25 +352,45 @@
             "height": 40,
             "max_width": 40,
             "max_height": 40,
-            "size_type": "exact",
-            "src": "../../images/module-icons/transport-icon-teal.png"
+            "size_type": "exact"
           }
         },
-        "cases": {
-          "logo": {
-            "size_type": "auto_custom_max",
-            "max_width": 130,
-            "loading": "lazy"
-          },
-          "link": {
-            "url": {
-              "type": "EXTERNAL",
-              "content_id": null,
-              "href": ""
+        "cases": [
+          {
+            "logo": {
+              "size_type": "auto_custom_max",
+              "max_width": 130,
+              "loading": "lazy"
             },
-            "text": "Read more"
+            "quote": "This is the first case quote for the transport & logistics category.  This one is about a a transport service.",
+            "attribution": "Allan, Procurement",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "content_id": null,
+                "href": "https://www.maintmaster.com"
+              },
+              "text": "Read more"
+            }
+          },
+          {
+            "logo": {
+              "size_type": "auto_custom_max",
+              "max_width": 130,
+              "loading": "lazy"
+            },
+            "quote": "Second case quote for transport and logistics so is about a logistics-related service.",
+            "attribution": "Per Persson, Logistics Manager",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "content_id": null,
+                "href": "https://www.maintmaster.com"
+              },
+              "text": "Read more"
+            }
           }
-        }
+        ]
       },
       {
         "category": {
@@ -356,8 +401,7 @@
             "height": 40,
             "max_width": 40,
             "max_height": 40,
-            "size_type": "exact",
-            "src": "../../images/module-icons/auto-icon-white.png"
+            "size_type": "exact"
           },
           "hover_icon": {
             "loading": "eager",
@@ -365,37 +409,56 @@
             "height": 40,
             "max_width": 40,
             "max_height": 40,
-            "size_type": "exact",
-            "src": "../../images/module-icons/auto-icon-teal.png"
+            "size_type": "exact"
           }
         },
-        "cases": {
-          "logo": {
-            "size_type": "auto_custom_max",
-            "max_width": 130,
-            "loading": "lazy"
-          },
-          "link": {
-            "url": {
-              "type": "EXTERNAL",
-              "content_id": null,
-              "href": ""
+        "cases": [
+          {
+            "logo": {
+              "size_type": "auto_custom_max",
+              "max_width": 130,
+              "loading": "lazy"
             },
-            "text": "Read more"
+            "quote": "Automotive industry related quote number one, and so forth.",
+            "attribution": "Richard Petty, Driver",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "content_id": null,
+                "href": "https://www.maintmaster.com"
+              },
+              "text": "Read more"
+            }
+          },
+          {
+            "logo": {
+              "size_type": "auto_custom_max",
+              "max_width": 130,
+              "loading": "lazy"
+            },
+            "quote": "Another automotive-related company's testimonial",
+            "attribution": "Lewis Hamilton",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "content_id": null,
+                "href": "https://www.maintmaster.com"
+              },
+              "text": "Read more"
+            }
           }
-        }
+        ]
       },
       {
         "category": {
-          "title": "Energy & environment",
+          "title": "Energy & environemnt",
           "icon": {
             "loading": "eager",
             "width": 40,
             "height": 40,
             "max_width": 40,
             "max_height": 40,
-            "size_type": "exact",
-            "src": "../../images/module-icons/energy-icon-white.png"
+            "size_type": "exact"
           },
           "hover_icon": {
             "loading": "eager",
@@ -403,25 +466,45 @@
             "height": 40,
             "max_width": 40,
             "max_height": 40,
-            "size_type": "exact",
-            "src": "../../images/module-icons/energy-icon-teal.png"
+            "size_type": "exact"
           }
         },
-        "cases": {
-          "logo": {
-            "size_type": "auto_custom_max",
-            "max_width": 130,
-            "loading": "lazy"
-          },
-          "link": {
-            "url": {
-              "type": "EXTERNAL",
-              "content_id": null,
-              "href": ""
+        "cases": [
+          {
+            "logo": {
+              "size_type": "auto_custom_max",
+              "max_width": 130,
+              "loading": "lazy"
             },
-            "text": "Read more"
+            "quote": "Aliquet risus feugiat in ante metus dictum at tempor. Nunc eget lorem dolor sed.",
+            "attribution": "Name McName, Manager",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "content_id": null,
+                "href": "https://www.maintmaster.com"
+              },
+              "text": "Read more"
+            }
+          },
+          {
+            "logo": {
+              "size_type": "auto_custom_max",
+              "max_width": 130,
+              "loading": "lazy"
+            },
+            "quote": "Dignissim cras tincidunt lobortis feugiat vivamus at. Gravida neque convallis a cras semper auctor neque vitae tempus. Accumsan tortor posuere ac ut consequat semper.",
+            "attribution": "Another Name, IT Lead",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "content_id": null,
+                "href": "https://www.maintmaster.com"
+              },
+              "text": "Read more"
+            }
           }
-        }
+        ]
       },
       {
         "category": {
@@ -432,8 +515,7 @@
             "height": 40,
             "max_width": 40,
             "max_height": 40,
-            "size_type": "exact",
-            "src": "../../images/module-icons/manufacturing-icon-white.png"
+            "size_type": "exact"
           },
           "hover_icon": {
             "loading": "eager",
@@ -441,41 +523,69 @@
             "height": 40,
             "max_width": 40,
             "max_height": 40,
-            "size_type": "exact",
-            "src": "../../images/module-icons/manufacturing-icon.teal.png"
+            "size_type": "exact"
           }
         },
-        "cases": {
-          "logo": {
-            "size_type": "auto_custom_max",
-            "max_width": 130,
-            "loading": "lazy"
-          },
-          "link": {
-            "url": {
-              "type": "EXTERNAL",
-              "content_id": null,
-              "href": ""
+        "cases": [
+          {
+            "logo": {
+              "size_type": "auto_custom_max",
+              "max_width": 130,
+              "loading": "lazy"
             },
-            "text": "Read more"
+            "quote": "Mattis vulputate enim nulla aliquet porttitor. Convallis a cras semper auctor neque.",
+            "attribution": "Stina Kott, CEO",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "content_id": null,
+                "href": "https://www.maintmaster.com"
+              },
+              "text": "Read more"
+            }
+          },
+          {
+            "logo": {
+              "size_type": "auto_custom_max",
+              "max_width": 130,
+              "loading": "lazy"
+            },
+            "attribution": "Katt Gato, Project Lead",
+            "quote": "Sit amet purus gravida quis blandit. Blandit aliquam etiam erat velit scelerisque in dictum non. Ipsum consequat nisl vel pretium lectus. ",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "content_id": null,
+                "href": "https://www.maintmaster.com"
+              },
+              "text": "Read more"
+            }
           }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Arrow Icon",
+        "name": "arrow_icon",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "default": {
+          "loading": "eager",
+          "size_type": "exact",
+          "src": "",
+          "width": 16,
+          "height": 16
         }
       }
-    ],
-    "display_width": null,
-    "expanded": false,
-    "id": "menu_items",
-    "label": "Menu items",
-    "locked": false,
-    "name": "menu_items",
-    "occurrence": {
-      "default": 6,
-      "max": 7,
-      "min": 4,
-      "sorting_label_field": "menu_item.category"
-    },
-    "required": false,
-    "tab": "CONTENT",
-    "type": "group"
+    ]
   }
 ]
