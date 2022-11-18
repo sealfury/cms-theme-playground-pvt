@@ -155,10 +155,18 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: pre-wrap;
-  width: fit-content;
 }
 
 .key-features__description,
 .key-features__link {
   line-height: 26px;
+  width: fit-content;
+}
+
+.key-features__link {
+  border-bottom: 3px solid transparent;
+}
+
+.key-features__link:hover {
+  border-color: #00B9BC;
 }

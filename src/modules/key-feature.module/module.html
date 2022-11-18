@@ -5,9 +5,9 @@
     {# Provide background color based on user choice #}
 
     {% set bgColor = "#15CCCF" %}
-    {% if module.background_color == "purple" %}
+    {% if module.styles.circle_bg_color == "purple" %}
       {% set bgColor = "#6734FF" %}
-    {% elif module.background_color == "grey" %}
+    {% elif module.styles.circle_bg_color == "grey" %}
       {% set bgColor = "#DFE4E9" %}
     {% endif %}
 
@@ -17,10 +17,10 @@
 
     {# Show selected icon in feature title #}
 
-    {% set titleIconUrl = "../../images/module-icons/scheduling-icon-teal.png" %}
+    {% set titleIconUrl = get_asset_url("../../images/module-icons/scheduling-icon-teal.png") %}
     {% set width = 40 ~ "px" %}
     {% set height = 20 ~ "px" %}
-    {% for feature in module.features %}
+    {% for feature in module.key_features.feature %}
       {% if feature.feature_title.icon.src %}
         {% set titleIconUrl = feature.feature_title.icon.src %}
       {% endif %}
@@ -55,7 +55,7 @@
 <h2 class="key-features__header">{{ module.header }}</h2>
 
 <div class="key-features">
-  {% for feature in module.features %}
+  {% for feature in module.key_features.feature %}
 
   {% if feature.feature_link.url.type == "CONTENT" and feature.feature_link.url.content_id %}
     {% set content = content_by_id(feature.feature_link.url.content_id) %}
