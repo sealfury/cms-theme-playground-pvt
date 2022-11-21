@@ -50,7 +50,7 @@
 .prices-section__description {
   margin: 0 auto;
   padding: 1.5rem 0;
-  width: clamp(320px, 100%, 808px);
+  width: clamp(320px, 100%, 806px);
 }
 
 .price-card__container {
@@ -69,7 +69,7 @@
   flex-direction: column;
   gap: 0.5rem;
   height: 480px;
-  padding: 2rem 1.5rem;
+  padding: 2rem 1.5rem 0.5rem;
   width: clamp(320px, 33%, 390px);
 }
 
@@ -84,8 +84,9 @@
 }
 
 .price-card__features {
-  padding: 0;
+  flex-grow: 2;
   margin: 0;
+  padding: 0;
   width: 100%;
 }
 
@@ -110,12 +111,16 @@
 }
 
 .price-card__button-container {
-  padding: 1.5rem 0 0.5rem;
+  height: 22%;
+  max-height: 106px;
+  padding: 10% 0 0;
+  text-align: center;
+  width: 100%;
 }
 
 .price-card__button {
   border-radius: 24px;
   margin: 0 auto;
   padding: 11px 32px;
-  width: clamp(fit-content, 45%, 180px);
+  width: clamp(80px, 45%, 180px);
 }
