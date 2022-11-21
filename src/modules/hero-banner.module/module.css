@@ -5,6 +5,7 @@
 .hero-banner {
   display: flex;
   margin: 0 auto;
+  min-height: 406px;
   padding: 2.5rem 6.25rem;
   width: 1440px;
 }

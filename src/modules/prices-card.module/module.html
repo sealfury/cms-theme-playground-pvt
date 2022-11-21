@@ -17,11 +17,13 @@
 
       {# Add colored border to promoted price tier #}
       .price-card__card {
+        background-color: #FFF;
         border: 2px inset transparent;
       }
 
       .price-card__price > strong {
         color: #00b9bc;
+        font-weight: 700;
       }
 
       {% for card in module.card %}
@@ -39,7 +41,7 @@
       .price-card__features--feature > span {
         color: #0f1e2d;
       }
-      
+
       .price-card__button-container {
         border-top: 2px solid #dfe4e9;
         width: 100%;
