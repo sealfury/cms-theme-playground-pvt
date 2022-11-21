@@ -91,6 +91,7 @@
     "label": "Video Player",
     "name": "video",
     "type": "videoplayer",
+    "required": false,
     "show_advanced_options": true
   }
 ]

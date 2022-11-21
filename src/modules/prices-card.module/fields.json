@@ -1,0 +1,155 @@
+[
+  {
+    "label": "Currency",
+    "name": "currency",
+    "id": "currency",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      ["euro", "Euro"],
+      ["sek", "SEK"],
+      ["gbp", "GBP"]
+    ],
+    "default": "euro"
+  },
+  {
+    "label": "Price Card",
+    "name": "card",
+    "id": "card",
+    "type": "group",
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 1,
+      "max": 3,
+      "default": 3
+    },
+    "children": [
+      {
+        "label": "Product tier",
+        "name": "tier",
+        "id": "card.tier",
+        "type": "text",
+        "allow_new_line": false
+      },
+      {
+        "label": "Price (Value)",
+        "name": "price",
+        "id": "card.price",
+        "type": "number",
+        "display": "slider",
+        "min": 0,
+        "max": 2000,
+        "step": 1,
+        "prefix": "",
+        "suffix": "",
+        "default": null,
+        "placeholder": 500
+      },
+      {
+        "label": "Tier Features",
+        "name": "features",
+        "id": "card.features",
+        "type": "text",
+        "occurrence": {
+          "min": 2,
+          "max": 7,
+          "default": 5
+        }
+      },
+      {
+        "label": "Features 'Check' Icon",
+        "name": "feature_icon",
+        "type": "image",
+        "id": "card.feature_icon",
+        "responsive": true,
+        "resizeable": false,
+        "show_loading": false,
+        "default": {
+          "size_type": "auto_custom_-max",
+          "src": "alt",
+          "alt": "pricing-features-check-icon",
+          "loading": "lazy",
+          "max_width": 18,
+          "max_height": 18
+        }
+      },
+      {
+        "label": "Button Text",
+        "name": "button_text",
+        "id": "card.button_text",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Start free trial"
+      },
+      {
+        "label": "PLACEHOLDER FOR FUTURE BUTTON FIELDS",
+        "name": "card_field_placeholder_1",
+        "type": "text",
+        "visibility": {
+          "controlling_field": "Button Text",
+          "controlling_value_regex": "a a a a a a",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "label": "Promote This Card?",
+        "name": "promote",
+        "id": "card.promote",
+        "type": "boolean",
+        "display": "toggle",
+        "inline_help_text": "Toggle on to emphasise card with coloured border and keyword",
+        "default": false
+      },
+      {
+        "label": "Card Emphasis Text",
+        "name": "emphasis",
+        "id": "card.emphasis",
+        "type": "text",
+        "allow_new_line": false,
+        "visibilty": {
+          "controlling_field": "card.promote",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "inline_help_text": "Limit 30 chars"
+      }
+    ]
+  },
+  {
+    "label": "Card Section Description",
+    "name": "description",
+    "id": "card_description",
+    "type": "richtext",
+    "inline_help_text": "Add a brief description of MaintMaster's plans to urger users towards more detailed sections",
+    "enabled_features": ["standard_emphasis", "alignment"],
+    "default": "Add a brief overview about starter packs to encourage users to find out more about each plan."
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Card Styles",
+        "name": "card",
+        "type": "group",
+        "children": [
+          {
+            "label": "Promotional Emphasis Colour",
+            "name": "promo",
+            "type": "color",
+            "visibiliy": {
+              "controlling_field": "card.promote",
+              "controlling_value_regex": "true",
+              "operator": "EQUAL"
+            },
+            "default": {
+              "color": "#6734FF"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

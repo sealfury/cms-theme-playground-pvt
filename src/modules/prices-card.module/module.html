@@ -1,0 +1,126 @@
+{# Module variables #}
+{% set currency = module.currency %}
+{% if currency == "euro" %}
+  {% set currencySymbol = "€" %}
+{% elif currency = "gbp" %}
+  {% set currencySymbol = "£" %}
+{% else %}
+  {% set currencySymbol %}
+{% endif %}
+
+{% for card in module.card %}
+  {% if card.feature_icon.src != "" %}
+    {% set featureIcon = card.feature_icon.src %}
+    {% set iconHeight = card.feature_icon.height %}
+    {% set iconWidth = card.feature_icon.width %}
+  {% else %}
+    {% set featureIcon = get_asset_url("../../images/module-icons/checkmark-icon-teal.png") %}
+    {% set iconHeight = 12 %}
+    {% set iconWidth = 12 %}
+  {% endif %}
+{% endfor %}
+
+{# Module styles #}
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+    {# Add colored border to promoted price tier #}
+
+    .price-card__card {
+      border: 2px inset transparent;
+    }
+
+    .price-card__price > strong {
+      color: #00B9BC;
+    }
+
+    {% for card in module.card %}
+      {% if card.promote == true %}
+        .price-card__card {
+          border-color: {{ module.card.promo.color }};
+        }
+      {% endif %}
+    {% endfor %}
+
+    .price-card__features--feature {
+      color: #00B9BC;
+    }
+
+    .price-card__features--feature > span {
+      color: #0F1E2D;
+    }
+
+    .price-card__features--feature::before {
+      background: url("{{ featureIcon }}") no-repeat;
+      content: '';
+      display: block;
+      height: {{ iconHeight ~ 'px' }};
+      margin-right: 2px;
+      width: {{ iconWidth ~ 'px' }};
+    }
+
+    .price-card__button-container {
+      border-top: 2px solid #DFE4E9;
+      width: 100%;
+    }
+
+    {# Replace with style fields if user control is desired #}
+    {% set buttonBgCol = "#00B9BC" %}
+    {% set buttonTextCol = "#2F3C49" %}
+
+    .price-card__button {
+      background-color: {{ buttonBgCol }};
+      color: {{ buttonTextCol }};
+      transition: all 0.3s ease-in-out;
+    }
+
+    .price-card__button:hover {
+      background-color: {{ color_variant(buttonBgCol, -20) }};
+      color: {{ color_variant(buttonTextCol, 20) }};
+    }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{# Price card section #}
+<section class="prices-section">
+  
+  {# Currency selector #}
+  <div class="currency-selector">
+    <ul class="currency-selector__choices">
+      <li class="currency-selector__choices--choice" data-choice="euro">euro</li>
+      <li class="currency-selector__choices--choice" data-choice="sek">sek</li>
+      <li class="Currency-selector__choices--choice" data-choice="gbp">gbp</li>
+    </ul>
+  </div>
+
+  {# Price tier cards #}
+  <div class="price-card__container">
+    {% for card in moudle.card %}
+      <card class="price-card__card">
+        <h4 class="price-card__tier">{{ card.tier }}</h4>
+        <h2 class="price-card__price">
+          {{ card.price|string }} <strong>{{ currency }}/month</strong>
+        </h2>
+        <ul class="price-card__features">
+          {% for feature in card.features %}
+            <li class="price-card__features--feature"><span>{{ feature }}</span></li>
+          {% endfor %}
+        </ul>
+        <div class="price-card__button-container">
+          <a class="price-card__button">{{ card.button_text }}</a>
+        </div>
+      </card>
+    {% endfor %}
+  </div>
+
+  {# Price tiers description #}
+  {% if module.description !== null or module.description !== "" %}
+  <div class="prices-section__description">
+    <p>{{ module.description }}</p>
+  </div>
+  {% endif %}
+
+</section>

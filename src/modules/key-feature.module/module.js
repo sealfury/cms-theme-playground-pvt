@@ -24,6 +24,8 @@ if (features) {
 
     var playButton = feature.querySelector('.autoplay__button');
 
+    // TODO: when image has autoplay toggled on it never turns off
+    // TODO: even when siblings are hovered over
     if (playButton) {
       playButton.addEventListener('mouseover', function () {
         this.parentNode.classList.add('playing');
