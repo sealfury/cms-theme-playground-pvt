@@ -25,8 +25,9 @@
   <style>
     {% scope_css %}
 
-    {# Add colored border to promoted price tier #}
+    {### Prices card styles ###}
 
+    {# Add colored border to promoted price tier #}
     .price-card__card {
       border: 2px inset transparent;
     }
@@ -78,6 +79,21 @@
     .price-card__button:hover {
       background-color: {{ color_variant(buttonBgCol, -20) }};
       color: {{ color_variant(buttonTextCol, 20) }};
+    }
+
+    {### Card section description styles ###}
+
+    {% if module.styles.description_color %}
+      {% set descTextColor = module.styles.description_color.color %}
+    {% else %}
+      {% set descTextColor = "#57616C" %}
+    {% endif %}
+    .prices-section__description > p {
+      color: {{ descTextColor }};
+      font-size: 14px;
+      line-height: 24px;
+      margin: 0;
+      padding: 0;
     }
 
     {% end_scope_css %}

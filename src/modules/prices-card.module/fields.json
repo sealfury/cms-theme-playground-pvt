@@ -149,6 +149,19 @@
             }
           }
         ]
+      },
+      {
+        "label": "Description Text Color",
+        "name": "description_color",
+        "type": "color",
+        "visibility": {
+          "controlling_field": "description",
+          "controlling_value_regex": "",
+          "operator": "NOT_EMPTY"
+        },
+        "default": {
+          "color": "#57616C"
+        }
       }
     ]
   }
