@@ -145,6 +145,11 @@
   padding: {{ dnd_section_padding }};
 }
 
+.dnd-section:first-child,
+.content-wrapper--vertical-spacing:first-child {
+  padding-top: 0;
+}
+
 .dnd-section > .row-fluid {
   max-width: {{ container_width }};
 }
