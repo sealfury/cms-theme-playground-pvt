@@ -2,7 +2,6 @@
   templateType: page
   isAvailableForNewContent: true
   label: Pricing
-  screenshotPath: ../images/template-previews/pricing.png
 -->
 {% extends "./layouts/base.html" %}
 
@@ -11,10 +10,15 @@
     label="Main section",
     class="body-container body-container--pricing" %}
 
+    {# Hero banner #}
+    
+    {% include_dnd_partial 
+      path="../sections/hero-banner-new.html" %}
+
     {# Pricing #}
 
     {% include_dnd_partial
-      path="../sections/pricing.html" %}
+      path="../sections/price-plans.html" %}
 
   {% end_dnd_area %}
 {% endblock body %}

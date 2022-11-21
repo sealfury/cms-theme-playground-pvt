@@ -394,7 +394,8 @@
               "size_unit": "px",
               "styles": {
                 "text-decoration": "none"
-              }
+              },
+              "variant": "600"
             }
           },
           {

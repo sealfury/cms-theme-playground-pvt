@@ -33,7 +33,7 @@
     "type": "group",
     "occurrence": {
       "default": 2,
-      "min": 1,
+      "min": 0,
       "max": 2,
       "sorting_label_field": "buttons.button"
     },

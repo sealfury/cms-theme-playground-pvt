@@ -136,3 +136,6 @@ scratch.*
 *.gif
 floby-logo.png
 nevs-logo-white.svg
+
+# Unedited boilerplate reference files
+zOLD-boilerplate

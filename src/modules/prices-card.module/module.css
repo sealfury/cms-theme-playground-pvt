@@ -28,7 +28,7 @@
 }
 
 .currency-selector__choices > li:last-child {
-  border-raidus: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
 }
 
 .currency-selector__choices--choice {
@@ -65,7 +65,7 @@
 .price-card__card {
   border-radius: 8px;
   box-shadow: 0 8px 16px 8px rgba(15 30 45 / 0.2);
-  diplay: flex;
+  display: flex;
   flex-direction: column;
   gap: 0.5rem;
   height: 480px;

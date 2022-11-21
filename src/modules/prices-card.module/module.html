@@ -8,24 +8,24 @@
   {% set currencySymbol = "sek" %}
 {% endif %}
 
-{% for card in module.card %}
-  {% if card.feature_icon.src != "" %}
-    {% set featureIcon = card.feature_icon.src %}
-    {% set iconHeight = card.feature_icon.height %}
-    {% set iconWidth = card.feature_icon.width %}
-  {% else %}
-    {% set featureIcon = get_asset_url("../../images/module-icons/checkmark-icon-teal.png") %}
-    {% set iconHeight = 12 %}
-    {% set iconWidth = 12 %}
-  {% endif %}
-{% endfor %}
-
 {# Module styles #}
 {% require_css %}
   <style>
     {% scope_css %}
 
       {### Prices card styles ###}
+
+      {% for card in module.card %}
+        {% if card.feature_icon.src != "" %}
+          {% set featureIcon = card.feature_icon.src %}
+          {% set iconHeight = card.feature_icon.height %}
+          {% set iconWidth = card.feature_icon.width %}
+        {% else %}
+          {% set featureIcon = get_asset_url("../../images/module-icons/checkmark-icon-teal.png") %}
+          {% set iconHeight = 12 %}
+          {% set iconWidth = 12 %}
+        {% endif %}
+      {% endfor %}
 
       {# Add colored border to promoted price tier #}
       .price-card__card {
@@ -108,17 +108,17 @@
     <ul class="currency-selector__choices">
       <li class="currency-selector__choices--choice" data-choice="euro">euro</li>
       <li class="currency-selector__choices--choice" data-choice="sek">sek</li>
-      <li class="Currency-selector__choices--choice" data-choice="gbp">gbp</li>
+      <li class="currency-selector__choices--choice" data-choice="gbp">gbp</li>
     </ul>
   </div>
 
   {# Price tier cards #}
   <div class="price-card__container">
-    {% for card in moudle.card %}
+    {% for card in module.card %}
       <card class="price-card__card">
         <h4 class="price-card__tier">{{ card.tier }}</h4>
         <h2 class="price-card__price">
-          {{ card.price|string }} <strong>{{ currency }}/month</strong>
+          {{ card.price|string }} <strong>{{ currencySymbol }}/month</strong>
         </h2>
         <ul class="price-card__features">
           {% for feature in card.features %}
