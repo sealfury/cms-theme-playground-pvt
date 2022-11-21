@@ -2,10 +2,10 @@
 {% set currency = module.currency %}
 {% if currency == "euro" %}
   {% set currencySymbol = "€" %}
-{% elif currency = "gbp" %}
+{% elif currency == "gbp" %}
   {% set currencySymbol = "£" %}
 {% else %}
-  {% set currencySymbol %}
+  {% set currencySymbol = "sek" %}
 {% endif %}
 
 {% for card in module.card %}
@@ -133,7 +133,7 @@
   </div>
 
   {# Price tiers description #}
-  {% if module.description !== null or module.description !== "" %}
+  {% if module.description != null or module.description != "" %}
   <div class="prices-section__description">
     <p>{{ module.description }}</p>
   </div>

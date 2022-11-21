@@ -65,7 +65,7 @@
         "resizeable": false,
         "show_loading": false,
         "default": {
-          "size_type": "auto_custom_-max",
+          "size_type": "auto_custom_max",
           "src": "alt",
           "alt": "pricing-features-check-icon",
           "loading": "lazy",
@@ -86,7 +86,7 @@
         "name": "card_field_placeholder_1",
         "type": "text",
         "visibility": {
-          "controlling_field": "Button Text",
+          "controlling_field": "card.button_text",
           "controlling_value_regex": "a a a a a a",
           "operator": "EQUAL"
         }
@@ -155,7 +155,7 @@
         "name": "description_color",
         "type": "color",
         "visibility": {
-          "controlling_field": "description",
+          "controlling_field": "card_description",
           "controlling_value_regex": "",
           "operator": "NOT_EMPTY"
         },

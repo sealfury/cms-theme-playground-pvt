@@ -4,11 +4,7 @@
   "external_js": [],
   "global": false,
   "help_text": "",
-  "host_template_types": [
-    "PAGE",
-    "BLOG_POST",
-    "BLOG_LISTING"
-  ],
+  "host_template_types": ["PAGE", "BLOG_POST", "BLOG_LISTING"],
   "icon": "../../images/module-icons/table.svg",
   "js_assets": [],
   "other_assets": [],
