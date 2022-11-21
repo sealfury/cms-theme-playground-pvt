@@ -27,21 +27,29 @@
 }
 
 .currency-selector__choices > li:first-child {
-  border-radius: 4px 0 0 4px
+  border-radius: 4px 0 0 4px;
+  border-width: 1.5px 0.5px 1.5px 1.5px;
+  padding: 0.6rem 1rem;
 }
 
 .currency-selector__choices > li:last-child {
   border-radius: 0 4px 4px 0;
+  border-width: 1.5px 1.5px 1.5px 0.5px;
+  padding: 0.6rem 1rem;
 }
 
 .currency-selector__choices--choice {
   background-color: #FFFFFF;
-  border: 1px inset;
   border-color: #DFE4E9;
   border-radius: 0;
+  border-style: solid;
+  border-width: 1.5px 0.5px;
   color: #0F1E2D;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
   text-transform: uppercase;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
 }
 
 .currency-selector__choices--choice .selected {
@@ -73,6 +81,7 @@
   gap: 0.5rem;
   height: 480px;
   padding: 2rem 1.5rem 0rem;
+  position: relative;
   width: clamp(320px, 33%, 390px);
 }
 
@@ -127,4 +136,20 @@
   margin: 0 auto 0;
   padding: 11px 32px;
   width: clamp(80px, 45%, 180px);
+}
+
+.price-card__promo-text {
+  border-radius: 20px;
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  left: 50%;
+  margin: 0;
+  max-height: 40px;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+  transform: translate(-50%, -50%);
 }
