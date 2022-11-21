@@ -1,4 +1,4 @@
-{% import './tools/_macros.css' %}
+{% from './tools/_macros.css' import color %}
 
 {## Table of contents
 

@@ -45,6 +45,8 @@ Example:
 
 {% endmacro %}
 
+{## **Pixel-to-Rem Conversion Helper ##}
+
 {% macro convertToRem(prop, value) %}
 
   {% if !baseFontSize %}
