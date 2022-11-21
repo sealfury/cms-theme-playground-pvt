@@ -25,76 +25,76 @@
   <style>
     {% scope_css %}
 
-    {### Prices card styles ###}
+      {### Prices card styles ###}
 
-    {# Add colored border to promoted price tier #}
-    .price-card__card {
-      border: 2px inset transparent;
-    }
+      {# Add colored border to promoted price tier #}
+      .price-card__card {
+        border: 2px inset transparent;
+      }
 
-    .price-card__price > strong {
-      color: #00B9BC;
-    }
+      .price-card__price > strong {
+        color: #00b9bc;
+      }
 
-    {% for card in module.card %}
+      {% for card in module.card %}
       {% if card.promote == true %}
         .price-card__card {
           border-color: {{ module.card.promo.color }};
         }
       {% endif %}
-    {% endfor %}
+      {% endfor %}
 
-    .price-card__features--feature {
-      color: #00B9BC;
-    }
+      .price-card__features--feature {
+        color: #00b9bc;
+      }
 
-    .price-card__features--feature > span {
-      color: #0F1E2D;
-    }
+      .price-card__features--feature > span {
+        color: #0f1e2d;
+      }
 
-    .price-card__features--feature::before {
-      background: url("{{ featureIcon }}") no-repeat;
-      content: '';
-      display: block;
-      height: {{ iconHeight ~ 'px' }};
-      margin-right: 2px;
-      width: {{ iconWidth ~ 'px' }};
-    }
+      .price-card__features--feature::before {
+        background: url("{{ featureIcon }}") no-repeat;
+        content: "";
+        display: block;
+        height: {{ iconHeight ~ "px" }};
+        margin-right: 2px;
+        width: {{ iconWidth ~ "px" }};
+      }
 
-    .price-card__button-container {
-      border-top: 2px solid #DFE4E9;
-      width: 100%;
-    }
+      .price-card__button-container {
+        border-top: 2px solid #dfe4e9;
+        width: 100%;
+      }
 
-    {# Replace with style fields if user control is desired #}
-    {% set buttonBgCol = "#00B9BC" %}
-    {% set buttonTextCol = "#2F3C49" %}
+      {# Replace with style fields if user control is desired #}
+      {% set buttonBgCol = "#00B9BC" %}
+      {% set buttonTextCol = "#2F3C49" %}
 
-    .price-card__button {
-      background-color: {{ buttonBgCol }};
-      color: {{ buttonTextCol }};
-      transition: all 0.3s ease-in-out;
-    }
+      .price-card__button {
+        background-color: {{ buttonBgCol }};
+        color: {{ buttonTextCol }};
+        transition: all 0.3s ease-in-out;
+      }
 
-    .price-card__button:hover {
-      background-color: {{ color_variant(buttonBgCol, -20) }};
-      color: {{ color_variant(buttonTextCol, 20) }};
-    }
+      .price-card__button:hover {
+        background-color: {{ color_variant(buttonBgCol, -20) }};
+        color: {{ color_variant(buttonTextCol, 20) }};
+      }
 
-    {### Card section description styles ###}
+      {### Card section description styles ###}
 
-    {% if module.styles.description_color %}
-      {% set descTextColor = module.styles.description_color.color %}
-    {% else %}
-      {% set descTextColor = "#57616C" %}
-    {% endif %}
-    .prices-section__description > p {
-      color: {{ descTextColor }};
-      font-size: 14px;
-      line-height: 24px;
-      margin: 0;
-      padding: 0;
-    }
+      {% if module.styles.description_color %}
+        {% set descTextColor = module.styles.description_color.color %}
+      {% else %}
+        {% set descTextColor = "#57616C" %}
+      {% endif %}
+      .prices-section__description > p {
+        color: {{ descTextColor }};
+        font-size: 14px;
+        line-height: 24px;
+        margin: 0;
+        padding: 0;
+      }
 
     {% end_scope_css %}
   </style>
@@ -134,9 +134,9 @@
 
   {# Price tiers description #}
   {% if module.description != null or module.description != "" %}
-  <div class="prices-section__description">
-    <p>{{ module.description }}</p>
-  </div>
+    <div class="prices-section__description">
+      <p>{{ module.description }}</p>
+    </div>
   {% endif %}
 
 </section>
