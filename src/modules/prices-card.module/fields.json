@@ -65,8 +65,8 @@
         "resizeable": false,
         "show_loading": false,
         "default": {
+          "src": "",
           "size_type": "auto_custom_max",
-          "src": "alt",
           "alt": "pricing-features-check-icon",
           "loading": "lazy",
           "max_width": 18,

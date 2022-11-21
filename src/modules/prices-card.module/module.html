@@ -15,18 +15,6 @@
 
       {### Prices card styles ###}
 
-      {% for card in module.card %}
-        {% if card.feature_icon.src != "" %}
-          {% set featureIcon = card.feature_icon.src %}
-          {% set iconHeight = card.feature_icon.height %}
-          {% set iconWidth = card.feature_icon.width %}
-        {% else %}
-          {% set featureIcon = get_asset_url("../../images/module-icons/checkmark-icon-teal.png") %}
-          {% set iconHeight = 12 %}
-          {% set iconWidth = 12 %}
-        {% endif %}
-      {% endfor %}
-
       {# Add colored border to promoted price tier #}
       .price-card__card {
         border: 2px inset transparent;
@@ -51,16 +39,7 @@
       .price-card__features--feature > span {
         color: #0f1e2d;
       }
-
-      .price-card__features--feature::before {
-        background: url("{{ featureIcon }}") no-repeat;
-        content: "";
-        display: block;
-        height: {{ iconHeight ~ "px" }};
-        margin-right: 2px;
-        width: {{ iconWidth ~ "px" }};
-      }
-
+      
       .price-card__button-container {
         border-top: 2px solid #dfe4e9;
         width: 100%;
@@ -122,7 +101,10 @@
         </h2>
         <ul class="price-card__features">
           {% for feature in card.features %}
-            <li class="price-card__features--feature"><span>{{ feature }}</span></li>
+            <li class="price-card__features--feature">
+              <img width="{{ card.feature_icon.width }}" src="{{ card.feature_icon.src }}" />
+              <span>{{ feature }}</span>
+            </li>
           {% endfor %}
         </ul>
         <div class="price-card__button-container">

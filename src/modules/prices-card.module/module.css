@@ -94,9 +94,14 @@
   display: inline-flex;
   max-height: 28px;
   overflow: hidden;
+  padding: 2px 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
+}
+
+.price-card__features--feature > img {
+  margin: 0 6px 1.6px 0;
 }
 
 .price-card__features--feature > span {
