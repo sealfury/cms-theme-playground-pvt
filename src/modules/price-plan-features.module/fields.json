@@ -20,8 +20,8 @@
     "children": [
       {
         "label": "Feature Name",
-        "name": "name",
-        "id": "feature.name",
+        "name": "title",
+        "id": "feature.title",
         "type": "text",
         "allow_new_line": false
       },
@@ -38,7 +38,7 @@
           ["enterprise", "Enterprise"]
         ],
         "visibility": {
-          "controlling_field": "feature.name",
+          "controlling_field": "feature.title",
           "controlling_value_regex": "",
           "operator": "NOT_EMPTY"
         }

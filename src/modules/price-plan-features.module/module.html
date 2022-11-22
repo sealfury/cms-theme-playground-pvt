@@ -1,24 +1,48 @@
 {# Module variables #}
-{% set featureTierChoices = ["Team", "Business", "Enterprise"] %}
+{% set featureTierChoices = [ "team", "business", "enterprise" ] %}
+
+{# Module Styles #}
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+    {# Apply background colour to checkmark #}
+
+    .tier-features__checkmark {
+      background-color: #00B9BC;
+      border-radius: 50%;
+      height: 34px;
+      padding: 8px;
+      width: 34px;
+    }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
 
 <section class="tier-features__container">
-  {{ feature.tiers|pprint }}
   <table class="tier-features__table">
-
     <tr class="tier-features__column-headers">
       <th scope="col">{{ module.header }}</th>
       {% for choice in featureTierChoices %}
-        <th scope="col">{{ choice }}</th>
+      <th scope="col">{{ choice|capitalize }}:</th>
       {% endfor %}
     </tr>
-    
+
     {% for feature in module.feature %}
-      <tr class="tier-features__row">
-        <th scope="row">{{ feature.name }}</th>
-        {% for tier in feature.tiers %}
-          <td>{{ tier }}</td>
-        {% endfor %}
-      </tr>
+    <tr class="tier-features__row">
+      <th scope="row">{{ feature.title }}</th>
+      {% for tier in featureTierChoices %}
+        <td>
+        {% if feature.tiers is containing tier %}
+          <img class="tier-features__checkmark" width="{{ module.checkmark.width }}" src="{{ module.checkmark.src }}" />
+        {% else %}
+          <span> ~ </span>
+        {% endif %}
+        </td>
+      {% endfor %}
+    </tr>
     {% endfor %}
   </table>
 </section>
