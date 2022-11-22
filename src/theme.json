@@ -4,11 +4,11 @@
     "name": "Rhyme",
     "email": "william@rhyme.se",
     "url": "https://www.rhyme.se"
-	},
+  },
   "documentation_url": "Coming soon...",
   "example_url": "Coming soon...",
   "preview_path": "./templates/home.html",
-  "screenshot_path": "./images/template-previews/home.png",
+  "screenshot_path": "./images/template-previews/mm-preview-home.png",
   "enable_domain_stylesheets": false,
   "license": "./license.txt",
   "responsive_breakpoints": [
