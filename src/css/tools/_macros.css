@@ -5,6 +5,11 @@
 {## Table of contents:
 
   1. Color Field CSS Mapper
+  2. Pixel-to-REM Conversion Helper
+  3. Prefix Constructor
+  4. Positioning Shorthand Macro
+  5. Transition Shorthand Helper
+  6. Various Small Helper Macros
 
 ##}
 
@@ -45,7 +50,24 @@ Example:
 
 {% endmacro %}
 
-{## **Pixel-to-Rem Conversion Helper ##}
+
+{###########################################################################}
+{#####################   Pixel-to-REM Conversion Helper  ###################}
+{###########################################################################}
+
+{#
+
+Convert px values to rem values for all sizing and spacing
+
+Usage:
+
+* Inside CSS block for an element, call macro with the following parameters, IN ORDER:
+  ** Property: Any CSS property AS STRING
+  ** Value: Any value without unit suffix (ideally px) AS STRING
+
+* Values follow css rule convention. Max 4 values
+
+#}
 
 {% macro convertToRem(prop, value) %}
 
@@ -93,3 +115,142 @@ Example:
   {% endif %}
 
 {%endmacro%}
+
+{###########################################################################}
+{######################   Browserkit Prefix Constructor  ###################}
+{###########################################################################}
+
+{# 
+
+Builds browser vendor prefixed versions of a styling rule.
+
+Usage:
+
+* Inside of a parent macro, call includePrefixes macro with the following arguments:
+  ** prop - CSS property to be prefixed
+  ** val - Value
+  ** prefixes - Prefixes (string[]): one or many of ['ms', 'webkit', 'moz', 'o']
+
+#}
+
+{% macro includePrefixes(prop, val, prefixes ) %}
+  {% set prefixList = prefixes|split(",", 10) %}
+  {% for prefix in prefixList %}
+    --{{ prefix }}-{{ prop }}: {{ val }};
+  {% endfor %}
+    {{ prop }}: {{ val }};
+{% endmacro %}
+
+{###########################################################################}
+{#####################   Positioning Shorthand Macro  ######################}
+{###########################################################################}
+
+{#
+
+Use shorthand for element positioning rules
+
+Usage:
+
+* Inside CSS block for an element to position, call macro with the following arguments:
+  ** pos - Position (string): Valid CSS position (e.g. absolute, fixed, etc)
+  ** top, right, bottom, left - Standard order for shorthand CSS props IN PERCENT (strings | null)
+
+Example:
+
+{{ position('absolute', null, '0', '20%', null) }};
+
+#}
+
+{% macro position(pos, top, right, bottom, left) %}
+  position: {{ position }};
+
+  {% if top %}
+    top: {{ top }};
+  {% endif %}
+  {% if right %}
+    right: {{ right }};
+  {% endif %}
+  {% if bottom %}
+    bottom: {{ bottom }};
+  {% endif %}
+  {% if left %}
+    left: {{ left }};
+  {% endif %}
+
+{% endmacro %}
+
+{###########################################################################}
+{#####################   Transition Shorthand Helper  ######################}
+{###########################################################################}
+
+{#
+
+Add transition properties, either together or separately
+
+Usage:
+
+* Inside CSS block for an element to position, call macro with single string including standard transition args:
+  ** 'property duration timing-function delay|initial|inherit'
+
+Example:
+
+{{ transition('width 0.5s ease-in-out') }}
+{{ transitionDuration('0.5s') }}
+
+#}
+
+{% macro transition(props) %}
+  {% set prefixes = ["webkit", "moz"] %}
+    {% for p in prefixes %}
+      {{ "-" ~ p ~ "-transition: " ~ props|replace('transform'. '-' ~ prefix ~ '-transform') }};
+    {% endfor %}
+    {{ "transition: " ~ props}}
+{% endmacro %}
+
+{% macro transitionProperty(val) %}
+  {% set prefixes = ["webkit", "moz"] %}
+    {% for p in prefixes %}
+      {{ "-" ~ p ~ "-transition-property: -" ~ p ~ "-" ~ val }};
+  {% endfor %}
+  {{ "transition-property: " ~ val }};
+{% endmacro %}
+
+{% macro transitionDuration(val) %}
+  {{ prefix('transition-duration', val, "webkit, moz" )}}
+{% endmacro %}
+
+{% macro transitionDelay(val) %}
+  {{ prefix('transition-delay', val, "webkit, moz" )}}
+{% endmacro %}
+
+{% macro transitionTimingFn(val) %}
+  {{ prefix('transition-timing-function', val, "webkit, moz" )}}
+{% endmacro %}
+
+{###########################################################################}
+{#####################   Various Small Helper Macros #######################}
+{###########################################################################}
+
+{#
+
+Helper functions to shorthand certain CSS properties
+
+* Functions:
+  ** Filter - abbreviate css filter rules w/ prefixes
+  ** Placeholder - abbreviate css placeholder rules 
+#}
+
+{# Filter #}
+{% macro filter(val) %}
+  {{ prefix('filter', val, "webkit") }}
+{% endmacro %}
+
+{# Placeholder #}
+{% macro placeholder() %}
+  {% set prefixes = ['::-webkit-input', '::-moz', ':ms-input'] %}
+  {% for p in prefixes %}
+    {{ p }}-placeholder {
+      {{ caller() }}
+    }
+  {% endfor %}
+{% endmacro %}
