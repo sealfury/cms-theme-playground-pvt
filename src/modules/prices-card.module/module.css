@@ -9,7 +9,6 @@
   gap: 1rem;
   transform: translateY(-40%);
   width: clamp(320px, 100vw, 1230px);
-  z-index: 100;
 }
 
 .currency-selector {
@@ -48,11 +47,19 @@
   font-size: 14px;
   font-weight: 600;
   line-height: 24px;
-  text-transform: uppercase;
   padding: 0.6rem 1.2rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
 }
 
-.currency-selector__choices--choice .selected {
+.currency-selector__choices--choice:hover {
+  background-color: #0F1E2D;
+  border-color: #0F1E2D;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.currency-selector__choices--choice.selected {
   background-color: #0F1E2D;
   border-color: #0F1E2D;
   color: #FFFFFF;

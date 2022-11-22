@@ -1,5 +1,6 @@
 {# Module variables #}
 {% set currency = module.currency %}
+{% set currencyChoices = ["euro", "sek", "gbp"] %}
 {% if currency == "euro" %}
   {% set currencySymbol = "€" %}
 {% elif currency == "gbp" %}
@@ -93,9 +94,11 @@
   {# Currency selector #}
   <div class="currency-selector">
     <ul class="currency-selector__choices">
-      <li class="currency-selector__choices--choice" data-choice="euro">euro</li>
-      <li class="currency-selector__choices--choice" data-choice="sek">sek</li>
-      <li class="currency-selector__choices--choice" data-choice="gbp">gbp</li>
+      {% for choice in currencyChoices %}
+        <li class="currency-selector__choices--choice {{ "selected" if choice == module.currency }}">
+          {{ choice }}
+        </li>
+      {% endfor %}
     </ul>
   </div>
 

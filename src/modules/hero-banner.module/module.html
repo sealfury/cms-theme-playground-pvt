@@ -48,7 +48,7 @@
 
 <!-- module html  -->
 {# Translate markup not included in editable fields #}
-{% set reqPath = request.path|split('/', 2)|last %}
+{% set reqPath = request.path|split('/', 2)|first %}
 {% if reqPath == "sv" %}
   {% set joiningWord = "eller" %}
 {% elif reqPath == "de" %}

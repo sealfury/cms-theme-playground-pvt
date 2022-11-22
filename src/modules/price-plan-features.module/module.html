@@ -1,0 +1,24 @@
+{# Module variables #}
+{% set featureTierChoices = ["Team", "Business", "Enterprise"] %}
+
+<section class="tier-features__container">
+  {{ feature.tiers|pprint }}
+  <table class="tier-features__table">
+
+    <tr class="tier-features__column-headers">
+      <th scope="col">{{ module.header }}</th>
+      {% for choice in featureTierChoices %}
+        <th scope="col">{{ choice }}</th>
+      {% endfor %}
+    </tr>
+    
+    {% for feature in module.feature %}
+      <tr class="tier-features__row">
+        <th scope="row">{{ feature.name }}</th>
+        {% for tier in feature.tiers %}
+          <td>{{ tier }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </table>
+</section>

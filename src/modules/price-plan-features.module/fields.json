@@ -1,0 +1,62 @@
+[
+  {
+    "label": "Features List Header",
+    "name": "header",
+    "type": "text",
+    "locked": false,
+    "required": false,
+    "default": "Features"
+  },
+  {
+    "label": "Feature Type",
+    "name": "feature",
+    "id": "feature",
+    "type": "group",
+    "occurrence": {
+      "min": 2,
+      "max": 30,
+      "default": 4
+    },
+    "children": [
+      {
+        "label": "Feature Name",
+        "name": "name",
+        "id": "feature.name",
+        "type": "text",
+        "allow_new_line": false
+      },
+      {
+        "label": "Available At Tier",
+        "name": "tiers",
+        "id": "feature.tiers",
+        "type": "choice",
+        "display": "checkbox",
+        "multiple": true,
+        "choices": [
+          ["team", "Team"],
+          ["business", "Business"],
+          ["enterprise", "Enterprise"]
+        ],
+        "visibility": {
+          "controlling_field": "feature.name",
+          "controlling_value_regex": "",
+          "operator": "NOT_EMPTY"
+        }
+      }
+    ]
+  },
+  {
+    "label": "Checkmark Icon",
+    "name": "checkmark",
+    "type": "image",
+    "resizable": false,
+    "responsive": false,
+    "default": {
+      "src": "",
+      "size_type": "auto_custom_max",
+      "max_height": 18,
+      "max_width": 18,
+      "loading": "lazy"
+    }
+  }
+]
