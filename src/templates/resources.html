@@ -1,0 +1,61 @@
+<!--
+  templateType: blog_listing
+  isAvailableForNewContent: true
+  label: Resources
+-->
+
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "dnd_area"
+    label="Main section",
+    class="body-container body-container--blog-index" %}
+
+    {% include_dnd_partial
+      path="../sections/hero-banner-new.html" %}
+
+    {# Search bar #}
+
+    {% dnd_section
+      max_width=800,
+      horizontal_alignment="CENTER" %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/search-input" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {# Resources category selector #}
+
+    {% dnd_section
+      max_width=1200,
+      horizontal_alignment="CENTER" %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/blog-listing-selector" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {# Resources listings section #}
+
+    {% dnd_section
+      max_width=1280,
+      vertical_alignment="TOP" %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/blog-listings" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}
