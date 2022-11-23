@@ -3,14 +3,14 @@
   {% set color_teal = module.styles.bold_color.light.color %}
   {% set backgroundColor = module.styles.background_color.light_bg.color %}
   {% set buttonColor = "#00B9BC" %}
-  {% set buttonHover = {{ color_variant(buttonColor, -30) }} %}
+  {% set buttonHover = color_variant(buttonColor, -30) %}
   {% set buttonText = "#2F3C49" %}
   {% set textContentColor = "#0F1E2D" %}
 {% elif module.mode == "dark" %}
   {% set color_teal = module.styles.bold_color.dark.color %}
   {% set backgroundColor = module.styles.background_color.dark_bg.color %}
   {% set buttonColor = "#FFFFFF" %}
-  {% set buttonHover = {{ color_variant(buttonColor, -20) }} %}
+  {% set buttonHover = color_variant(buttonColor, -20) %}
   {% set buttonText = "#0F1E2D" %}
   {% set textContentColor = "#FFFFFF" %}
 {% endif %}
@@ -30,7 +30,7 @@
 
       .cta-small__heading > strong {
         color: {{ color_teal }};
-        font-wieght: inherit;
+        font-weight: inherit;
       }
 
       .cta-small__link {

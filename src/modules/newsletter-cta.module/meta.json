@@ -1,6 +1,14 @@
 {
+  "label": "Newsletter Sign-up",
+  "css_assets": [],
+  "external_js": [],
   "global": false,
   "host_template_types": ["PAGE", "BLOG_POST", "BLOG_LISTING"],
+  "help_text": "",
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": [],
   "module_id": 54826232539,
   "is_available_for_new_content": true
 }

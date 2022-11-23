@@ -1,6 +1,14 @@
 {
+  "label": "CTA Small",
+  "css_assets": [],
+  "external_js": [],
+  "help_text": "",
   "global": false,
   "host_template_types": ["PAGE", "BLOG_LISTING"],
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": [],
   "module_id": 54837391094,
   "is_available_for_new_content": true
 }
