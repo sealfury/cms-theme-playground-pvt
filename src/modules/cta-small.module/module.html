@@ -1,41 +1,41 @@
+{# Module Variables #}
+{% if module.mode == "light" %}
+  {% set color_teal = module.styles.bold_color.light.color %}
+  {% set backgroundColor = module.styles.background_color.light_bg.color %}
+  {% set buttonColor = "#00B9BC" %}
+  {% set buttonHover = {{ color_variant(buttonColor, -30) }} %}
+  {% set buttonText = "#2F3C49" %}
+  {% set textContentColor = "#0F1E2D" %}
+{% elif module.mode == "dark" %}
+  {% set color_teal = module.styles.bold_color.dark.color %}
+  {% set backgroundColor = module.styles.background_color.dark_bg.color %}
+  {% set buttonColor = "#FFFFFF" %}
+  {% set buttonHover = {{ color_variant(buttonColor, -20) }} %}
+  {% set buttonText = "#0F1E2D" %}
+  {% set textContentColor = "#FFFFFF" %}
+{% endif %}
+
 {% require_css %}
   <style>
     {% scope_css %}
-      {% set buttonTextColor = "#2F3C49" %}
 
-      {% if module.mode is equalto("light") %}
-        {% set buttonBgColor = "#00B9BC" %}
-        {% set teal = "#00A5A8" %}
-        {% set buttonHover = "rgba({{ color_variant(buttonBgColor, -30)|convert_rgb }}, 1)" %}
+      .cta-small {
+        background-color: {{ backgroundColor }};
+      }
 
-        .cta-small {
-          background-color: #f0f5fa;
-        }
+      .cta-small__heading,
+      .cta-small__description {
+        color: {{ textContentColor }};
+      }
 
-        .cta-small__heading,
-        .cta-small__description {
-          color: #0f1e2d;
-        }
-      {% endif %}
-
-      {% if module.mode is equalto("dark") %}
-        {% set buttonBgColor = "#fff" %}
-        {% set teal = "#00" %}
-        {% set buttonHover = "rgba({{ color_variant(buttonBgColor, -20)|convert_rgb }}, 1)" %}
-
-        .cta-small {
-          background-color: #2f3c49;
-        }
-
-        .cta-small__heading,
-        .cta-small__description {
-          color: #fff;
-        }
-      {% endif %}
+      .cta-small__heading > strong {
+        color: {{ color_teal }};
+        font-wieght: inherit;
+      }
 
       .cta-small__link {
-        background-color: {{ buttonBgColor }};
-        color: {{ buttonTextColor }};
+        background-color: {{ buttonColor }};
+        color: {{ buttonText }};
       }
 
       .cta-small__link:hover,
@@ -43,35 +43,23 @@
         background-color: {{ buttonHover }};
       }
 
-      .teal {
-        color: {{ teal }};
-      }
-
     {% end_scope_css %}
   </style>
 {% end_require_css %}
 
 {% if module.mode is equalto("light") %}
-  {% set heading = "Free trial <span class='teal'>for 30 days</span>" %}
+  {% set heading = "Free trial <strong>for 30 days</strong>" %}
   {% set description = "No obligations, no credit card" %}
   {% set button_text = "Get started" %}
 {% elif module.mode is equalto("dark") %}
-  {% set heading = "Book <span class='teal'>a demo</span>" %}
+  {% set heading = "Book <strong>a demo</strong>" %}
   {% set description = "Learn more about the system" %}
   {% set button_text = "Book demo" %}
 {% endif %}
 
 <div class="cta-small">
-  <h2 class="cta-small__heading">
-    {% inline_text
-      field="heading",
-      value="{{ heading or module.heading }}" %}
-  </h2>
-  <h5 class="cta-small__description">
-    {% inline_text
-      field="description",
-      value="{{ description or module.description }}" %}
-  </h5>
+  <h2 class="cta-small__heading">{{ heading or module.heading }}</h2>
+  <h5 class="cta-small__description">{{ description or module.description }}</h5>
   <div class="cta-small__button-wrapper">
     {% set href = module.cta_link.url.href %}
     <a

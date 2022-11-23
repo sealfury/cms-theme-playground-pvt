@@ -1,0 +1,24 @@
+<!--
+  templateType: section
+  label: CTA Banner
+  isAvailableForNewContent: true
+  description: "A banner spanning the page width with two CTAs in either light or dark mode"
+-->
+
+{% dnd_section 
+  class='cta-banner-section' 
+  max_width=1440
+  vertical_alignment='MIDDLE' %}
+  {% dnd_module 
+    path="../modules/cta-small", 
+    mode={{ context.mode or "light" }},
+    offset=0,
+    width=6 %}
+  {% end_dnd_module %}
+  {% dnd_module 
+    path="../modules/cta-small" 
+    mode={{ context.mode or "dark" }} 
+    offset=6,
+    width=6 %}
+  {% end_dnd_module %}
+{% end_dnd_section %}

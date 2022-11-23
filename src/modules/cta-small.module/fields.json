@@ -10,7 +10,8 @@
     "placeholder": "",
     "allow_new_line": false,
     "show_emoji_picker": false,
-    "type": "text"
+    "type": "richtext",
+    "inline_help_text": "Embolden words in CTA heading you'd like to appear in teal"
   },
   {
     "id": "5dbb3f5c-6308-e06a-2aed-339b2f6c3248",
@@ -60,5 +61,79 @@
     "reordering_enabled": true,
     "type": "choice",
     "default": "light"
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Title Bold Colour",
+        "name": "bold_color",
+        "type": "group",
+        "children": [
+          {
+            "label": "Light Mode Bold Colour",
+            "name": "light",
+            "type": "color",
+            "visibility": {
+              "controlling_field": "fe66e761-ecfb-f413-3333-4fcf5d39aedf",
+              "controlling_value_regex": "light",
+              "operator": "EQUAL"
+            },
+            "default": {
+              "color": "#00A5A8"
+            }
+          },
+          {
+            "label": "Dark Mode Bold Colour",
+            "name": "dark",
+            "type": "color",
+            "visibility": {
+              "controlling_field": "fe66e761-ecfb-f413-3333-4fcf5d39aedf",
+              "controlling_value_regex": "dark",
+              "operator": "EQUAL"
+            },
+            "default": {
+              "color": "#00B9BC"
+            }
+          }
+        ]
+      },
+      {
+        "label": "Mode Background Colour",
+        "name": "background_color",
+        "type": "group",
+        "children": [
+          {
+            "label": "Light Mode Background Colour",
+            "name": "light_bg",
+            "type": "color",
+            "visibility": {
+              "controlling_field": "fe66e761-ecfb-f413-3333-4fcf5d39aedf",
+              "controlling_value_regex": "light",
+              "operator": "EQUAL"
+            },
+            "default": {
+              "color": "#F0F5FA"
+            }
+          },
+          {
+            "label": "Dark Mode Background Colour",
+            "name": "dark_bg",
+            "type": "color",
+            "visibility": {
+              "controlling_field": "fe66e761-ecfb-f413-3333-4fcf5d39aedf",
+              "controlling_value_regex": "dark",
+              "operator": "EQUAL"
+            },
+            "default": {
+              "color": "#2F3C49"
+            }
+          }
+        ]
+      }
+    ]
   }
 ]
