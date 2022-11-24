@@ -1,17 +1,55 @@
-<div class="newsletter-cta">
-  <div class="col text">
-    {% inline_rich_text
-      field="richtext_field",
-      value="{{ module.richtext_field }}",
-      html={{ context.content or "<div><h2>Sign up for <span class=\"text-purple\">our newsletter</span></h2><p>Get the latest news, events, courses and a lot more</p></div>" }} %}
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Add styles based on choice of background colour #}
+
+      {% if module.background_type == "purple" %}
+        {% set backgroundColor = "#6734FF" %}
+        {% set textColor = "#FFFFFF" %}
+        {% set boldColor = "#C2ADFF" %}
+      {% endif %}
+
+      {% if module.backgound_type == "teal" %}
+        {% set backgroundColor = "#15CCCF" %}
+        {% set textColor = "#BCBEC0" %}
+        {% set boldColor = "#202225" %}
+      {% endif %}
+
+      .newsletter-signup__section {
+        background-color: {{ backgroundColor }};
+      }
+
+      .newsletter-signup__text--header,
+      .newsletter-signup__text--description {
+        color: {{ textColor }};
+      }
+
+      .newsletter-signup__text--header > strong {
+        color: {{ boldColor }};
+        font-weight: inherit;
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+<section class="newsletter-signup__section">
+  <div class="newsletter-signup__text">
+    <h2 class="newsletter-signup__text--header">{{ module.header }}</h2>
+    <span class="newsletter-signup__text--description"
+      >{{ module.description }}</span
+    >
   </div>
-  <div class="col form">
+  <div class="newsletter-signup__form">
     {% form
-      form_to_use="{{ module.form_field.form_id }}",
-      response_response_type="{{ module.form_field.response_type }}",
-      response_message="{{ module.form_field.message }}",
-      response_redirect_id="{{ module.form_field.redirect_id }}",
-      response_redirect_url="{{module.form_field.redirect_url}}",
-      gotowebinar_webinar_key="{{ module.form_field.gotowebinar_webinar_key }}" %}
+      form_key="newsletter-email-form",
+      form_to_use="{{ module.form.form_id }}",
+      no_title=True,
+      response_redirect_url="{{ module.form.redirect_url }}",
+      response_redirect_id="{{ module.form.redirect_id }}",
+      response_response_type="{{ module.form.response_type }}",
+      response_message="{{ module.form.message }}",
+      gotowebinar_webinar_key="{{ module.form.gotowebinar_webinar_key }}" %}
   </div>
-</div>
+</section>

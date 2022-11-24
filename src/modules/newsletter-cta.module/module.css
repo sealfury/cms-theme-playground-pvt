@@ -1,28 +1,36 @@
-.newsletter-cta {
+.newsletter-signup__section {
+  align-items: center;
   background-color: #6734FF;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
+  padding: 1rem 3rem;
+  width: clamp(320px, 100%, 1240px);
 }
 
-.col {
-  height: 80%;
-}
-
-.col .text {
-  color: #FFFFFF;
+.newsletter-signup__text {
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
-.col .form form {
+.newsletter-signup__form form {
+  align-items: center;
+  background-color: transparent;
   display: flex;
+  justify-content: center;
 }
 
-.col .form input {
-  border-radius: 8px;
+.newsletter-signup__form label {
+  display: none;
 }
 
-.text-purple {
-  color: #C2ADFF;
+.newsletter-signup__form form > .hs-submit {
+  border-radius: 0 4px 4px 0;
+}
+
+.newsletter-signup__form form > .hs-email {
+  display: flex;
+  flex-direction: column;
+  width: 290px;
 }

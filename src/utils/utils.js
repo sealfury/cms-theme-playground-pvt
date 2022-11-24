@@ -17,10 +17,7 @@ const getSiblings =  (element) => {
   return siblings;
 };
 
-// // Exports
+// Exports
 // module.exports = {
 //   getSiblings,
 // };
-
-// Use if this doens't affect accessibility
-exports.getSiblings = getSiblings;

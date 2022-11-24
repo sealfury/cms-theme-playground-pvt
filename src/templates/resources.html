@@ -46,7 +46,7 @@
     {# Resources listings section #}
 
     {% dnd_section
-      max_width=1280,
+      max_width=1240,
       vertical_alignment="TOP" %}
       {% dnd_column %}
         {% dnd_row %}
@@ -57,6 +57,17 @@
       {% end_dnd_column %}
     {% end_dnd_section %}
 
+    {# Newsletter signup form section #}
+
+    {% dnd_section 
+      max_width=1240 %}
+      {% dnd_module 
+        path="../modules/newsletter-cta" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# Trial/Demo calls to action banner section #}
+    
     {% include_dnd_partial 
       path="../sections/cta-banner.html" %}
 

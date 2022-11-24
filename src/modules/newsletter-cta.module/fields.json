@@ -1,27 +1,50 @@
 [
   {
-    "id": "8d1f6571-3ef4-7eaf-ffdb-4d95d57398d0",
-    "name": "richtext_field",
-    "display_width": null,
-    "label": "Rich text",
+    "label": "Header Text",
+    "name": "header",
+    "type": "richtext",
+    "inline_help_text": "Embolden the words you'd like to stand out with colour.",
     "required": false,
     "locked": false,
-    "type": "richtext"
+    "default": "Sign up for <strong>our newsletter</strong>"
+  },
+  {
+    "label": "Description Text",
+    "name": "description",
+    "type": "text",
+    "inline_help_text": "Add a quick blurb about the newsletter's contents",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "required": false,
+    "locked": false,
+    "default": "Get the latest news, events, courses, and a lot more"
   },
   {
     "id": "1156ff1d-5a59-b765-28c8-dcf669a2e77b",
-    "name": "form_field",
+    "label": "Sign Up Form",
+    "name": "form",
     "display_width": null,
-    "label": "Form",
     "required": false,
     "locked": false,
     "type": "form",
     "default": {
       "form_id": "deef7351-b975-4b43-b06e-321ea4da7bc8",
       "response_type": "inline",
-      "message": "Thanks for submitting the form.",
+      "message": "Thanks for signing up!",
       "gotowebinar_webinar_key": null,
       "form_type": "HUBSPOT"
     }
+  },
+  {
+    "label": "Background Type",
+    "name": "background_type",
+    "type": "choice",
+    "help_text": "Adjusting the background type will adjust its colour & the colour of the text",
+    "display": "select",
+    "choices": [
+      ["purple", "Purple"],
+      ["teal", "Teal"]
+    ],
+    "default": "purple"
   }
 ]
