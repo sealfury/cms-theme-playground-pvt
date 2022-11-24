@@ -107,6 +107,16 @@
         "type": "text",
         "required": true,
         "default": "Posts about"
+      },
+      {
+        "label": "Tag Filters",
+        "name": "filters",
+        "type": "text",
+        "occurrence": {
+          "min": 1,
+          "max": 10,
+          "default": 2
+        }
       }
     ]
   },

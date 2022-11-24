@@ -156,9 +156,9 @@
 {# Blog tag listing header #}
 
 <h2 class="blog-tag-heading">
-  {% if tag %}
+  {% set firstResult = contents|first %}
+  {% if firstResult.tag_list|length > 0 %}
     {{ module.blog_tag_listing.subheading }}
-    {{ page_meta.html_title|split(" | ")|last }}:
   {% else %}
     Webinar & Event
   {% endif %}
@@ -167,7 +167,7 @@
 {# Blog listing #}
 <section class="blog-index">
   {% for content in contents %}
-  {% if contents.index(content) < resultsCount %}
+  {% if loop.index < resultsCount %}
 
     {# Blog listing article #}
 
@@ -178,7 +178,6 @@
     >
       {# Featured image #}
 
-      {# content.featured_image = String ; module.featured_image = Boolean #}
       {% if content.featured_image and module.featured_image %}
         <a
           class="blog-index__post-image-wrapper blog-index__post-image-wrapper--{{ list_type }}"
@@ -190,20 +189,14 @@
             src="{{ content.featured_image }}"
             loading="lazy"
             alt="{{ content.featured_image_alt_text }}"
-            width="{{ list_type == "small" ? "365" : "596" }}"
+            width="{{ list_type == "small" ? "180" : "285" }}"
+            height="{{ list_type == "small" ? "226" : "304" }}"
           />
         </a>
       {% endif %}
 
       {# Article content #}
 
-      <img
-        class="blog-index__post-image blog-index__post-image--{{ list_type }}"
-        src="{{ get_asset_url("../../images/temp-course-bg.png") }}"
-        loading="lazy"
-        alt="Alt"
-        width="{{ list_type == "small" ? "365" : "596" }}"
-      />
       <div class="blog-index__post-content blog-index__post-content--{{ list_type }}">
         {# Tags #}
 
@@ -258,7 +251,7 @@
 
         {% if module.description %}
           <div class="blog-index__post-summary">
-            {{ content.post_list_content|truncatehtml(160, "...", false) }}
+            {{ content.post_list_content|truncatehtml(140, "...", false) }}
           </div>
         {% endif %}
 
@@ -274,5 +267,6 @@
       </div>
     </article>
   {% endif %}
+
   {% endfor %}
 </section>
