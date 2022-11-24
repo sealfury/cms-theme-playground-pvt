@@ -8,6 +8,8 @@
         {% set backgroundColor = "#6734FF" %}
         {% set textColor = "#FFFFFF" %}
         {% set boldColor = "#C2ADFF" %}
+        {% set buttonColor = "#00B9BC" %}
+        {% set buttonText = "#2F3C49" %}
       {% endif %}
 
       {% if module.backgound_type == "teal" %}
@@ -23,11 +25,21 @@
       .newsletter-signup__text--header,
       .newsletter-signup__text--description {
         color: {{ textColor }};
+        margin: 0;
       }
 
       .newsletter-signup__text--header > strong {
         color: {{ boldColor }};
         font-weight: inherit;
+      }
+
+      .newsletter-signup__form .hs-form-booleancheckbox > span {
+        color: {{ textColor }};
+      }
+
+      .newsletter-signup__form input[type='submit'] {
+        background-color: {{ buttonColor }};
+        color: {{ buttonText }};
       }
 
     {% end_scope_css %}

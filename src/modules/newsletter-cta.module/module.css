@@ -1,31 +1,30 @@
 .newsletter-signup__section {
-  align-items: center;
-  background-color: #6734FF;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
-  padding: 1rem 3rem;
+  padding: 2.5rem 3rem;
   width: clamp(320px, 100%, 1240px);
 }
 
 .newsletter-signup__text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
 }
 
 .newsletter-signup__form form {
-  align-items: center;
+  align-items: flex-start;
   background-color: transparent;
   display: flex;
   justify-content: center;
+  padding: 0;
 }
 
 .newsletter-signup__form label {
   display: none;
 }
 
-.newsletter-signup__form form > .hs-submit {
+.newsletter-signup__form form > .hs-button {
   border-radius: 0 4px 4px 0;
 }
 
@@ -33,4 +32,15 @@
   display: flex;
   flex-direction: column;
   width: 290px;
+}
+
+.newsletter-signup__form input[type='email'] {
+  border-radius: 4px 0 0 4px;
+  margin-bottom: 1rem;
+  padding-bottom: 11px;
+  padding-top: 11px;
+}
+
+.newsletter-signup__form input[type='submit'] {
+  border-radius: 0 4px 4px 0;
 }
