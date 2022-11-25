@@ -660,14 +660,6 @@ tfoot td {
 
 /* Blog listing */
 
-.blog-index__post-title-link,
-.blog-index__post-title-link:hover,
-.blog-index__post-title-link:focus,
-.blog-index__post-title-link:active {
-  {{ h2_font.style }};
-  text-transform: {{ h2_text_transform }};
-}
-
 .blog-index__post-title-link {
   color: {{ h2_font.color }};
 }

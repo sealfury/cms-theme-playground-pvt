@@ -37,8 +37,8 @@
 .newsletter-signup__form input[type='email'] {
   border-radius: 4px 0 0 4px;
   margin-bottom: 1rem;
-  padding-bottom: 11px;
-  padding-top: 11px;
+  padding-bottom: 12px;
+  padding-top: 12px;
 }
 
 .newsletter-signup__form input[type='submit'] {

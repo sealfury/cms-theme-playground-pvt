@@ -106,21 +106,31 @@
         "name": "subheading",
         "type": "text",
         "required": true,
-        "default": "Posts about"
+        "default": "Blog"
       },
       {
         "label": "Tag Filters",
         "name": "filters",
-        "type": "text",
+        "type": "group",
         "occurrence": {
           "min": 1,
           "max": 10,
           "default": 2
-        }
+        },
+        "children": [
+          {
+            "label": "Filter",
+            "name": "filter",
+            "type": "text",
+            "default": "blog"
+          }
+        ]
       }
     ]
   },
   {
+    "label": "Override Feature Image",
+    "name": "feature_image",
     "type": "image",
     "id": "c8487fd8-4a56-453c-17f4-64bf411fa637",
     "default": {

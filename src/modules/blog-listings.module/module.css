@@ -82,6 +82,12 @@
   padding: 2% 0 2% 3%;
 }
 
+.blog-index__post-content > h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: none;
+}
+
 .blog-index__post-tag {
   color: #525E6A;
   font-size: 0.8rem;
@@ -109,21 +115,25 @@
 }
 
 .blog-index__post-title--large {
-  font-size: 1.25rem;
+  font-size: 24px;
+  line-height: 33px;
   margin: 0 0 0.2rem;
 }
 
 .blog-index__post-title--small {
-  font-size: 1rem;
+  font-size: 20px;
+  line-height: 30px;
   margin: 0 0 0.3rem 0;
 }
 
 .blog-index__post--combo:first-of-type h2 {
-  font-size: 1.25rem;
+  font-size: 24px;
+  line-height: 33px;
 }
 
 .blog-index__post--combo:nth-of-type(n + 2) h2 {
-  font-size: 1rem;
+  font-size: 20px;
+  line-height: 30px;
   margin: 0 0 0.3rem;
 }
 
