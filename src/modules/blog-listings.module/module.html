@@ -166,8 +166,10 @@
 
 {# Blog listing #}
 <section class="blog-index">
+  {# {% for content in contents %} #}
+  {% set contents = blog_recent_tag_posts('default', module.blog_tag_listing.subheading, resultsCount) %}
   {% for content in contents %}
-  {% if loop.index < resultsCount %}
+  {% if loop.index <= resultsCount %}
 
     {# Blog listing article #}
 
@@ -179,11 +181,11 @@
       {# Featured image #}
 
       {% if content.featured_image and module.featured_image %}
-        <a
+        {# <a
           class="blog-index__post-image-wrapper blog-index__post-image-wrapper--{{ list_type }}"
           href="{{ content.absolute_url }}"
           aria-label="{% if content.featured_image_alt_text %}Featured image: {{ content.featured_image_alt_text }} - {% endif %}Read full post: {{ content.name }}"
-        >
+        > #}
           <img
             class="blog-index__post-image blog-index__post-image--{{ list_type }}"
             src="{{ content.featured_image }}"
@@ -192,7 +194,7 @@
             width="{{ list_type == "small" ? "180" : "285" }}"
             height="{{ list_type == "small" ? "226" : "304" }}"
           />
-        </a>
+        {# </a> #}
       {% endif %}
 
       {# Article content #}
@@ -203,8 +205,9 @@
         {% if module.tags and content.tag_list %}
           <div class="blog-index__post-tags">
             {% for tag in content.tag_list %}
+              {% if loop.last %}
             <a class="blog-index__post-tag" href="{{ blog_tag_url(group.id, tag.slug) }}">{{ tag.name }}</a
-            >{% if not loop.last %}<span>, </span>
+            >
             {% endif %}
             {% endfor %}
           </div>
@@ -214,9 +217,7 @@
 
         {% if module.title %}
           <h2 class="blog-index__post-title--{{ list_type }}">
-            <a class="blog-index__post-title-link" href="{{ content.absolute_url }}"
-              >{{ content.name }}</a
-            >
+            {{ content.name }}
           </h2>
         {% endif %}
 

@@ -59,7 +59,7 @@
 
 <div class="cta-small">
   <h2 class="cta-small__heading">{{ heading or module.heading }}</h2>
-  <h5 class="cta-small__description">{{ description or module.description }}</h5>
+  <p class="cta-small__description">{{ description or module.description }}</p>
   <div class="cta-small__button-wrapper">
     {% set href = module.cta_link.url.href %}
     <a
