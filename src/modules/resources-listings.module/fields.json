@@ -1,0 +1,20 @@
+[
+  {
+    "label": "Layout Style",
+    "name": "layout",
+    "type": "choice",
+    "choices": [
+      ["list", "List"],
+      ["card", "Card"],
+      ["combo", "Combo"]
+    ],
+    "display": "select",
+    "required": true,
+    "default": "card"
+  },
+  {
+    "label": "Blog To Retrieve",
+    "name": "blog",
+    "type": "text"
+  }
+]

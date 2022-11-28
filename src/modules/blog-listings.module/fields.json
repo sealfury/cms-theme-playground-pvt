@@ -111,20 +111,12 @@
       {
         "label": "Tag Filters",
         "name": "filters",
-        "type": "group",
+        "type": "text",
         "occurrence": {
           "min": 1,
           "max": 10,
           "default": 2
-        },
-        "children": [
-          {
-            "label": "Filter",
-            "name": "filter",
-            "type": "text",
-            "default": "blog"
-          }
-        ]
+        }
       }
     ]
   },

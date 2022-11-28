@@ -167,7 +167,7 @@
 {# Blog listing #}
 <section class="blog-index">
   {# {% for content in contents %} #}
-  {% set contents = blog_recent_tag_posts('default', module.blog_tag_listing.subheading, resultsCount) %}
+  {% set contents = blog_recent_tag_posts('default', module.blog_tag_listing.filters, resultsCount) %}
   {% for content in contents %}
   {% if loop.index <= resultsCount %}
 
