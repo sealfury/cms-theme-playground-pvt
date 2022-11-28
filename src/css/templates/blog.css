@@ -92,3 +92,15 @@
 .teal {
   color: #00B9BC;
 }
+
+.toc__section-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 100px 0 0;
+  width: 100%;
+}
+
+.toc__section-header h2 {
+  margin: 0;
+}

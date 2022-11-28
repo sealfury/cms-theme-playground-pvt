@@ -1,0 +1,22 @@
+.toc__contents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 0 auto;
+  padding: 20px 0;
+  width: clamp(360px, 100vw, 1240px);
+}
+
+.toc__contents--card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: clamp(144px, 43.5%, 170px);
+  padding: 1rem;
+  width: clamp(340px, 32%, 390px);
+}
+
+.toc__contents--header {
+  align-items: center;
+  display: flex;
+}

@@ -425,13 +425,13 @@
             "inherited_value": {
               "property_value_paths": {
                 "fallback": "theme.global_fonts.secondary.fallback",
-                "font": "theme.global_fonts.secondary.font",
-                "font_set": "theme.global_fonts.secondary.font_set"
+                "font": "theme.global_fonts.primary.font",
+                "font_set": "theme.global_fonts.primary.font_set"
               }
             },
             "default": {
               "color": "#0F1E2D",
-              "size": 16,
+              "size": 18,
               "size_unit": "px",
               "styles": {
                 "text-decoration": "none"

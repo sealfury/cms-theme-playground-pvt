@@ -1,0 +1,106 @@
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+    {# Chapter Number #}
+
+    {% if module.styles.chapter_number %}
+      {% set chap = module.styles.chapter_number %}
+    {% endif %}
+
+    .toc__contents--chapter {
+      background-color: {{ chap.background.color }};
+      border: 1px solid {{ chap.border.color }};
+      border-radius: 50%;
+      height: 40px;
+      position: relative;
+      width: 40px;
+    }
+
+    {% for chapter in module.chapters %}
+      .toc__contents--card:nth-child({{ loop.index }}) .toc__contents--chapter::after {
+        content: '{{ loop.index }}';
+        color: {{ chap.color.color }};
+        display: block;
+        font-size: 18px;
+        font-weight: 600;
+        height: 50%;
+        left: 50%;
+        line-height: 18px;
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        vertical-align: middle;
+        width: 100%;
+      }
+    {% endfor %}
+
+    {# Text & Card Styles #}
+    {% if module.styles.text.color %}
+      .toc__contents--title,
+      .toc__contents--description {
+        color: {{ module.styles.text.color }};
+        margin: 0;
+        text-decoration: none;
+      }
+
+      .toc__contents--title {
+        font-weight: 600;
+        padding: 0 8px;
+      }
+    {% endif %}
+
+    {% if module.styles.border.color %}
+      .toc__contents--card {
+        border: 1.4px solid {{ module.styles.border.color }};
+        border-radius: 4px;
+      }
+    {% endif %}
+
+    {% if module.styles.hover.color %}
+      .toc__contents--card {
+        background-color: #FFF;
+        transition: all 0.3s ease;
+      }
+
+      .toc__contents--card:hover {
+        background-color: {{ module.styles.hover.color }};
+        border-color: {{ module.styles.hover.color }};
+      }
+
+      .toc__contents--card:hover .toc__contents--title {
+        text-decoration: underline;
+      }
+    {% endif %}
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{% set href = module.link.url.href %}
+{% set rel = [] %}
+{% if module.link.no_follow %}
+  {% do rel.append("nofollow") %}
+{% endif %}
+{% if module.link.open_in_new_tab %}
+  {% do rel.append("noopener")%}
+{% endif %}
+
+<div class="toc__contents">
+  {% for chapter in module.chapters %}
+    <a 
+      class="toc__contents--card" 
+      href="{{ href }}/page-{{ loop.index }}"
+      {% if module.link.open_in_new_tab %}target="_blank"{% endif %}
+      {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+    >
+      <div class="toc__contents--header">
+        <span class="toc__contents--chapter"></span>
+        <h5 class="toc__contents--title">{{ chapter.title }}</h5>
+      </div>
+      <p class="toc__contents--description">{{ chapter.description }}</p>
+    </a>
+  {% endfor %}
+</div>
