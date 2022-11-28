@@ -1,5 +1,11 @@
 [
   {
+    "label": "Blog To Retrieve",
+    "name": "blog",
+    "type": "blog",
+    "default": "default"
+  },
+  {
     "label": "Layout style",
     "name": "layout_style",
     "type": "choice",
