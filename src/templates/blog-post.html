@@ -123,12 +123,16 @@
       post_formatter="related_posts" %}
 
     <div class="blog-post__cta">
-      {% module "cta-light"
-        path="../modules/cta-small",
-        mode="light" %}
-      {% module "cta-dark"
-        path="../modules/cta-small",
-        mode="dark" %}
+      <div class="blog-post__cta--single">
+        {% module "cta-light"
+          path="../modules/cta-small",
+          mode="light" %}
+      </div>
+      <div class="blog-post__cta--single">
+        {% module "cta-dark"
+          path="../modules/cta-small",
+          mode="dark" %}
+      </div>
     </div>
   </div>
 {% endblock body %}

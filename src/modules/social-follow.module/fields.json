@@ -1,5 +1,22 @@
 [
   {
+    "label": "Add 'Share' Text?",
+    "name": "add_text",
+    "type": "boolean",
+    "display": "checkbox"
+  },
+  {
+    "label": "Share Text",
+    "name": "share_text",
+    "type": "text",
+    "visibility": {
+      "controlling_field": "add_text",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "default": "share"
+  },
+  {
     "label": "Social links",
     "name": "social_links",
     "type": "group",
@@ -249,6 +266,14 @@
             "alignment_direction": "HORIZONTAL"
           }
         ]
+      },
+      {
+        "label": "Share Text Color",
+        "name": "text_color",
+        "type": "color",
+        "default": {
+          "color": "#525E6A"
+        }
       }
     ]
   }

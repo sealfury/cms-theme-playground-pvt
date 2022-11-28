@@ -172,6 +172,7 @@ body {
 
 p {
   {{ body_font.style }};
+  line-height: 26px;
 }
 
 /* Anchors */

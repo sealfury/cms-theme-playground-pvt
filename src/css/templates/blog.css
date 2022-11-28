@@ -104,3 +104,13 @@
 .toc__section-header h2 {
   margin: 0;
 }
+
+.blog-post__cta {
+  display: flex;
+  margin: 3rem auto;
+  width: clamp(360px, 100vw, 1440px);
+}
+
+.blog-post__cta--single {
+  width: 50%;
+}

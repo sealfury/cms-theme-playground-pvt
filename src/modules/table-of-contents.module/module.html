@@ -15,7 +15,7 @@
       border-radius: 50%;
       height: 40px;
       position: relative;
-      width: 40px;
+      min-width: 40px;
     }
 
     {% for chapter in module.chapters %}
@@ -48,6 +48,7 @@
 
       .toc__contents--title {
         font-weight: 600;
+        line-height: 22px;
         padding: 0 8px;
       }
     {% endif %}

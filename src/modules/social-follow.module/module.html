@@ -76,6 +76,16 @@
         }
       {% endif %}
 
+      .social-links__share-text {
+        {% if module.styles.text_color.color %}
+          color: {{ module.styles.text_color.color }};
+        {% endif %}
+        font-size: 14px;
+        line-height: 14px;
+        padding: 2px 10px;
+        text-transform: uppercase;
+      }
+
     {% end_scope_css %}
   </style>
 {% end_require_css %}
@@ -83,6 +93,9 @@
 {# Social links #}
 
 <div class="social-links">
+  {% if module.add_text %}
+  <span class="social-links__share-text">{{ module.share_text }}</span>
+  {% endif %}
   {# Loops through each social link in the social links repeater #}
 
   {% for item in module.social_links %}
