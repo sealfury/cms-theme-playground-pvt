@@ -54,7 +54,7 @@
               label="Language switcher",
               display_mode="pagelang" %}
             <div class="header__language-switcher--label-current">
-              {{ locale_name(locale) }}
+              {{ locale_name(locale)|split(' ')|first }}
             </div>
           </div>
         </div>

@@ -368,13 +368,12 @@
 }
 
 .header__language-switcher--label-current:before {
-  background: url("{{ get_asset_url('../../images/module-icons/chevron-icon-light.png') }}") no-repeat;
+  background: url("{{ get_asset_url('../../images/module-icons/flag_uk.png') }}") no-repeat;
   content: "";
   display: block;
-  height: 16px;
-  margin-left: 0.7rem;
-  margin-top: 0.175rem;
-  width: 16px;
+  height: 18px;
+  margin: 0.25rem 0.5rem 0 0.75rem;
+  width: 28px;
 }
 
 @media (max-width: 767px) {

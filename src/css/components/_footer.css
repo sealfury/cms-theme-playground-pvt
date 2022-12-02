@@ -2,7 +2,7 @@
   background-color: #0F1E2D;
   margin: 0 auto;
   padding: 40px 104px 0;
-  width: clamp(796px, 100vw, 1440px);
+  width: clamp(375px, 100vw, 1440px);
 }
 
 .footer__container:nth-child(2) {
