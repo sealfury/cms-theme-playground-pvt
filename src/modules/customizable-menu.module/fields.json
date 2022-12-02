@@ -1,0 +1,467 @@
+[
+  {
+    "label": "Top-Level Menu Items",
+    "name": "top_level_item",
+    "id": "top_level_item",
+    "type": "group",
+    "occurrence": {
+      "min": 3,
+      "max": 7,
+      "default": 5
+    },
+    "children": [
+      {
+        "label": "Top-Level Item Name",
+        "name": "item_name",
+        "id": "top_level_item.item_name",
+        "type": "text",
+        "default": "Products"
+      },
+      {
+        "label": "Is this a dropdown or a page link?",
+        "name": "item_type",
+        "id": "top_level_item.item_type",
+        "type": "choice",
+        "display": "radio",
+        "choices": [
+          ["dropdown", "Dropdown"],
+          ["page", "Page Link"]
+        ],
+        "default": "dropdown"
+      },
+      {
+        "label": "Page Link",
+        "name": "page_link",
+        "id": "top_level_item.page_link",
+        "type": "page",
+        "placeholder": "Page to link to",
+        "default": null,
+        "visibility": {
+          "controlling_field": "top_level_item.item_type",
+          "controlling_value_regex": "page",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "label": "What layout should this dropdown have?",
+        "name": "menu_type",
+        "id": "top_level_item.menu_type",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          ["products", "Products"],
+          ["why", "Why MaintMaster"],
+          ["cases", "Client Cases"],
+          ["resources", "Resources"]
+        ],
+        "visibility": {
+          "controlling_field": "top_level_item.item_type",
+          "controlling_value_regex": "dropdown",
+          "operator": "EQUAL"
+        },
+        "default": "products"
+      },
+      {
+        "label": "Products Menu Items",
+        "name": "products",
+        "id": "top_level_item.products",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 2,
+          "default": 2
+        },
+        "children": [
+          {
+            "label": "Menu Section Title",
+            "name": "section_title",
+            "type": "text",
+            "default": "Product"
+          },
+          {
+            "label": "Use Large Menu Item Cards?",
+            "name": "use_large",
+            "id": "use_large",
+            "type": "boolean",
+            "display": "toggle",
+            "inline_help_text": "Max 2 large cards/section, Max 6 small cards/section",
+            "default": false
+          },
+          {
+            "label": "Card Details (Large)",
+            "name": "large",
+            "type": "group",
+            "occurrence": {
+              "min": 1,
+              "max": 2,
+              "default": 2
+            },
+            "visibility": {
+              "controlling_field": "use_large",
+              "controlling_value_regex": "true",
+              "operator": "EQUAL"
+            },
+            "children": [
+              {
+                "label": "Card Title",
+                "name": "title",
+                "type": "text",
+                "default": "MaintMaster CMMS"
+              },
+              {
+                "label": "Page Link",
+                "name": "link",
+                "type": "page",
+                "placeholder": "Page to link to",
+                "default": null
+              },
+              {
+                "label": "Card Icon",
+                "name": "icon",
+                "type": "image",
+                "responive": true,
+                "resizable": true,
+                "show_loading": false,
+                "default": {
+                  "size_type": "auto_custom_max",
+                  "src": "",
+                  "alt": "dropdown-card-icon",
+                  "max_width": 22,
+                  "max_height": 22
+                }
+              },
+              {
+                "label": "Card Description",
+                "name": "description",
+                "type": "richtext",
+                "placeholder": "Add a product description...",
+                "inline_help_text": "Text is clipped at 3 lines (~120 chars)"
+              },
+              {
+                "label": "Card Features",
+                "name": "features",
+                "type": "text",
+                "occurrence": {
+                  "min": 2,
+                  "max": 6,
+                  "default": 3
+                },
+                "default": [
+                  "Flexible, efficient & dynamic",
+                  "The right information at the right time"
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Card Details (Small)",
+            "name": "small",
+            "type": "group",
+            "occurrence": {
+              "min": 3,
+              "max": 6,
+              "default": 6
+            },
+            "visibility": {
+              "controlling_field": "use_large",
+              "controlling_value_regex": "false",
+              "operator": "EQUAL"
+            },
+            "children": [
+              {
+                "label": "Card Title",
+                "name": "title",
+                "type": "text",
+                "default": "Scheduling Tool"
+              },
+              {
+                "label": "Page Link",
+                "name": "link",
+                "type": "page",
+                "placeholder": "Page to link to",
+                "default": null
+              },
+              {
+                "label": "Card Icon",
+                "name": "icon",
+                "type": "image",
+                "responive": true,
+                "resizable": true,
+                "show_loading": false,
+                "default": {
+                  "size_type": "auto_custom_max",
+                  "src": "",
+                  "alt": "dropdown-card-icon",
+                  "max_width": 22,
+                  "max_height": 22
+                }
+              },
+              {
+                "label": "Card Description",
+                "name": "description",
+                "type": "text",
+                "help_text": "Max 1 line or ~ 40 chars",
+                "default": "Morbi leo risus, porta ac consectetur ac"
+              }
+            ]
+          }
+        ],
+        "visibility": {
+          "controlling_field": "top_level_item.menu_type",
+          "controlling_value_regex": "products",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "label": "Products Menu Help Links",
+        "name": "help_links",
+        "id": "top_level_item.help_links",
+        "type": "group",
+        "occurrence": {
+          "min": 0,
+          "max": 8,
+          "default": 6
+        },
+        "visibility": {
+          "controlling_field": "top_level_item.menu_type",
+          "controlling_value_regex": "products",
+          "operator": "EQUAL"
+        },
+        "children": [
+          {
+            "label": "Link Text",
+            "name": "link",
+            "type": "text",
+            "default": "Download"
+          },
+          {
+            "label": "Page Link",
+            "name": "page",
+            "type": "page",
+            "placeholder": "Page to link to",
+            "default": null
+          }
+        ]
+      },
+      {
+        "label": "Why MaintMaster Menu Items", 
+        "name": "why",
+        "id": "top_level_item.why",
+        "type": "group",
+        "occurrence": {
+          "min": 2,
+          "max": 3,
+          "default": 3
+        },
+        "visibility": {
+          "controlling_field": "top_level_item.menu_type",
+          "controlling_value_regex": "why",
+          "operator": "EQUAL"
+        },
+        "children": [
+          {
+            "label": "Menu Section Title",
+            "name": "section_title",
+            "type": "text",
+            "default": "By industry"
+          },
+          {
+            "label": "Section Items",
+            "name": "items",
+            "type": "group",
+            "occurrence": {
+              "min": 2,
+              "max": 6,
+              "default": 4
+            },
+            "children": [
+              {
+                "label": "Item Name",
+                "name": "item",
+                "type": "text",
+                "default": "Process industry"
+              },
+              {
+                "label": "Item Page Link",
+                "name": "link",
+                "type": "page",
+                "placeholder": "Page to link to",
+                "default": null
+              },
+              {
+                "label": "Item Description",
+                "name": "description",
+                "type": "text",
+                "help_text": "A short description of the feature",
+                "inline_help_text": "Note: adding descriptions to sections with more than 3 items will clutter the layout"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Client Cases Menu Items",
+        "name": "cases",
+        "id": "top_level_item.cases",
+        "type": "group",
+        "occurrence": {
+          "min": 3,
+          "max": 6,
+          "default": 6
+        },
+        "children": [
+          {
+            "label": "Case Category",
+            "name": "category",
+            "type": "text",
+            "default": "Automotive"
+          },
+          {
+            "label": "Client Info",
+            "name": "client_info",
+            "type": "group",
+            "occurrence": {
+              "min": 1,
+              "max": 3,
+              "default": 3
+            },
+            "children": [
+              {
+                "label": "Client Name",
+                "name": "client",
+                "type": "text",
+                "default": "BorgWarner"
+              },
+              {
+                "label": "Client Case Page Link",
+                "name": "link",
+                "type": "page",
+                "placeholder": "Page to link to",
+                "default": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Resources Menu Items",
+        "name": "resources",
+        "id": "top_level_item.resources",
+        "type": "group",
+        "occurrence": {
+          "min": 3,
+          "max": 3,
+          "default": 3
+        },
+        "children": [
+          {
+            "label": "Resource Category",
+            "name": "category",
+            "type": "text",
+            "default": "Learn"
+          },
+          {
+            "label": "Resource",
+            "name": "resource",
+            "type": "group",
+            "occurrence": {
+              "min": 2,
+              "max": 5,
+              "default": 3
+            },
+            "children": [
+              {
+                "label": "Resource Type",
+                "name": "type",
+                "type": "text",
+                "default": "Blog"
+              },
+              {
+                "label": "Resource Description",
+                "name": "description",
+                "type": "text",
+                "help_text": "Add a line of text describing the resource",
+                "default": "Cras justo • Lorem ipsum • Dapidus ligula"
+              },
+              {
+                "label": "Resource Page Link Type",
+                "name": "page_type",
+                "id": "resource.page_type",
+                "type": "choice",
+                "display": "radio",
+                "choices": [
+                  ["blog", "Blog"],
+                  ["page", "Page"]
+                ],
+                "default": "blog"
+              },
+              {
+                "label": "Blog Page Link",
+                "name": "blog",
+                "type": "blog",
+                "placeholder": "Blog page to link to",
+                "visibility": {
+                  "controlling_field": "resource.page_type",
+                  "controlling_value_regex": "blog",
+                  "operator": "EQUAL"
+                },
+                "default": null
+              },
+              {
+                "label": "Page Link",
+                "name": "page",
+                "type": "page",
+                "placeholder": "Page to link to",
+                "visibility": {
+                  "controlling_field": "resource.page_type",
+                  "controlling_value_regex": "page",
+                  "operator": "EQUAL"
+                },
+                "default": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Include link to overview page?",
+        "name": "include_overview",
+        "id": "top_level_item.include_overview",
+        "type": "boolean",
+        "display": "toggle",
+        "default": false,
+        "visibility": {
+          "controlling_field": "top_level_item.menu_type",
+          "controlling_value_regex": "products",
+          "operator": "NOT_EQUAL"
+        }
+      }, 
+      {
+        "label": "Overview Link",
+        "name": "overview",
+        "id": "top_level_item.overview",
+        "type": "group",
+        "visibility": {
+          "controlling_field": "top_level_item.include_overview",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "children": [
+          {
+            "label": "Link Text",
+            "name": "text",
+            "type": "text",
+            "default": "Menu Section Overview"
+          },
+          {
+            "label": "Page Link",
+            "name": "link",
+            "type": "page",
+            "placeholder": "Page to link to",
+            "default": null
+          }
+        ]
+      }
+    ]
+  }
+]

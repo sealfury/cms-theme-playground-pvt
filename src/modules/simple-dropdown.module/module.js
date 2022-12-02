@@ -1,5 +1,4 @@
 // Menu variables
-
 var parentMenuItems = document.querySelectorAll(
   '.top-menu--desktop .top-menu__item--has-submenu'
 );
