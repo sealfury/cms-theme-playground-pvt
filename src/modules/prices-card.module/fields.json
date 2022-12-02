@@ -35,15 +35,8 @@
         "label": "Price (Value)",
         "name": "price",
         "id": "card.price",
-        "type": "number",
-        "display": "slider",
-        "min": 0,
-        "max": 2000,
-        "step": 1,
-        "prefix": "",
-        "suffix": "",
-        "default": 500,
-        "placeholder": 500
+        "type": "text",
+        "inline_help_text": "Numerical price values must include currency & payment interval"
       },
       {
         "label": "Tier Features",

@@ -111,7 +111,7 @@
         {% endif %}
         <h4 class="price-card__tier">{{ card.tier }}</h4>
         <h2 class="price-card__price">
-          {{ card.price|string }} <strong>{{ currencySymbol }}/month</strong>
+          {{ card.price }} <strong>{{ currencySymbol }}/month</strong>
         </h2>
         <ul class="price-card__features">
           {% for feature in card.features %}
