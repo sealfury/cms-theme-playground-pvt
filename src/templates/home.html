@@ -42,6 +42,15 @@
     {% include_dnd_partial
       path="../sections/multi-row-content.html" %}
 
+    {# TEMPORARY SECTION DEMONSTRATING MODULE FIELD USAGE FOR CUSTOMIZABLE MENU #}
+
+    {% dnd_section 
+      vertical_alignment="MIDDLE" %}
+      {% dnd_module 
+        path="../modules/customizable-menu" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
     {# Two column image left #}
 
     {% dnd_section

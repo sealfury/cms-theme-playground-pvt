@@ -1,1 +1,8 @@
 <!-- module html  -->
+<div class="custom-menu__top">
+  {% for item in module.top_level_item %}
+    <div class="custom-menu__top-level-item">
+      <span>{{ item.item_name }}</span>
+    </div>
+  {% endfor %}
+</div>

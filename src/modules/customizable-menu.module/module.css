@@ -1,0 +1,13 @@
+.custom-menu__top {
+  background-color: red;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.custom-menu__top-level-item {
+  border-bottom: 4px solid transparent;
+  color: #202225;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 16px 0 12px;
+}

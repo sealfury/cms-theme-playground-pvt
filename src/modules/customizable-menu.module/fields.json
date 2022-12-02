@@ -309,6 +309,11 @@
           "max": 6,
           "default": 6
         },
+        "visibility": {
+          "controlling_field": "top_level_item.menu_type",
+          "controlling_value_regex": "cases",
+          "operator": "EQUAL"
+        },
         "children": [
           {
             "label": "Case Category",
@@ -352,6 +357,11 @@
           "min": 3,
           "max": 3,
           "default": 3
+        },
+        "visibility": {
+          "controlling_field": "top_level_item.menu_type",
+          "controlling_value_regex": "resources",
+          "operator": "EQUAL"
         },
         "children": [
           {
