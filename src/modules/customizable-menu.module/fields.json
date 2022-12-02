@@ -230,7 +230,7 @@
         "children": [
           {
             "label": "Link Text",
-            "name": "link",
+            "name": "text",
             "type": "text",
             "default": "Download"
           },

@@ -1,8 +1,148 @@
+{# Import header card helper macro #}
+{% from "../../utils/macros.html" import headerCard %}
+
 <!-- module html  -->
-<div class="custom-menu__top">
+<nav class="menu menu--desktop">
+  <ul class="menu__wrapper no-list">
   {% for item in module.top_level_item %}
-    <div class="custom-menu__top-level-item">
-      <span>{{ item.item_name }}</span>
-    </div>
+    <li 
+      class="menu__item menu__item--depth-1 {{ "menu__item--has-submenu" if item.item_type == 'dropdown' }} menu__item--{{ item.menu_type }}"
+    >
+    {% if item.item_type == 'page' %}
+      <a
+        class="menu__link {{ "menu__link--active-link" if item.page_link.absolute_url == request.full_url }}"
+        href="{{ item.page_link.absolute_url }}"
+        aria-haspopup="false"
+        aria-expanded="false"
+      >
+        {{ item.item_name }}
+      </a>
+    {% else %}
+      <a
+        class="menu__link menu__link--toggle"
+        href="#"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        {{ item.item_name }}
+      </a>
+      <button class="menu__child-toggle no-button" aria-expanded="false">
+        <span class="show-for-sr">Show submenu for {{ item.item_name }}</span>
+        <span class="menu__child-toggle-icon"></span>
+      </button>
+
+      <ul class="menu__submenu menu__submenu--level-2">
+        {% if item.include_overview and item.overview|length > 0 %}
+          <a 
+            class="menu__submenu--main-link"
+            href="{{ item.overview.link.absolute_url }}"
+          >{{ item.overview.text }}</a>
+        {% endif %}
+
+        {% if item.menu_type == 'products' %}
+          {% if item.help_links|length > 0 %}
+            <div
+              id="hs_menu_wrapper_navigation-primary_{{ item.menu_type }}_simple_menu"
+              class="hs-menu-wrapper hs-menu-flow-horizontal"
+            >
+              <ul role="menu">
+                {% for link in item.help_links %}
+                  <li class="hs-menu-item hs-menu-depth-1" role="none">
+                    <a href="{{ link.page.absolute_url }}" role="menuitem">{{ link.text }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          <div class="menu__wrapper--level-2 {{ item.menu_type }}">
+            {% for product in item.products %}
+              {% set size = "large" if product.use_large is truthy else "small" %}
+              {% set card = product.size %}
+              {% set features = card.features if size == "large" else [] %}
+
+              <li class="menu__item menu__item--depth-2">
+                <span class="menu__link menu__link--toggle">{{ product.section_title }}</span>
+                <ul class="menu__submenu menu__submenu--level-3 menu__submenu--{{ item.menu_type }}">
+                  <div class="menu__wrapper--level-3">
+                    {{ headerCard(card.title, size, card.link.absolute_url, card.description, features) }}
+                  </div>
+                </ul>
+              </li>
+            {% endfor %}
+          </div>
+
+        {% elif item.menu_type == 'why' %}
+          <div class="menu__wrapper--level-2">
+            {% for li in item.why %}
+              <li class="menu__item menu__item--depth-2">
+                <span class="menu__link menu__link--toggle">{{ li.section_title }}</span>
+                <ul class="menu__submenu menu__submenu--level-3">
+                  {% for i in li.items %}
+                    <li class="menu__item menu__item--depth-3">
+                      <a class="menu__link" href="{{ i.link.absolute_url }}">{{ i.item }}</a>
+                    </li>
+                    {% if i.description %}
+                      <li class="menu__item menu__item--depth-3">
+                        <span class="menu__link">{{ i.description }}</span>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endfor %}
+          </div>
+
+        {% elif item.menu_type == 'cases' %}
+          <div class="menu__wrapper--level-2 client-{{ item.menu_type }}">
+            {% for case in item.cases %}
+              <li class="menu__item menu__item--depth-2 menu__item--has-submenu">
+                <span class="menu__link menu__link--toggle">{{ case.category }}</span>
+                <ul class="menu__submenu menu__submenu--level-3">
+                  <div class="menu__wrapper--level-3">
+                    {% for info in case.client_info %}
+                      <li class="menu__item menu__item--depth-3">
+                        <a 
+                          class="menu__link menu__link--client-{{ item.menu_type }}"
+                          href="{{ info.link.absolute_url }}"
+                          >
+                          {{ info.client }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </div>
+                </ul>
+              </li>
+            {% endfor %}
+          </div>
+
+        {% elif item.menu_type == 'resources' %}
+          <div class="menu__wrapper--level-2">
+            {% for resource in item.resources %}
+              <li class="menu__item menu__item--depth-2 menu__item--has-submenu">
+                <span class="menu__link menu__link--toggle">{{ resource.category }}</span>
+                <ul class="menu__submenu menu__submenu--level-3">
+                  <div class="menu__wrapper--level-3">
+                    {% for r in resource.resource %}
+                      <li class="menu__item menu__item--depth-3">
+                        <a class="menu__link" href="{{ r.page_type == 'blog' ? r.blog.absolute_url : r.page.absolute_url }}">{{ r.type }}</a>
+                      </li>
+                      {% if r.description %}
+                        <li class="menu__item menu__item--depth-3">
+                          <span class="menu__link">{{ r.description }}</span>
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </ul>
+              </li>
+            {% endfor %}
+          </div>
+
+        {% endif %}
+      </ul>
+    {% endif %}
+    </li>
   {% endfor %}
-</div>
+  </ul>
+</nav>
