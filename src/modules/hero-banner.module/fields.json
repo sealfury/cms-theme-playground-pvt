@@ -5,10 +5,31 @@
     "type": "choice",
     "choices": [
       ["light", "Light"],
-      ["dark", "Dark"]
+      ["dark", "Dark"],
+      ["image", "Image"]
     ],
     "display": "radio",
     "default": "light"
+  },
+  {
+    "label": "Background Image",
+    "name": "background_image",
+    "type": "image",
+    "required": false,
+    "show_loading": false,
+    "responsive": true,
+    "resizeable": false,
+    "default": {
+      "size_type": "exact",
+      "src": "",
+      "alt": "hero-banner-image-alt-text",
+      "loading": "lazy"
+    },
+    "visibility": {
+      "controlling_field": "mode",
+      "controlling_value_regex": "image",
+      "operator": "EQUAL"
+    }
   },
   {
     "label": "Breadcrumb Text",

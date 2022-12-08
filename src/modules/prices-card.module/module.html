@@ -16,6 +16,11 @@
 
       {### Prices card styles ###}
 
+      {# Dynamically add Y-translate to section #}
+      .prices-section {
+        transform: translateY(-{{ module.translate }}%);
+      }
+
       {# Add colored border to promoted price tier #}
       .price-card__card {
         background-color: #FFF;

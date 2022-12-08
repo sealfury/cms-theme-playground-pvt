@@ -118,6 +118,16 @@
     "default": "Add a brief overview about starter packs to encourage users to find out more about each plan."
   },
   {
+    "label": "Lift Pricing Section Into Hero Banner?",
+    "name": "translate",
+    "id": "translate",
+    "type": "number",
+    "display": "slider",
+    "inline_help_text": "transformY -{value}%",
+    "help_text": "Adjust this value to 'lift' the price card section into the hero banner section",
+    "default": 40
+  },
+  {
     "label": "Styles",
     "name": "styles",
     "type": "group",
