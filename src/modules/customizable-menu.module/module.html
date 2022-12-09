@@ -1,148 +1,255 @@
 {# Import header card helper macro #}
 {% from "../../utils/macros.html" import headerCard %}
 
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Menu items - top level #}
+      {% set toggleIconUrl = "../../images/module-icons/chevron-icon-black.png" %}
+
+      .menu__child-toggle-icon {
+        background: url("{{ get_asset_url(toggleIconUrl) }}") no-repeat;
+        content: "";
+        display: block;
+        height: 16px;
+        transition: all 0.2s ease;
+        width: 16px;
+      }
+
+      {% if module.styles.text.color.color %}
+        .menu__link {
+          color: {{ module.styles.text.color.color }};
+        }
+
+        .menu .menu__link:hover,
+        .menu .menu__link:focus {
+          color: {{ color_variant(module.styles.text.color.color, -40) }};
+        }
+
+        .menu__child-toggle-icon:hover,
+        .menu__child-toggle-icon:focus {
+          border-top-color: {{ color_variant(module.styles.text.color.color, -40) }};
+        }
+
+        .menu .menu__link:active {
+          color: {{ color_variant(module.styles.text.color.color, 40) }};
+        }
+
+        .menu__child-toggle-icon:active {
+          border-top-color: {{ color_variant(module.styles.text.color.color, 40) }};
+        }
+
+        .menu .menu__item--depth-1 > .menu__link--active-link:after {
+          background-color: {{ module.styles.text.color.color }};
+        }
+      {% endif %}
+
+      {# Menu items - submenus #}
+      {% set linkIconUrl = "../../images/module-icons/arrow-right-teal.png" %}
+
+      .menu .menu__submenu {
+        {% if module.styles.drop_downs.background.color.color %}
+          background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
+        {% else %}
+          background-color: #FFFFFF;
+        {% endif %}
+      }
+
+      .menu__submenu--main-link:after {
+        background: url("{{ get_asset_url(linkIconUrl) }}") no-repeat;
+        content: "";
+        display: block;
+        height: 16px;
+        margin: -2px 0 0 8px;
+        width: 18px;
+      }
+
+      .menu__submenu .menu__link,
+      .menu__submenu .menu__link:hover,
+      .menu__submenu .menu__link:focus {
+        {% if module.styles.drop_downs.background.color.color %}
+          background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.drop_downs.text.color.color %}
+          color: {{ module.styles.drop_downs.text.color.color }};
+        {% endif %}
+      }
+
+      .menu__submenu .menu__child-toggle-icon,
+      .menu__submenu .menu__child-toggle-icon:hover,
+      .menu__subemnu .menu__child-toggle-icon:focus {
+        {% if module.styles.drop_downs.text.color.color %}
+          border-top-color: {{ module.styles.drop_downs.text.color.color }};
+        {% endif %}
+      }
+
+      {% set checkmarkPath = "../../images/module-icons/checkmark-icon-light.png" %}
+
+      .header-card__feature::before {
+        background: url("{{ get_asset_url(checkmarkPath) }}") no-repeat;
+        content: "";
+        display: block;
+        height: 14px;
+        margin-right: 6px;
+        width: 14px;
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
 <!-- module html  -->
 <nav class="menu menu--desktop">
   <ul class="menu__wrapper no-list">
-  {% for item in module.top_level_item %}
-    <li 
-      class="menu__item menu__item--depth-1 {{ "menu__item--has-submenu" if item.item_type == 'dropdown' }} menu__item--{{ item.menu_type }}"
-    >
-    {% if item.item_type == 'page' %}
-      <a
-        class="menu__link {{ "menu__link--active-link" if item.page_link.absolute_url == request.full_url }}"
-        href="{{ item.page_link.absolute_url }}"
-        aria-haspopup="false"
-        aria-expanded="false"
-      >
-        {{ item.item_name }}
-      </a>
-    {% else %}
-      <a
-        class="menu__link menu__link--toggle"
-        href="#"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        {{ item.item_name }}
-      </a>
-      <button class="menu__child-toggle no-button" aria-expanded="false">
-        <span class="show-for-sr">Show submenu for {{ item.item_name }}</span>
-        <span class="menu__child-toggle-icon"></span>
-      </button>
+    {% for item in module.top_level_item %}
+    <li class="menu__item menu__item--depth-1 {{ "menu__item--has-submenu" if item.item_type == "dropdown" }} menu__item--{{ item.menu_type }}">
+      {% if item.item_type == "page" %}
+        <a
+          class="menu__link {{ "menu__link--active-link" if item.page_link.absolute_url == request.full_url }}"
+          href="{{ item.page_link.absolute_url }}"
+          aria-haspopup="false"
+          aria-expanded="false"
+        >
+          {{ item.item_name }}
+        </a>
+      {% else %}
+        <a
+          class="menu__link menu__link--toggle"
+          href="#"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          {{ item.item_name }}
+        </a>
+        <button class="menu__child-toggle no-button" aria-expanded="false">
+          <span class="show-for-sr"
+            >Show submenu for
+            {{ item.item_name }}</span
+          >
+          <span class="menu__child-toggle-icon"></span>
+        </button>
 
-      <ul class="menu__submenu menu__submenu--level-2">
-        {% if item.include_overview and item.overview|length > 0 %}
-          <a 
-            class="menu__submenu--main-link"
-            href="{{ item.overview.link.absolute_url }}"
-          >{{ item.overview.text }}</a>
-        {% endif %}
-
-        {% if item.menu_type == 'products' %}
-          {% if item.help_links|length > 0 %}
-            <div
-              id="hs_menu_wrapper_navigation-primary_{{ item.menu_type }}_simple_menu"
-              class="hs-menu-wrapper hs-menu-flow-horizontal"
+        <ul class="menu__submenu menu__submenu--level-2">
+          {% if item.include_overview and item.overview|length > 0 %}
+            <a class="menu__submenu--main-link" href="{{ item.overview.link.absolute_url }}"
+              >{{ item.overview.text }}</a
             >
-              <ul role="menu">
-                {% for link in item.help_links %}
+          {% endif %}
+
+          {% if item.menu_type == "products" %}
+            {% if item.help_links|length > 0 %}
+              <div
+                id="hs_menu_wrapper_navigation-primary_{{ item.menu_type }}_simple_menu"
+                class="hs-menu-wrapper hs-menu-flow-horizontal"
+              >
+                <ul role="menu">
+                  {% for link in item.help_links %}
                   <li class="hs-menu-item hs-menu-depth-1" role="none">
                     <a href="{{ link.page.absolute_url }}" role="menuitem">{{ link.text }}</a>
                   </li>
-                {% endfor %}
-              </ul>
-            </div>
-          {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
 
-          <div class="menu__wrapper--level-2 {{ item.menu_type }}">
-            {% for product in item.products %}
+            <div class="menu__wrapper--level-2 {{ item.menu_type }}">
+              {% for product in item.products %}
               {% set size = "large" if product.use_large is truthy else "small" %}
-              {% set card = product.size %}
+              {% set cards = product.large if product.use_large is truthy else product.small %}
               {% set features = card.features if size == "large" else [] %}
 
               <li class="menu__item menu__item--depth-2">
-                <span class="menu__link menu__link--toggle">{{ product.section_title }}</span>
-                <ul class="menu__submenu menu__submenu--level-3 menu__submenu--{{ item.menu_type }}">
+                <span class="menu__link menu__link--toggle"
+                  >{{ product.section_title }}</span
+                >
+                <ul
+                  class="menu__submenu menu__submenu--level-3 menu__submenu--{{ item.menu_type }}"
+                >
                   <div class="menu__wrapper--level-3">
-                    {{ headerCard(card.title, size, card.link.absolute_url, card.description, features) }}
+                  {% for card in cards %}
+                    {{ headerCard(card.title, size, card.link.absolute_url, card.description, features, card.icon) }}
+                  {% endfor %}
                   </div>
                 </ul>
               </li>
-            {% endfor %}
-          </div>
+              {% endfor %}
+            </div>
 
-        {% elif item.menu_type == 'why' %}
-          <div class="menu__wrapper--level-2">
-            {% for li in item.why %}
+          {% elif item.menu_type == "why" %}
+            <div class="menu__wrapper--level-2">
+              {% for li in item.why %}
               <li class="menu__item menu__item--depth-2">
-                <span class="menu__link menu__link--toggle">{{ li.section_title }}</span>
+                <span class="menu__link menu__link--toggle"
+                  >{{ li.section_title }}</span
+                >
                 <ul class="menu__submenu menu__submenu--level-3">
                   {% for i in li.items %}
+                  <li class="menu__item menu__item--depth-3">
+                    <a class="menu__link" href="{{ i.link.absolute_url }}">{{ i.item }}</a>
+                  </li>
+                  {% if i.description %}
                     <li class="menu__item menu__item--depth-3">
-                      <a class="menu__link" href="{{ i.link.absolute_url }}">{{ i.item }}</a>
+                      <span class="menu__link">{{ i.description }}</span>
                     </li>
-                    {% if i.description %}
-                      <li class="menu__item menu__item--depth-3">
-                        <span class="menu__link">{{ i.description }}</span>
-                      </li>
-                    {% endif %}
+                  {% endif %}
                   {% endfor %}
                 </ul>
               </li>
-            {% endfor %}
-          </div>
+              {% endfor %}
+            </div>
 
-        {% elif item.menu_type == 'cases' %}
-          <div class="menu__wrapper--level-2 client-{{ item.menu_type }}">
-            {% for case in item.cases %}
+          {% elif item.menu_type == "cases" %}
+            <div class="menu__wrapper--level-2 client-{{ item.menu_type }}">
+              {% for case in item.cases %}
               <li class="menu__item menu__item--depth-2 menu__item--has-submenu">
-                <span class="menu__link menu__link--toggle">{{ case.category }}</span>
+                <span class="menu__link menu__link--toggle"
+                  >{{ case.category }}</span
+                >
                 <ul class="menu__submenu menu__submenu--level-3">
                   <div class="menu__wrapper--level-3">
                     {% for info in case.client_info %}
-                      <li class="menu__item menu__item--depth-3">
-                        <a 
-                          class="menu__link menu__link--client-{{ item.menu_type }}"
-                          href="{{ info.link.absolute_url }}"
-                          >
-                          {{ info.client }}
-                        </a>
-                      </li>
+                    <li class="menu__item menu__item--depth-3">
+                      <a class="menu__link menu__link--client-{{ item.menu_type }}" href="{{ info.link.absolute_url }}">
+                        {{ info.client }}
+                      </a>
+                    </li>
                     {% endfor %}
                   </div>
                 </ul>
               </li>
-            {% endfor %}
-          </div>
+              {% endfor %}
+            </div>
 
-        {% elif item.menu_type == 'resources' %}
-          <div class="menu__wrapper--level-2">
-            {% for resource in item.resources %}
+          {% elif item.menu_type == "resources" %}
+            <div class="menu__wrapper--level-2">
+              {% for resource in item.resources %}
               <li class="menu__item menu__item--depth-2 menu__item--has-submenu">
-                <span class="menu__link menu__link--toggle">{{ resource.category }}</span>
+                <span class="menu__link menu__link--toggle"
+                  >{{ resource.category }}</span
+                >
                 <ul class="menu__submenu menu__submenu--level-3">
                   <div class="menu__wrapper--level-3">
                     {% for r in resource.resource %}
+                    <li class="menu__item menu__item--depth-3">
+                      <a class="menu__link" href="{{ r.page_type == "blog" ? r.blog.absolute_url : r.page.absolute_url }}">{{ r.type }}</a>
+                    </li>
+                    {% if r.description %}
                       <li class="menu__item menu__item--depth-3">
-                        <a class="menu__link" href="{{ r.page_type == 'blog' ? r.blog.absolute_url : r.page.absolute_url }}">{{ r.type }}</a>
+                        <span class="menu__link">{{ r.description }}</span>
                       </li>
-                      {% if r.description %}
-                        <li class="menu__item menu__item--depth-3">
-                          <span class="menu__link">{{ r.description }}</span>
-                        </li>
-                      {% endif %}
+                    {% endif %}
                     {% endfor %}
                   </div>
                 </ul>
               </li>
-            {% endfor %}
-          </div>
+              {% endfor %}
+            </div>
 
-        {% endif %}
-      </ul>
-    {% endif %}
+          {% endif %}
+        </ul>
+      {% endif %}
     </li>
-  {% endfor %}
+    {% endfor %}
   </ul>
 </nav>

@@ -44,20 +44,20 @@
         </div>
 
         {% if content.translated_content|length or is_listing_view and group.translations %}
-        <div class="header--toggle header__language-switcher--toggle"></div>
+          <div class="header--toggle header__language-switcher--toggle"></div>
         {% endif %}
         {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
-        <div class="header__language-switcher header--element">
-          <div class="header__language-switcher--label">
-            {% module "language-switcher"
-              path="@hubspot/language_switcher",
-              label="Language switcher",
-              display_mode="pagelang" %}
-            <div class="header__language-switcher--label-current">
-              {{ locale_name(locale)|split(' ')|first }}
+          <div class="header__language-switcher header--element">
+            <div class="header__language-switcher--label">
+              {% module "language-switcher"
+                path="@hubspot/language_switcher",
+                label="Language switcher",
+                display_mode="pagelang" %}
+              <div class="header__language-switcher--label-current">
+                {{ locale_name(locale)|split(" ")|first }}
+              </div>
             </div>
           </div>
-        </div>
         {% endif %}
       </div>
 
@@ -65,9 +65,8 @@
 
       <div class="header__row-2">
         <div class="header__navigation header--element">
-          {% module "navigation-primary"
-            path="../../modules/menu",
-            label="Primary navigation" %}
+          {% module "custom-header"
+            path="../../modules/customizable-menu" %}
         </div>
         {# TODO: add extra class to reduce button font size #}
         <div class="header__navigation header--element">

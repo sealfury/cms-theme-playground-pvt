@@ -3,7 +3,8 @@
 {% macro headerCard(title, size,
 href,
 sub="",
-features=[]) %}
+features=[],
+image=null) %}
 
   {% if sub == "" %}
     {% set subtitle = "Sed posuere consectetur est at lobortis. " %}
@@ -29,6 +30,9 @@ features=[]) %}
   <a class="header-card header-card__{{ size }}" href="{{ href }}">
     <ul class="header-card__content--{{ size }}">
       <li class="header-card__title header-card__title--{{ title_class }}">
+        {% if image is mapping %}
+          <img width="{{ image.width }}" src="{{ image.src }}" />
+        {% endif %}
         <span>{{ title }}</span>
       </li>
       <li class="header-card__subtitle--{{ size }}">

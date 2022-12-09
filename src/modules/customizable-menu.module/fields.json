@@ -206,10 +206,21 @@
             ]
           }
         ],
-        "visibility": {
-          "controlling_field": "top_level_item.menu_type",
-          "controlling_value_regex": "products",
-          "operator": "EQUAL"
+        "visbility_rules": "ADVANCED",
+        "advanced_visibility": {
+          "boolean_operator": "AND",
+          "criteria": [
+            {
+              "controlling_field": "top_level_item.menu_type",
+              "controlling_value_regex": "products",
+              "operator": "EQUAL"
+            },
+            {
+              "controlling_field": "top_level_item.item_type",
+              "controlling_value_regex": "page",
+              "operator": "NOT_EQUAL"
+            }
+          ]
         }
       },
       {
@@ -244,7 +255,7 @@
         ]
       },
       {
-        "label": "Why MaintMaster Menu Items", 
+        "label": "Why MaintMaster Menu Items",
         "name": "why",
         "id": "top_level_item.why",
         "type": "group",
@@ -445,7 +456,7 @@
           "controlling_value_regex": "products",
           "operator": "NOT_EQUAL"
         }
-      }, 
+      },
       {
         "label": "Overview Link",
         "name": "overview",
@@ -469,6 +480,86 @@
             "type": "page",
             "placeholder": "Page to link to",
             "default": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Styles",
+    "name": "styes",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Text",
+        "name": "text",
+        "type": "group",
+        "children": [
+          {
+            "label": "Color",
+            "name": "color",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "default": {
+              "color": "#202225"
+            }
+          }
+        ]
+      },
+      {
+        "label": "Dropdowns",
+        "name": "drop_downs",
+        "type": "group",
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "visibility": {
+                  "hidden_subfields": {
+                    "opacity": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Backround",
+            "name": "background",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "default": {
+                  "color": "#FFFFFF",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "border"
+              }
+            ]
           }
         ]
       }
