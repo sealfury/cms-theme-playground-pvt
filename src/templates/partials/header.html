@@ -43,6 +43,26 @@
             label="Header Top Menu" %}
         </div>
 
+        {% require_js %}
+          <script>
+            var languageSwitcher = document.querySelector('.header__language-switcher');
+            languageSwitcher.addEventListener('click', function () {
+              if (this.classList.contains('open')) {
+                this.classList.remove('open');
+              } else {
+                this.classList.add('open');
+              }
+            });
+
+            var mainContent = document.getElementById('main-content');
+            mainContent.addEventListener('click', function () {
+              if (languageSwitcher.classList.contains('open')) {
+                languageSwitcher.classList.remove('open');
+              }
+            });
+          </script>
+        {% end_require_js %}
+
         {% if content.translated_content|length or is_listing_view and group.translations %}
           <div class="header--toggle header__language-switcher--toggle"></div>
         {% endif %}
@@ -52,7 +72,7 @@
               {% module "language-switcher"
                 path="@hubspot/language_switcher",
                 label="Language switcher",
-                display_mode="pagelang" %}
+                display_mode="localized" %}
               <div class="header__language-switcher--label-current">
                 {{ locale_name(locale)|split(" ")|first }}
               </div>
@@ -68,7 +88,7 @@
           {% module "custom-header"
             path="../../modules/customizable-menu" %}
         </div>
-        {# TODO: add extra class to reduce button font size #}
+
         <div class="header__navigation header--element">
           {% module "trial-cta"
             path="../../modules/button",

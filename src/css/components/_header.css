@@ -296,71 +296,140 @@
 }
 
 .header__language-switcher .lang_list_class {
-  border: 2px solid;
-  border-radius: 3px;
-  box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.2);
-  display: block;
-  left: calc(100% - 24px);
+  align-items: center;
+  background-color: #0F1E2D;
+  border: 1px solid #364554;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  left: 0;
   opacity: 0;
-  min-width: 100px;
-  padding-top: 0;
+  min-width: 143px;
+  padding: 0 0.5rem;
+  position: absolute;
   text-align: left;
-  top: 100%;
-  transition: opacity 0.3s;
+  top: 117%;
+  transition: all 0.3s ease-in-out;
+  transform: none;
   visibility: hidden;
 }
 
-.header__language-switcher:hover .lang_list_class,
-.header__language-switcher:focus .lang_list_class {
+.header__language-switcher.open .lang_list_class {
   opacity: 1;
-  transition: opacity 0.3s;
+  transition: all 0.3s ease-in-out;
   visibility: visible;
+  z-index: 999;
 }
 
 .header__language-switcher .lang_list_class:before {
-  left: 70%;
-  top: -25px;
+  background-color: #0F1E2D;
+  border-right: none;
+  border-top: none;
+  border-radius: 1px;
+  box-shadow: 0 4px 10px 0 rgba(0 0 0 / 0.15); 
+  content: '';
+  display: block;
+  height: 14px;
+  left: 27%;
+  overflow: hidden;
+  position: absolute;
+  top: -4%;
+  transform: rotate(45deg);
+  transition: all 0.3s ease-in-out;
+  width: 14px;
 }
 
 .header__language-switcher .lang_list_class:after {
-  left: 70%;
-  top: -22px;
-}
-
-.header__language-switcher .lang_list_class.first-active::after {
-  top: -22px;
-  transition: 0.3s;
+  display: none;
 }
 
 .header__language-switcher .lang_list_class li {
-  border: none;
-  font-size: 18px;
-  padding: 0.35rem 0.7rem;
-}
-
-.header__language-switcher .lang_list_class li:first-child {
-  border-radius: 6px 6px 0 0;
+  background-color: inherit;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: none;
+  border-right: none;
   border-top: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  padding: 0;
+  width: 100%;
 }
 
 .header__language-switcher .lang_list_class li:last-child {
   border-bottom: none;
-  border-radius: 0 0 6px 6px;
+  padding: 0;
+}
+
+.header__language-switcher .lang_list_class li:first-child {
+  border-top: none;
+  padding: 0;
 }
 
 .header__language-switcher .lang_list_class li:hover {
   transition: background-color 0.3s;
 }
 
-.header__language-switcher--label {
+.header__language-switcher .lang_switcher_link {
+  align-items: center;
+  color: rgba(255, 255, 255, 0.7);
   display: flex;
+  font-size: 14px;
+  padding: 1rem 0;
+}
+
+.header__language-switcher .lang_switcher_link:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.header__language-switcher .lang_switcher_link:before {
+  content: '';
+  display: block;
+  height: 18px;
+  margin: 0.25rem 0.5rem 2px 0.75rem;
+  min-width: 28px;
+}
+
+.lang_switcher_link[data-language="en"]:before {
+  background: url("{{ get_asset_url('../../images/module-icons/flag_uk.png') }}") no-repeat;
+}
+
+.lang_switcher_link[data-language="en-gb"]:before {
+  background: url("{{ get_asset_url('../../images/module-icons/flag_uk.png') }}") no-repeat;
+}
+
+.lang_switcher_link[data-language="sv"]:before {
+  background: url("{{ get_asset_url('../../images/module-icons/flag_swe.png') }}") no-repeat;
+}
+
+.lang_switcher_link[data-language="de"]:before {
+  background: url("{{ get_asset_url('../../images/module-icons/flag_ger.png') }}") no-repeat;
+}
+
+.header__language-switcher .globe_class {
+  background: url("{{ get_asset_url('../../images/module-icons/chevron-icon-black.png') }}") no-repeat;
+  border-radius: 0;
+  cursor: pointer;
+  height: 16px;
+  margin: 10px 0 8px 8px;
+  width: 16px;
+}
+
+.header__language-switcher--label {
+  align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 4px 0 0;
   position: relative;
 }
 
 .header__language-switcher--label-current {
   align-items: center;
+  color: #0F1E2D;
   display: flex;
-  font-size: 0.75rem;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
   margin-bottom: 0.175rem;
   margin-left: 0.7rem;
 }
@@ -370,7 +439,7 @@
   content: "";
   display: block;
   height: 18px;
-  margin: 0.25rem 0.5rem 0 0.75rem;
+  margin: 0.25rem 0.5rem 2px 0.75rem;
   width: 28px;
 }
 
@@ -498,7 +567,7 @@
   }
 
   .header__language-switcher--toggle {
-    background-image: url(//static.hsappstatic.net/cos-LanguageSwitcher/static-1.1/img/globe.png);
+    background-image: url("{{ get_asset_url('../../images/module-icons/chevron-icon-black.png') }}");
     background-size: cover;
     height: 25px;
     width: 25px;

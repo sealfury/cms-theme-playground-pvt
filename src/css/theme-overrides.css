@@ -457,10 +457,15 @@ tfoot td {
 .header__logo .logo-company-name,
 .header__language-switcher-label-current,
 .header__language-switcher .lang_list_class li a {
-  color: {{ nav_font_color }};
   font-family: {{ body_font.font }};
   font-size: {{ nav_font_size ~ nav_font_size_unit }};
   font-weight: {{ nav_font_weight }};
+}
+
+.menu__link, 
+.menu__link li a,
+.header__logo .logo-company-name {
+  color: {{ nav_font_color }};
 }
 
 .menu__child-toggle-icon {
@@ -468,11 +473,7 @@ tfoot td {
 }
 
 .menu .menu__link:hover,
-.menu .menu__link:focus,
-.header__language-switcher-label-current:hover,
-.header__language-switcher-label-current:focus,
-.header__language-switcher .lang_list_class li:hover a,
-.header__language-switcher .lang_list_class li a:focus {
+.menu .menu__link:focus {
   color: {{ color_variant(nav_font_color, -40) }};
 }
 
@@ -513,10 +514,6 @@ tfoot td {
 .menu__submenu .menu__link:focus {
   color: {{ nav_drop_down_font_color }};
   background-color: {{ nav_drop_down_bg_color }};
-}
-
-.header__language-switcher .lang_list_class:before {
-  border-bottom-color: {{ theme.header.menu.drop_downs.border.border.top.color }};
 }
 
 .menu__submenu .menu__link:hover,
