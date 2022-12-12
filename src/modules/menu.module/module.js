@@ -10,6 +10,7 @@ var overlay = document.getElementById('overlay');
 var mainContent = document.getElementById('main-content');
 var dropdownSubmenus = document.querySelectorAll('.menu__item--depth-2');
 var productsMenuItems = document.querySelectorAll('.menu__item--depth-1');
+var languageSwitcher = document.querySelector('.header__language-switcher');
 
 // Get element siblings
 const getElementSiblings = function (el) {
@@ -113,6 +114,8 @@ if (menuParentItems) {
         overlay.classList.remove('show-overlay');
       }
     });
+
+    console.log(document.querySelector('.header__language-switcher'));
   });
 }
 

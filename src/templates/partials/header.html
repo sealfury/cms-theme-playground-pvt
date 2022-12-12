@@ -19,11 +19,6 @@
   <div class="header__container content-wrapper">
     {# Header logo column #}
 
-    {# <div class="header__logo header__logo--main">
-      {% module "site_logo"
-        path="@hubspot/logo" %}
-    </div> #}
-
     {# Header navigation column #}
 
     <div class="header__column">
@@ -45,27 +40,22 @@
 
         {% require_js %}
           <script>
-            var languageSwitcher = document.querySelector('.header__language-switcher');
-            languageSwitcher.addEventListener('click', function () {
-              if (this.classList.contains('open')) {
-                this.classList.remove('open');
+            var languageSwitcher = document.querySelector(
+              ".header__language-switcher"
+            );
+            languageSwitcher.addEventListener("click", function () {
+              if (this.classList.contains("open")) {
+                this.classList.remove("open");
               } else {
-                this.classList.add('open');
-              }
-            });
-
-            var mainContent = document.getElementById('main-content');
-            mainContent.addEventListener('click', function () {
-              if (languageSwitcher.classList.contains('open')) {
-                languageSwitcher.classList.remove('open');
+                this.classList.add("open");
               }
             });
           </script>
         {% end_require_js %}
 
-        {% if content.translated_content|length or is_listing_view and group.translations %}
+        {# {% if content.translated_content|length or is_listing_view and group.translations %}
           <div class="header--toggle header__language-switcher--toggle"></div>
-        {% endif %}
+        {% endif %} #}
         {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
           <div class="header__language-switcher header--element">
             <div class="header__language-switcher--label">
@@ -73,7 +63,7 @@
                 path="@hubspot/language_switcher",
                 label="Language switcher",
                 display_mode="localized" %}
-              <div class="header__language-switcher--label-current">
+              <div class="header__language-switcher--label-current {{ locale_name(locale)|split(" ")|first|lower }}">
                 {{ locale_name(locale)|split(" ")|first }}
               </div>
             </div>
@@ -98,11 +88,4 @@
       </div>
     </div>
   </div>
-
-  {# Bottom header drag and drop area #}
-
-  {% dnd_area "header-bottom"
-    label="Bottom header",
-    class="content-wrapper" %}
-  {% end_dnd_area %}
 </header>

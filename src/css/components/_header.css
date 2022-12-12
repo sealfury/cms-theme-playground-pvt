@@ -435,12 +435,23 @@
 }
 
 .header__language-switcher--label-current:before {
-  background: url("{{ get_asset_url('../../images/module-icons/flag_uk.png') }}") no-repeat;
   content: "";
   display: block;
   height: 18px;
   margin: 0.25rem 0.5rem 2px 0.75rem;
   width: 28px;
+}
+
+.header__language-switcher--label-current.english:before {
+  background: url("{{ get_asset_url('../../images/module-icons/flag_uk.png') }}") no-repeat;
+}
+
+.header__language-switcher--label-current.svenska:before {
+  background: url("{{ get_asset_url('../../images/module-icons/flag_swe.png') }}") no-repeat;
+}
+
+.header__language-switcher--label-current.deutsch:before {
+  background: url("{{ get_asset_url('../../images/module-icons/flag_ger.png') }}") no-repeat;
 }
 
 @media (max-width: 767px) {
