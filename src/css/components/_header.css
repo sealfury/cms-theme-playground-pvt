@@ -204,15 +204,6 @@
   line-height: 24px;
 }
 
-/* .header-card__feature::before {
-  background: url("{{ get_asset_url('../../images/module-icons/checkmark-icon-light.png') }}") no-repeat;
-  content: '';
-  display: block;
-  height: 10px;
-  margin-right: 6px;
-  width: 12px;
-} */
-
 /* Search bar */
 
 .header__search {
