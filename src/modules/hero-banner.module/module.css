@@ -28,6 +28,8 @@
 }
 
 .hero-banner__subheader {
+  font-size: 20px;
+  line-height: 30px;
   padding: 0.5rem 0;
 }
 
@@ -103,4 +105,22 @@
   position: absolute;
   transform: translate(-25%, -45%);
   max-width: 495px;
+}
+
+.hero-banner__links--submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+.hero-banner__links--submenu > span {
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.hero-banner__links--submenu > a {
+  font-weight: 600;
+  max-width: fit-content;
 }

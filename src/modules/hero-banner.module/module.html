@@ -16,6 +16,33 @@
         .hero-banner__breadcrumb {
           color: #525e6a;
         }
+
+        .hero-banner__links--menu {
+          background-color: #0F1E2D;
+          border-radius: 8px;
+          display: flex;
+          gap: 1.5rem;
+          margin: 10% 0 0;
+          padding: 1rem 0;
+        }
+
+        .hero-banner__links--submenu > span {
+          color: #878E96;
+        }
+
+        .hero-banner__links--submenu > a {
+          border-bottom: 2px solid #00B9BC;
+          color: #FFFFFF;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .hero-banner__links--submenu > a:hover {
+          border-color: #FFFFFF;
+        }
+
+        .hero-banner__links--submenu:nth-child(2) {
+          border-left: 2px solid rgba(255 255 255 / 0.15);
+        }
       {% endif %}
 
       {% if module.mode == "dark" %}
@@ -40,6 +67,33 @@
           border-radius: 24px;
           color: #2F3C49;
         }
+
+        .hero-banner__links--menu {
+          background-color: #EFF3F7;
+          border-radius: 8px;
+          display: flex;
+          gap: 1.5rem;
+          margin: 10% 0 0;
+          padding: 1rem 0;
+        }
+
+        .hero-banner__links--submenu > span {
+          color: #2F3C49;
+        }
+
+        .hero-banner__links--submenu > a {
+          border-bottom: 2px solid transparent;
+          color: #0F1E2D;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .hero-banner__links--submenu > a:hover {
+          border-color: #00B9BC;
+        }
+
+        .hero-banner__links--submenu:nth-child(2) {
+          border-left: 2px solid rgba(0 0 0 / 0.8);
+        }
       {% endif %}
 
     {% end_scope_css %}
@@ -62,8 +116,8 @@
     <span class="hero-banner__breadcrumb">{{ module.breadcrumb_text }}</span>
     <h1 class="hero-banner__header">{{ module.header }}</h1>
     <p class="hero-banner__subheader">{{ module.subheader }}</p>
+    {% if module.buttons.button|length > 0 %}
     <div class="hero-banner__buttons">
-    {% if module.buttons|length >= 1 %}
       {% for button in module.buttons %}
         <a href="{{ button.link_url }}" class="hero-banner__buttons button{{"--" ~ button.type if module.mode == "light" }}">{{ button.text }}</a>
 
@@ -72,11 +126,29 @@
         {% endif %}
 
       {% endfor %}
-    {% endif %}
     </div>
+    {% endif %}
   </div>
   <div class="hero-banner__media-section">
-    <img src="{{ module.logo_image.src }}" class="hero-banner__logo" />
-    <div class="hero-media-player__wrapper"></div>
+    {% if module.column == "logo" or module.column == "video" %}
+      <img src="{{ module.logo_image.src }}" class="hero-banner__logo" />
+    {% endif %}
+
+    {% if module.column == "video" %}
+      <div class="hero-media-player__wrapper"></div>
+    {% endif %}
+
+    {% if module.column == "links" %}
+      <div class="hero-banner__links--menu">
+        {% for menu in module.links_menu %}
+          <div class="hero-banner__links--submenu">
+            <span>{{ menu.header }}</span>
+            {% for link in menu.links %}
+              <a href="{{ link.link.url.href }}">{{ link.text }}</a>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </section>

@@ -93,6 +93,19 @@
     ]
   },
   {
+    "label": "Column Two Content",
+    "name": "column",
+    "id": "column",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      ["logo", "Logo Image"],
+      ["video", "Video Player"],
+      ["links", "Links Menu"],
+      ["small_logo", "Small Logo Box"]
+    ]
+  },
+  {
     "label": "Logo Image",
     "name": "logo_image",
     "type": "image",
@@ -106,6 +119,27 @@
       "loading": "lazy",
       "max_height": 420,
       "max_width": 500
+    },
+    "visbility_rules": "ADVANCED",
+    "advanced_visibility": {
+      "boolean_operator": "OR",
+      "criteria": [
+        {
+          "controlling_field": "column",
+          "controlling_value_regex": "logo",
+          "operator": "EQUAL"
+        },
+        {
+          "controlling_field": "column",
+          "controlling_value_regex": "video",
+          "operator": "EQUAL"
+        },
+        {
+          "controlling_field": "column",
+          "controlling_value_regex": "links",
+          "operator": "NOT_EQUAL"
+        }
+      ]
     }
   },
   {
@@ -113,6 +147,71 @@
     "name": "video",
     "type": "videoplayer",
     "required": false,
-    "show_advanced_options": true
+    "show_advanced_options": true,
+    "visibility": {
+      "controlling_field": "column",
+      "controlling_value_regex": "video",
+      "operator": "EQUAL"
+    }
+  },
+  {
+    "label": "Links Menu",
+    "name": "links_menu",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 2,
+      "default": 2
+    },
+    "visbility": {
+      "controlling_field": "column",
+      "controlling_value_regex": "links",
+      "operator": "EQUAL"
+    },
+    "children": [
+      {
+        "label": "Section Header",
+        "name": "header",
+        "type": "text",
+        "default": "This is MaintMaster"
+      },
+      {
+        "label": "Links",
+        "name": "links",
+        "type": "group",
+        "supported_types": ["EXTERNAL", "CONTENT"],
+        "show_advanced_rel_options": false,
+        "occurrence": {
+          "min": 2,
+          "max": 5,
+          "default": 3
+        },
+        "children": [
+          {
+            "label": "Link Text",
+            "name": "text",
+            "type": "text"
+          },
+          {
+            "label": "Link Info",
+            "name": "link",
+            "type": "link",
+            "supported_types": ["EXTERNAL", "CONTENT"],
+            "show_advanced_rel_options": false,
+            "default": {
+              "url": {
+                "content_id": null,
+                "type": "EXTERNAL",
+                "href": ""
+              },
+              "open_in_new_tab": false,
+              "no_follow": false,
+              "sponsored": false,
+              "user_generated_content": false
+            }
+          }
+        ]
+      }
+    ]
   }
 ]
