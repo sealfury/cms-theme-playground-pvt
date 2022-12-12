@@ -1,0 +1,47 @@
+{% from "../../utils/macros.html" import headerCard %}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+    {# Add checkmarks to features #}
+
+    {% set checkmarkPath = "../../images/module-icons/checkmark-icon-light.png" %}
+
+    .header-card__feature::before {
+      background: url("{{ get_asset_url(checkmarkPath) }}") no-repeat;
+      content: "";
+      display: block;
+      height: 14px;
+      margin-right: 6px;
+      width: 14px;
+    }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+
+<section class="product-cards">
+  <div class="product-cards__header">
+    <h2>{{ module.section_title }}</h2>
+    <p>{{ module.section_description }}</p>
+  </div>
+
+  <div class="product-cards__cards">
+    {% for card in module.cards %}
+    {% set size = "large" if card.use_large is truthy else "small" %}
+    {% set sectionCards = card.large if card.use_large is truthy else card.small %}
+    {% set features = sectionCards.features if size == "large" else [] %}
+      <li class="menu__item menu__item--depth-2">
+        <ul class="menu__submenu menu__submenu--level-3 menu__submenu--products">
+          <div class="menu__wrapper--level-3">
+            {% for c in sectionCards %}
+              {{ headerCard(c.title, size, c.link.absolute_url, c.description, features, c.icon) }}
+            {% endfor %}
+          </div>
+        </ul>
+      </li>
+    {% endfor %}
+  </div>
+</section>

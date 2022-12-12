@@ -1,0 +1,151 @@
+[
+  {
+    "label": "Section Title",
+    "name": "section_title",
+    "type": "richtext"
+  },
+  {
+    "label": "Section Description",
+    "name": "section_description",
+    "type": "richtext"
+  },
+  {
+    "label": "Cards Group",
+    "name": "cards",
+    "id": "cards",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 2,
+      "default": 2
+    },
+    "children": [
+      {
+        "label": "Use Large Cards For This Section?",
+        "name": "use_large",
+        "id": "use_large",
+        "type": "boolean",
+        "display": "toggle",
+        "inline_help_text": "Max 2 large cards/section, Max 6 small cards/section",
+        "default": false
+      },
+      {
+        "label": "Card Details (Large)",
+        "name": "large",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 2,
+          "default": 2
+        },
+        "visibility": {
+          "controlling_field": "use_large",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "children": [
+          {
+            "label": "Card Title",
+            "name": "title",
+            "type": "text",
+            "default": "MaintMaster CMMS"
+          },
+          {
+            "label": "Page Link",
+            "name": "link",
+            "type": "page",
+            "placeholder": "Page to link to",
+            "default": null
+          },
+          {
+            "label": "Card Icon",
+            "name": "icon",
+            "type": "image",
+            "responsive": true,
+            "show_loading": false,
+            "resizable": true,
+            "default": {
+              "size_type": "auto_custom_max",
+              "src": "",
+              "alt": "card-icon",
+              "max_width": 22,
+              "max_height": 22
+            }
+          },
+          {
+            "label": "Card Description",
+            "name": "description",
+            "type": "richtext",
+            "placeholder": "Add a product description...",
+            "inline_help_text": "Text is clipped at 3 lines (~120 chars)"
+          },
+          {
+            "label": "Card Features",
+            "name": "features",
+            "type": "text",
+            "occurrence": {
+              "min": 2,
+              "max": 6,
+              "default": 3
+            },
+            "default": [
+              "Flexible, efficient & dynamic",
+              "The right information at the right time"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Card Details (Small)",
+        "name": "small",
+        "type": "group",
+        "occurrence": {
+          "min": 3,
+          "max": 6,
+          "default": 6
+        },
+        "visibility": {
+          "controlling_field": "use_large",
+          "controlling_value_regex": "false",
+          "operator": "EQUAL"
+        },
+        "children": [
+          {
+            "label": "Card Title",
+            "name": "title",
+            "type": "text",
+            "default": "Scheduling Tool"
+          },
+          {
+            "label": "Page Link",
+            "name": "link",
+            "type": "page",
+            "placeholder": "Page to link to",
+            "default": null
+          },
+          {
+            "label": "Card Icon",
+            "name": "icon",
+            "type": "image",
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "default": {
+              "size_type": "auto_custom_max",
+              "src": "",
+              "alt": "card-icon",
+              "max_width": 22,
+              "max_height": 22
+            }
+          },
+          {
+            "label": "Card Description",
+            "name": "description",
+            "type": "text",
+            "default": "Morbi leo risus, porta ac consectetur ac"
+          }
+        ]
+      }
+    ]
+  }
+]

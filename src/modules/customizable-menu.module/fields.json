@@ -119,7 +119,7 @@
                 "label": "Card Icon",
                 "name": "icon",
                 "type": "image",
-                "responive": true,
+                "responsive": true,
                 "resizable": true,
                 "show_loading": false,
                 "default": {
@@ -185,7 +185,7 @@
                 "label": "Card Icon",
                 "name": "icon",
                 "type": "image",
-                "responive": true,
+                "responsive": true,
                 "resizable": true,
                 "show_loading": false,
                 "default": {
