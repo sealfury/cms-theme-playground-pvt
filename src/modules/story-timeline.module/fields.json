@@ -1,0 +1,86 @@
+[
+  {
+    "label": "Section Header",
+    "locked": false,
+    "name": "header",
+    "required": false,
+    "type": "richtext",
+    "default": "Our <strong>Story</strong>"
+  },
+  {
+    "label": "Timeline Events",
+    "name": "events",
+    "id": "events",
+    "type": "group",
+    "required": false,
+    "occurrence": {
+      "min": 2,
+      "max": 8,
+      "sorting_label_field": "events.event",
+      "default": 4
+    },
+    "children": [
+      {
+        "label": "Year",
+        "name": "year",
+        "type": "text",
+        "id": "event.year",
+        "default": "2000"
+      },
+      {
+        "label": "Event",
+        "name": "event",
+        "type": "richtext",
+        "id": "event.event"
+      }
+    ]
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Point Colours",
+        "name": "point_colors",
+        "type": "group",
+        "children": [
+          {
+            "label": "Border Colour",
+            "name": "border",
+            "type": "color",
+            "default": {
+              "color": "#0F1E2D"
+            }
+          },
+          {
+            "label": "Point Colour",
+            "name": "point",
+            "type": "color",
+            "default": {
+              "color": "#FFFFFF"
+            }
+          }
+        ]
+      },
+      {
+        "label": "Timeline Colour",
+        "name": "timeline",
+        "type": "color",
+        "default": {
+          "color": "#0F1E2D",
+          "opacity": 20
+        }
+      },
+      {
+        "label": "Background Colour",
+        "name": "background",
+        "type": "color",
+        "default": {
+          "color": "#F0F5FA"
+        }
+      }
+    ]
+  }
+]

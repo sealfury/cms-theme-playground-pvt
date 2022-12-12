@@ -1,0 +1,61 @@
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Header Colors #}
+
+      .our-story__header {
+        color: #0f1e2d;
+      }
+
+      .our-story__header > strong {
+        color: #00b9bc;
+      }
+
+      {% if module.styles.background %}
+        .our-story {
+          background-color: {{ module.styles.background.color }};
+        }
+      {% endif %}
+
+      {% if module.styles.point_colors %}
+        .our-story__event--date:before {
+          background-color: {{ module.styles.point_colors.point.color }};
+          content: "";
+          display: inline-block;
+          border: 8px solid {{ module.styles.point_colors.border.color }};
+          border-radius: 50%;
+          height: 24px;
+          margin-right: 2px;
+          width: 24px;
+          transform: translate(-10px, 6px);
+        }
+      {% endif %}
+
+      {% if module.styles.timeline %}
+        .our-story__event--description {
+          border-left: 2px solid rgba({{ module.styles.timeline.color|convert_rgb }}, {{ module.styles.timeline.opacity / 100 }});
+        }
+
+        .our-story__event:last-child .our-story__event--description {
+          border-left: none;
+        }
+      {% endif %}
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+<section class="our-story">
+  <div class="our-story__container">
+    <h2 class="our-story__header">{{ module.header }}</h2>
+    <div class="our-story__timeline">
+      {% for event in module.events %}
+      <div class="our-story__event">
+        <h5 class="our-story__event--date">{{ event.year }}</h5>
+        <p class="our-story__event--description">{{ event.event }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
