@@ -1,0 +1,94 @@
+[
+  {
+    "label": "Form Section",
+    "name": "form_section",
+    "type": "group",
+    "children": [
+      {
+        "label": "Contact Form Header",
+        "name": "header",
+        "type": "richtext",
+        "default": "Contact <strong>us</strong>"
+      },
+      {
+        "label": "Contact Form",
+        "name": "form",
+        "type": "form",
+        "required": true,
+        "locked": false,
+        "default": {
+          "form_id": "9709f37b-8693-4c5d-a158-ebb7dda1ebf5",
+          "response_type": "inline",
+          "message": "Thank you for getting in touch"
+        }
+      }
+    ]
+  },
+  {
+    "label": "Sales Section",
+    "name": "sales_section",
+    "type": "group",
+    "children": [
+      {
+        "label": "Contact Representative Header",
+        "name": "header",
+        "type": "richtext",
+        "default": "Contact <strong>sales</strong>"
+      },
+      {
+        "label": "Representative Information",
+        "name": "info",
+        "type": "group",
+        "children": [
+          {
+            "label": "Representative Name",
+            "name": "rep_name",
+            "type": "text",
+            "default": "Henrik Hagdorn"
+          },
+          {
+            "label": "Representative Phone Number",
+            "name": "phone",
+            "type": "text",
+            "default": "+46 31 712 66 24"
+          },
+          {
+            "label": "Representative Email",
+            "name": "email",
+            "type": "email",
+            "default": ["henrik.hagdorn@maintmaster.com"]
+          },
+          {
+            "label": "Representative Photo",
+            "name": "image",
+            "type": "image",
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "default": {
+              "size_type": "exact",
+              "src": "",
+              "alt": "representative-photo",
+              "loading": "lazy",
+              "width": 116,
+              "height": 116,
+              "max_width": 128,
+              "max_height": 128
+            }
+          },
+          {
+            "label": "Representative Photo Shape",
+            "name": "image_shape",
+            "type": "choice",
+            "display": "radio",
+            "choices": [
+              ["square", "Square"],
+              ["round", "Round"]
+            ],
+            "default": "round"
+          }
+        ]
+      }
+    ]
+  }
+]
