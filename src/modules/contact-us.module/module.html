@@ -2,33 +2,32 @@
   <style>
     {% scope_css %}
 
-    {# Add teal color to section headers #}
+      {# Add teal color to section headers #}
 
-    .contact__form--header > strong,
-    .contact__sales--section > strong {
-      color: #00B9BC;
-    }
+      .contact__form--header > strong,
+      .contact__sales--header > strong {
+        color: #00b9bc;
+      }
 
-    {% if module.sales_section.info.image_shape == "round" %}
-      .contact__sales--image {
-        border-radius: 50%;
-      }
-    {% else %}
-      .contact__sales--image {
-        border-radius: 0;
-      }
-    {% endif %}
+      {% if module.sales_section.info.image_shape == "round" %}
+        .contact__sales--image {
+          border-radius: 50%;
+        }
+      {% else %}
+        .contact__sales--image {
+          border-radius: 0;
+        }
+      {% endif %}
 
     {% end_scope_css %}
   </style>
 {% end_require_css %}
 
-
 <section class="contact">
   <div class="contact__form--section">
     <h2 class="contact__form--header">{{ module.form_section.header }}</h2>
     <div class="contact__form--form">
-      {% form 
+      {% form
         form_key="contact-form-wide",
         form_to_use="{{ module.form_section.form.form_id }}",
         no_title=True,
@@ -45,7 +44,7 @@
     <div class="contact__sales--info">
       <h5>{{ module.sales_section.info.rep_name }}</h5>
       <a>{{ module.sales_section.info.phone }}</a>
-      <a>{{ module.sales_section.info.email }}</a>
+      <a>{{ module.sales_section.info.email|first }}</a>
       {% set img = module.sales_section.info.image %}
       {% if img.src %}
         {% set sizeAttrs = "width=\"{{ img.width }}\" height=\"{{ img.height }}\"" %}

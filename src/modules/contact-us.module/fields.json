@@ -56,7 +56,9 @@
             "label": "Representative Email",
             "name": "email",
             "type": "email",
-            "default": ["henrik.hagdorn@maintmaster.com"]
+            "default": [
+              "henrik.hagdorn@maintmaster.com"
+            ]
           },
           {
             "label": "Representative Photo",
