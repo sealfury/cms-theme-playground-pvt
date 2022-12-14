@@ -1,0 +1,127 @@
+[
+  {
+    "label": "Section Header",
+    "name": "header",
+    "type": "richtext",
+    "default": "Everything for your <strong>maintenance needs</strong>"
+  },
+  {
+    "label": "CTAs",
+    "name": "ctas",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 6,
+      "default": 2
+    },
+    "children": [
+      {
+        "label": "Eyebrow Text",
+        "name": "eyebrow",
+        "type": "text"
+      },
+      {
+        "label": "Feature Header",
+        "name": "header",
+        "type": "text"
+      },
+      {
+        "label": "Feature Description",
+        "name": "description",
+        "type": "richtext"
+      },
+      {
+        "label": "Button",
+        "name": "button",
+        "type": "group",
+        "children": [
+          {
+            "label": "Link Text",
+            "name": "link_text",
+            "type": "text"
+          },
+          {
+            "label": "Link",
+            "name": "link",
+            "type": "link",
+            "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+            "show_advanced_rel_options": true,
+            "default": {
+              "url": {
+                "content_id": null,
+                "type": "CONTENT",
+                "href": ""
+              },
+              "open_in_new_tab": false,
+              "no_follow": false,
+              "sponsored": false,
+              "user_generated_content": false
+            }
+          }
+        ]
+      },
+      {
+        "label": "Image or Video?",
+        "name": "media",
+        "type": "choice",
+        "display": "radio",
+        "choices": [
+          ["image", "Image"],
+          ["video", "Video"]
+        ],
+        "default": "image"
+      },
+      {
+        "label": "Image",
+        "name": "image",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "default": {
+          "size_type": "auto_custom_max",
+          "src": "",
+          "alt": "image-alt-text",
+          "loading": "lazy",
+          "width": 480,
+          "height": 280,
+          "max_width": 480,
+          "max_height": 480
+        },
+        "visibility": {
+          "controlling_field": "ctas.media",
+          "controlling_value_regex": "image",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "label": "Video",
+        "name": "video",
+        "type": "videoplayer",
+        "required": false,
+        "show_advanced_options": true,
+        "visibility": {
+          "controlling_field": "ctas.media",
+          "controlling_value_regex": "video",
+          "operator": "EQUAL"
+        }
+      }
+    ]
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Background Color",
+        "name": "background_color",
+        "type": "color",
+        "default": {
+          "color": "#F0F5FA"
+        }
+      }
+    ]
+  }
+]

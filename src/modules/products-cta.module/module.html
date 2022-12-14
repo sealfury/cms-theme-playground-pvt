@@ -1,0 +1,76 @@
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+    {# Custom Background Color #}
+
+    .products-cta {
+      {% if module.styles.background_color.color %}
+        background-color: {{ module.styles.background_color.color }};
+      {% else %}
+        background-color: #F0F5FA;
+      {% endif %}
+    }
+
+    .products-cta__item {
+      background-color: #FFFFFF;
+      border-radius: 4px;
+    }
+
+    .products-cta h2 > strong {
+      color: #00B9BC;
+    }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+
+
+<section class="products-cta">
+  <h2>{{ module.header }}</h2>
+  {% for cta in module.ctas %}
+    <div class="products-cta__item">
+
+      <div class="products-cta__text-section">
+        <span>{{ cta.eyebrow }}</span>
+        <h3>{{ cta.header }}</h3>
+        <p>{{ cta.description }}</p>
+        <a
+          class="button"
+          href="{{ cta.button.link.url.href }}"
+          {% if cta.button.link.open_in_new_tab %}target="_blank"
+          {% endif %}
+          {% if cta.button.link.rel %}rel="{{ cta.link.rel }}"
+          {% endif %}
+        >
+          {{ cta.button.link_text }}
+        </a>
+      </div>
+    
+      <div class="products-cta__media-section">
+        {% if cta.media == "image" %}
+          {% set image = cta.image %}
+          {% if image.src %}
+            {% set sizeAttrs = "width=\"{{ image.width }}\" height=\"{{ image.width }}\"" %}
+            {% set loadingAttrs = image.loading != "disabled" ? "loading=\"{{ image.loading }}\"" : "" %}
+            <img 
+              class="products-cta__media--image"
+              src="{{ image.src }}"
+              alt="{{ image.alt }}"
+              {{ loadingAttr }}
+              {{ sizeAttr }}
+            />
+          {% endif %}
+        {% endif %}
+        {% if cta.media == "video" %}
+          <div class="products-cta__media--video">
+            {% video_player 
+              player_id="{{ cta.video.player_id }}" %}
+          </div>
+        {% endif %}
+      </div>
+
+    </div>
+  {% endfor %}
+</section>

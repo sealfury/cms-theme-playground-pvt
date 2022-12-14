@@ -1,0 +1,42 @@
+.products-cta {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 4rem 0;
+  width: 100vw;
+}
+
+.products-cta h2 {
+  text-align: center;
+  width: clamp(340px, 100%, 740px);
+}
+
+.products-cta__item {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 3rem;
+  width: clamp(340px, 100%, 1440px);
+}
+
+.products-cta__text-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.products-cta__text-section > span {
+  color: #525E6A;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.products-cta__text-section > h3 {
+  font-size: 26px;
+  line-height: 35px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
