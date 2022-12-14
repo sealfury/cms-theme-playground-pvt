@@ -1,0 +1,168 @@
+<!--
+    templateType: page
+    label: Why MaintMaster
+    isAvailableForNewContent: true
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+
+  {% dnd_area "dnd_area"
+    label="Main section",
+    class="body-container body-container--why-maintmaster" %}
+
+  {# Hero Banner #}
+
+  {% dnd_section %}
+    {% dnd_module 
+      path="../modules/hero-banner",
+      mode="light",
+      breadcrumb_text="lorem ipsum",
+      header="why <strong>maintmaster?</strong>",
+      subheader="Master your maintenance with MaintMasters uncomplicated CMMS and plug and play IoT sensors...",
+      column="logo",
+      buttons=[
+        {
+          text: "Start free trial",
+          type: "teal"
+        },
+        {
+          text: "Book a demo",
+          type: "transparent"
+        }
+      ],
+      logo_image={
+        src: "../images/mm-stylized-symbol.png"
+      } %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {# Trusted By Company Logos Section #}
+
+  {% include_dnd_partial 
+    path="../sections/trusted-by.html" %}
+
+  {# Product Cards Section #}
+
+  {% dnd_section %}
+    {% dnd_module 
+      path="../modules/product-cards",
+      section_header="maintmaster <strong>transform maintenance</strong>",
+      section_description="Add product cards in field settings in the sidebar to the left" %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {# Two-column image-right #}
+
+  {% include_dnd_partial 
+    path="../sections/multi-row-content.html" %}
+
+  {# Two-column image-left #}
+
+  {% dnd_section 
+    vertical_alignment="MIDDLE" %}
+    {% dnd_module 
+      path="@hubspot/image",
+      img={
+        "alt": "Stock plageholder image",
+        "loading": "lazy",
+        "max_height": 451,
+        "max_width": 605,
+        "size_type": "auto_custom_max",
+        "src": get_asset_url("../images/grayscale-mountain.png")
+      },
+      offset=0,
+      width=6 %}
+    {% end_dnd_module %}
+    {% dnd_module 
+      path="@hubspot/rich_text",
+      html="<h2>Digitise <strong>maintenance</strong><p>Use text and image to tell your company's story. Explain what makes your product or service extraordinary</p>",
+      offset=6,
+      width=6
+    %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {# Two-column image-right #}
+
+  {% include_dnd_partial 
+    path="../sections/multi-row-content.html" %}
+
+  {# Teams Menu - For Industry #}
+
+  {% dnd_section %}
+    {% dnd_module  
+    path="../modules/teams-menu",
+    width=12,
+    background_image={
+      src: "../images/stock-banner-image-stats.png"
+    },
+    header="<strong>For your</strong> Industry" %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {# Stats Banner #}
+
+  {% dnd_section %}
+    {% dnd_module 
+      path="../modules/stats-banner",
+      background_type="light",
+      add_description=true,
+      description="Maintmaster's maintenance system <strong>maximises</strong> assets, <strong>minimises</strong> downtime, <strong>controls</strong> costs, <strong>streamlines</strong> maintenance and <strong>makes it easier</strong> for employees.",
+      features=[
+        {
+          feature: "Fewer downtimes",
+          value: 30
+        },
+        {
+          feature: "Reduced manual handling",
+          value: 80
+        },
+        {
+          feature: "Fewer administration hours",
+          value: 50
+        },
+        {
+          feature: "Increased productivity",
+          value: 25
+        }
+      ],
+      width=12 %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {# Teams Menu - For Role #}
+  
+  {% dnd_section %}
+    {% dnd_module 
+      path="../modules/teams-menu",
+      width=12,
+      backround_image={
+        src: "../images/stock-banner-image-stats.png"
+      },
+      header="<strong>For your</strong> role" %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {# Contact form #}
+
+  {% dnd_section %}
+    {% dnd_module 
+      path="../modules/contact-us",
+      form_section=[
+        header="Contact <strong>us</strong>"
+      ],
+      sales_section=[
+        header="Contact <strong>sales</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    "
+      ] %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {# CTA banner #}
+
+  {% include_dnd_partial 
+    path="../sections/cta-banner.html" %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}
