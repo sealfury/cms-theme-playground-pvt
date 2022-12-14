@@ -135,7 +135,11 @@
     {% endif %}
 
     {% if module.column == "video" %}
-      <div class="hero-media-player__wrapper"></div>
+      <div class="hero-media-player__wrapper">
+        {% video_player 
+          player_id="{{ module.video.player_id }}"
+        %}
+      </div>
     {% endif %}
 
     {% if module.column == "links" %}
