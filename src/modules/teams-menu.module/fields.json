@@ -9,6 +9,17 @@
     "default": "<strong>See how other teams</strong> use maintmaster"
   },
   {
+    "label": "Section Header Flex Direction",
+    "name": "flex",
+    "type": "choice",
+    "display": "radio",
+    "choices": [
+      ["row", "Row"],
+      ["column", "Column"]
+    ],
+    "default": "column"
+  },
+  {
     "label": "Background image",
     "name": "background_image",
     "type": "image",

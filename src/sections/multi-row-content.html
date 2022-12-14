@@ -6,10 +6,10 @@
   description: "Section separated in two columns. Left column has text and right column has an image."
 -->
 {% dnd_section
-  vertical_alignment="MIDDLE" %}
+  vertical_alignment="TOP" %}
   {% dnd_module
     path="@hubspot/rich_text",
-    html={{ context.content or "<h2>Crafted to support <strong>your work</strong></h2><p>Use text and images to tell your company’s story. Explain what makes your product or service extraordinary.</p>" }},
+    html={{ context.content or "<h1>Crafted to support <strong>your work</strong></h1><p>Use text and images to tell your company’s story. Explain what makes your product or service extraordinary.</p>" }},
     offset=0,
     width=6 %}
 

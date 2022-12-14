@@ -116,7 +116,7 @@
     <span class="hero-banner__breadcrumb">{{ module.breadcrumb_text }}</span>
     <h1 class="hero-banner__header">{{ module.header }}</h1>
     <p class="hero-banner__subheader">{{ module.subheader }}</p>
-    {% if module.buttons.button|length > 0 %}
+    {% if module.buttons|length > 0 %}
     <div class="hero-banner__buttons">
       {% for button in module.buttons %}
         <a href="{{ button.link_url }}" class="hero-banner__buttons button{{"--" ~ button.type if module.mode == "light" }}">{{ button.text }}</a>
