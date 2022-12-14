@@ -1,0 +1,107 @@
+[
+  {
+    "label": "Section Header",
+    "name": "header",
+    "type": "richtext",
+    "default": "What's <strong>new?</strong>"
+  },
+  {
+    "label": "News Link",
+    "name": "news_link",
+    "type": "group",
+    "children": [
+      {
+        "label": "Link Text",
+        "name": "text",
+        "type": "text"
+      },
+      {
+        "label": "Link Info",
+        "name": "link",
+        "type": "link",
+        "supported_types": ["EXTERNAL", "CONTENT"],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "content_id": null,
+            "type": "CONTENT",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false,
+          "sponsored": false,
+          "user_generated_content": false
+        }
+      }
+    ]
+  },
+  {
+    "label": "Section Cards",
+    "name": "cards",
+    "id": "cards",
+    "type": "group",
+    "sorting_label_field": "card.link_text",
+    "occurrence": {
+      "min": 3,
+      "max": 3,
+      "default": 3
+    },
+    "children": [
+      {
+        "label": "Card Icon",
+        "name": "icon",
+        "id": "card.icon",
+        "type": "image",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "default": {
+          "size_type": "auto_custom_max",
+          "src": "",
+          "alt": "card-icon-alt-text",
+          "loading": "lazy",
+          "width": 56,
+          "height": 56
+        }
+      },
+      {
+        "label": "Card Link Text",
+        "name": "link_text",
+        "id": "card.link_text",
+        "type": "text"
+      },
+      {
+        "label": "Card Link",
+        "name": "link",
+        "id": "card.link",
+        "type": "link",
+        "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+        "show_advanced_rel_options": true,
+        "default": {
+          "url": {
+            "content_id": null,
+            "type": "CONTENT",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false,
+          "sponsored": false,
+          "user_generated_content": false
+        }
+      }
+    ]
+  },
+  {
+    "label": "Card Orientation",
+    "name": "orientation",
+    "type": "choice",
+    "display": "radio",
+    "choices": [
+      ["left", "Large Card Left"],
+      ["right", "Large Card Right"]
+    ],
+    "inline_help_text": "Select which side you'd like the large card to be on"
+  }
+]

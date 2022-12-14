@@ -1,0 +1,65 @@
+.whats-new__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0 7.5%;
+  width: 100%;
+}
+
+.whats-new__cards {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(2, 148px);
+  width: 100%;
+}
+
+.whats-new__card {
+  border: 2px solid #DFe4E9;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: 1.5rem;
+}
+
+.whats-new__card.large {
+  grid-row: 1 / -1;
+}
+
+.whats-new__card.small:first-child {
+  grid-row: 1;
+}
+
+.whats-new__card.small:last-child {
+  grid-row: 2;
+}
+
+.whats-new__card--link {
+  color: #0F1E2D;
+  border-bottom: 2px solid transparent;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.whats-new__card--link:after {
+  background: url("{{ get_asset_url('../../images/module-icons/arrow-right-black.png') }}") no-repeat;
+  content: '';
+  display: inline-block;
+  height: 14px;
+  margin-left: 8px;
+  width: 18px;
+}
+
+.whats-new__card--link:hover,
+.whats-new__link:hover {
+  border-color: #00B9BC;
+}
+
+.whats-new__link {
+  border-bottom: 2px solid transparent;
+  padding: 2rem 0;
+}
+

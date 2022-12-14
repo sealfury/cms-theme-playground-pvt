@@ -1,0 +1,91 @@
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Header Styles #}
+      .whats-new__container h2 > strong {
+        color: #00b9bc;
+      }
+
+      {# Card Styles #}
+      .whats-new__card.large {
+        align-items: center;
+      }
+
+      {# Card Section Styles #}
+      {% if module.orientation == "left" %}
+        .whats-new__card.large {
+          grid-column: 1 / span 6;
+        }
+
+        .whats-new__card.small {
+          grid-column: 7 / span 4;
+        }
+      {% endif %}
+
+      {% if module.orientation == "right" %}
+        .whats-new__card.large {
+          grid-column: 5 / span 6;
+        }
+
+        .whats-new__card.small {
+          grid-column: 1 / span 4;
+        }
+      {% endif %}
+
+      {% set arrowIconBlack = "../../images/module-icons/arrow-right-black.png" %}
+      {% set arrowIconTeal = "../../images/module-icons/arrow-right-teal.png" %}
+
+      .whats-new__card--link:after {
+        background: url("{{ get_asset_url(arrowIconBlack) }}") no-repeat;
+      }
+
+      .whats-new__link:after {
+        background: url("{{ get_asset_url(arrowIconTeal) }}") no-repeat;
+      }
+
+      .whats-new__card--link:after,
+      .whats-new__link:after {
+        content: "";
+        display: inline-block;
+        height: 14px;
+        margin-left: 8px;
+        width: 20px;
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+<section class="whats-new">
+  <div class="whats-new__container">
+    <h2>{{ module.header }}</h2>
+    <div class="whats-new__cards">
+      {% for card in module.cards %}
+      {% if loop.first and module.orientation == "left" %}
+        {% set class = "large" %}
+      {% elif loop.last and module.orientation == "right" %}
+        {% set class = "large" %}
+      {% else %}
+        {% set class = "small" %}
+      {% endif %}
+      <card class="whats-new__card {{ class }}">
+        {% set icon = card.icon %}
+        {% if icon.src %}
+          {% set sizeAttrs = "width=\"{{ icon.width }}\" height\"{{ icon.height }}\"" %}
+          {% set loadingAttrs = icon.loading != "disabled" ? "loading=\"{{ icon.loading }}\"" : "" %}
+          <img
+            class="whats-new__card--icon"
+            src="{{ icon.src }}"
+            alt="{{ icon.alt }}"
+            {{ loadingAttr }}
+            {{ sizeAttrs }}
+          />
+        {% endif %}
+        <a class="whats-new__card--link" href="{{ card.link.url.href }}">{{ card.link_text }}</a>
+      </card>
+      {% endfor %}
+    </div>
+    <a class="whats-new__link" href="{{ module.news_link.link.url.href }}">{{ module.news_link.text }}</a>
+  </div>
+</section>
