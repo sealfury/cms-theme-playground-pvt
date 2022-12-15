@@ -25,6 +25,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 50%;
 }
 
 .products-cta__text-section > span {
@@ -39,4 +40,9 @@
   line-height: 35px;
   margin-bottom: 0;
   text-transform: uppercase;
+}
+
+.products-cta__media--video {
+  height: 270px;
+  width: 480px;
 }

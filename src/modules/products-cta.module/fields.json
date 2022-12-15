@@ -12,7 +12,8 @@
     "occurrence": {
       "min": 1,
       "max": 6,
-      "default": 2
+      "default": 2,
+      "sorting_label_field": "ctas.header"
     },
     "children": [
       {
@@ -105,6 +106,17 @@
           "controlling_value_regex": "video",
           "operator": "EQUAL"
         }
+      },
+      {
+        "label": "Layout Direction",
+        "name": "layout",
+        "type": "choice",
+        "display": "radio",
+        "choices": [
+          ["left", "Image Left"],
+          ["right", "Image Right"]
+        ],
+        "default": "right"
       }
     ]
   },
