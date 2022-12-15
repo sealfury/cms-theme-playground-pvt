@@ -1,0 +1,153 @@
+[
+  {
+    "label": "Text Section Header",
+    "name": "header",
+    "type": "richtext",
+    "default": "Add a <strong>header here</strong>"
+  },
+  {
+    "label": "Text Section Subheader",
+    "name": "subheader",
+    "type": "richtext"
+  },
+  {
+    "label": "Features",
+    "name": "features",
+    "id": "features",
+    "type": "group",
+    "occurrence": {
+      "min": 2,
+      "max": 8,
+      "default": 3,
+      "sorting_label_field": "features.feature"
+    },
+    "children": [
+      {
+        "label": "Feature",
+        "name": "feature",
+        "id": "feature.feature",
+        "type": "text"
+      },
+      {
+        "label": "Checkmark Icon",
+        "name": "icon",
+        "id": "feature.icon",
+        "type": "image",
+        "resizable": true,
+        "show_loading": false,
+        "default": {
+          "size_type": "exact",
+          "max_height": 20,
+          "max_width": 24,
+          "height": 14,
+          "width": 12,
+          "src": "",
+          "alt": "image-alt-text",
+          "loading": "lazy"
+        }
+      }
+    ]
+  },
+  {
+    "label": "Quote",
+    "name": "quote",
+    "type": "richtext",
+    "default": "Add some quote text here",
+    "inline_help_text": "Add choice of quotation mark in rich text field in side panel"
+  },
+  {
+    "label": "Quote Attribution",
+    "name": "attribution",
+    "type": "richtext"
+  },
+  {
+    "label": "Logos",
+    "name": "logos",
+    "id": "logos",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 3,
+      "default": 2,
+      "sorting_label_field": "logos.logo"
+    },
+    "children": [
+      {
+        "label": "Logo",
+        "name": "logo",
+        "id": "logo.logo",
+        "type": "image",
+        "required": false,
+        "locked": false,
+        "resizable": true,
+        "show_laoding": false,
+        "default": {
+          "size_type": "auto_custom_max",
+          "max_height": 60,
+          "max_width": 140,
+          "src": "",
+          "alt": "image-alt-text",
+          "loading": "lazy"
+        }
+      }
+    ]
+  },
+  {
+    "label": "Form Header",
+    "name": "form_header",
+    "type": "richtext"
+  },
+  {
+    "label": "Form",
+    "name": "form",
+    "type": "form",
+    "default": {
+      "title": "Edit Form Title",
+      "form_id": null
+    }
+  },
+  {
+    "label": "Free Trial or Book A Demo?",
+    "name": "choice",
+    "type": "choice",
+    "display": "radio",
+    "choices": [
+      ["demo", "Book A Demo"],
+      ["trial", "Free Trial"]
+    ],
+    "default": "demo",
+    "inline_help_text": "(For internal use only)"
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Text Section Background Color",
+        "name": "background_color",
+        "type": "color",
+        "default": {
+          "color": "#EFF3F7"
+        }
+      },
+      {
+        "label": "Form Section Background Color",
+        "name": "form_color",
+        "type": "color",
+        "default": {
+          "color": "#0F1E2D"
+        }
+      },
+      {
+        "label": "Logos Section Border Top Color",
+        "name": "border_color",
+        "type": "color",
+        "default": {
+          "color": "#C0CCD8"
+        }
+      }
+    ]
+  }
+]

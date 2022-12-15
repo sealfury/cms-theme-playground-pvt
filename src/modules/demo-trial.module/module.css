@@ -1,0 +1,54 @@
+.trial-demo {
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  width: clamp(340px, 100vw, 1920px);
+}
+
+.trial-demo__text-section {
+  /* align-items: flex-end; */
+  display: flex;
+  flex-direction: column;
+  padding: 5.5rem 3rem 5rem 7rem;
+  width: 52%;
+}
+
+.trial-demo__text-section--subheader {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.trial-demo__text-section--feature {
+  padding: 8px 0;
+}
+
+.trial-demo__text-section--feature > img {
+  margin-right: 4px;
+  transform: translateY(15%);
+}
+
+.trial-demo__text-section--quote {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 34px;
+  margin-top: 3rem;
+}
+
+.trial-demo__logos-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding: 2rem 0;
+}
+
+.trial-demo__form-section {
+  width: 42%;
+}
+
+.trial-demo__form-section h3 {
+  color: #FFFFFF;
+  font-size: 24px;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  line-height: 34px;
+}

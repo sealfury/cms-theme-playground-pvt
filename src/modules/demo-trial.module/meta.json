@@ -1,0 +1,14 @@
+{
+  "label": "Free Trial/Book A Demo",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "help_text": "",
+  "host_template_types": ["PAGE", "BLOG_POST", "BLOG_LISTING"],
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": [],
+  "icon": "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/module-identifiers/temp-seal-module-icon-purple.svg",
+  "is_available_for_new_content": true
+}

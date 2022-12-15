@@ -1,0 +1,65 @@
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Header Styles #}
+
+      .trial-demo__text-section--header > strong {
+        color: #00b9bc;
+      }
+
+      {# Background colors #}
+
+      .trial-demo__text-section {
+        background-color: {{ module.styles.background_color.color }};
+      }
+
+      .trial-demo__form-section {
+        background-color: {{ module.styles.form_color.color }};
+      }
+
+      {# Logo Section Border Color #}
+
+      .trial-demo__logos-section {
+        border-top: 2px solid {{ module.styles.border_color.color }};
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+<section class="trial-demo">
+  <div class="trial-demo__text-section">
+    <h1 class="trial-demo__text-section--header">{{ module.header }}</h1>
+    <p class="trial-demo__text-section--subheader">{{ module.subheader }}</p>
+    {% for feature in module.features %}
+    <div class="trial-demo__text-section--feature">
+      <img width="{{ feature.icon.width }}" alt="{{ feature.icon.alt }}" src="{{ feature.icon.src }}" />
+      <span>{{ feature.feature }}</span>
+    </div>
+    {% endfor %}
+    <h4 class="trial-demo__text-section--quote">
+      <i>{{ module.quote }}</i>
+    </h4>
+    <span class="trial-demo__text-section--attribution"
+      >{{ module.attribution }}</span
+    >
+    <div class="trial-demo__logos-section">
+      {% for logo in module.logos %}
+      {% set img = logo.logo %}
+      {% if img.src %}
+        {% set sizeAttrs = "width\"{{ img.width }}\" height\"{{ img.height }}\"" %}
+        {% set loadingAttr = img.loading != "disabled" ? "loading=\"{{ img.loading }}\"" : "" %}
+        <img src="{{ img.src }}" alt="{{ img.alt }}" {{ loadingAttr }} {{ sizeAttrs }} />
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="trial-demo__form-section">
+    {% form
+      form_key="{{ module.choice }}--form",
+      form_to_use="{{ module.form.form_id }}",
+      title="{{ module.form.title }}" %}
+  </div>
+</section>
