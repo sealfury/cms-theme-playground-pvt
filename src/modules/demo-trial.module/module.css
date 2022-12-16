@@ -6,7 +6,7 @@
 }
 
 .trial-demo__text-section {
-  /* align-items: flex-end; */
+  align-self: stretch;
   display: flex;
   flex-direction: column;
   padding: 5.5rem 3rem 5rem 7rem;
@@ -42,7 +42,27 @@
 }
 
 .trial-demo__form-section {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  padding: 5.5rem 3rem;
   width: 42%;
+}
+
+.trial-demo__form-section > div:first-child {
+  width: 82.5%;
+}
+
+.trial-demo__form-section form {
+  padding: 1.5rem 0;
+}
+
+.trial-demo__form-section form > fieldset.form-columns-2 .hs-form-field {
+  width: 48%;
+}
+
+.trial-demo__form-section form > fieldset.form-columns-2 .input {
+  margin-right: 16px;
 }
 
 .trial-demo__form-section h3 {
@@ -51,4 +71,23 @@
   font-family: 'Montserrat';
   font-weight: 600;
   line-height: 34px;
+}
+
+.trial-demo__form-section--link {
+  border-top: 2px solid rgba(255 255 255 / 0.15);
+  margin-top: 8px;
+  padding: 2rem 0 0;
+}
+
+.trial-demo__form-section--link > span {
+  color: #FFFFFF;
+}
+
+.trial-demo__form-section--link > a {
+  border-bottom: 2px solid #FFFFFF;
+  color: #FFFFFF;
+}
+
+.trial-demo__form-section--link > a:hover {
+  border-color: #00B9BC;
 }

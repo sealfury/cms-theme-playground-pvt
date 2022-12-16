@@ -119,6 +119,49 @@
     "inline_help_text": "(For internal use only)"
   },
   {
+    "label": "Form Section Link",
+    "name": "form_section_link",
+    "type": "group",
+    "children": [
+      {
+        "label": "Try First/Book Demo Text",
+        "name": "text",
+        "type": "text",
+        "default": "Try first?"
+      },
+      {
+        "label": "Try First/Book Demo Link",
+        "name": "link_info",
+        "type": "group",
+        "children": [
+          {
+            "label": "Link Text",
+            "name": "link_text",
+            "type": "text",
+            "default": "Start your 30-day free trial"
+          },
+          {
+            "label": "Link",
+            "name": "link",
+            "type": "link",
+            "supported_types": ["EXTERNAL", "CONTENT", "FILE"],
+            "default": {
+              "url": {
+                "content_id": null,
+                "type": "CONTENT",
+                "href": ""
+              },
+              "open_in_new_tab": false,
+              "no_follow": false,
+              "sponsored": false,
+              "user_generated_content": false
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
     "label": "Styles",
     "name": "styles",
     "type": "group",
