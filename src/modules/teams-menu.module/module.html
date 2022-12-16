@@ -106,15 +106,15 @@
   <div class="teams-menu__content">
     <ul class="teams-menu__menu">
       {% for item in module.menu_items %}
-
         <li class="teams-menu__menu--item item--{{ loop.index }}">
           <span>{{ item.category.title }}</span>
         </li>
       {% endfor %}
     </ul>
+    
     {% for item in module.menu_items %}
     <ul class="teams-menu__cases cases--{{ loop.index }} {{ "show" if loop.index == 1 }}">
-      {% for case in item.cases %}
+      {% for case in item.category.cases %}
 
         {% if case.link.url.type == "CONTENT" and case.link.url.content_id %}
           {% set content = content_by_id(case.link.url.content_id) %}
@@ -124,7 +124,7 @@
         {% endif %}
 
         <li class="teams-menu__cases--case">
-          <img class="teams-menu__cases--logo" width="{{ case.logo.max_width }}" src="{{ get_asset_url(case.logo.src) }}" />
+          <img class="teams-menu__cases--logo" width="{{ case.logo.max_width }}" src="{{ case.logo.src }}" />
           <span class="teams-menu__cases--quote" >"{{ case.quote }}"</span>
           <span class="teams-menu__cases--attribution">{{ case.attribution }}</span>
           <a class="teams-menu__cases--link" href="{{ linkHref }}">{{ case.link.text }}</a>

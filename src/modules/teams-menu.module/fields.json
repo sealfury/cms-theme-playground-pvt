@@ -4,8 +4,6 @@
     "name": "header",
     "type": "richtext",
     "id": "header",
-    "required": false,
-    "locked": false,
     "default": "<strong>See how other teams</strong> use maintmaster"
   },
   {
@@ -109,9 +107,7 @@
             "label": "Cases",
             "name": "cases",
             "type": "group",
-            "id": "menu_items.cases",
-            "locked": false,
-            "required": false,
+            "id": "menu_items.category.cases",
             "expanded": false,
             "tab": "CONTENT",
             "occurrence": {
@@ -126,8 +122,6 @@
                 "name": "logo",
                 "type": "image",
                 "id": "case.logo",
-                "locked": false,
-                "required": false,
                 "resizable": true,
                 "responsive": true,
                 "show_loading": false,
@@ -141,9 +135,8 @@
               {
                 "label": "Quote",
                 "name": "quote",
-                "type": "text",
+                "type": "richtext",
                 "id": "case.quote",
-                "locked": false,
                 "allow_new_line": true,
                 "show_emoji_picker": false
               },
@@ -152,8 +145,6 @@
                 "name": "attribution",
                 "type": "text",
                 "id": "case.attribution",
-                "locked": false,
-                "required": false,
                 "allow_new_line": "true",
                 "visibility": {
                   "controlling_field": "case.quote",
@@ -165,8 +156,6 @@
                 "name": "link",
                 "type": "group",
                 "id": "case.link",
-                "locked": false,
-                "required": false,
                 "tab": "CONTENT",
                 "children": [
                   {
@@ -186,8 +175,6 @@
                     "name": "text",
                     "type": "text",
                     "id": "menu_items.cases.link.text",
-                    "locked": false,
-                    "required": false,
                     "allow_new_line": false,
                     "show_emoji_picker": false,
                     "default": "Read more"
@@ -250,44 +237,44 @@
             "max_width": 40,
             "max_height": 40,
             "size_type": "exact"
-          }
-        },
-        "cases": [
-          {
-            "logo": {
-              "size_type": "auto_custom_max",
-              "max_width": 130,
-              "loading": "lazy"
-            },
-            "quote": "Nillam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus.",
-            "attribution": "Jonas Eliasson, Service Manager",
-            "link": {
-              "url": {
-                "type": "EXTERNAL",
-                "content_id": null,
-                "href": "https://www.maintmaster.com"
-              },
-              "text": "Read more"
-            }
           },
-          {
-            "logo": {
-              "size_type": "auto_custom_max",
-              "max_width": 130,
-              "loading": "lazy"
-            },
-            "quote": "MaintMaster gives us control and I like that we can develop the system ourselves and change it to suit our way of working",
-            "attribution": "Claes Norén, IT manager",
-            "link": {
-              "url": {
-                "type": "EXTERNAL",
-                "content_id": null,
-                "href": "https://www.maintmaster.com"
+          "cases": [
+            {
+              "logo": {
+                "size_type": "auto_custom_max",
+                "max_width": 130,
+                "loading": "lazy"
               },
-              "text": "Read more"
+              "quote": "Nillam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus.",
+              "attribution": "Jonas Eliasson, Service Manager",
+              "link": {
+                "url": {
+                  "type": "EXTERNAL",
+                  "content_id": null,
+                  "href": "https://www.maintmaster.com"
+                },
+                "text": "Read more"
+              }
+            },
+            {
+              "logo": {
+                "size_type": "auto_custom_max",
+                "max_width": 130,
+                "loading": "lazy"
+              },
+              "quote": "MaintMaster gives us control and I like that we can develop the system ourselves and change it to suit our way of working",
+              "attribution": "Claes Norén, IT manager",
+              "link": {
+                "url": {
+                  "type": "EXTERNAL",
+                  "content_id": null,
+                  "href": "https://www.maintmaster.com"
+                },
+                "text": "Read more"
+              }
             }
-          }
-        ]
+          ]
+        }
       },
       {
         "category": {
@@ -307,44 +294,44 @@
             "max_width": 40,
             "max_height": 40,
             "size_type": "exact"
-          }
-        },
-        "cases": [
-          {
-            "logo": {
-              "size_type": "auto_custom_max",
-              "max_width": 130,
-              "loading": "lazy"
-            },
-            "quote": "This is the first case quote about food & beverage.  This one is about a a food-related service.",
-            "attribution": "Mats Matsson, Chef",
-            "link": {
-              "url": {
-                "type": "EXTERNAL",
-                "content_id": null,
-                "href": "https://www.maintmaster.com"
-              },
-              "text": "Read more"
-            }
           },
-          {
-            "logo": {
-              "size_type": "auto_custom_max",
-              "max_width": 130,
-              "loading": "lazy"
-            },
-            "quote": "Being the second case quote about food & beverage,  this one is naturally about a a beverage-related service.",
-            "attribution": "Mads Mikkelson, Spokesperson",
-            "link": {
-              "url": {
-                "type": "EXTERNAL",
-                "content_id": null,
-                "href": "https://www.maintmaster.com"
+          "cases": [
+            {
+              "logo": {
+                "size_type": "auto_custom_max",
+                "max_width": 130,
+                "loading": "lazy"
               },
-              "text": "Read more"
+              "quote": "This is the first case quote about food & beverage.  This one is about a a food-related service.",
+              "attribution": "Mats Matsson, Chef",
+              "link": {
+                "url": {
+                  "type": "EXTERNAL",
+                  "content_id": null,
+                  "href": "https://www.maintmaster.com"
+                },
+                "text": "Read more"
+              }
+            },
+            {
+              "logo": {
+                "size_type": "auto_custom_max",
+                "max_width": 130,
+                "loading": "lazy"
+              },
+              "quote": "Being the second case quote about food & beverage,  this one is naturally about a a beverage-related service.",
+              "attribution": "Mads Mikkelson, Spokesperson",
+              "link": {
+                "url": {
+                  "type": "EXTERNAL",
+                  "content_id": null,
+                  "href": "https://www.maintmaster.com"
+                },
+                "text": "Read more"
+              }
             }
-          }
-        ]
+          ]
+        }
       },
       {
         "category": {
@@ -364,44 +351,44 @@
             "max_width": 40,
             "max_height": 40,
             "size_type": "exact"
-          }
-        },
-        "cases": [
-          {
-            "logo": {
-              "size_type": "auto_custom_max",
-              "max_width": 130,
-              "loading": "lazy"
-            },
-            "quote": "This is the first case quote for the transport & logistics category.  This one is about a a transport service.",
-            "attribution": "Allan, Procurement",
-            "link": {
-              "url": {
-                "type": "EXTERNAL",
-                "content_id": null,
-                "href": "https://www.maintmaster.com"
-              },
-              "text": "Read more"
-            }
           },
-          {
-            "logo": {
-              "size_type": "auto_custom_max",
-              "max_width": 130,
-              "loading": "lazy"
-            },
-            "quote": "Second case quote for transport and logistics so is about a logistics-related service.",
-            "attribution": "Per Persson, Logistics Manager",
-            "link": {
-              "url": {
-                "type": "EXTERNAL",
-                "content_id": null,
-                "href": "https://www.maintmaster.com"
+          "cases": [
+            {
+              "logo": {
+                "size_type": "auto_custom_max",
+                "max_width": 130,
+                "loading": "lazy"
               },
-              "text": "Read more"
+              "quote": "This is the first case quote for the transport & logistics category.  This one is about a a transport service.",
+              "attribution": "Allan, Procurement",
+              "link": {
+                "url": {
+                  "type": "EXTERNAL",
+                  "content_id": null,
+                  "href": "https://www.maintmaster.com"
+                },
+                "text": "Read more"
+              }
+            },
+            {
+              "logo": {
+                "size_type": "auto_custom_max",
+                "max_width": 130,
+                "loading": "lazy"
+              },
+              "quote": "Second case quote for transport and logistics so is about a logistics-related service.",
+              "attribution": "Per Persson, Logistics Manager",
+              "link": {
+                "url": {
+                  "type": "EXTERNAL",
+                  "content_id": null,
+                  "href": "https://www.maintmaster.com"
+                },
+                "text": "Read more"
+              }
             }
-          }
-        ]
+          ]
+        }
       },
       {
         "category": {
@@ -421,44 +408,44 @@
             "max_width": 40,
             "max_height": 40,
             "size_type": "exact"
-          }
-        },
-        "cases": [
-          {
-            "logo": {
-              "size_type": "auto_custom_max",
-              "max_width": 130,
-              "loading": "lazy"
-            },
-            "quote": "Automotive industry related quote number one, and so forth.",
-            "attribution": "Richard Petty, Driver",
-            "link": {
-              "url": {
-                "type": "EXTERNAL",
-                "content_id": null,
-                "href": "https://www.maintmaster.com"
-              },
-              "text": "Read more"
-            }
           },
-          {
-            "logo": {
-              "size_type": "auto_custom_max",
-              "max_width": 130,
-              "loading": "lazy"
-            },
-            "quote": "Another automotive-related company's testimonial",
-            "attribution": "Lewis Hamilton",
-            "link": {
-              "url": {
-                "type": "EXTERNAL",
-                "content_id": null,
-                "href": "https://www.maintmaster.com"
+          "cases": [
+            {
+              "logo": {
+                "size_type": "auto_custom_max",
+                "max_width": 130,
+                "loading": "lazy"
               },
-              "text": "Read more"
+              "quote": "Automotive industry related quote number one, and so forth.",
+              "attribution": "Richard Petty, Driver",
+              "link": {
+                "url": {
+                  "type": "EXTERNAL",
+                  "content_id": null,
+                  "href": "https://www.maintmaster.com"
+                },
+                "text": "Read more"
+              }
+            },
+            {
+              "logo": {
+                "size_type": "auto_custom_max",
+                "max_width": 130,
+                "loading": "lazy"
+              },
+              "quote": "Another automotive-related company's testimonial",
+              "attribution": "Lewis Hamilton",
+              "link": {
+                "url": {
+                  "type": "EXTERNAL",
+                  "content_id": null,
+                  "href": "https://www.maintmaster.com"
+                },
+                "text": "Read more"
+              }
             }
-          }
-        ]
+          ]
+        }
       },
       {
         "category": {
@@ -478,44 +465,44 @@
             "max_width": 40,
             "max_height": 40,
             "size_type": "exact"
-          }
-        },
-        "cases": [
-          {
-            "logo": {
-              "size_type": "auto_custom_max",
-              "max_width": 130,
-              "loading": "lazy"
-            },
-            "quote": "Aliquet risus feugiat in ante metus dictum at tempor. Nunc eget lorem dolor sed.",
-            "attribution": "Name McName, Manager",
-            "link": {
-              "url": {
-                "type": "EXTERNAL",
-                "content_id": null,
-                "href": "https://www.maintmaster.com"
-              },
-              "text": "Read more"
-            }
           },
-          {
-            "logo": {
-              "size_type": "auto_custom_max",
-              "max_width": 130,
-              "loading": "lazy"
-            },
-            "quote": "Dignissim cras tincidunt lobortis feugiat vivamus at. Gravida neque convallis a cras semper auctor neque vitae tempus. Accumsan tortor posuere ac ut consequat semper.",
-            "attribution": "Another Name, IT Lead",
-            "link": {
-              "url": {
-                "type": "EXTERNAL",
-                "content_id": null,
-                "href": "https://www.maintmaster.com"
+          "cases": [
+            {
+              "logo": {
+                "size_type": "auto_custom_max",
+                "max_width": 130,
+                "loading": "lazy"
               },
-              "text": "Read more"
+              "quote": "Aliquet risus feugiat in ante metus dictum at tempor. Nunc eget lorem dolor sed.",
+              "attribution": "Name McName, Manager",
+              "link": {
+                "url": {
+                  "type": "EXTERNAL",
+                  "content_id": null,
+                  "href": "https://www.maintmaster.com"
+                },
+                "text": "Read more"
+              }
+            },
+            {
+              "logo": {
+                "size_type": "auto_custom_max",
+                "max_width": 130,
+                "loading": "lazy"
+              },
+              "quote": "Dignissim cras tincidunt lobortis feugiat vivamus at. Gravida neque convallis a cras semper auctor neque vitae tempus. Accumsan tortor posuere ac ut consequat semper.",
+              "attribution": "Another Name, IT Lead",
+              "link": {
+                "url": {
+                  "type": "EXTERNAL",
+                  "content_id": null,
+                  "href": "https://www.maintmaster.com"
+                },
+                "text": "Read more"
+              }
             }
-          }
-        ]
+          ]
+        }
       },
       {
         "category": {
@@ -535,44 +522,44 @@
             "max_width": 40,
             "max_height": 40,
             "size_type": "exact"
-          }
-        },
-        "cases": [
-          {
-            "logo": {
-              "size_type": "auto_custom_max",
-              "max_width": 130,
-              "loading": "lazy"
-            },
-            "quote": "Mattis vulputate enim nulla aliquet porttitor. Convallis a cras semper auctor neque.",
-            "attribution": "Stina Kott, CEO",
-            "link": {
-              "url": {
-                "type": "EXTERNAL",
-                "content_id": null,
-                "href": "https://www.maintmaster.com"
-              },
-              "text": "Read more"
-            }
           },
-          {
-            "logo": {
-              "size_type": "auto_custom_max",
-              "max_width": 130,
-              "loading": "lazy"
-            },
-            "attribution": "Katt Gato, Project Lead",
-            "quote": "Sit amet purus gravida quis blandit. Blandit aliquam etiam erat velit scelerisque in dictum non. Ipsum consequat nisl vel pretium lectus. ",
-            "link": {
-              "url": {
-                "type": "EXTERNAL",
-                "content_id": null,
-                "href": "https://www.maintmaster.com"
+          "cases": [
+            {
+              "logo": {
+                "size_type": "auto_custom_max",
+                "max_width": 130,
+                "loading": "lazy"
               },
-              "text": "Read more"
+              "quote": "Mattis vulputate enim nulla aliquet porttitor. Convallis a cras semper auctor neque.",
+              "attribution": "Stina Kott, CEO",
+              "link": {
+                "url": {
+                  "type": "EXTERNAL",
+                  "content_id": null,
+                  "href": "https://www.maintmaster.com"
+                },
+                "text": "Read more"
+              }
+            },
+            {
+              "logo": {
+                "size_type": "auto_custom_max",
+                "max_width": 130,
+                "loading": "lazy"
+              },
+              "attribution": "Katt Gato, Project Lead",
+              "quote": "Sit amet purus gravida quis blandit. Blandit aliquam etiam erat velit scelerisque in dictum non. Ipsum consequat nisl vel pretium lectus. ",
+              "link": {
+                "url": {
+                  "type": "EXTERNAL",
+                  "content_id": null,
+                  "href": "https://www.maintmaster.com"
+                },
+                "text": "Read more"
+              }
             }
-          }
-        ]
+          ]
+        }
       }
     ]
   },
