@@ -32,11 +32,35 @@
         "allow_new_line": false
       },
       {
+        "label": "Add Text Instead of Price Value?",
+        "name": "use_text",
+        "id": "card.use_text",
+        "type": "boolean",
+        "display": "toggle",
+        "default": false,
+        "inline_help_text": "Toggle on to add text value without currency"
+      },
+      {
         "label": "Price (Value)",
         "name": "price",
         "id": "card.price",
         "type": "text",
-        "inline_help_text": "Numerical price values must include currency & payment interval"
+        "visibility": {
+          "controlling_field": "card.use_text",
+          "controlling_value_regex": "false",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "label": "Pricing Info (Text)",
+        "name": "price_info",
+        "id": "card.price_info",
+        "type": "richtext",
+        "visibility": {
+          "controlling_field": "card.use_text",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        }
       },
       {
         "label": "Tier Features",

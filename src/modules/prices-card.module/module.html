@@ -19,6 +19,9 @@
       {# Dynamically add Y-translate to section #}
       .prices-section {
         transform: translateY(-{{ module.translate }}%);
+        {% if module.translate > 0 %}
+          margin-bottom: {{ module.translate / -2 }}%;
+        {% endif %}
       }
 
       {# Add colored border to promoted price tier #}
@@ -115,8 +118,12 @@
           <span class="price-card__promo-text">{{ card.emphasis }}</span>
         {% endif %}
         <h4 class="price-card__tier">{{ card.tier }}</h4>
-        <h2 class="price-card__price">
-          {{ card.price }} <strong>{{ currencySymbol }}/month</strong>
+        <h2 class="price-card__price {{ "use-text" if card.use_text == true }}">
+          {% if card.use_text == false %}
+            {{ currencySymbol if currency != "sek" }} {{ card.price }} <strong>{{ currencySymbol if currency == "sek" }}/month</strong>
+          {% else %}
+            {{ card.price_info }}
+          {% endif %}
         </h2>
         <ul class="price-card__features">
           {% for feature in card.features %}
