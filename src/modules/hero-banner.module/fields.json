@@ -158,8 +158,9 @@
     "label": "Links Menu",
     "name": "links_menu",
     "type": "group",
+    "required": false,
     "occurrence": {
-      "min": 1,
+      "min": 0,
       "max": 2,
       "default": 2
     },

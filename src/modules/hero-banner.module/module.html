@@ -43,9 +43,8 @@
         .hero-banner__links--submenu:nth-child(2) {
           border-left: 2px solid rgba(255 255 255 / 0.15);
         }
-      {% endif %}
 
-      {% if module.mode == "dark" %}
+      {% elif module.mode == "dark" %}
         .hero-banner {
           background-color: #2f3c49;
         }
@@ -93,6 +92,13 @@
 
         .hero-banner__links--submenu:nth-child(2) {
           border-left: 2px solid rgba(0 0 0 / 0.8);
+        }
+
+      {% elif module.mode == "image" %}
+        .hero-banner {
+          background-image: url({{ module.background_image.src }});
+          background-size: cover;
+          background-repeat: no-repeat;
         }
       {% endif %}
 

@@ -66,7 +66,7 @@
     "id": "logos",
     "type": "group",
     "occurrence": {
-      "min": 1,
+      "min": 0,
       "max": 3,
       "default": 2,
       "sorting_label_field": "logos.logo"
