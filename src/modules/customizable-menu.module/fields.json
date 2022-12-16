@@ -33,9 +33,19 @@
         "label": "Page Link",
         "name": "page_link",
         "id": "top_level_item.page_link",
-        "type": "page",
-        "placeholder": "Page to link to",
-        "default": null,
+        "type": "link",
+        "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+        "default": {
+          "url": {
+            "content_id": null,
+            "type": "CONTENT",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false,
+          "sponsored": false,
+          "user_generated_content": false
+        },
         "visibility": {
           "controlling_field": "top_level_item.item_type",
           "controlling_value_regex": "page",

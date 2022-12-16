@@ -106,8 +106,8 @@
     <li class="menu__item menu__item--depth-1 {{ "menu__item--has-submenu" if item.item_type == "dropdown" }} menu__item--{{ item.menu_type }}">
       {% if item.item_type == "page" %}
         <a
-          class="menu__link {{ "menu__link--active-link" if item.page_link.absolute_url == request.full_url }}"
-          href="{{ item.page_link.absolute_url }}"
+          class="menu__link {{ "menu__link--active-link" if item.page_link.url.href == request.full_url }}"
+          href="{{ item.page_link.url.href }}"
           aria-haspopup="false"
           aria-expanded="false"
         >
