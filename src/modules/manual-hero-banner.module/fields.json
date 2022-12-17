@@ -1,0 +1,52 @@
+[
+  {
+    "label": "Header Text",
+    "name": "header",
+    "type": "richtext"
+  },
+  {
+    "label": "Subheader Text",
+    "name": "subheader",
+    "type": "richtext"
+  },
+  {
+    "label": "Form",
+    "name": "form",
+    "type": "form",
+    "default": {
+      "form_id": null
+    }
+  },
+  {
+    "label": "MaintMaster Logo",
+    "name": "logo",
+    "type": "image",
+    "required": false,
+    "resizable": true,
+    "show_loading": false,
+    "default": {
+      "size_type": "exact",
+      "height": 58,
+      "width": 128,
+      "max_width": 300,
+      "max_height": 300,
+      "src": "image-alt-text",
+      "loading": "lazy"
+    }
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "children": [
+      {
+        "label": "Logo Section Background Color",
+        "name": "background_color",
+        "type": "color",
+        "default": {
+          "color": "#0F1E2D"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,57 @@
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+    {# Main background colors #}
+    .hero-banner {
+      background-color: #EFF3F7;
+    }
+
+    {# Header Styles #}
+
+    .hero-banner__header > strong,
+    .hero-banner__logo-section--text > strong {
+      color: #00B9BC;
+    }
+
+    {# Logo section styles #}
+
+    {% if module.styles.background_color.color == "#0F1E2D" %}
+      .hero-banner__logo-section {
+        background-color: {{ module.styles.background_color.color }};
+      }
+
+      .hero-banner__logo-section--text {
+        color: #FFFFFF;
+        text-transform: uppercase;
+      }
+    {% endif %}
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+
+
+<section class="hero-banner" id="manual-hero-banner">
+  <div class="hero-banner__text-section">
+    <div class="hero-banner__breadcrumb"></div>
+    <h1 class="hero-banner__header">{{ module.header }}</h1>
+    <p class="hero-banner__subheader">{{ module.subheader }}</p>
+  </div>
+  <div class="hero-banner__logo-section">
+    {% set logo = module.logo %}
+    {% if logo.src %}
+      {% set sizeAttrs = "width\"{{ logo.width }}\" height=\"{{ logo.height }}\"" %}
+      {% set loadingAttrs = logo.loading != "disabled" ? "loading=\"{{ logo.loading }}\"" : "" %}
+      <img
+        class="hero-banner__logo-section--logo"
+        src="{{ logo.src }}"
+        alt="{{ logo.alt }}"
+        {{ loadingAttr }}
+        {{ sizeAttrs }}
+      />
+      <h4 class="hero-banner__logo-section--text">{{ module.header }}</h4>
+    {% endif %}
+  </div>
+</section>

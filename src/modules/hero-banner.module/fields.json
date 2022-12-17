@@ -40,7 +40,6 @@
     "label": "Header Text",
     "name": "header",
     "type": "richtext",
-    "enabled_features": ["font_size", "standard_emphasis"],
     "inline_help_text": "Embolden words you'd like to be coloured teal"
   },
   {

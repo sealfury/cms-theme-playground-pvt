@@ -120,3 +120,16 @@
   font-weight: 600;
   max-width: fit-content;
 }
+
+
+.hero-banner__logo-section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  height: 381px;
+  justify-content: center;
+  position: absolute;
+  transform: translate(120%, 2rem);
+  width: clamp(340px, 40%, 580px);
+}
