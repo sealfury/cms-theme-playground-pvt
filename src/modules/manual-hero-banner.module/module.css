@@ -6,9 +6,38 @@
 .hero-banner {
   display: flex;
   margin: 0 auto;
-  min-height: 406px;
   padding: 2.5rem 6.25rem;
   width: 1440px;
+}
+
+.hero-banner#manual-hero-banner {
+  min-height: 406px;
+  max-height: 640px;
+  position: relative;
+}
+
+#manual-hero-banner form {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  gap: 0.875rem;
+  padding: 1rem 0.5rem 1rem 0;
+}
+
+#manual-hero-banner form > .hs-email {
+  margin-bottom: 0;
+}
+
+#manual-hero-banner form .hs-input[type='email'] {
+  border-width: 2px;
+  font-size: 1rem;
+  padding: 0.9rem 0.7rem;
+  width: 22rem;
+}
+
+#manual-hero-banner form .hs-email > label {
+  display: none;
 }
 
 .hero-banner__text-section {
@@ -26,6 +55,7 @@
 .hero-banner__subheader {
   font-size: 20px;
   line-height: 30px;
+  margin-bottom: 0.5rem;
   padding: 0.5rem 0;
 }
 
@@ -89,11 +119,6 @@
   padding: 1rem;
 }
 
-.hero-banner__media-section {
-  position: relative;
-  width: 43%;
-}
-
 .hero-banner__logo {
   display: block;
   left: 50%;
@@ -103,33 +128,21 @@
   max-width: 495px;
 }
 
-.hero-banner__links--submenu {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem 1.5rem;
-}
-
-.hero-banner__links--submenu > span {
-  font-size: 14px;
-  line-height: 24px;
-  text-transform: uppercase;
-}
-
-.hero-banner__links--submenu > a {
-  font-weight: 600;
-  max-width: fit-content;
-}
-
-
 .hero-banner__logo-section {
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 10%;
-  height: 381px;
+  height: 92%;
   justify-content: center;
+  left: 50%;
   position: absolute;
-  transform: translate(120%, 2rem);
-  width: clamp(340px, 40%, 580px);
+  top: 50%;
+  transform: translate(25%, -33.3%);
+  width: clamp(340px, 40%, 540px);
+}
+
+.hero-banner__logo-section--text {
+  font-size: 30px;
+  margin-bottom: 0;
 }

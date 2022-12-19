@@ -2,42 +2,93 @@
   <style>
     {% scope_css %}
 
-    {# Main background colors #}
-    .hero-banner {
-      background-color: #EFF3F7;
-    }
-
-    {# Header Styles #}
-
-    .hero-banner__header > strong,
-    .hero-banner__logo-section--text > strong {
-      color: #00B9BC;
-    }
-
-    {# Logo section styles #}
-
-    {% if module.styles.background_color.color == "#0F1E2D" %}
-      .hero-banner__logo-section {
-        background-color: {{ module.styles.background_color.color }};
+      {# Main background colors #}
+      .hero-banner {
+        background-color: #eff3f7;
       }
 
-      .hero-banner__logo-section--text {
-        color: #FFFFFF;
-        text-transform: uppercase;
+      {# Header Styles #}
+
+      .hero-banner__header > strong,
+      .hero-banner__logo-section--text > strong {
+        color: #00b9bc;
       }
-    {% endif %}
+
+      {# Logo section styles #}
+
+      {% if module.styles.background_color.color == "#0F1E2D" %}
+        .hero-banner__logo-section {
+          background-color: {{ module.styles.background_color.color }};
+        }
+
+        .hero-banner__logo-section--text {
+          color: #ffffff;
+          text-transform: uppercase;
+        }
+      {% endif %}
+
+      {# Add Download Icon to Submit Button #}
+      {% set downloadIcon = "../../images/module-icons/download-icon-black.png" %}
+
+      #manual-hero-banner form .actions {
+        align-items: center;
+        background-color: #00B9BC;
+        border: 2px solid transparent;
+        border-radius: 6.25rem;
+        display: flex;
+        filter: brightness(1);
+        height: fit-content;
+        justify-content: center;
+        padding: 0.4rem 2rem;
+        width: fit-content;
+      }
+
+      #manual-hero-banner form .actions:after {
+        background: url("{{ get_asset_url(downloadIcon) }}") no-repeat;
+        content: "";
+        display: inline-block;
+        height: 2rem;
+        margin-left: 6px;
+        padding: 6px;
+        width: 2rem;
+      }
+
+      #manual-hero-banner form .actions:hover {
+        border-color: #00B9BC;
+        cursor: pointer;
+        filter: brightness(0.85);
+      }
+
+      #manual-hero-banner form input[type='submit'] {
+        background-color: transparent;
+        border: none;
+        padding: 4px 4px 0;
+      }
+
+      #manual-hero-banner form input[type='submit']:hover {
+        background-color: transparent;
+        border: none;
+      }
 
     {% end_scope_css %}
   </style>
 {% end_require_css %}
-
-
 
 <section class="hero-banner" id="manual-hero-banner">
   <div class="hero-banner__text-section">
     <div class="hero-banner__breadcrumb"></div>
     <h1 class="hero-banner__header">{{ module.header }}</h1>
     <p class="hero-banner__subheader">{{ module.subheader }}</p>
+    {% set form = module.form %}
+    {% form
+      form_key="download-manual-form",
+      form_to_use="{{ form.form_id }}",
+      no_title=True,
+      response_redirect_url="{{ form.redirect_url }}",
+      response_redirect_id="{{ form.redirect_id }}",
+      response_response_type="{{ form.response_type }}",
+      response_message="{{ form.message }}",
+      gotowebinar_webinar_key="{{ form.gotowebinar_webinar_key }}" %}
   </div>
   <div class="hero-banner__logo-section">
     {% set logo = module.logo %}
