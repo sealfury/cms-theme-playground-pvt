@@ -174,5 +174,17 @@
         {% endfor %}
       </div>
     {% endif %}
+
+    {% if module.column == "form" %}
+      {% set form = module.form_section.form %}
+      {% form 
+      form_key="hero-banner-form",
+      form_to_use="{{ form.form_id }}",
+      title="{{ module.form_section.title }}",
+      response_redirect_url="{{ form.redirect_url }}",
+      response_response_type="{{ form.response_type }}",
+      reponse_message="{{ form.message }}",
+      gotowebinar_webinar_key="{{ form.gotowebinar_webinar_key }}"  %}
+    {% endif %}
   </div>
 </section>

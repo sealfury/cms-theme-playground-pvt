@@ -101,7 +101,7 @@
       ["logo", "Logo Image"],
       ["video", "Video Player"],
       ["links", "Links Menu"],
-      ["small_logo", "Small Logo Box"]
+      ["form", "Form"]
     ]
   },
   {
@@ -152,6 +152,32 @@
       "controlling_value_regex": "video",
       "operator": "EQUAL"
     }
+  },
+  {
+    "label": "Form Section",
+    "name": "form_section",
+    "type": "group",
+    "visibility": {
+      "controlling_field": "column",
+      "controlling_value_regex": "form",
+      "operator": "EQUAL"
+    },
+    "children": [
+      {
+        "label": "Form Title",
+        "name": "title",
+        "type": "richtext",
+        "default": "Add A Form Title"
+      },
+      {
+        "label": "Form",
+        "name": "form",
+        "type": "form",
+        "default": {
+          "form_id": null
+        }
+      }
+    ]
   },
   {
     "label": "Links Menu",
