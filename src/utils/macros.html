@@ -1,7 +1,6 @@
 {# Header nav menu card #}
 
-{% macro headerCard(title, size,
-href,
+{% macro headerCard(title, size, href,
 sub="",
 features=[],
 image=null) %}
@@ -14,7 +13,7 @@ image=null) %}
     {% set subtitle = sub %}
   {% endif %}
 
-  {% if !features.length %}
+  {% if not features.length %}
     {% set features_group = [
       "Flexible, efficient & dynamic",
       "The right information at the right time",
@@ -47,5 +46,33 @@ image=null) %}
       {% endif %}
     </ul>
   </a>
+
+{% endmacro %}
+
+
+{# Breadcrumb Menu & Translation Overrides #}
+
+{% macro createBreadcrumbMenu(
+isBreadcrumb=true,
+menuClass="") %}
+  {% set breadCrumbs = request.path|split("/") %}
+  {% if content.language.details.tag != "en" %}
+    {% do breadCrumbs.pop(0) %}
+  {% endif %}
+
+  <ol class="{{ menuClass }}__breadcrumb-menu breadcrumb-menu">
+    {% for crumb in breadCrumbs %}
+    {% set pageNameArr = crumb|split("-") %}
+    {% set pageName = pageNameArr|map("capitalize")|join(" ") %}
+
+    <li class="breadcrumb__menu-item {{ "active-page" if loop.last }}">
+      {% unless loop.last %}
+        <a href="/{{ crumb }}">{{ pageName }}</a>
+      {% else %}
+        <span>{{ pageName }}</span>
+      {% endunless %}
+    </li>
+    {% endfor %}
+  </ol>
 
 {% endmacro %}
