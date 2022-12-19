@@ -1,3 +1,6 @@
+{# Breadcrumb menu constructor macro #}
+{% from "../../utils/macros.html" import createBreadcrumbMenu %}
+
 {% require_css %}
   <style>
     {% scope_css %}
@@ -116,24 +119,38 @@
         }
       {% endif %}
 
+      {# Add chevron to breadcrumb menu #}
+      {% set chevronPath = "../../images/module-icons/breadcrumbs-chevron.png" %}
+      .breadcrumb__menu-item:not(.active-page):after {
+        background: url("{{ get_asset_url(chevronPath) }}") no-repeat;
+        content: '';
+        display: inline-block;
+        height: 1rem;
+        width: 1rem;
+        transform: translateY(22.5%);
+      }
+    
     {% end_scope_css %}
   </style>
 {% end_require_css %}
 
-<!-- module html  -->
 {# Translate markup not included in editable fields #}
-{% set reqPath = request.path|split('/', 2)|first %}
-{% if reqPath == "sv" %}
+{% set reqPath = request.path|split('/', 2) %}
+{% set langCode = reqPath|first %}
+{% if langCode == "sv" %}
   {% set joiningWord = "eller" %}
-{% elif reqPath == "de" %}
+{% elif langCode == "de" %}
   {% set joiningWord = "oder" %}
 {% else %}
   {% set joiningWord = "or" %}
 {% endif %}
 
+{% set langTag = content.language.details.tag %}
+
 <section class="hero-banner" id="hero-banner">
   <div class="hero-banner__text-section">
-    <span class="hero-banner__breadcrumb">{{ module.breadcrumb_text }}</span>
+    {# <span class="hero-banner__breadcrumb">{{ module.breadcrumb_text }}</span> #}
+    {{ createBreadcrumbMenu(true, "hero-banner") }}
     <h1 class="hero-banner__header">{{ module.header }}</h1>
     <div class="hero-banner__subheader {{ module.column }}-layout">{{ module.subheader }}</div>
 
