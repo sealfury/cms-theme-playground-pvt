@@ -135,7 +135,8 @@
   <div class="hero-banner__text-section">
     <span class="hero-banner__breadcrumb">{{ module.breadcrumb_text }}</span>
     <h1 class="hero-banner__header">{{ module.header }}</h1>
-    <p class="hero-banner__subheader">{{ module.subheader }}</p>
+    <div class="hero-banner__subheader {{ module.column }}-layout">{{ module.subheader }}</div>
+
     {% if module.buttons|length > 0 %}
     <div class="hero-banner__buttons">
       {% for button in module.buttons %}
@@ -149,7 +150,7 @@
     </div>
     {% endif %}
   </div>
-  <div class="hero-banner__media-section">
+  <div class="hero-banner__media-section {{ module.column }}-section">
     {% if module.column == "logo" or module.column == "video" %}
       <img src="{{ module.logo_image.src }}" class="hero-banner__logo" />
     {% endif %}
@@ -177,14 +178,15 @@
 
     {% if module.column == "form" %}
       {% set form = module.form_section.form %}
+
       {% form 
-      form_key="hero-banner-form",
-      form_to_use="{{ form.form_id }}",
-      title="{{ module.form_section.title }}",
-      response_redirect_url="{{ form.redirect_url }}",
-      response_response_type="{{ form.response_type }}",
-      reponse_message="{{ form.message }}",
-      gotowebinar_webinar_key="{{ form.gotowebinar_webinar_key }}"  %}
+        form_key="hero-banner-form",
+        form_to_use="{{ form.form_id }}",
+        title="{{ module.form_section.title }}",
+        response_redirect_url="{{ form.redirect_url }}",
+        response_response_type="{{ form.response_type }}",
+        reponse_message="{{ form.message }}",
+        gotowebinar_webinar_key="{{ form.gotowebinar_webinar_key }}" %}
     {% endif %}
   </div>
 </section>

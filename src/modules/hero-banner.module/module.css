@@ -21,12 +21,17 @@
 
 .hero-banner__header {
   margin: 0;
+  white-space: break-spaces;
 }
 
-.hero-banner__subheader {
+.hero-banner__subheader > p {
   font-size: 20px;
   line-height: 30px;
   padding: 0.5rem 0;
+}
+
+.hero-banner__subheader.form-layout > p {
+  margin-bottom: 2px;
 }
 
 .hero-banner__breadcrumb {
@@ -92,6 +97,28 @@
 .hero-banner__media-section {
   position: relative;
   width: 43%;
+}
+
+.hero-banner__media-section.form-section > div:first-child {
+  background-color: #0F1E2D;
+  border-radius: 8px;
+  bottom: -15%;
+  padding: 1.5rem 1.5rem 1rem;
+  position: absolute;
+  right: -20%;
+  transform: translate(-20%, 15%);
+  width: clamp(345px, 100%, 500px);
+}
+
+.hero-banner__media-section.form-section h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2rem;
+  margin: 0;
+}
+
+.hero-banner__media-section form {
+  padding: 1rem 0;
 }
 
 .hero-banner__logo {

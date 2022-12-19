@@ -302,6 +302,7 @@ form,
 /* Form title */
 
 .form-title {
+  {{ primary_font.style }};
   color: {{ form_title_font_color }};
 }
 

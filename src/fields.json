@@ -715,9 +715,6 @@
                     "opacity": true
                   }
                 },
-                "inherited_value": {
-                  "default_value_path": "theme.global_colors.secondary"
-                },
                 "default": {
                   "color": "#FFFFFF"
                 }
