@@ -141,7 +141,7 @@
           {
             "label": "Card Description",
             "name": "description",
-            "type": "text",
+            "type": "richtext",
             "default": "Morbi leo risus, porta ac consectetur ac"
           }
         ]

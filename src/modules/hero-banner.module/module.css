@@ -128,8 +128,11 @@
 .hero-banner__media-section.form-section {
   background-color: #0F1E2D;
   border-radius: 8px;
+  left: 50%;
   padding: 1.5rem 1.5rem 1rem;
-  transform: translate(7%, 21%);
+  position: absolute;
+  top: 20%;
+  transform: translate(27.5%, 27.5%);
   width: clamp(345px, 100%, 500px);
 }
 
