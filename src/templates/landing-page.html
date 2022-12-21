@@ -2,38 +2,46 @@
   templateType: page
   isAvailableForNewContent: true
   label: Landing page
-  screenshotPath: ../images/template-previews/landing-page.png
 -->
-{% extends "./layouts/base.html" %}
 
-{% block header %}
-  {% global_partial
-    path="./partials/header-no-navigation.html" %}
-{% endblock header %}
+<!DOCTYPE html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+  <head>
+    <meta charset="utf-8" />
+    {% if page_meta.html_title or pageTitle %}
+      <title>{{ page_meta.html_title or pageTitle }}</title>
+    {% endif %}
+    {% if site_settings.favicon_src %}
+      <link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />
+    {% endif %}
+    <meta name="description" content="{{ page_meta.meta_description }}" />
+    {{ require_css(get_asset_url("../../css/main.css")) }}
+    {# This is intended to be used if a template requires template specific style sheets #}
+    {% if template_css %}
+      {{ require_css(get_asset_url(template_css)) }}
+    {% endif %}
+    {{ require_css(get_asset_url("../../css/theme-overrides.css")) }}
 
-{% block body %}
-  {% dnd_area "dnd_area"
-    label="Main section",
-    class="body-container body-container--landing-page" %}
+    {{ standard_header_includes }}
+  </head>
+  <body>
+    <div class="body-wrapper {{ builtin_body_classes }}">
+      {% block header %}
+        {% global_partial
+          path="./partials/header-no-navigation.html" %}
+      {% endblock header %}
 
-    {# Hero banner #}
+      <main id="main-content" class="body-container-wrapper">
+        <div id="overlay" class="overlay"></div>
+        {% block body %}
+          {% dnd_area "dnd_area"
+            label="Main section",
+            class="body-container body-container--landing-page" %}
 
-    {% include_dnd_partial
-      path="../sections/hero-banner.html",
-      context={
-        "content": "<h1>Download your free eBook</h1><p>Use this space to tell everyone what your eBook is all about.</p>"
-      } %}
-
-    {# Three column image with text #}
-
-    {% include_dnd_partial
-      path="../sections/multi-column-content.html",
-      context={
-        "background_color": "#FFFFFF"
-      } %}
-
-  {% end_dnd_area %}
-{% endblock body %}
-
-{% block footer %}
-{% endblock footer %}
+          {% end_dnd_area %}
+        {% endblock body %}
+      </main>
+    </div>
+    {{ standard_footer_includes }}
+  </body>
+</html>
