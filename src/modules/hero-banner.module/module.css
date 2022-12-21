@@ -24,6 +24,7 @@
   display: flex;
   gap: 2px;
   list-style: none;
+  margin-bottom: -.15%;
   padding: 0;
   transform: translateY(-150%);
 }

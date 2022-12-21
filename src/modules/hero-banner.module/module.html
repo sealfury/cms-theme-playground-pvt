@@ -146,11 +146,22 @@
 {% endif %}
 
 {% set langTag = content.language.details.tag %}
+{% set pageName = request.path|split("/")|last|split("-")|map("capitalize")|join(" ") %}
 
 <section class="hero-banner" id="hero-banner">
   <div class="hero-banner__text-section">
-    {# TODO: REVERT FORM TO ABSOLUTE POSITION AND ADJUST TRANSLATE ACCORDINGLY #}
-    {{ createBreadcrumbMenu(true, "hero-banner") }}
+    {% if module.breadcrumb|length > 0 %}
+      <ol class="hero-banner__breadcrumb-menu breadcrumb-menu">
+        {% for crumb in module.breadcrumb %}
+          <li class="breadcrumb__menu-item">
+            <a href="{{ crumb.link.url.href }}">{{ crumb.text }}</a>
+          </li>
+        {% endfor %}
+        <li class="breadcrumb__menu-item active-page">
+          <span>{{ pageName }}</span>
+        </li>
+      </ol>
+    {% endif %}
     <h1 class="hero-banner__header">{{ module.header }}</h1>
     <div class="hero-banner__subheader {{ module.column }}-layout">{{ module.subheader }}</div>
 
