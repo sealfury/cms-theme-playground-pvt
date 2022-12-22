@@ -6,16 +6,17 @@
       {% set inputIcon = "../../images/module-icons/search-icon-black.png" %}
 
       {# Seach bar #}
-      .search-field__input--icon::after {
+      .search-field__input--icon::before {
         content: "";
         background: url("{{ get_asset_url(inputIcon) }}") no-repeat;
         height: 40px;
         left: 91%;
         padding: 1%;
         position: absolute;
-        top: 33.3%;
+        top: 29%;
         transform: scale(1.15);
         width: 40px;
+        z-index: 99;
       }
 
     {% end_scope_css %}
