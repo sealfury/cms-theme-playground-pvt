@@ -1,3 +1,5 @@
+{% from "../../utils/macros.html" import interpolatePath %}
+
 {% require_css %}
   <style>
     {% scope_css %}
@@ -32,7 +34,7 @@
 
       #manual-hero-banner form .actions {
         align-items: center;
-        background-color: #00B9BC;
+        background-color: #00b9bc;
         border: 2px solid transparent;
         border-radius: 6.25rem;
         display: flex;
@@ -54,29 +56,53 @@
       }
 
       #manual-hero-banner form .actions:hover {
-        border-color: #00B9BC;
+        border-color: #00b9bc;
         cursor: pointer;
         filter: brightness(0.85);
       }
 
-      #manual-hero-banner form input[type='submit'] {
+      #manual-hero-banner form input[type="submit"] {
         background-color: transparent;
         border: none;
         padding: 4px 4px 0;
       }
 
-      #manual-hero-banner form input[type='submit']:hover {
+      #manual-hero-banner form input[type="submit"]:hover {
         background-color: transparent;
         border: none;
+      }
+
+      {# Add chevron to breadcrumb menu #}
+      {% set chevronPath = "../../images/module-icons/breadcrumbs-chevron.png" %}
+      .breadcrumb__menu-item:not(.active-page):after {
+        background: url("{{ get_asset_url(chevronPath) }}") no-repeat;
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        width: 1rem;
+        transform: translateY(22.5%);
       }
 
     {% end_scope_css %}
   </style>
 {% end_require_css %}
 
+{% set pageName = interpolatePath(false) %}
+
 <section class="hero-banner" id="manual-hero-banner">
   <div class="hero-banner__text-section">
-    <div class="hero-banner__breadcrumb"></div>
+    {% if module.breadcrumb|length > 0 %}
+      <ol class="hero-banner__breadcrumb-menu breadcrumb-menu">
+        {% for crumb in module.breadcrumb %}
+        <li class="breadcrumb__menu-item">
+          <a href="{{ crumb.link.url.href }}">{{ crumb.text }}</a>
+        </li>
+        {% endfor %}
+        <li class="breadcrumb__menu-item active-page">
+          <span>{{ pageName }}</span>
+        </li>
+      </ol>
+    {% endif %}
     <h1 class="hero-banner__header">{{ module.header }}</h1>
     <p class="hero-banner__subheader">{{ module.subheader }}</p>
     {% set form = module.form %}

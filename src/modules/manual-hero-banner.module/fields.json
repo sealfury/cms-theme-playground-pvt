@@ -10,6 +10,39 @@
     "type": "richtext"
   },
   {
+    "label": "Breadcrumbs",
+    "name": "breadcrumb",
+    "id": "breadcrumb",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 6,
+      "default": 0
+    },
+    "children": [
+      {
+        "label": "Breadcrumb Text",
+        "name": "text",
+        "id": "breadcrumb.text",
+        "type": "text"
+      },
+      {
+        "label": "Breadcrumb Page Link",
+        "name": "link",
+        "id": "breadcrumb.link",
+        "type": "link",
+        "supported_types": ["CONTENT"],
+        "default": {
+          "url": {
+            "content_id": null,
+            "type": "CONTENT",
+            "href": ""
+          }
+        }
+      }
+    ]
+  },
+  {
     "label": "Form",
     "name": "form",
     "type": "form",

@@ -146,3 +146,30 @@
   font-size: 30px;
   margin-bottom: 0;
 }
+
+.hero-banner__breadcrumb-menu {
+  align-items: center;
+  display: flex;
+  gap: 2px;
+  list-style: none;
+  margin-bottom: -.15%;
+  padding: 0;
+  transform: translateY(-150%);
+}
+
+.breadcrumb__menu-item::marker {
+  display: none;
+}
+
+.breadcrumb__menu-item > a,
+.breadcrumb__menu-item > span {
+  color: #525D69;
+  font-size: 12px;
+  line-height: 24px;
+  padding: 2px;
+}
+
+.breadcrumb__menu-item > a {
+  font-weight: 600;
+  text-decoration: underline;
+}

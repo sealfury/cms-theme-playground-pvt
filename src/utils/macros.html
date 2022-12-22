@@ -76,4 +76,24 @@ menuClass="") %}
 
 {% endmacro %}
 
-{% set pageName = request.path|split("/")|last|split("-")|map("capitalize")|join(" ") %}
+{# Interpolate page path & translate hardcode markup #}
+
+{% macro interpolatePath(includeLangOpts=true) -%}
+  {% set reqPath = request.path|split('/') %}
+
+  {% if includeLangOpts %}
+    {% set langCode = reqPath|first %}
+    {% if langCode == "sv" %}
+      {% set joiningWord = "eller" %}
+    {% elif langCode == "de" %}
+      {% set joiningWord = "oder" %}
+    {% else %}
+      {% set joiningWord = "or" %}
+    {% endif %}
+    {{ joiningWord }}
+  {% endif %}
+
+  {% set pageName = reqPath|last|split('-')|map('capitalize')|join(' ') %}
+  {{ pageName }}
+
+{%- endmacro %}
