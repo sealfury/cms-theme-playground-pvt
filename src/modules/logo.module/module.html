@@ -1,17 +1,41 @@
-<div class="logos">
-  {% for item in module.logo_group %}
-  <section class="logos__logo logo">
-    {% if item.image_field.src %}
-      {% set sizeAttrs = "width=\"{{ item.image_field.width }}\" height=\"{{ item.image_field.height }}\"" %}
-      {% if item.image_field.size_type == "auto" %}
-        {% set sizeAttrs = "width=\"{{ item.image_field.width }}\" height=\"{{ item.image_field.height }}\" style=\"max-width: 100%; height: auto;\"" %}
-      {% elif item.image_field.size_type == "auto_custom_max" %}
-        {% set sizeAttrs = "width=\"{{ item.image_field.max_width }}\" height=\"{{ item.image_field.max_height }}\" style=\"max-width: 100%; height: auto;\"" %}
-      {% endif %}
-      {% set loadingAttr = item.image_field.loading != "disabled" ? "loading=\"{{ item.image_field.loading }}\"" : "" %}
-      <img src="{{ item.image_field.src }}" alt="{{ item.image_field.alt }}" {{ loadingAttr }} {{ sizeAttrs }} />
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+    {# Toggled light/dark mode styles #}
+    {% if not module.light_mode %}
+      {% set background_color = module.styles.darkmode_background.color %}
+      {% set text_color = module.styles.darkmode_text.color %}
+    {% elif module.light_mode %}
+      {% set background_color = module.styles.lightmode_background.color %}
+      {% set text_color = module.styles.lightmode_text.color %}
     {% endif %}
-    <a class="logo__link" href="{{ item.url_field.href }}">&nbsp;</a>
-  </section>
-  {% endfor %}
+
+    .logo-box__container {
+      background-color: {{ background_color }};
+    }
+
+    .logo-box__text {
+      color: {{ text_color }};
+    }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+
+<div class="logo-box__container">
+  {% set logo = module.logo %}
+  {% if logo.src %}
+    {% set sizeAttrs = "width=\"{{ logo.width }}\" height=\"{{ logo.height }}\"" %}
+    {% set loadingAttr = logo.loading != "disabled" ? "loading=\"{{ logo.loading }}\"" : "" %}
+    <img 
+      class="logo-box__logo"
+      src="{{ logo.src }}"
+      alt="{{ logo.alt }}"
+      {{ loadingAttr }}
+      {{ sizeAttrs }}
+    />
+  {% endif %}
+  <h5 class="logo-box__text">{{ module.text }}</h5>
 </div>
