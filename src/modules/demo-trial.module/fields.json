@@ -102,7 +102,6 @@
     "name": "form",
     "type": "form",
     "default": {
-      "title": "Edit Form Title",
       "form_id": null
     }
   },
