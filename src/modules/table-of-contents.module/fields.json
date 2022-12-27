@@ -29,7 +29,7 @@
     "type": "link",
     "required": false,
     "locked": false,
-    "supported_types": ["EXTERNAL", "CONTENT", "FILE"],
+    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "BLOG"],
     "show_advanced_rel_options": true,
     "default": {
       "url": {

@@ -119,7 +119,7 @@
   <div class="hero-banner__logo-section">
     {% set logo = module.logo %}
     {% if logo.src %}
-      {% set sizeAttrs = "width\"{{ logo.width }}\" height=\"{{ logo.height }}\"" %}
+      {% set sizeAttrs = "width=\"{{ logo.width }}\" height=\"{{ logo.height }}\"" %}
       {% set loadingAttrs = logo.loading != "disabled" ? "loading=\"{{ logo.loading }}\"" : "" %}
       <img
         class="hero-banner__logo-section--logo"
@@ -128,7 +128,7 @@
         {{ loadingAttr }}
         {{ sizeAttrs }}
       />
-      <h4 class="hero-banner__logo-section--text">{{ module.header }}</h4>
     {% endif %}
+      <h4 class="hero-banner__logo-section--text">{{ module.header }}</h4>
   </div>
 </section>
