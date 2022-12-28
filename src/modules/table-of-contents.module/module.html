@@ -80,12 +80,12 @@
   </style>
 {% end_require_css %}
 
-{% set href = module.link.url.href %}
+{% set href = module.root_link.url.href %}
 {% set rel = [] %}
-{% if module.link.no_follow %}
+{% if module.root_link.no_follow %}
   {% do rel.append("nofollow") %}
 {% endif %}
-{% if module.link.open_in_new_tab %}
+{% if module.root_link.open_in_new_tab %}
   {% do rel.append("noopener")%}
 {% endif %}
 
@@ -94,7 +94,7 @@
     <a 
       class="toc__contents--card" 
       href="{{ href }}/page-{{ loop.index }}"
-      {% if module.link.open_in_new_tab %}target="_blank"{% endif %}
+      {% if module.root_link.open_in_new_tab %}target="_blank"{% endif %}
       {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
     >
       <div class="toc__contents--header">

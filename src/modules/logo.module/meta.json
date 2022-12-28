@@ -1,7 +1,14 @@
 {
-  "global" : false,
-  "host_template_types" : [ "PAGE" ],
-  "module_id" : 54444117479,
-  "label" : "Logos",
-  "is_available_for_new_content" : true
+  "label": "Logo Container",
+  "global": false,
+  "host_template_types": ["PAGE", "BLOG_POST", "BLOG_LISTING"],
+  "module_id": 54444117479,
+  "help_text": "",
+  "smart_type": "NOT_SMART",
+  "css_assets": [],
+  "js_assets": [],
+  "other_assets": [],
+  "external_js": [],
+  "tags": [],
+  "is_available_for_new_content": true
 }

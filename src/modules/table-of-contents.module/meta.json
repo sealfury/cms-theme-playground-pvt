@@ -1,5 +1,5 @@
 {
-  "label": "Table Of Contents",
+  "label": "Table Of Contents Cards",
   "css_assets": [],
   "external_js": [],
   "global": false,
@@ -9,5 +9,6 @@
   "other_assets": [],
   "smart_type": "NOT_SMART",
   "tags": [],
+  "icon": "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/module-identifiers/temp-seal-module-icon-purple.svg",
   "is_available_for_new_content": true
 }
