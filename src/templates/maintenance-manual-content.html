@@ -1,0 +1,86 @@
+<!--
+    templateType: page
+    label: Maintenance Manual - Content
+    isAvailableForNewContent: true
+-->
+{% extends "./layouts/base.html" %}
+
+{% require_css %}
+  <style>
+    .manual__chapter {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: 30px;
+      grid-template-rows: auto;
+      margin: 0 auto;
+      width: 1440px;
+    }
+
+    .manual__chapter--content {
+      grid-column: 1 / span 7;
+      grid-row: 1;
+    }
+
+    .manual__chapter--sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      grid-column: 8 / span 5;
+      grid-row: 1;
+      padding: 3rem 0;
+    }
+
+    .manual__chapter--logo-section {
+      align-items: center;
+      border: 1px solid #dfe4e9;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      height: fit-content;
+      padding: 2rem;
+      width: 100%;
+    }
+
+    .manual__chapter--logo-section p {
+      text-align: center;
+    }
+
+    .manual__chapter--logo-section div:has(.logo-box__container) {
+      min-height: 320px;
+      width: 100%;
+    }
+  </style>
+{% end_require_css %}
+
+{% block body %}
+
+  {# Grid Layout #}
+  <div class="manual__chapter">
+    <div class="manual__chapter--content">
+      {% dnd_area "chapter-content" %}
+        {% dnd_section %}
+          {% dnd_module "chapter-content"
+            path="@hubspot/rich_text" %}
+          {% end_dnd_module %}
+        {% end_dnd_section %}
+      {% end_dnd_area %}
+    </div>
+    <div class="manual__chapter--sidebar">
+      <div class="manual__chapter--logo-section">
+        {% module "logo-block"
+          path="../modules/logo.module",
+          light_mode="false" %}
+        {% module "description-text"
+          path="@hubspot/rich_text",
+          html="<p>Aenean eu leo quam. Pollentesque ernare sem lacinia quam venenatis vestibulum.</p>" %}
+        {% module "donwload-button"
+          path="../modules/button.module" %}
+      </div>
+      {% simple_menu "toc_sidebar"
+        orientation="vertical",
+        label="TOC Sidebar" %}
+    </div>
+  </div>
+
+{% endblock body %}
