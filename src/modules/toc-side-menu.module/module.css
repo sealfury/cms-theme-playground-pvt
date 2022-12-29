@@ -1,0 +1,32 @@
+.toc-sidebar__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.toc-sidebar__menu--item {
+  padding: 0;
+  width: 100%;
+}
+
+.toc-sidebar__menu--link {
+  background-color: #F0F5FA;
+  color: #0F1E2D;
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease !important;
+  width: 100%;
+}
+
+.toc-sidebar__menu--link:hover,
+.toc-sidebar__menu--link.active-page {
+  background-color: #0F1E2D;
+  color: #FFFFFF;
+  transition: all 0.3s ease !important;
+}

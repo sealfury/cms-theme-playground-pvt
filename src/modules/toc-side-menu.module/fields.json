@@ -1,0 +1,29 @@
+[
+  {
+    "label": "Table of Contents Menu",
+    "name": "toc_menu",
+    "id": "toc_menu",
+    "locked": false,
+    "required": false,
+    "type": "simplemenu",
+    "default": [
+      {
+        "isPublished": true,
+        "pageLinkId": 58835525063,
+        "contentGroupId": null,
+        "pageLinkName": "Maintenance Manual",
+        "isDeleted": false,
+        "categoryId": 1,
+        "subCategory": "site_page",
+        "contentType": "site_page",
+        "state": "PUBLISHED_OR_SCHEDULED",
+        "linkLabel": "Chapter 1",
+        "linkUrl": null,
+        "linkParams": "/#chapter-1",
+        "linkTarget": null,
+        "type": "PAGE_LINK_WITH_PARAMS",
+        "children": []
+      }
+    ]
+  }
+]

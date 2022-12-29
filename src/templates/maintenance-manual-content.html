@@ -57,6 +57,7 @@
 
   {# Grid Layout #}
   <div class="manual__chapter">
+    {{ request.full_url|pprint }}
     <div class="manual__chapter--content">
       {% dnd_area "chapter-content" %}
         {% dnd_section %}
@@ -77,9 +78,11 @@
         {% module "donwload-button"
           path="../modules/button.module" %}
       </div>
-      {% simple_menu "toc_sidebar"
+      {% module "toc-sidebar"
+        path="../modules/toc-side-menu.module" %}
+      {# {% simple_menu "toc_sidebar"
         orientation="vertical",
-        label="TOC Sidebar" %}
+        label="TOC Sidebar" %} #}
     </div>
   </div>
 
