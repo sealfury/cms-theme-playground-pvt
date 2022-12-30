@@ -26,8 +26,24 @@
       padding: 40px 0;
     }
 
+    .manual__chapter--content .dnd-section .dnd-column {
+      padding: 0 2rem 0 0;
+    }
+
     .manual__chapter--content .row-fluid-wrapper.dnd-section.inactive {
       display: none;
+    }
+
+    .manual__chapter--content .dnd-section > .row-fluid {
+      margin: 8px auto;
+    }
+
+    .manual__chapter--eyebrow {
+      color: #525e6a;
+      font-size: 14px;
+      line-height: 24px;
+      padding: 0.5rem 0;
+      text-transform: uppercase;
     }
 
     .manual__chapter--sidebar {
@@ -71,7 +87,7 @@
       {# width: 100%; #}
     }
 
-    .eyebrow-container ul[role='menu'] {
+    .eyebrow-container ul[role="menu"] {
       align-items: center;
       margin: 0 auto;
       width: 1440px;
@@ -150,7 +166,8 @@
   {% dnd_area "cta-area" %}
     {% dnd_section %}
       {% dnd_module "contact-cta"
-        path="../modules/newsletter-cta.module" %}
+        path="../modules/newsletter-cta.module",
+        background_type="teal" %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 

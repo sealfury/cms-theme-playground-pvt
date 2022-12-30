@@ -35,6 +35,16 @@ if (!editorPathParams.length) {
       ) {
         row.classList.add('inactive');
       }
+
+      if (
+        tag.getAttribute('data-hs-anchor') &&
+        tag.getAttribute('id') == pathLinkParam
+      ) {
+        var chapterNum = pathLinkParam.replace('-', ' ');
+        var chapterHTML =
+          '<span class="manual__chapter--eyebrow">' + chapterNum + '</span>';
+        row.insertAdjacentHTML('afterbegin', chapterHTML);
+      }
     });
   });
 }
