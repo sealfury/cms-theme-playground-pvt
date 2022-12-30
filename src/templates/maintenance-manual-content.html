@@ -21,6 +21,14 @@
       grid-row: 1;
     }
 
+    .manual__chapter--content .row-fluid-wrapper.dnd-section {
+      display: none;
+    }
+
+    .manual__chapter--content .row-fluid-wrapper.dnd-section.active {
+      display: block;
+    }
+
     .manual__chapter--sidebar {
       display: flex;
       flex-direction: column;
@@ -57,7 +65,6 @@
 
   {# Grid Layout #}
   <div class="manual__chapter">
-    {{ request.full_url|pprint }}
     <div class="manual__chapter--content">
       {% dnd_area "chapter-content" %}
         {% dnd_section %}

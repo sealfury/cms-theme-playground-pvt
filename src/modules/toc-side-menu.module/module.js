@@ -9,4 +9,19 @@ chapterLinks.forEach(function (link) {
   }
 });
 
-// TODO: SEARCH FOR ANCHOR BY ID IN RICH TEXT AND HIDE ONES NOT EQUAL WINDOW HREF
+var contentContainer = document.querySelector('.manual__chapter--content');
+var rowWrapper = contentContainer.querySelectorAll(
+  '.row-fluid-wrapper.dnd-section'
+);
+
+rowWrapper.forEach(function (row) {
+  var anchorTag = row.querySelectorAll('a');
+  anchorTag.forEach(function (tag) {
+    if (
+      tag.getAttribute('data-hs-anchor') &&
+      tag.getAttribute('id') == pathLinkParam
+    ) {
+      row.classList.add('active');
+    }
+  });
+});
