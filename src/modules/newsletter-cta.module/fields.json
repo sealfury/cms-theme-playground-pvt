@@ -11,7 +11,7 @@
   {
     "label": "Description Text",
     "name": "description",
-    "type": "text",
+    "type": "richtext",
     "inline_help_text": "Add a quick blurb about the newsletter's contents",
     "allow_new_line": false,
     "show_emoji_picker": false,
@@ -33,6 +33,23 @@
       "message": "Thanks for signing up!",
       "gotowebinar_webinar_key": null,
       "form_type": "HUBSPOT"
+    }
+  },
+  {
+    "label": "Include Custom Form Title?",
+    "name": "include_title",
+    "type": "boolean",
+    "display": "toggle",
+    "default": false
+  },
+  {
+    "label": "Custom Form Title",
+    "name": "form_title",
+    "type": "richtext",
+    "visibility": {
+      "controlling_field": "include_title",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
     }
   },
   {

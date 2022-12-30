@@ -12,10 +12,12 @@
         {% set buttonText = "#2F3C49" %}
       {% endif %}
 
-      {% if module.backgound_type == "teal" %}
-        {% set backgroundColor = "#15CCCF" %}
-        {% set textColor = "#BCBEC0" %}
-        {% set boldColor = "#202225" %}
+      {% if module.background_type == "teal" %}
+        {% set backgroundColor = "#00A5A8" %}
+        {% set textColor = "#0F1E2D" %}
+        {% set boldColor = "#FFFFFF" %}
+        {% set buttonColor = "#0F1E2D" %}
+        {% set buttonText = "#FFFFFF" %}
       {% endif %}
 
       .newsletter-signup__section {
@@ -33,11 +35,15 @@
         font-weight: inherit;
       }
 
-      .newsletter-signup__form .hs-form-booleancheckbox > span {
+      .newsletter-signup__form .hs-form-booleancheckbox p {
         color: {{ textColor }};
       }
 
-      .newsletter-signup__form input[type='submit'] {
+      .newsletter-signup__form .hs-form-required {
+        display: none;
+      }
+
+      .newsletter-signup__form input[type="submit"] {
         background-color: {{ buttonColor }};
         color: {{ buttonText }};
       }
@@ -54,6 +60,9 @@
     >
   </div>
   <div class="newsletter-signup__form">
+    {% if module.include_title and module.form_title != "" %}
+      {{ module.form_title }}
+    {% endif %}
     {% form
       form_key="newsletter-email-form",
       form_to_use="{{ module.form.form_id }}",
