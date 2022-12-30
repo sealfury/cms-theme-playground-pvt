@@ -12,21 +12,22 @@
       grid-template-columns: repeat(12, 1fr);
       grid-gap: 30px;
       grid-template-rows: auto;
-      margin: 0 auto;
+      margin: 1rem auto 2rem;
       width: 1440px;
     }
 
     .manual__chapter--content {
+      border-bottom: 1px solid #dfe4e9;
       grid-column: 1 / span 7;
       grid-row: 1;
     }
 
     .manual__chapter--content .row-fluid-wrapper.dnd-section {
-      display: none;
+      padding: 40px 0;
     }
 
-    .manual__chapter--content .row-fluid-wrapper.dnd-section.active {
-      display: block;
+    .manual__chapter--content .row-fluid-wrapper.dnd-section.inactive {
+      display: none;
     }
 
     .manual__chapter--sidebar {
@@ -35,7 +36,7 @@
       gap: 1.5rem;
       grid-column: 8 / span 5;
       grid-row: 1;
-      padding: 3rem 0;
+      padding: 5rem 0 3rem;
     }
 
     .manual__chapter--logo-section {
@@ -51,6 +52,8 @@
     }
 
     .manual__chapter--logo-section p {
+      font-size: 14px;
+      line-height: 24px;
       text-align: center;
     }
 
@@ -58,10 +61,61 @@
       min-height: 320px;
       width: 100%;
     }
+
+    .eyebrow-container {
+      background-color: #f0f5fa;
+      border-top: 1px solid #dee2e6;
+      border-bottom: 1px solid #dee2e6;
+      margin: 0 auto;
+      {# padding: 0.75rem 0; #}
+      {# width: 100%; #}
+    }
+
+    .eyebrow-container ul[role='menu'] {
+      align-items: center;
+      margin: 0 auto;
+      width: 1440px;
+    }
+
+    .eyebrow-container li {
+      padding: 0.6rem 0.5rem;
+    }
+
+    .eyebrow-container li:first-child {
+      padding-left: 0;
+    }
+
+    .eyebrow-container li:not(:last-child)::after {
+      background: url("{{ get_asset_url("../images/module-icons/chevron-icon-black.png") }}");
+      content: "";
+      display: inline-block;
+      height: 16px;
+      rotate: -90deg;
+      scale: 0.85;
+      translate: 35% 20%;
+      width: 18px;
+    }
+
+    .eyebrow-container li > a {
+      border-bottom: none;
+      color: #525d69;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .eyebrow-container li > a:hover {
+      border-bottom: none;
+    }
   </style>
 {% end_require_css %}
 
 {% block body %}
+  <div class="eyebrow-container">
+    {% simple_menu "eyebrow-menu"
+      orientation="horizontal",
+      label="Eyebrow Menu" %}
+  </div>
 
   {# Grid Layout #}
   <div class="manual__chapter">
@@ -92,5 +146,16 @@
         label="TOC Sidebar" %} #}
     </div>
   </div>
+
+  {% dnd_area "cta-area" %}
+    {% dnd_section %}
+      {% dnd_module "contact-cta"
+        path="../modules/newsletter-cta.module" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% include_dnd_partial
+      path="../sections/cta-banner.html" %}
+  {% end_dnd_area %}
 
 {% endblock body %}
