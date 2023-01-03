@@ -76,6 +76,11 @@
     "type": "richtext"
   },
   {
+    "label": "Eyebrow Text",
+    "name": "eyebrow",
+    "type": "text"
+  },
+  {
     "label": "Buttons",
     "name": "buttons",
     "type": "group",

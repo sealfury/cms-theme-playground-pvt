@@ -45,8 +45,8 @@
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  padding: 5.5rem 3rem;
-  width: 42%;
+  padding: 5.5rem 4rem;
+  width: 48%;
 }
 
 .trial-demo__form-section > div:first-child {

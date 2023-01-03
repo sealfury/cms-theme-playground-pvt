@@ -10,6 +10,11 @@
     "type": "richtext"
   },
   {
+    "label": "Eyebrow Text",
+    "name": "eyebrow",
+    "type": "text"
+  },
+  {
     "label": "Breadcrumbs",
     "name": "breadcrumb",
     "id": "breadcrumb",

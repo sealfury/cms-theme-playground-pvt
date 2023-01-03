@@ -25,6 +25,10 @@
           color: #525e6a;
         }
 
+        .hero-banner__eyebrow {
+          color: #525e6a;
+        }
+
         .hero-banner__links--menu {
           background-color: #0F1E2D;
           border-radius: 8px;
@@ -74,6 +78,10 @@
           color: #ffffff;
         }
 
+        .hero-banner__eyebrow {
+          color: #ffffff;
+        }
+
         .hero-banner__buttons .button {
           background-color: #FFFFFF;
           border-radius: 24px;
@@ -115,6 +123,11 @@
         }
 
         .hero-banner__header > strong {
+          color: #FFFFFF;
+        }
+
+        .hero-banner__breadcrumb,
+        .hero-banner__eyebrow {
           color: #FFFFFF;
         }
       {% endif %}
@@ -161,6 +174,9 @@
           <span>{{ pageName }}</span>
         </li>
       </ol>
+    {% endif %}
+    {% if module.eyebrow != "" %}
+      <span class="hero-banner__eyebrow">{{ module.eyebrow }}</span>
     {% endif %}
     <h1 class="hero-banner__header">{{ module.header }}</h1>
     <div class="hero-banner__subheader {{ module.column }}-layout">{{ module.subheader }}</div>
