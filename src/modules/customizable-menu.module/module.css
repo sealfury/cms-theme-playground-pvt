@@ -281,8 +281,8 @@
   margin-bottom: 24px;
 }
 
-.products > .menu__item--depth-2 a:not(.header-card) {
-  padding-left: 0;
+.products > .menu__item--depth-2 span:not(.header-card) {
+  padding-left: 1px;
 }
 
 .products > .menu__item--depth-2:first-child {
