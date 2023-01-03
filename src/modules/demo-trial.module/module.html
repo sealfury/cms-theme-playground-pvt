@@ -48,7 +48,7 @@
       {% for logo in module.logos %}
       {% set img = logo.logo %}
       {% if img.src %}
-        {% set sizeAttrs = "width\"{{ img.width }}\" height\"{{ img.height }}\"" %}
+        {% set sizeAttrs = "width=\"{{ img.width }}\" height=\"{{ img.height }}\"" %}
         {% set loadingAttr = img.loading != "disabled" ? "loading=\"{{ img.loading }}\"" : "" %}
         <img src="{{ img.src }}" alt="{{ img.alt }}" {{ loadingAttr }} {{ sizeAttrs }} />
       {% endif %}

@@ -80,6 +80,7 @@
         "required": false,
         "locked": false,
         "resizable": true,
+        "responsive": true,
         "show_laoding": false,
         "default": {
           "size_type": "auto_custom_max",

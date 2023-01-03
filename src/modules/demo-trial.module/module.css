@@ -2,7 +2,7 @@
   align-items: center;
   display: flex;
   margin: 0 auto;
-  width: clamp(340px, 100vw, 1920px);
+  width: clamp(340px, 100%vw%, 1680px);
 }
 
 .trial-demo__text-section {
