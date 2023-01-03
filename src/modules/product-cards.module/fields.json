@@ -53,9 +53,20 @@
           {
             "label": "Page Link",
             "name": "link",
-            "type": "page",
+            "type": "link",
             "placeholder": "Page to link to",
-            "default": null
+            "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+            "default": {
+              "url": {
+                "content_id": null,
+                "type": "CONTENT",
+                "href": ""
+              },
+              "open_in_new_tab": false,
+              "no_follow": false,
+              "sponsored": false,
+              "user_generated_content": false
+            }
           },
           {
             "label": "Card Icon",
@@ -121,7 +132,18 @@
             "name": "link",
             "type": "page",
             "placeholder": "Page to link to",
-            "default": null
+            "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+            "default": {
+              "url": {
+                "content_id": null,
+                "type": "CONTENT",
+                "href": ""
+              },
+              "open_in_new_tab": false,
+              "no_follow": false,
+              "sponsored": false,
+              "user_generated_content": false
+            }
           },
           {
             "label": "Card Icon",
@@ -141,8 +163,7 @@
           {
             "label": "Card Description",
             "name": "description",
-            "type": "richtext",
-            "default": "Morbi leo risus, porta ac consectetur ac"
+            "type": "richtext"
           }
         ]
       }
