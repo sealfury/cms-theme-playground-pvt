@@ -36,6 +36,9 @@ if (menuParentItems) {
     if (el.classList.contains('menu__item--depth-1')) {
       // Menu item variables
       var childToggle = el.querySelector('.menu__child-toggle');
+      var toggleText = el.querySelector('.menu__link--toggle');
+      var clickableItems = Array.from([childToggle, toggleText]);
+      console.log(clickableItems);
 
       // DOM Manipulation helper functions
       var closeTopMenus = function (queryClass, openClass) {
@@ -59,48 +62,56 @@ if (menuParentItems) {
         return siblings;
       };
 
-      // Handle toggle of submenus
-      childToggle.addEventListener('click', function () {
-        var parentSiblings = getSiblings(this.parentNode);
+      /**
+       * OBS - Prev version of event listener is in Menu module's JS
+       */
 
-        if (this.parentNode.classList.contains('menu__item--open')) {
-          this.parentNode.classList.remove('menu__item--open');
-          this.parentNode
-            .querySelector('a')
-            .setAttribute('aria-expanded', 'false');
-          this.parentNode
-            .querySelector('button')
-            .setAttribute('aria-expanded', 'false');
+      // Handle toggle of submenus on click of parent item text or icon
+      clickableItems.forEach(function (item) {
+        item.addEventListener('click', function () {
+          var parentSiblings = getSiblings(this.parentNode);
 
-          overlay.classList.remove('show-overlay');
-        } else {
-          this.parentNode.classList.add('menu__item--open');
-          this.parentNode
-            .querySelector('a')
-            .setAttribute('aria-expanded', 'true');
-          this.parentNode
-            .querySelector('button')
-            .setAttribute('aria-expanded', 'true');
+          if (this.parentNode.classList.contains('menu__item--open')) {
+            this.parentNode.classList.remove('menu__item--open');
+            this.parentNode
+              .querySelector('a')
+              .setAttribute('aria-expanded', 'false');
+            this.parentNode
+              .querySelector('button')
+              .setAttribute('aria-expanded', 'false');
 
-          // Close all open dropdowns except nav item clicked
-          parentSiblings.forEach(function (sibling) {
-            if (sibling.classList.contains('menu__item--open')) {
-              sibling.classList.remove('menu__item--open');
-              sibling.querySelector('a').setAttribute('aria-expanded', 'false');
-              sibling
-                .querySelector('button')
-                .setAttribute('aria-expanded', 'false');
-            }
-          });
+            overlay.classList.remove('show-overlay');
+          } else {
+            this.parentNode.classList.add('menu__item--open');
+            this.parentNode
+              .querySelector('a')
+              .setAttribute('aria-expanded', 'true');
+            this.parentNode
+              .querySelector('button')
+              .setAttribute('aria-expanded', 'true');
 
-          // Close top menu on main menu open
-          var topMenuItemClass = '.top-menu--desktop .top-menu__item';
-          var topMenuOpenClass = 'top-menu__item--open';
-          closeTopMenus(topMenuItemClass, topMenuOpenClass);
+            // Close all open dropdowns except nav item clicked
+            parentSiblings.forEach(function (sibling) {
+              if (sibling.classList.contains('menu__item--open')) {
+                sibling.classList.remove('menu__item--open');
+                sibling
+                  .querySelector('a')
+                  .setAttribute('aria-expanded', 'false');
+                sibling
+                  .querySelector('button')
+                  .setAttribute('aria-expanded', 'false');
+              }
+            });
 
-          // Toggle overlay
-          overlay.classList.add('show-overlay');
-        }
+            // Close top menu on main menu open
+            var topMenuItemClass = '.top-menu--desktop .top-menu__item';
+            var topMenuOpenClass = 'top-menu__item--open';
+            closeTopMenus(topMenuItemClass, topMenuOpenClass);
+
+            // Toggle overlay
+            overlay.classList.add('show-overlay');
+          }
+        });
       });
     }
   });
