@@ -121,9 +121,20 @@
               {
                 "label": "Page Link",
                 "name": "link",
-                "type": "page",
+                "type": "link",
                 "placeholder": "Page to link to",
-                "default": null
+                "supported_types": ["CONTENT", "BLOG"],
+                "default": {
+                  "url": {
+                    "content_id": null,
+                    "type": "CONTENT",
+                    "href": ""
+                  },
+                  "open_in_new_tab": false,
+                  "no_follow": false,
+                  "sponsored": false,
+                  "user_generated_content": false
+                }
               },
               {
                 "label": "Card Icon",
@@ -187,9 +198,20 @@
               {
                 "label": "Page Link",
                 "name": "link",
-                "type": "page",
+                "type": "link",
                 "placeholder": "Page to link to",
-                "default": null
+                "supported_types": ["CONTENT", "BLOG"],
+                "default": {
+                  "url": {
+                    "content_id": null,
+                    "type": "CONTENT",
+                    "href": ""
+                  },
+                  "open_in_new_tab": false,
+                  "no_follow": false,
+                  "sponsored": false,
+                  "user_generated_content": false
+                }
               },
               {
                 "label": "Card Icon",
@@ -258,9 +280,20 @@
           {
             "label": "Page Link",
             "name": "page",
-            "type": "page",
+            "type": "link",
             "placeholder": "Page to link to",
-            "default": null
+            "supported_types": ["CONTENT", "BLOG"],
+            "default": {
+              "url": {
+                "content_id": null,
+                "type": "CONTENT",
+                "href": ""
+              },
+              "open_in_new_tab": false,
+              "no_follow": false,
+              "sponsored": false,
+              "user_generated_content": false
+            }
           }
         ]
       },
@@ -303,11 +336,22 @@
                 "default": "Process industry"
               },
               {
-                "label": "Item Page Link",
+                "label": "Page Link",
                 "name": "link",
-                "type": "page",
+                "type": "link",
                 "placeholder": "Page to link to",
-                "default": null
+                "supported_types": ["CONTENT", "BLOG"],
+                "default": {
+                  "url": {
+                    "content_id": null,
+                    "type": "CONTENT",
+                    "href": ""
+                  },
+                  "open_in_new_tab": false,
+                  "no_follow": false,
+                  "sponsored": false,
+                  "user_generated_content": false
+                }
               },
               {
                 "label": "Item Description",
@@ -359,11 +403,22 @@
                 "default": "BorgWarner"
               },
               {
-                "label": "Client Case Page Link",
+                "label": "Page Link",
                 "name": "link",
-                "type": "page",
+                "type": "link",
                 "placeholder": "Page to link to",
-                "default": null
+                "supported_types": ["CONTENT", "BLOG"],
+                "default": {
+                  "url": {
+                    "content_id": null,
+                    "type": "CONTENT",
+                    "href": ""
+                  },
+                  "open_in_new_tab": false,
+                  "no_follow": false,
+                  "sponsored": false,
+                  "user_generated_content": false
+                }
               }
             ]
           }
@@ -441,14 +496,25 @@
               {
                 "label": "Page Link",
                 "name": "page",
-                "type": "page",
+                "type": "link",
                 "placeholder": "Page to link to",
                 "visibility": {
                   "controlling_field": "resource.page_type",
                   "controlling_value_regex": "page",
                   "operator": "EQUAL"
                 },
-                "default": null
+                "supported_types": ["CONTENT"],
+                "default": {
+                  "url": {
+                    "content_id": null,
+                    "type": "CONTENT",
+                    "href": ""
+                  },
+                  "open_in_new_tab": false,
+                  "no_follow": false,
+                  "sponsored": false,
+                  "user_generated_content": false
+                }
               }
             ]
           }
@@ -487,9 +553,20 @@
           {
             "label": "Page Link",
             "name": "link",
-            "type": "page",
+            "type": "link",
             "placeholder": "Page to link to",
-            "default": null
+            "supported_types": ["CONTENT", "BLOG"],
+            "default": {
+              "url": {
+                "content_id": null,
+                "type": "CONTENT",
+                "href": ""
+              },
+              "open_in_new_tab": false,
+              "no_follow": false,
+              "sponsored": false,
+              "user_generated_content": false
+            }
           }
         ]
       }

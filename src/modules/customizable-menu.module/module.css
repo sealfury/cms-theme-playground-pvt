@@ -122,7 +122,7 @@
   border: none;
   display: none;
   height: 0;
-  left: -100%;
+  left: 0;
   position: absolute;
   text-align: left;
   text-transform: none;
@@ -181,7 +181,7 @@
 }
 
 .menu__item--depth-1:nth-child(3) .menu__submenu--level-2 {
-  transform: translateX(-11%);
+  transform: translateX(-14%);
 }
 
 .menu__item--depth-1:nth-child(4) .menu__submenu--level-2 {
@@ -189,7 +189,11 @@
 }
 
 .menu__item--depth-1:nth-child(5) .menu__submenu--level-2 {
-  transform: translateX(-38%);
+  transform: translateX(-37%);
+}
+
+.menu__item--depth-1:nth-child(6) .menu__submenu--level-2 {
+  transform: translateX(-46%);
 }
 
 .menu__submenu--main-link {

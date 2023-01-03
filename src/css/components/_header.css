@@ -12,7 +12,7 @@
 }
 
 .header__row-1 {
-  padding: 1rem 0 1.5rem;
+  padding: 1rem 0 1rem;
 }
 
 .header__row-1,
@@ -112,6 +112,7 @@
 
 .header__logo--main {
   padding-top: 1rem;
+  transform: translateY(10%);
 }
 
 /* Custom nav menu item cards */

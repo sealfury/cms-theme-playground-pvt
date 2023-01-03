@@ -38,16 +38,18 @@
       <span>{{ cta.eyebrow }}</span>
       <h3>{{ cta.header }}</h3>
       <p>{{ cta.description }}</p>
-      <a
-        class="button"
-        href="{{ cta.button.link.url.href }}"
-        {% if cta.button.link.open_in_new_tab %}target="_blank"
-        {% endif %}
-        {% if cta.button.link.rel %}rel="{{ cta.link.rel }}"
-        {% endif %}
-      >
-        {{ cta.button.link_text }}
-      </a>
+      {% if module.button|length >= 1 %}
+        <a
+          class="button"
+          href="{{ cta.button.link.url.href }}"
+          {% if cta.button.link.open_in_new_tab %}target="_blank"
+          {% endif %}
+          {% if cta.button.link.rel %}rel="{{ cta.link.rel }}"
+          {% endif %}
+        >
+          {{ cta.button.link_text }}
+        </a>
+      {% endif %}
     </div>
 
     <div class="products-cta__media-section">

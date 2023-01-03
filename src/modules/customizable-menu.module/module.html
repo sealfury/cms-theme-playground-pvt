@@ -52,7 +52,7 @@
         {% if module.styles.drop_downs.background.color.color %}
           background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
         {% else %}
-          background-color: #FFFFFF;
+          background-color: #ffffff;
         {% endif %}
       }
 
@@ -132,7 +132,7 @@
 
         <ul class="menu__submenu menu__submenu--level-2">
           {% if item.include_overview and item.overview|length > 0 %}
-            <a class="menu__submenu--main-link" href="{{ item.overview.link.absolute_url }}"
+            <a class="menu__submenu--main-link" href="{{ item.overview.link.url.href }}"
               >{{ item.overview.text }}</a
             >
           {% endif %}
@@ -146,7 +146,7 @@
                 <ul role="menu">
                   {% for link in item.help_links %}
                   <li class="hs-menu-item hs-menu-depth-1" role="none">
-                    <a href="{{ link.page.absolute_url }}" role="menuitem">{{ link.text }}</a>
+                    <a href="{{ link.page.url.href }}" role="menuitem">{{ link.text }}</a>
                   </li>
                   {% endfor %}
                 </ul>
@@ -167,9 +167,9 @@
                   class="menu__submenu menu__submenu--level-3 menu__submenu--{{ item.menu_type }}"
                 >
                   <div class="menu__wrapper--level-3">
-                  {% for card in cards %}
-                    {{ headerCard(card.title, size, card.link.absolute_url, card.description, features, card.icon) }}
-                  {% endfor %}
+                    {% for card in cards %}
+                    {{ headerCard(card.title, size, card.link.url.href, card.description, features, card.icon) }}
+                    {% endfor %}
                   </div>
                 </ul>
               </li>
@@ -186,7 +186,7 @@
                 <ul class="menu__submenu menu__submenu--level-3">
                   {% for i in li.items %}
                   <li class="menu__item menu__item--depth-3">
-                    <a class="menu__link" href="{{ i.link.absolute_url }}">{{ i.item }}</a>
+                    <a class="menu__link" href="{{ i.link.url.href }}">{{ i.item }}</a>
                   </li>
                   {% if i.description %}
                     <li class="menu__item menu__item--depth-3">
@@ -210,7 +210,7 @@
                   <div class="menu__wrapper--level-3">
                     {% for info in case.client_info %}
                     <li class="menu__item menu__item--depth-3">
-                      <a class="menu__link menu__link--client-{{ item.menu_type }}" href="{{ info.link.absolute_url }}">
+                      <a class="menu__link menu__link--client-{{ item.menu_type }}" href="{{ info.link.url.href }}">
                         {{ info.client }}
                       </a>
                     </li>
@@ -232,7 +232,7 @@
                   <div class="menu__wrapper--level-3">
                     {% for r in resource.resource %}
                     <li class="menu__item menu__item--depth-3">
-                      <a class="menu__link" href="{{ r.page_type == "blog" ? r.blog.absolute_url : r.page.absolute_url }}">{{ r.type }}</a>
+                      <a class="menu__link" href="{{ r.page_type == "blog" ? r.blog.absolute_url : r.page.url.href }}">{{ r.type }}</a>
                     </li>
                     {% if r.description %}
                       <li class="menu__item menu__item--depth-3">
