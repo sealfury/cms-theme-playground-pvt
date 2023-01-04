@@ -1,0 +1,28 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Single Course Listing
+-->
+
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "dnd_area"
+    label="Main section",
+    class="body-container body-container--single-course" %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../modules/hero-banner",
+        mode="light" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../modules/single-course" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

@@ -1,0 +1,41 @@
+[
+  {
+    "label": "Course Description",
+    "name": "description",
+    "type": "richtext",
+    "default": "<h3>About</h5><p>Add A course description here...</p>"
+  },
+  {
+    "label": "Course Details",
+    "name": "details",
+    "type": "richtext",
+    "default": "<h3>When and where?</h3>"
+  },
+  {
+    "label": "Next Course Start Date",
+    "name": "course_date",
+    "required": false,
+    "locked": false,
+    "type": "date"
+  },
+  {
+    "label": "Course Location",
+    "name": "location",
+    "type": "text"
+  },
+  {
+    "label": "Course Duration",
+    "name": "duration",
+    "type": "text"
+  },
+  {
+    "label": "Course Price",
+    "name": "price",
+    "type": "text"
+  },
+  {
+    "label": "Course Category",
+    "name": "category",
+    "type": "text"
+  }
+]
