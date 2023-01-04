@@ -1,81 +1,76 @@
-.courses-card {
-  display: flex;
-}
-
-.card__image {
-  max-width: 15%;
-}
-
-.card__text {
-  border: 1.4px solid #DFE4E9;
-  border-left: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-height: 95%;
-  padding: 0 3%;
-}
-
-.card__category {
-  color: #525E6A;
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
-.card__title, 
-.card__price {
-  color: #0F1E2D;
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.card__desc {
-  color: #0F1E2D;
-  font-size: 18px;
-  max-width: 75%;
-}
-
-.card__info {
-  align-items: center;
-  display: flex;
-  width: 25%;
-}
-
-.card__info--group {
-  align-items: center;
-  display: inline-flex;
+.courses {
   width: 100%;
 }
 
-.card__info--text {
-  color: #0F1E2D;
-  font-weight: 700;
-  padding: 3% 5% 2%;
+.courses h2, h3, h4, p {
+  margin-bottom: 0;
 }
 
-.card__info--image {
-  height: 15%;
-  margin-right: 2%;
-  width: 15%;
+.courses__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
 }
 
-.card__final-row {
+.courses__card {
+  align-items: flex;
+  display: flex;
+  justify-content: flex;
+  width: 100%;
+}
+
+.courses__card--image {
+  width: 23%;
+}
+
+.courses__card--details { 
+  border: 1px solid #DFE4E9;
+  border-left-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: space-evenly;
+  padding: 2.5rem;
+  width: 77%;
+}
+
+.courses__card--eyebrow {
+  color: #525E6A;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.courses__card--desc {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.courses__card--info {
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.courses__card--info span {
+  align-items: center;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 600;
+  gap: 4px;
+  line-height: 26px;
+  padding: 0.5rem 0;
+  vertical-align: middle;
+}
+
+.courses__card--pricing {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
-.card__link {
-  color: #396D78;
-  border-bottom: 2px solid transparent;
-  font-size: 16px;
+.courses__card--pricing .price {
+  font-size: 1.5rem;
   font-weight: 700;
-  height: 22px;
-  padding: 0;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.card__link:hover {
-  border-color: #00B9BC;
 }

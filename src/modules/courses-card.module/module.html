@@ -1,70 +1,85 @@
-<div class="courses-card">
-  <div class="card__image">
-    {% if module.feature_image.src %}
-      {% set sizeAttrs = "width=\"{{ module.feature_image.width }}\" height=\"{{ module.feature_image.height }}\"" %}
-      {% if module.feature_image.size_type == "auto" %}
-        {% set sizeAttrs = "width=\"{{ module.feature_image.width }}\" height=\"{{ module.feature_image.height }}\" style=\"max-width: 100%; height: auto;\"" %}
-      {% elif module.feature_image.size_type == "auto_custom_max" %}
-        {% set sizeAttrs = "width=\"{{ module.feature_image.max_width }}\" height=\"{{ module.feature_image.max_height }}\" style=\"max-width: 100%; height: auto;\"" %}
+{% set marker = module.marker_icon %}
+{% set calendar = module.calendar_icon %}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+    {# Set icons #}
+    {% set markerPath = "../../images/module-icons/map-marker-teal.svg" %}
+    {% set calendarPath = "../../images/module-icons/scheduling-icon-teal.png" %}
+
+    .courses__card--info > .location:before {
+      background: url("{{ get_asset_url(markerPath) }}") no-repeat;
+      content: '';
+      display: inline-block;
+      height: {{ marker.height ~ 'px' }} ;
+      width: {{ marker.width ~ 'px' }};
+    }
+
+    .courses__card--info > .date:before {
+      background: url("{{ get_asset_url(calendarPath) }}") no-repeat;
+      content: '';
+      display: inline-block;
+      height: {{ calendar.height ~ 'px' }};
+      width: {{ calendar.width ~ 'px' }};
+    }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+
+<section class="courses">
+  <div class="courses__container">
+    <h2 class="courses__header">{{ module.header }}</h2>
+    {# Get course by module Page field #}
+    {% for c in module.course %}
+
+      {# Get Course Page Module Fields #}
+      {% set course_content = content_by_id(c.page) %}
+      {% set course = course_content.allModules.layoutSectionModules[1].params %}
+      {% set courseTitle = course_content.name|split('-')|first %}
+
+      {# Optional Featured Image Override #}
+      {% if c.override_image == true %}
+        {% set imageSrc = c.image.src %}
+      {% else %}
+        {% set imageSrc = course.featured_image %}
       {% endif %}
-      {% set loadingAttr = module.feature_image.loading != "disabled" ? "loading=\"{{ module.feature_image.loading }}\"" : "" %}
-      <img src="{{ module.feature_image.src }}" alt="{{ module.feature_image.alt }}" {{ loadingAttr }} {{ sizeAttrs }} />
-    {% endif %}
-  </div>
 
-  <div class="card__text">
-    <h3 class="card__category">
-      {% inline_text
-        field="cat_text",
-        value="{{ module.cat_text }}" %}
-    </h3>
-    <h2 class="card__title">
-      {% inline_text
-        field="course_title",
-        value="{{ module.course_title }}" %}
-    </h2>
-    <p class="card__desc">
-      {% inline_rich_text
-        field="course_desc",
-        value="{{ module.course_desc }}" %}
-    </p>
-
-    <div class="card__info">
-      <div class="card__info--group">
-        <img class="card__info--image" src="{{ get_asset_url("../../images/module-icons/map-marker-teal.svg") }}" />
-        <div class="card__info--text">
-          {% inline_text
-            field="location_field.location",
-            value="{{ module.location_field.location }}" %}
-        </div>
-      </div>
-      <div class="card__info--group">
-        <img class="card__info--image" src="{{ get_asset_url("../../images/module-icons/scheduling-icon-teal.png") }}" />
-        <div class="card__info--text">
-          {% inline_text
-            field="duration_field.duration",
-            value="{{ module.duration_field.duration }}" %}
-        </div>
-      </div>
-    </div>
-
-    <div class="card__final-row">
-      <h2 class="card__price">
-        {% inline_text
-          field="price",
-          value="{{ module.price }}" %}
-      </h2>
-      {% set href = module.register_link.url.href %}
-      <a
-        class="card__link"
-        href="{{ href }}"
-        {% if module.register_link.open_in_new_tab %}target="_blank"
+      {# Sanitize Course Start Date #}
+      {% if course.course_date >= unixtimestamp(local_dt) %}
+        {% if content.language.language == 'en' %}
+          {% set langParam = "en-GB" %}
+        {% else %}
+            {% set langParam = content.language.language %}
         {% endif %}
-        {% if module.register_link.rel %}rel="{{ module.register_link.rel }}"
-        {% endif %}
-      >
-        Read more & register
-      </a>
-    </div>
+        {% set date = course.course_date|format_date('medium', 'America/New_York', langParam) %}
+      {% endif %} 
+
+      <card class="courses__card"> 
+        <img 
+          class="courses__card--image" 
+          src="{{ imageSrc }}"
+          alt="{{ c.image.alt ? image.alt : 'course-featured-image-alt' }}"
+        />
+        <div class="courses__card--details">
+          <span class="courses__card--eyebrow">{{ course.category }}</span>
+          <h4 class="courses__card--title">{{ courseTitle }}</h4>
+          <p class="courses__card--desc">{{ c.summary }}</p>
+          <div class="courses__card--info">
+            <span class="location">{{ course.location }}</span>
+            <span class="date">{{ date }}  ~  {{ course.duration }}</span>
+          </div>
+          <div class="courses__card--pricing">
+            <span class="price">{{ course.price }}</span>
+            <a class="read-more" href="{{ course.absolute_url }}">{{ module.link_text }}</a>
+          </div>
+          </div>
+        </div>
+      </card>
+
+    {% endfor %}
   </div>
-</div>
+</section>
