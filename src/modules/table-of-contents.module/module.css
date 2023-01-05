@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  justify-content: center;
   margin: 0 auto;
   padding: 20px 0;
   width: clamp(360px, 100vw, 1240px);

@@ -1,2 +1,3 @@
 **/*/cms-deploy.yaml
 hubspot.deploy
+src/templates/resources-rework.html

@@ -9,7 +9,8 @@
 
 {% block body %}
   <div class="body-container body-container--blog-post">
-    {% if content.htmlTitle|lower == "maintenance manual" %}
+    {% set parentBlogNameArr = content.parentBlog.name|split(" ") %}
+    {% if parentBlogNameArr|first|lower == "ebooks" or "e-books" %}
       {% module "hero-banner"
         path="../modules/manual-hero-banner.module",
         header="{{ content.name }}",

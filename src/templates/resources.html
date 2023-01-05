@@ -48,27 +48,23 @@
     {% dnd_section
       max_width=1440,
       vertical_alignment="TOP" %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module
-            path="../modules/blog-listings" %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
+      {% dnd_module
+        path="../modules/blog-listings" %}
+      {% end_dnd_module %}
     {% end_dnd_section %}
 
     {# Newsletter signup form section #}
 
-    {% dnd_section 
+    {% dnd_section
       max_width=1440 %}
-      {% dnd_module 
+      {% dnd_module
         path="../modules/newsletter-cta" %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
     {# Trial/Demo calls to action banner section #}
-    
-    {% include_dnd_partial 
+
+    {% include_dnd_partial
       path="../sections/cta-banner.html" %}
 
   {% end_dnd_area %}
