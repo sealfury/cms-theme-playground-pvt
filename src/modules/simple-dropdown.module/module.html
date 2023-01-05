@@ -15,8 +15,12 @@
         color: {{ module.styles.text.color.color }};
       }
 
-      .top-menu__item--depth-1:hover .top-menu__link--toggle,
-      .top-menu__item--depth-1:focus .top-menu__link--toggle {
+      .top-menu__item--depth-1 > a {
+        transition: all 0.3s ease-in-out;
+      }
+
+      .top-menu__item--depth-1:hover > a,
+      .top-menu__item--depth-1:focus > a {
         color: {{ module.styles.hover.color.color }};
       }
 

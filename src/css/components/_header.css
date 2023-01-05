@@ -404,6 +404,7 @@
   cursor: pointer;
   height: 16px;
   margin: 10px 0 8px 8px;
+  transition: all 0.1s ease-in-out;
   width: 16px;
 }
 
@@ -413,6 +414,21 @@
   flex-direction: row-reverse;
   padding: 4px 0 0;
   position: relative;
+  transition: all 0.1s ease-in-out;
+}
+
+.header__language-switcher--label:hover {
+  cursor: pointer;
+}
+
+.header__language-switcher--label:hover
+.header__language-switcher--label-current {
+  color: #777E89;
+  filter: brightness(0.93);
+}
+
+.header__language-switcher--label:hover .globe_class {
+  filter: invert(0.35) brightness(1.25);
 }
 
 .header__language-switcher--label-current {
@@ -424,6 +440,7 @@
   line-height: 24px;
   margin-bottom: 0.175rem;
   margin-left: 0.7rem;
+  transition: all 0.1s ease-in-out;
 }
 
 .header__language-switcher--label-current:before {
