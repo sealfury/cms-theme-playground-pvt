@@ -65,20 +65,43 @@
     ]
   },
   {
+    "label": "Eyebrow Text",
+    "name": "eyebrow",
+    "type": "text"
+  },
+  {
+    "label": "Use Richtext Editor For Header Content?",
+    "name": "use_richtext",
+    "id": "use_richtext",
+    "type": "boolean",
+    "display": "toggle",
+    "help_text": "To control header text size, style, and color, toggle ON.\nFor default text styles, toggle OFF.",
+    "default": false
+  },
+  {
     "label": "Header Text",
-    "name": "header",
+    "name": "header_text",
+    "type": "text",
+    "visibility": {
+      "controlling_field": "use_richtext",
+      "controlling_value_regex": "false",
+      "operator": "EQUAL"
+    }
+  },
+  {
+    "label": "Header Richtext",
+    "name": "header_richtext",
     "type": "richtext",
-    "inline_help_text": "Embolden words you'd like to be coloured teal"
+    "visibility": {
+      "controlling_field": "use_richtext",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    }
   },
   {
     "label": "Subheader Text",
     "name": "subheader",
     "type": "richtext"
-  },
-  {
-    "label": "Eyebrow Text",
-    "name": "eyebrow",
-    "type": "text"
   },
   {
     "label": "Buttons",
@@ -271,6 +294,35 @@
             }
           }
         ]
+      }
+    ]
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Override Background Colour",
+        "name": "override_background",
+        "type": "boolean",
+        "display": "toggle",
+        "inline_help_text": "Toggle on to select a colour to override default hero banner background colour (Light & Dark Mode Only)",
+        "default": false
+      },
+      {
+        "label": "Background Color",
+        "name": "background",
+        "type": "color",
+        "default": {
+          "color": "#FFFFFF"
+        },
+        "visibility": {
+          "controlling_field": "styles.override_background",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        }
       }
     ]
   }

@@ -180,11 +180,6 @@
       {# Featured image #}
 
       {% if content.featured_image and module.featured_image %}
-        {# <a
-          class="blog-index__post-image-wrapper blog-index__post-image-wrapper--npe80_"
-          href="npe85_"
-          aria-label="npe83_Featured image: npe86_ - npe84_Read full post: npe81_"
-        > #}
         <img
           class="blog-index__post-image blog-index__post-image--{{ list_type }}"
           src="{{ content.featured_image }}"
@@ -193,7 +188,6 @@
           width="{{ list_type == "small" ? "180" : "285" }}"
           height="{{ list_type == "small" ? "226" : "304" }}"
         />
-        {# </a> #}
       {% endif %}
 
       {# Article content #}

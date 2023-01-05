@@ -132,6 +132,13 @@
         }
       {% endif %}
 
+      {# Optional User Override of BG Color #}
+      {% if module.styles.override_background == true and module.mode != "image" %}
+        .hero-banner {
+          background-color: {{ module.styles.background.color }};
+        }
+      {% endif %}
+
       {# Add chevron to breadcrumb menu #}
       {% set chevronPath = "../../images/module-icons/breadcrumbs-chevron.png" %}
       .breadcrumb__menu-item:not(.active-page):after {
@@ -180,7 +187,11 @@
     {% if module.eyebrow != "" %}
       <span class="hero-banner__eyebrow">{{ module.eyebrow }}</span>
     {% endif %}
-    <h1 class="hero-banner__header">{{ module.header }}</h1>
+    {% if module.use_richtext == false %}
+      <h1 class="hero-banner__header">{{ module.header_text }}</h1>
+    {% else %}
+      {{ module.header_richtext }}
+    {% endif %}
     <div class="hero-banner__subheader {{ module.column }}-layout">{{ module.subheader }}</div>
 
     {% if module.buttons|length > 0 %}
