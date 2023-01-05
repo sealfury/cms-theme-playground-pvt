@@ -1,14 +1,20 @@
 .dnd-section > .row-fluid:has(#hero-banner),
 .dnd-section > .row-fluid:has(#manual-hero-banner) {
-  max-width: 1440px;
+  max-width: 100vw;
 }
 
 .hero-banner {
-  display: flex;
+  /* display: flex; */
   margin: 0 auto;
   min-height: 406px;
-  padding: 2.5rem 6.25rem;
-  width: 1440px;
+  padding: 2.5rem 4rem;
+  width: calc(100vw - 5%);
+}
+
+.hero-banner__container {
+  display: flex;
+  margin: 0 auto;
+  width: clamp(340px, 100%, 1440px);
 }
 
 .hero-banner__text-section {
@@ -49,6 +55,10 @@
 .hero-banner__header {
   margin: 0;
   white-space: break-spaces;
+}
+
+.hero-banner__eyebrow {
+  text-transform: uppercase;
 }
 
 .hero-banner__subheader > p {

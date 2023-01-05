@@ -162,6 +162,8 @@
 {% set pageName = request.path|split("/")|last|split("-")|map("capitalize")|join(" ") %}
 
 <section class="hero-banner" id="hero-banner">
+  <div class="hero-banner__container">
+
   <div class="hero-banner__text-section">
     {% if module.breadcrumb|length > 0 %}
       <ol class="hero-banner__breadcrumb-menu breadcrumb-menu">
@@ -232,5 +234,7 @@
         reponse_message="{{ form.message }}",
         gotowebinar_webinar_key="{{ form.gotowebinar_webinar_key }}" %}
     {% endif %}
+  </div>
+
   </div>
 </section>

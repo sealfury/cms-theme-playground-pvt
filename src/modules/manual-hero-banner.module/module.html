@@ -90,6 +90,8 @@
 {% set pageName = interpolatePath(false) %}
 
 <section class="hero-banner" id="manual-hero-banner">
+  <div class="hero-banner__container">
+
   <div class="hero-banner__text-section">
     {% if module.breadcrumb|length > 0 %}
       <ol class="hero-banner__breadcrumb-menu breadcrumb-menu">
@@ -133,5 +135,7 @@
       />
     {% endif %}
       <h4 class="hero-banner__logo-section--text">{{ module.header }}</h4>
+  </div>
+
   </div>
 </section>
