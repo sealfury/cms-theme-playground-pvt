@@ -2,7 +2,8 @@
 
 <div class="blog-selector__container">
   {% for button in module.blog_selector_buttons %}
-  <a class="blog-selector__button-wrapper" href="{{ button.selector }}">
+  {% set pageContent = blog_by_id(button.selector) %}
+  <a class="blog-selector__button-wrapper" href="{{ pageContent.absolute_url }}">
     <img class="image blog-selector__button-image" src="{{ get_asset_url(button.button_display.icon_src) }}" alt="{{ button.button_display.icon_alt }}" />
     <img
       class="image blog-selector__button-image--hover"

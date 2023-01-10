@@ -1,6 +1,6 @@
 .cta-banner-section {
   margin: 0 auto;
-  width: clamp(320px, 100vw, 1440px);
+  width: clamp(375px, 100vw, 1440px);
 }
 
 .cta-banner-section > .row-fluid {
@@ -36,4 +36,16 @@
   padding: 10px 20px;
   text-decoration: none;
   transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 767px) {
+  .cta-banner-section > .row-fluid {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cta-banner-section .span6 {
+    width: 100%;
+  }
 }

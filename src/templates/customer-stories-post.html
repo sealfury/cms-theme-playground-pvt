@@ -42,7 +42,7 @@
         {% module "logo-section"
           path="../modules/logo.module",
           light_mode="false",
-          extra_classes="logo-section" %}
+          extra_classes="customer-stories" %}
       </div>
     </div>
 
@@ -56,7 +56,10 @@
               {% set parentBlog = blog_by_id(group.id) %}
               {% set sectionHeader = "More {{ parentBlog.htmlTitle }}" %}
             {% endif %}
-            <h2>{{ sectionHeader }}</h2>
+            <h2>{% text "related-posts"
+                  noWrapper=True,
+                  label="Learn More Section Header",
+                  value="{{ context.value or sectionHeader }}" %}</h2>
             <div class="blog-related-posts__list">
             {% endif %}
             <article

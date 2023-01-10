@@ -20,6 +20,26 @@
         "name": "description",
         "type": "richtext",
         "default": "Add a sentence or two of description text here."
+      },
+      {
+        "label": "Chapter Page Link",
+        "name": "link",
+        "type": "link",
+        "required": false,
+        "locked": false,
+        "supported_types": ["CONTENT"],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "content_id": null,
+            "type": "CONTENT",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false,
+          "sponsored": false,
+          "user_generated_content": false
+        }
       }
     ]
   },
@@ -66,8 +86,8 @@
             "label": "Background Color",
             "name": "background",
             "type": "color",
-            "default": { 
-              "color": "#2F3C49" 
+            "default": {
+              "color": "#2F3C49"
             }
           },
           {

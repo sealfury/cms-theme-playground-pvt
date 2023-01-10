@@ -2,7 +2,7 @@
   align-items: center;
   display: flex;
   margin: 0 auto;
-  width: clamp(340px, 100%vw%, 1680px);
+  width: clamp(375px, 100%, 1680px);
 }
 
 .trial-demo__text-section {
@@ -90,4 +90,44 @@
 
 .trial-demo__form-section--link > a:hover {
   border-color: #00B9BC;
+}
+
+@media screen and (max-width: 767px) {
+  .trial-demo {
+    flex-direction: column;
+  }
+
+  .trial-demo__text-section,
+  .trial-demo__form-section {
+    padding: 2rem 1rem;
+    width: 100%;
+  }
+
+  .trial-demo__subheader {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .trial-demo__text-section--quote {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .trial-demo__form-section h3 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .trial-demo__form-section .hs-submit {
+    width: 100%;
+  }
+
+  .trial-demo__form-section .actions {
+    margin: 0 auto;
+    width: 94%;
+  }
+
+  .trial-demo__form-section input[type='submit'] {
+    width: 100%;
+  }
 }

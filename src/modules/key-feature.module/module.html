@@ -2,25 +2,25 @@
   <style>
     {% scope_css %}
 
-    {# Provide background color based on user choice #}
+      {# Provide background color based on user choice #}
 
-    {% set bgColor = "#15CCCF" %}
-    {% if module.styles.circle_bg_color == "purple" %}
-      {% set bgColor = "#6734FF" %}
-    {% elif module.styles.circle_bg_color == "grey" %}
-      {% set bgColor = "#DFE4E9" %}
-    {% endif %}
+      {% set bgColor = "#15CCCF" %}
+      {% if module.styles.circle_bg_color == "purple" %}
+        {% set bgColor = "#6734FF" %}
+      {% elif module.styles.circle_bg_color == "grey" %}
+        {% set bgColor = "#DFE4E9" %}
+      {% endif %}
 
-    .key-features__player--background {
-      background-color: {{ bgColor }};
-    }
+      .key-features__player--background {
+        background-color: {{ bgColor }};
+      }
 
-    {# Show selected icon in feature title #}
+      {# Show selected icon in feature title #}
 
-    {% set titleIconUrl = get_asset_url("../../images/module-icons/scheduling-icon-teal.png") %}
-    {% set width = 40 ~ "px" %}
-    {% set height = 20 ~ "px" %}
-    {% for feature in module.key_features.feature %}
+      {% set titleIconUrl = get_asset_url("../../images/module-icons/scheduling-icon-teal.png") %}
+      {% set width = 40 ~ "px" %}
+      {% set height = 20 ~ "px" %}
+      {% for feature in module.key_features.feature %}
       {% if feature.feature_title.icon.src %}
         {% set titleIconUrl = feature.feature_title.icon.src %}
       {% endif %}
@@ -33,18 +33,18 @@
 
       .key-features__feature:nth-child({{ loop.index }}) .key-features__title::before {
         background: url("{{ titleIconUrl }}") no-repeat;
-        content: '';
+        content: "";
         display: block;
         height: 100%;
         margin-right: 2px;
         transform: translate(-10%, -13%);
         width: {{ width }};
       }
-    {% endfor %}
+      {% endfor %}
 
-    .key-features__header > strong {
-      color: #00B9BC;
-    }
+      .key-features__header > strong {
+        color: #00b9bc;
+      }
 
     {% end_scope_css %}
   </style>
@@ -54,7 +54,7 @@
 
 <h2 class="key-features__header">{{ module.header }}</h2>
 
-<div class="key-features">
+<section class="key-features">
   {% for feature in module.key_features.feature %}
 
   {% if feature.feature_link.url.type == "CONTENT" and feature.feature_link.url.content_id %}
@@ -64,7 +64,7 @@
     {% set linkHref = feature.feature_link.url.href %}
   {% endif %}
 
-  <section class="key-features__feature">
+  <div class="key-features__feature">
     <div class="key-features__player">
       <div class="key-features__player--background"></div>
       <div class="key-features__player--phone-grey">
@@ -74,7 +74,7 @@
               <span class="autoplay__button" data-source="{{ feature.image_options.image.src }}"></span>
             </span>
           {% endif %}
-            <img class="key-features__player--img {{ "not-playing" if feature.image_options.autoplay == false }}" src="{{ feature.image_options.image.src }}">
+          <img class="key-features__player--img {{ "not-playing" if feature.image_options.autoplay == false }}" src="{{ feature.image_options.image.src }}" />
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@
       <p class="key-features__description">{{ feature.feature_description }}</p>
       <a class="key-features__link" href="{{ linkHref }}">{{ feature.feature_link.text }}</a>
     </div>
-  </section>
+  </div>
 
   {% endfor %}
-</div>
+</section>

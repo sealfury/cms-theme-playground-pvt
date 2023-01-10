@@ -76,14 +76,15 @@ menuClass="") %}
 
 {# Interpolate page path & translate hardcode markup #}
 
-{% macro interpolatePath(includeLangOpts=true) -%}
-  {% set reqPath = request.path|split('/') %}
+{% macro interpolatePath(
+includeLangOpts=true) -%}
+  {% set localeCode = locale_name(locale)|split(" ")|first|lower %}
 
   {% if includeLangOpts %}
-    {% set langCode = reqPath|first %}
-    {% if langCode == "sv" %}
+    {% set langCode = localeCode %}
+    {% if langCode == "svenska" %}
       {% set joiningWord = "eller" %}
-    {% elif langCode == "de" %}
+    {% elif langCode == "deutsch" %}
       {% set joiningWord = "oder" %}
     {% else %}
       {% set joiningWord = "or" %}
@@ -91,7 +92,7 @@ menuClass="") %}
     {{ joiningWord }}
   {% endif %}
 
-  {% set pageName = reqPath|last|split('-')|map('capitalize')|join(' ') %}
+  {% set pageName = reqPath|last|split("-")|map("capitalize")|join(" ") %}
   {{ pageName }}
 
 {%- endmacro %}

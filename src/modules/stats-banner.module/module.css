@@ -52,7 +52,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: min(50vw, 210px);
+  width: min(45vw, 210px);
 }
 
 .stats-banner__feature--value {
@@ -78,4 +78,29 @@
   font-size: 18px;
   line-height: 25px;
   text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .stats-banner__headline {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 0 4px;
+    text-align: center;
+  }
+
+  .stats-banner__features-list {
+    flex-wrap: wrap;
+  }
+
+  .stats-banner__feature {
+    margin-bottom: 0.75rem;
+  }
+
+  .stats-banner__feature--value {
+    font-size: 44px;
+  }
+
+  .stats-banner__feature--text {
+    font-size: 14px;
+  }
 }

@@ -1,6 +1,6 @@
 .product-cards {
   margin: 0 auto;
-  width: 1440px;
+  width: clamp(375px, 100vw, 1440px);
 }
 
 .product-cards__header {
@@ -118,4 +118,31 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
+}
+
+@media screen and (max-width: 767px) {
+  .product-cards__cards {
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    max-height: unset;
+  }
+
+  .product-cards__cards ul:first-child {
+    margin: 0 auto;
+  }
+
+  .product-cards__header {
+    flex-direction: column;
+  }
+
+  .prodcut-cards__header > h2 {
+    width: 100%;
+  }
+
+  .product-cards__header > p {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }

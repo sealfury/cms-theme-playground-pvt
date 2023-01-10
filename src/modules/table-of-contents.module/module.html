@@ -90,9 +90,10 @@
 
 <div class="toc__contents">
   {% for chapter in module.chapters %}
+  {% set pageContent = content_by_id(chapter.link.content_id) %}
   <a
     class="toc__contents--card"
-    href="{{ href }}#chapter-{{ loop.index }}"
+    href="{{ pageContent.absolute_url if chapter.link.content_id else chapter.link.url.href }}"
     {% if module.root_link.open_in_new_tab %}target="_blank"
     {% endif %}
     {% if rel %}rel="{{ rel|join(" ") }}"

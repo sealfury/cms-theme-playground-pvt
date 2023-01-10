@@ -18,7 +18,7 @@
   justify-content: space-between;
   margin: 0 auto;
   padding: 3rem;
-  width: clamp(340px, 90%, 1440px);
+  width: clamp(365px, 90%, 1440px);
 }
 
 .products-cta__text-section {
@@ -45,4 +45,25 @@
 .products-cta__media--video {
   height: 270px;
   width: 480px;
+}
+
+@media screen and (max-width: 767px) {
+  .products-cta {
+    padding: 2.5rem 0;
+  }
+
+  .products-cta__item {
+    padding: 0;
+    flex-direction: column;
+  }
+
+  .products-cta__text-section {
+    padding: 0.75rem;
+    width: 100%;
+  }
+
+  .products-cta__text-section > h3 {
+    font-size: 22px;
+    line-height: 30px;
+  }
 }

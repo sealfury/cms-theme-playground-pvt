@@ -1,8 +1,7 @@
 <!--
   templateType: blog_post
   isAvailableForNewContent: true
-  label: Boilerplate - blog post
-  screenshotPath: ../images/template-previews/blog-post.png
+  label: Blog Post / E-book Table of Contents
 -->
 {% set template_css = "../../css/templates/blog.css" %}
 {% extends "./layouts/base.html" %}
@@ -29,6 +28,13 @@
           path="../modules/table-of-contents" %}
       </div>
     {% else %}
+
+      {% dnd_area "dnd_area"
+        label="Extra DND Space",
+        class="resources+dnd" %}
+        {% dnd_section %}
+        {% end_dnd_section %}
+      {% end_dnd_area %}
 
       {# Blog post #}
       <div class="content-wrapper">
@@ -77,10 +83,10 @@
       {% if count == 1 %}
         <section class="blog-related-posts">
           <div class="content-wrapper">
-            {% if content.language.language == "en" %}
-              {% set sectionHeader = "You might also be interested in" %}
-            {% endif %}
-            <h2>{{ sectionHeader }}</h2>
+            <h2>{% text "related-posts"
+                  noWrapper=True,
+                  label="Learn More Section Header",
+                  value="{{ context.value or 'Discover More ' ~ group.html_title }}" %}</h2>
             <div class="blog-related-posts__list">
             {% endif %}
             <article

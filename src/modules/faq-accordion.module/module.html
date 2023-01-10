@@ -1,0 +1,105 @@
+{% set plusIconPath = "../..//images/module-icons/plus-icon-black.png" %}
+{% set arrowDarkPath = "../..//images/module-icons/arrow-right-black.png" %}
+{% set arrowTealPath = "../../images/module-icons/arrow-right-teal.png" %}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Add Menu Item Icons #}
+
+      .accordion-menu__toggle-icon:before {
+        background: url("{{ get_asset_url(plusIconPath) }}") no-repeat;
+        content: "";
+        display: block;
+        height: 14px;
+        width: 14px;
+      }
+
+      .links-menu__link:after {
+        background: url("{{ get_asset_url(arrowDarkPath) }}") no-repeat;
+        content: "";
+        display: inline-block;
+        height: 19px;
+        scale: 81.81%;
+        width: 22px;
+      }
+
+      .readmore-link:after {
+        background: url("{{ get_asset_url(arrowTealPath) }}") no-repeat;
+        content: "";
+        display: inline-block;
+        height: 19px;
+        scale: 81.81%;
+        width: 22px;
+      }
+
+      .faq-container h2 > strong {
+        color: #00b9bc;
+        font-weight: inherit;
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+<section class="faq-section">
+  {% if module.header %}
+    <div class="faq-container">
+      <div class="faq-header">
+        {{ module.header }}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="faq-container">
+    <ul class="faq-menu menu__{{ module.layout }}">
+      {% if module.layout == "links" %}
+        {% for item in module.link_menu_items %}
+        <li class="faq-menu__item links-menu">
+          <a class="links-menu__link" href="{{ item.link.url.href }}">
+            <span>{{ item.text }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      {% endif %}
+
+      {% if module.layout == "accordion" %}
+        {% for item in module.accordion_items %}
+        <li class="faq-menu__item accordion-menu__faq">
+          <a
+            class="accordion-menu__toggle"
+            href="#"
+            aria-haspopup="true"
+            aria-expanded="false"
+            ><span>{{ item.faq }}</span></a
+          >
+          <button class="accordion-menu__toggle no-button" aria-expanded="false">
+            <span class="show-for-sr"
+              >Show answer for
+              {{ item.faq }}
+            </span>
+            <span class="accordion-menu__toggle-icon"></span>
+          </button>
+        </li>
+        <li
+          class="faq-menu__item accordion-menu__answer"
+          data-transition-wrapper="true"
+        >
+          <span class="accordion-menu__answer-content"
+            >{{ item.answer }}</span
+          >
+          {% if item.link_text != " " and item.link.url.href %}
+            <a class="accordion-menu__answer-pagelink" href="{{ item.link.url.href }}"
+              >{{ item.link_text }}</a
+            >
+          {% endif %}
+        </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+    {% if module.include_Readmore %}
+      <a class="readmore-link" href="{{ module.readmore_link }}">{{ readmore_text }}</a>
+    {% endif %}
+  </div>
+</section>

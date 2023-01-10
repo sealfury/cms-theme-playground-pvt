@@ -177,6 +177,7 @@
             </div>
 
           {% elif item.menu_type == "why" %}
+            {% set dataMenuType = item.menu_type %}
             <div class="menu__wrapper--level-2">
               {% for li in item.why %}
               <li class="menu__item menu__item--depth-2">
@@ -185,7 +186,10 @@
                 >
                 <ul class="menu__submenu menu__submenu--level-3">
                   {% for i in li.items %}
-                  <li class="menu__item menu__item--depth-3">
+                  <li
+                    class="menu__item menu__item--depth-3"
+                    data-menu-type="{{ dataMenuType }}"
+                  >
                     <a class="menu__link" href="{{ i.link.url.href }}">{{ i.item }}</a>
                   </li>
                   {% if i.description %}
@@ -200,6 +204,7 @@
             </div>
 
           {% elif item.menu_type == "cases" %}
+            {% set dataMenuType = item.menu_type %}
             <div class="menu__wrapper--level-2 client-{{ item.menu_type }}">
               {% for case in item.cases %}
               <li class="menu__item menu__item--depth-2 menu__item--has-submenu">
@@ -209,7 +214,10 @@
                 <ul class="menu__submenu menu__submenu--level-3">
                   <div class="menu__wrapper--level-3">
                     {% for info in case.client_info %}
-                    <li class="menu__item menu__item--depth-3">
+                    <li
+                      class="menu__item menu__item--depth-3"
+                      data-menu-type="{{ dataMenuType }}"
+                    >
                       <a class="menu__link menu__link--client-{{ item.menu_type }}" href="{{ info.link.url.href }}">
                         {{ info.client }}
                       </a>
@@ -222,6 +230,7 @@
             </div>
 
           {% elif item.menu_type == "resources" %}
+            {% set dataMenuType = item.menu_type %}
             <div class="menu__wrapper--level-2">
               {% for resource in item.resources %}
               <li class="menu__item menu__item--depth-2 menu__item--has-submenu">
@@ -231,7 +240,10 @@
                 <ul class="menu__submenu menu__submenu--level-3">
                   <div class="menu__wrapper--level-3">
                     {% for r in resource.resource %}
-                    <li class="menu__item menu__item--depth-3">
+                    <li
+                      class="menu__item menu__item--depth-3"
+                      data-menu-type="{{ dataMenuType }}"
+                    >
                       <a class="menu__link" href="{{ r.page_type == "blog" ? r.blog.absolute_url : r.page.url.href }}">{{ r.type }}</a>
                     </li>
                     {% if r.description %}

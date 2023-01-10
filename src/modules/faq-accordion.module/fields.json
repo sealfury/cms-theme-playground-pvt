@@ -1,0 +1,181 @@
+[
+  {
+    "label": "Section Header",
+    "name": "header",
+    "type": "richtext",
+    "default": "<h2>frequently asked <strong>questions</strong></h2>"
+  },
+  {
+    "label": "Use Accordion or Link Menu Layout?",
+    "name": "layout",
+    "id": "layout",
+    "type": "choice",
+    "display": "radio",
+    "choices": [
+      ["accordion", "Accordion"],
+      ["links", "Links"]
+    ],
+    "default": "accordion"
+  },
+
+  {
+    "label": "Accordion Items",
+    "name": "accordion_items",
+    "id": "accordion_items",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 8,
+      "default": 1,
+      "sorting_label_field": "accordion_items.faq"
+    },
+    "visibility_rules": "ADVANCED",
+    "advanced_visibility": {
+      "boolean_operator": "OR",
+      "criteria": [
+        {
+          "controlling_field": "layout",
+          "controlling_value_regex": "accordion",
+          "operator": "EQUAL"
+        },
+        {
+          "controlling_field": "layout",
+          "controlling_value_regex": "links",
+          "operator": "NOT_EQUAL"
+        }
+      ]
+    },
+    "children": [
+      {
+        "label": "FAQ or Top-Level Item Text",
+        "name": "faq",
+        "id": "accordion_items.faq",
+        "type": "text",
+        "placeholder": "Add an FAQ Here"
+      },
+      {
+        "label": "Answer or Other Collapsable Text",
+        "name": "answer",
+        "id": "accordion_items.answer",
+        "type": "richtext"
+      },
+      {
+        "label": "Text for Link To Related Content",
+        "name": "link_text",
+        "id": "accordion_items.link_text",
+        "type": "text",
+        "required": false,
+        "locked": false,
+        "default": " "
+      },
+      {
+        "label": "Link",
+        "name": "link",
+        "id": "accordion_items.link",
+        "type": "link",
+        "supported_types": ["CONTENT", "EXTERNAL", "BLOG"],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "content_id": null,
+            "type": "CONTENT",
+            "href": ""
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ]
+  },
+  {
+    "label": "Link Menu Items",
+    "name": "link_menu_items",
+    "id": "link_menu_items",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 8,
+      "default": 1
+    },
+    "visibility_rules": "ADVANCED",
+    "advanced_visibility": {
+      "boolean_operator": "AND",
+      "criteria": [
+        {
+          "controlling_field": "layout",
+          "controlling_value_regex": "accordion",
+          "operator": "NOT_EQUAL"
+        },
+        {
+          "controlling_field": "layout",
+          "controlling_value_regex": "links",
+          "operator": "EQUAL"
+        }
+      ]
+    },
+    "children": [
+      {
+        "label": "Link Text",
+        "name": "text",
+        "id": "link_menu_items.text",
+        "type": "text",
+        "placeholder": "Add Link Text Here"
+      },
+      {
+        "label": "Link",
+        "name": "link",
+        "id": "link_menu_items.link",
+        "type": "link",
+        "supported_types": ["CONTENT", "EXTERNAL", "BLOG"],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "content_id": null,
+            "type": "CONTENT",
+            "href": ""
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ]
+  },
+  {
+    "label": "Include \"Read More\" Page Link?",
+    "name": "include_readmore",
+    "id": "include_readmore",
+    "type": "boolean",
+    "display": "toggle",
+    "default": false
+  },
+  {
+    "label": "\"Read More\" Link Text",
+    "name": "readmore_text",
+    "type": "text",
+    "visibility": {
+      "controlling_field": "include_readmore",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "placeholder": "Add Link Text Here"
+  },
+  {
+    "label": "\"Read More\" Link",
+    "name": "readmore_link",
+    "id": "readmore_link",
+    "type": "link",
+    "supported_types": ["CONTENT", "EXTERNAL", "BLOG"],
+    "show_advanced_rel_options": false,
+    "visibility": {
+      "controlling_field": "include_readmore",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "default": {
+      "url": {
+        "content_id": null,
+        "type": "CONTENT",
+        "href": ""
+      },
+      "open_in_new_tab": false
+    }
+  }
+]

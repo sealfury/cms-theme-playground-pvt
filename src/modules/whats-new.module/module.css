@@ -63,3 +63,27 @@
   padding: 2rem 0;
 }
 
+@media screen and (max-width: 767px) {
+  .whats-new__cards {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .whats-new__card {
+    width: 100%;
+  }
+
+  .whats-new__card--link {
+    font-size: 16px;
+  }
+
+  .whats-new__link {
+    font-size: 14px;
+  }
+
+  .whats-new h2 {
+    text-align: center;
+  }
+}

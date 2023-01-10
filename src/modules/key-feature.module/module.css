@@ -4,14 +4,23 @@
   justify-content: space-between;
   gap: 22px;
   margin: 0 auto;
-  width: clamp(320px, 100vw, 1260px);
+  width: clamp(365px, 100vw, 1260px);
+}
+
+@media screen and (max-width: 767px) {
+  .key-features {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    width: 100vw;
+  }
 }
 
 .key-features__header {
   margin: 0 auto;
   padding-top: 4rem;
   text-align: center;
-  width: clamp(320px, 70%, 810px);
+  width: clamp(365px, 70%, 810px);
 }
 
 .key-features__feature {
@@ -19,7 +28,15 @@
   display: flex;
   flex-direction: column;
   padding: 4rem 4px 1.5rem;
-  width: clamp(300px, 33%, 398px);
+  width: clamp(345px, 33%, 398px);
+}
+
+@media screen and (max-width: 767px) {
+  .key-features__feature {
+    margin: 0 auto;
+    min-width: calc(100vw - 16px);
+    scroll-snap-align: center;
+  }
 }
 
 .key-features__player {
