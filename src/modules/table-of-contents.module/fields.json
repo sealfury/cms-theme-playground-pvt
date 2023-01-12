@@ -44,26 +44,6 @@
     ]
   },
   {
-    "label": "E-book Root URL",
-    "name": "root_link",
-    "type": "link",
-    "required": false,
-    "locked": false,
-    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "BLOG"],
-    "show_advanced_rel_options": true,
-    "default": {
-      "url": {
-        "content_id": null,
-        "type": "CONTENT",
-        "href": ""
-      },
-      "open_in_new_tab": false,
-      "no_follow": false,
-      "sponsored": false,
-      "user_generated_content": false
-    }
-  },
-  {
     "label": "Styles",
     "name": "styles",
     "type": "group",

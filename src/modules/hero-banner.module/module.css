@@ -8,7 +8,13 @@
   margin: 0 auto;
   min-height: 406px;
   padding: 2.5rem 4rem;
-  width: calc(100vw - 5%);
+  width: clamp(375px, 100vw, 1640px);
+}
+
+@media screen and (max-width: 1440px) {
+  .hero-banner {
+    padding: 2.5rem 1rem;
+  }
 }
 
 .hero-banner__container {

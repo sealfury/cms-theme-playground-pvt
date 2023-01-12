@@ -1,5 +1,6 @@
 var chapterLinks = document.querySelectorAll('.toc-sidebar__menu--link');
-var pathLinkParam = window.location.href.split('#')[1];
+var splitPath = window.location.href.split('/');
+var pathLinkParam = splitPath.pop();
 
 var splitPath = window.location.href.split('/');
 var editorPathParams = splitPath.filter(
@@ -26,25 +27,32 @@ var rowWrapper = contentContainer.querySelectorAll(
 );
 
 if (!editorPathParams.length) {
-  rowWrapper.forEach(function (row) {
-    var anchorTag = row.querySelectorAll('a');
-    anchorTag.forEach(function (tag) {
-      if (
-        tag.getAttribute('data-hs-anchor') &&
-        tag.getAttribute('id') !== pathLinkParam
-      ) {
-        row.classList.add('inactive');
-      }
-
-      if (
-        tag.getAttribute('data-hs-anchor') &&
-        tag.getAttribute('id') == pathLinkParam
-      ) {
-        var chapterNum = pathLinkParam.replace('-', ' ');
-        var chapterHTML =
-          '<span class="manual__chapter--eyebrow">' + chapterNum + '</span>';
-        row.insertAdjacentHTML('afterbegin', chapterHTML);
-      }
-    });
-  });
+  var chapterNum = pathLinkParam.replace('-', ' ');
+  var chapterHTML =
+    '<span class="manual__chapter--eyebrow">' + chapterNum + '</span>';
+  var row = rowWrapper[0].insertAdjacentHTML('afterbegin', chapterHTML);
 }
+
+// if (!editorPathParams.length) {
+//   rowWrapper.forEach(function (row) {
+//     var anchorTag = row.querySelectorAll('a');
+//     anchorTag.forEach(function (tag) {
+//       if (
+//         tag.getAttribute('data-hs-anchor') &&
+//         tag.getAttribute('id') !== pathLinkParam
+//       ) {
+//         row.classList.add('inactive');
+//       }
+
+//       if (
+//         tag.getAttribute('data-hs-anchor') &&
+//         tag.getAttribute('id') == pathLinkParam
+//       ) {
+//         var chapterNum = pathLinkParam.replace('-', ' ');
+//         var chapterHTML =
+//           '<span class="manual__chapter--eyebrow">' + chapterNum + '</span>';
+//         row.insertAdjacentHTML('afterbegin', chapterHTML);
+//       }
+//     });
+//   });
+// }

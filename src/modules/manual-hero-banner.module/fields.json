@@ -1,8 +1,32 @@
 [
   {
+    "label": "Use Richtext Editor for Header Content?",
+    "name": "use_richtext",
+    "id": "use_richtext",
+    "type": "boolean",
+    "display": "toggle",
+    "help_text": "To control header text size, style, and color, toggle ON. For default text styles, toggle OFF.",
+    "default": false
+  },
+  {
     "label": "Header Text",
-    "name": "header",
-    "type": "richtext"
+    "name": "header_text",
+    "type": "text",
+    "visibility": {
+      "controlling_field": "use_richtext",
+      "controlling_value_regex": "false",
+      "operator": "EQUAL"
+    }
+  },
+  {
+    "label": "Header Rich Text",
+    "name": "header_richtext",
+    "type": "richtext",
+    "visibility": {
+      "controlling_field": "use_richtext",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    }
   },
   {
     "label": "Subheader Text",

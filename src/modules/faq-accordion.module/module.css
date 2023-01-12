@@ -130,5 +130,6 @@
 
   .faq-container .faq-header {
     text-align: center;
+    width: 100%;
   }
 }

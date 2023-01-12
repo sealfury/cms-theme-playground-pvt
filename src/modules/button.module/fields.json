@@ -19,6 +19,26 @@
     "type": "link"
   },
   {
+    "label": "Use as anchor link?",
+    "id": "use_anchor",
+    "name": "use_anchor",
+    "type": "boolean",
+    "default": false
+  },
+  {
+    "label": "Anchor link parameters",
+    "id": "anchor",
+    "name": "anchor",
+    "type": "text",
+    "inline_help_text": "Enter ID of section to jump to. Hash (#) provided automatically",
+    "default": null,
+    "visibility": {
+      "controlling_field": "use_anchor",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    }
+  },
+  {
     "allow_new_line": false,
     "default": "Edit Text Here",
     "display_width": null,

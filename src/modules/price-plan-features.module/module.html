@@ -1,28 +1,30 @@
 {# Module variables #}
-{% set featureTierChoices = [ "team", "business", "enterprise" ] %}
+{% set featureTierChoices = [ "team", "business", "enterprise"] %}
 
 {# Module Styles #}
 {% require_css %}
+
   <style>
     {% scope_css %}
 
-    {# Apply background colour to checkmark #}
+      {# Apply background colour to checkmark #}
 
-    .tier-features__checkmark {
-      background-color: #00B9BC;
-      border-radius: 50%;
-      height: 34px;
-      padding: 8px;
-      width: 34px;
-    }
+      .tier-features__checkmark {
+        background-color: #00b9bc;
+        border-radius: 50%;
+        height: 34px;
+        padding: 8px;
+        width: 34px;
+      }
+
+      
 
     {% end_scope_css %}
   </style>
 {% end_require_css %}
 
-
 <section class="tier-features__container">
-  <table class="tier-features__table">
+  <table class="tier-features__table tier-features-desktop">
     <tr class="tier-features__column-headers">
       <th scope="col">{{ module.header }}</th>
       {% for choice in featureTierChoices %}
@@ -34,15 +36,41 @@
     <tr class="tier-features__row">
       <th scope="row">{{ feature.title }}</th>
       {% for tier in featureTierChoices %}
-        <td>
-        {% if feature.tiers is containing tier %}
+      <td>
+        {% if feature.tiers is containing(tier) %}
           <img class="tier-features__checkmark" width="{{ module.checkmark.width }}" src="{{ module.checkmark.src }}" />
         {% else %}
           <span> ~ </span>
         {% endif %}
-        </td>
+      </td>
       {% endfor %}
     </tr>
     {% endfor %}
   </table>
+
+  {% if !is_in_editor %}
+  <table class="tier-features__table tier-features-mobile">
+    {% for feature in module.feature %}
+    {% set mobileRowClass = "mobile-group-{{ loop.depth }}" %}
+    <tr class="tier-features__row header-row-{% cycle "odd","even" %}">
+      <th scope="row">{{ feature.title }}</th>
+    </tr>
+
+      {% for tier in featureTierChoices %}
+      <tr class="features-mobile mobile-group-{{ loop.index }}">
+        <td class="features-mobile__tier">{{ tier|capitalize }}:</td>
+        <td class="features-mobile__spacer"></td>
+        <td class="features-mobile__supported">
+          {% if feature.tiers is containing(tier) %}
+            <img class="tier-features__checkmark" width="{{ module.checkmark.width }}" src="{{ module.checkmark.src }}" />
+          {% else %}
+            <span> - </span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+
+    {% endfor %}
+  </table>
+  {% endif %}
 </section>

@@ -19,6 +19,25 @@
     "default": "card"
   },
   {
+    "label": "Add custom section header?",
+    "name": "add_custom_header",
+    "id": "add_custom_header",
+    "type": "boolean",
+    "display": "toggle",
+    "default": false
+  },
+  {
+    "label": "Custom Header",
+    "name": "custom_header",
+    "type": "text",
+    "default": "",
+    "visibility": {
+      "controlling_field": "add_custom_header",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    }
+  },
+  {
     "label": "Featured image",
     "name": "featured_image",
     "id": "featured_image",

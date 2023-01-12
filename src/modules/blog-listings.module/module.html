@@ -157,7 +157,9 @@
 
 <h2 class="blog-tag-heading">
   {% set firstResult = contents|first %}
-  {% if firstResult.tag_list|length > 0 %}
+  {% if module.add_custom_header == true and module.custom_header != "" %}
+    {{ module.custom_header }}
+  {% elif module.add_custom_header == false and firstResult.tag_list|length > 0 %}
     {{ module.blog_tag_listing.subheading }}
   {% else %}
     Webinar & Event
@@ -245,12 +247,12 @@
         {% if module.description %}
           <div class="blog-index__post-summary">
             {# {{ content.widgets['hero-banner']['body']|attr("subheader") }} #}
-            {% if loop.first and module.list_type == "combo" %}
-              {% set charsToTruncate = 260 %}
-            {% elif module.list_type == "list" %}
-              {% set charsToTruncate = 260 %}
-            {% else %}
+            {% if loop.index > 1 and module.list_type == "combo" %}
               {% set charsToTruncate = 180 %}
+            {% elif module.list_type == "card" %}
+              {% set charsToTruncate = 180 %}
+            {% else %}
+              {% set charsToTruncate = 260 %}
             {% endif %}
             {% if content.post_summary %}
               {{ content.post_summary|truncatehtml(charsToTruncate, "...", false) }}

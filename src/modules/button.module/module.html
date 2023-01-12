@@ -120,12 +120,19 @@
   {% do rel.append("noopener") %}
 {% endif %}
 
+{# Sets anchor link string if values provided #}
+{% if module.use_anchor == true and module.anchor %}
+  {% set anchorLink = '#' + module.anchor %}
+{% else %}
+  {% set anchorLink = '' %}
+{% endif %}
+
 {# Button #}
 
 <div class="button-wrapper">
   <a
     class="button"
-    href="{{ href }}"
+    href="{{ href }}{{ anchorLink }}"
     {% if module.link.open_in_new_tab %}target="_blank"
     {% endif %}
     {% if rel %}rel="{{ rel|join(" ") }}"

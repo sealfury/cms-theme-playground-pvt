@@ -24,6 +24,21 @@
         {% endif %}
       }
 
+      @media screen and (max-width: 767px) {
+        .prices-section {
+          {# {% if module.translate > 20 %}
+            {% set translateVal = 17 %}
+          {% else %}
+            {% set translateVal = module.translate %}
+          {% endif %} #}
+          {% set translateVal = module.translate > 20 ? 17 : module.translate %}
+          transform: translateY(-{{ translateVal }}%);
+          {% if module.translate > 0 %}
+            margin-bottom: -{{ translateVal * 5.5 }}%;
+          {% endif %}
+        }
+      }
+
       {# Add colored border to promoted price tier #}
       .price-card__card {
         background-color: #FFF;
@@ -39,6 +54,7 @@
       {% if card.promote == true %}
         .price-card__card.promoted {
           border-color: {{ module.styles.card.promo.color }};
+          margin-top: 0.5rem;
         }
       {% endif %}
       {% endfor %}
@@ -120,7 +136,7 @@
         <h4 class="price-card__tier">{{ card.tier }}</h4>
         <h2 class="price-card__price {{ "use-text" if card.use_text == true }}">
           {% if card.use_text == false %}
-            {{ currencySymbol if currency != "sek" }} {{ card.price }} <strong>{{ currencySymbol if currency == "sek" }}/month</strong>
+            {{ currencySymbol if currency != "sek" }}{{ card.price }}<strong>{{ currencySymbol if currency == "sek" }} / month</strong>
           {% else %}
             {{ card.price_info }}
           {% endif %}

@@ -14,11 +14,9 @@
     class="content-wrapper" %}
   {% end_dnd_area %}
 
-  {# Main header #}
+  {# Main header - Desktop #}
 
-  <div class="header__container content-wrapper">
-    {# Header logo column #}
-
+  <div class="header__container desktop content-wrapper">
     {# Header navigation column #}
 
     <div class="header__column">
@@ -86,6 +84,73 @@
             label="Trial CTA" %}
         </div>
       </div>
+    </div>
+  </div>
+
+  {# Header Navigation - Mobile #}
+
+  <div class="header__container mobile content-wrapper">
+    <div class="header__navigation header__row-1">
+      {% module "site_logo"
+        path="@hubspot/logo" %}
+      <a class="header__navigation--toggle" href="#">
+        {% image "hamburger_toggle"
+          label="Hamburger Icon",
+          alt="hamburger-toggle-icon",
+          src="{{ get_asset_url('../../images/module-icons/menu-icon-black.png') }}",
+          width="32" %}
+      </a>
+    </div>
+
+    <div class="header__navigation header__row-2">
+      <div class="header__navigation header--element">
+        {% module "custom-header"
+          path="../../modules/customizable-menu" %}
+      </div>
+
+      <div class="header__navigation header--element">
+        {% module "trial-cta"
+          path="../../modules/button",
+          extra_classes="button-header",
+          label="Trial CTA" %}
+      </div>
+
+      <div class="header__navigation header-top-row">
+        {% module "simple_dropdown"
+          path="../../modules/simple-dropdown",
+          menu="Header Top Menu",
+          extra_classes="header-top-menu",
+          label="Header Top Menu" %}
+      </div>
+
+      {% require_js %}
+        <script>
+          var languageSwitcher = document.querySelector(
+            ".header__language-switcher"
+          );
+          languageSwitcher.addEventListener("click", function () {
+            if (this.classList.contains("open")) {
+              this.classList.remove("open");
+            } else {
+              this.classList.add("open");
+            }
+          });
+        </script>
+      {% end_require_js %}
+
+      {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
+        <div class="header__language-switcher header--element">
+          <div class="header__language-switcher--label">
+            {% module "language-switcher"
+              path="@hubspot/language_switcher",
+              label="Language switcher",
+              display_mode="localized" %}
+            <div class="header__language-switcher--label-current {{ locale_name(locale)|split(" ")|first|lower }}">
+              {{ locale_name(locale)|split(" ")|first }}
+            </div>
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
 </header>

@@ -108,7 +108,11 @@
     {% if module.eyebrow != "" %}
       <span class="hero-banner__eyebrow">{{ module.eyebrow }}</span>
     {% endif %}
-    <h1 class="hero-banner__header">{{ module.header }}</h1>
+    {% if module.use_richtext == false %}
+      <h1 class="hero-banner__header">{{ module.header_text }}</h1>
+    {% else %}
+      {{ module.header_richtext }}
+    {% endif %}
     <p class="hero-banner__subheader">{{ module.subheader }}</p>
     {% set form = module.form %}
     {% form

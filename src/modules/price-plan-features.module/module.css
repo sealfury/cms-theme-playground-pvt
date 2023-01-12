@@ -1,10 +1,11 @@
 .tier-features__container {
   margin: 2.5rem auto;
-  width: clamp(320px, 100vw, 1240px);
+  width: clamp(375px, 100vw, 1240px);
 }
 
 .tier-features__table {
   border: none;
+  display: table;
   height: fit-content;
   margin: 0 auto;
   padding: 0;
@@ -64,4 +65,100 @@
 .tier-features__row td > span {
   font-size: 20px;
   font-weight: 700;
+}
+
+/* Changes to layout for mobile & tablet */
+
+@media screen and (max-width: 767px) {
+  .tier-features__table.tier-features-desktop {
+    display: none;
+  }
+
+  .tier-features__table.tier-features-mobile {
+    display: block;
+  }
+
+  .tier-features__table tr:nth-child(even) {
+    background-color: initial;
+  }
+
+  .tier-features__table.tier-features-mobile {
+    padding: 2rem 1rem;
+  }
+
+  .tier-features__table.tier-features-mobile tbody {
+    width: 100%;
+  }
+
+  .tier-features__table th[scope="row"] {
+    font-size: 16px;
+    padding: 1rem 1rem 0.75rem;
+  }
+
+  .tier-features__table td {
+    padding: 0;
+    text-align: start;
+    width: unset;
+  }
+
+  .tier-features__table th:first-child {
+    width: 100%;
+  }
+
+  .tier-features__checkmark {
+    scale: 70%;
+  }
+
+  .tier-features-mobile .tier-features__row {
+    border-bottom: none;
+    border-top: 1px solid #DFE4E9;
+  }
+
+  .features-mobile {
+    align-items: center;
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  .features-mobile__tier {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .tier-features__table tr.mobile-group-1 {
+    border: none;
+  }
+
+  .tier-features__table tr.mobile-group-2 {
+    border: none;
+  }
+  
+  .tier-features__table tr.mobile-group-3 {
+    padding-bottom: 1.5rem;
+  }
+
+  .tier-features-mobile .features-mobile.mobile-group-3 {
+    border-top: none;
+    border-bottom: 1px solid #DFE4E9;
+  }
+
+  .tier-features__table td.features-mobile__spacer {
+    border-bottom: 1px solid #DFE4E9;
+    padding-top: 1rem;
+    width: 100%;
+  }
+
+  .tier-features__table td.features-mobile__supported:has(span) {
+    padding: 1rem 0;
+  }
+
+  .tier-features-mobile tr:nth-child(8n + 5),
+  .tier-features-mobile tr:nth-child(8n + 6),
+  .tier-features-mobile tr:nth-child(8n + 7),
+  .tier-features-mobile tr:nth-child(8n + 8) {
+    background-color: #F0F5FA;
+  }
 }

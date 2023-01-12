@@ -100,11 +100,13 @@
 
 .blog-index__post--combo:nth-child(n + 2) .blog-index__post-content {
   height: 226px;
+  object-fit: contain;
   width: calc(100% - 180px);
 }
 
 .blog-index__post--combo:nth-child(n + 2) .blog-index__post-image {
   height: 226px;
+  object-fit: contain;
   width: 180px;
 }
 

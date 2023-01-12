@@ -1,17 +1,17 @@
 <!-- module html  -->
-{% set pathChapter = request.path|split("#")|last %}
+{% set pathChapter = request.path|split("/")|last %}
 
 <div class="toc-sidebar__wrapper">
   <ul class="toc-sidebar__menu">
     {% for item in module.toc_menu %}
-    {% set sanitizedParams = item.linkParams|split("#")|last %}
+    {% set sanitizedParams = item.url|split("/")|last %}
     <li class="toc-sidebar__menu--item {{ "active-page" if pathChapter == sanitizedParams }}">
-      <a 
-        class="toc-sidebar__menu--link {{ "active-page" if pathChapter == sanitizedParams }}" 
-        href="{{ item.url }}{{ item.linkParams }}"
-        data-link-params="{{ sanitizedParams }}" 
-        target="_self"
-      >{{ item.linkLabel }}</a>
+      <a
+        class="toc-sidebar__menu--link {{ "active-page" if pathChapter == sanitizedParams }}"
+        href="{{ item.url }}{{ not item.linkParams ? "" : item.linkParams }}"
+        data-link-params="{{ sanitizedParams }}"
+        >{{ item.linkLabel }}</a
+      >
     </li>
     {% endfor %}
   </ul>
