@@ -1,0 +1,38 @@
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Hide Entire Element If No Media Selected #}
+
+      {% if module.media_type == "none" %}
+        .blog-media__container {
+          display: none;
+        }
+      {% else %}
+        .blog-media__container {
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          padding: 2rem;
+          width: 100%;
+        }
+      {% endif %}
+
+      .blog-media__image {
+        object-fit: contain;
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+<div class="blog-media__container">
+  {% if module.media_type == "image" and module.image.src != "" %}
+    {% set sizeAttrs = "width=\"{{ module.image.width }}\" height=\"{{ module.image.height }}\"" %}
+    {% set loadingAttr = module.loading != "disabled" ? "loading=\"{{ module.image.loading }}\"" : "" %}
+    <img src="{{ module.image.src }}" alt="{{ module.image.alt ? module.image.alt : "blog-post-content-image-alt" }}" class="blog-media__image" {{ sizeAttrs }} {{ loadingAttr }} />
+  {% elif module.media_type == "video" and module.video_player_id %}
+    {% video_player
+      player_id="{{ module.video.player_id }}" %}
+  {% endif %}
+</div>

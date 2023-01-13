@@ -1,0 +1,73 @@
+[
+  {
+    "label": "Type of media to include",
+    "name": "media_type",
+    "id": "media_type",
+    "type": "choice",
+    "display": "radio",
+    "choices": [
+      ["none", "None"],
+      ["image", "Image"],
+      ["video", "Video"]
+    ],
+    "default": "none"
+  },
+  {
+    "label": "Image",
+    "name": "image",
+    "type": "image",
+    "required": false,
+    "locked": false,
+    "responsive": true,
+    "resizable": true,
+    "show_loading": false,
+    "default": {
+      "size_type": "exact",
+      "src": "",
+      "alt": "image-alt-text",
+      "loading": "lazy",
+      "width": 1000,
+      "height": 800,
+      "max_width": 1440,
+      "max_height": 1440
+    },
+    "visibility": {
+      "controlling_field": "media_type",
+      "controlling_value_regex": "image",
+      "operator": "EQUAL"
+    }
+  },
+  {
+    "label": "Video",
+    "name": "video",
+    "type": "videoplayer",
+    "required": false,
+    "locked": false,
+    "show_advanced_options": true,
+    "default": {
+      "player_id": null,
+      "height": 1224,
+      "width": 1872,
+      "loop_video": false,
+      "mute_by_default": true,
+      "autoplay": false,
+      "hide_control": false
+    },
+    "visibility_rules": "ADVANCED",
+    "advanced_visibility": {
+      "boolean_operator": "AND",
+      "criteria": [
+        {
+          "controlling_field": "media_type",
+          "controlling_value_regex": "image",
+          "operator": "NOT_EQUAL"
+        },
+        {
+          "controlling_field": "media_type",
+          "controlling_value_regex": "video",
+          "operator": "EQUAL"
+        }
+      ]
+    }
+  }
+]

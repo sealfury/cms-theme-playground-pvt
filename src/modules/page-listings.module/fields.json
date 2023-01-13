@@ -1,0 +1,98 @@
+[
+  {
+    "label": "Section Header",
+    "name": "header",
+    "type": "text",
+    "default": "Page Category"
+  },
+  {
+    "label": "Pages To Feature",
+    "name": "pages",
+    "id": "pages",
+    "type": "group",
+    "occurrence": {
+      "min": null,
+      "max": null,
+      "default": 3
+    },
+    "children": [
+      {
+        "label": "Card Type",
+        "name": "card_type",
+        "id": "pages.card_type",
+        "type": "choice",
+        "choices": [
+          ["small", "Small"],
+          ["large", "Large"]
+        ],
+        "default": "small",
+        "inline_help_text": "Small cards have 48% width of container, large have 100%."
+      },
+      {
+        "label": "Page",
+        "name": "page",
+        "id": "pages.page",
+        "type": "page",
+        "placeholder": "Place to pull from",
+        "help_text": "Pulls data from the selected page.",
+        "default": null
+      },
+      {
+        "label": "Page Tag",
+        "name": "tag",
+        "id": "pages.tag",
+        "type": "text",
+        "required": false,
+        "locked": false,
+        "inline_help_text": "Provide a 'tag' for the page, as with blog tags",
+        "default": null
+      },
+      {
+        "label": "Page Feature Description",
+        "name": "description",
+        "id": "pages.description",
+        "type": "richtext",
+        "default": "<p>A description of a page, truncated at 180 chars for small and 240 for large</p>",
+        "inline_help_text": "Provide page description in the style of blog post summary"
+      },
+      {
+        "label": "Override feature image?",
+        "name": "override_feature_image",
+        "id": "pages.override_feature_image",
+        "type": "boolean",
+        "display": "toggle",
+        "default": false
+      },
+      {
+        "label": "New Image",
+        "name": "new_image",
+        "id": "pages.new_image",
+        "type": "image",
+        "visibility": {
+          "controlling_field": "pages.override_feature_image",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "required": false,
+        "locked": false,
+        "show_loading": false,
+        "default": {
+          "size_type": "exact",
+          "src": "",
+          "alt": "image-alt-text",
+          "width": 180,
+          "height": 226,
+          "max_width": 285,
+          "max_height": 304
+        }
+      },
+      {
+        "label": "Read More Link Text",
+        "name": "link_text",
+        "id": "pages.link_text",
+        "type": "text",
+        "default": "Read more"
+      }
+    ]
+  }
+]

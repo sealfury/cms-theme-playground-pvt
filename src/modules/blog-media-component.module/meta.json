@@ -1,0 +1,14 @@
+{
+  "label": "Blog Media Component",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "help_text": "",
+  "host_template_types": ["BLOG_POST", "BLOG_LISTING", "PAGE"],
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": [],
+  "is_available_for_new_content": true,
+  "icon": "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/module-identifiers/temp-seal-module-icon.svg"
+}
