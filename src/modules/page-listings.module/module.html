@@ -1,0 +1,48 @@
+<!-- module html  -->
+
+<h2 class="blog-tag-heading">
+  {{ module.header }}
+</h2>
+
+<section class="page-index page-index__pages">
+  {% for p in module.pages %}
+  {% set page_content = content_by_id(p.page.content_id) %}
+  <article class="page-index__post" id="post-{{ loop.index }}">
+    {% unless p.override_feature_image == true %}
+      {% set imgSrc = page_content.featured_image %}
+      {% set imgAlt = page_content.featured_image_alt_text %}
+    {% endunless %}
+    {% if p.override_feature_image and p.new_image.src != "" %}
+      {% set imgSrc = p.new_image.src %}
+      {% set imgAlt = p.new_image.alt ? p.new_image.alt : "page-featured-image-alt" %}
+    {% endif %}
+    <img
+      class="page-index__post-image page-index__post-image--{{ p.card_type }}"
+      src="{{ imgSrc }}"
+      alt="{{ imgAlt }}"
+      width="{{ p.card_type == "small" ? "180" : "285" }}"
+      height="{{ p.card_type == "small" ? "226" : "304" }}"
+    />
+
+    <div class="page-index__post-content page-index__post-content--{{ p.card_type }}">
+      {% if p.tag %}
+        <div class="page-indes__post-tags">
+          <span class="page-index__post-tag">{{ p.tag }}</span>
+        </div>
+      {% endif %}
+      <h2 class="page-index__post-title--{{ p.card_type }}">
+        {{ page_content.name }}
+      </h2>
+      {% if p.description|striptags != "" or p.description|striptags != " " %}
+        <div class="page-index__post-summary">
+          {{ p.description }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="page-index__post-button-wrapper">
+      <a class="page-index__post-button" href="{{ page_content.absolute_url }}">{{ p.link_text }}</a>
+    </div>
+  </article>
+  {% endfor %}
+</section>
