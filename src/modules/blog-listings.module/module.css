@@ -53,9 +53,9 @@
 }
 
 /* display purpose only, revert after getting img assets */
-.blog-index__post:nth-of-type(2n) img {
+/* .blog-index__post:nth-of-type(2n) img {
   filter: invert(1);
-}
+} */
 
 @media screen and (min-width: 768px) {
   .blog-index__post-image-wrapper--large {
