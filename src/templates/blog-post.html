@@ -9,7 +9,7 @@
 {% block body %}
   <div class="body-container body-container--blog-post">
     {% set parentBlogNameArr = content.parentBlog.name|split(" ") %}
-    {% if parentBlogNameArr|first|lower == "ebooks" or "e-books" %}
+    {% if parentBlogNameArr|first|lower == "ebooks" or parentBlogNameArr|first|lower == "e-books" %}
       {% module "hero-banner"
         path="../modules/manual-hero-banner.module",
         header="{{ content.name }}",
@@ -27,10 +27,14 @@
         {% module "table-of-contents"
           path="../modules/table-of-contents" %}
       </div>
+      {{ parentBlogNameArr|first|lower|pprint }}
     {% else %}
 
       {# Blog post #}
       <div class="content-wrapper">
+        {% module "optional-media"
+          path="../modules/blog-media-component",
+          media_type="image" %}
         <article class="blog-post">
           <h1>{{ content.name }}</h1>
           <div class="blog-post__meta">
@@ -58,13 +62,13 @@
             </div>
           {% endif %}
         </article>
-        {% if group.allow_comments %}
+        {# {% if group.allow_comments %}
           <div class="blog-comments">
             {% module "blog_comments"
               path="@hubspot/blog_comments",
               label="Blog comments" %}
           </div>
-        {% endif %}
+        {% endif %} #}
       {% endif %}
     </div>
 
