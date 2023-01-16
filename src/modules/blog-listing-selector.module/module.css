@@ -2,6 +2,9 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+  width: clamp(345px, 100%, 1240px);
 }
 
 .blog-selector__button-wrapper {

@@ -121,7 +121,7 @@
 {% set nav_drop_down_bg_color = theme.header.menu.drop_downs.background.color %}
 {% set nav_drop_down_border = theme.header.menu.drop_downs.border.border.css %}
 
-{% set header_bg_color = theme.header.background.color %}
+{% set header_bg_color = #FFFFFF %}
 
 /* 1h. Website footer */
 
@@ -188,6 +188,12 @@ a {
   {{ anchor_font.style }};
   color: {{ anchor_font.color }};
   font-size: {{ anchor_font.size ~ anchor_font.size_unit }};
+}
+
+@media screen and (max-width: 767px) {
+  a {
+    font-size: {{ anchor_font.size|divide(1.14286) ~ anchor_font.size_unit }};
+  }
 }
 
 a:hover,

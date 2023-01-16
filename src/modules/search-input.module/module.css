@@ -1,11 +1,14 @@
 .search-field {
   border-radius: 8px;
+  margin: 0 auto;
   padding: 8px;
   position: relative;
+  width: clamp(340px, 60%, 840px);
 }
 
 .search-field form {
   background-color: unset;
+  padding: 0;
 }
 
 .search-field form input[type='text'] {

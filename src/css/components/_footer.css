@@ -204,3 +204,11 @@ footer.footer {
   margin-left: 8px;
   width: 2rem;
 }
+
+@media screen and (max-width: 767px) {
+  footer.hs-menu-wrapper.hs-menu-flow-horizontal ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+  }
+}

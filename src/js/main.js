@@ -12,6 +12,8 @@
     '.header--element, .header--toggle'
   );
   var emailGlobalUnsub = document.querySelector('input[name="globalunsub"]');
+  var header = document.querySelector('header.header');
+  var headerTopRow = header.querySelector('.header__row-1');
 
   // Functions
 
@@ -21,6 +23,17 @@
       callback();
     } else {
       document.addEventListener('DOMContentLoaded', callback);
+    }
+  }
+
+  // Function to toggle scroll class in header
+  function toggleScrollClass() {
+    if (document.body.scrollTop > 72) {
+      header.classList.add('scroll');
+    }
+
+    if (document.body.scrollTop < 68) {
+      header.classList.remove('scroll');
     }
   }
 
@@ -88,11 +101,11 @@
   }
 
   // Function to add focus ring if user is navigating with keyboard
-  function handleFirstTab (e) {
+  function handleFirstTab(e) {
     if (e.keyCode === 9) {
       document.body.classList.add('is-tabbing');
       window.removeEventListener('keydown', handleFirstTab);
-    } 
+    }
   }
 
   // Execute JavaScript on document ready
@@ -127,6 +140,9 @@
 
       // Add keydown listener
       window.addEventListener('keydown', handleFirstTab);
+
+      // Add scroll event listener for header transform
+      window.addEventListener('scroll', toggleScrollClass);
     }
   });
 })();

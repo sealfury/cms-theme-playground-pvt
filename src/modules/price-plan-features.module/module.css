@@ -5,12 +5,19 @@
 
 .tier-features__table {
   border: none;
-  display: table;
   height: fit-content;
   margin: 0 auto;
   padding: 0;
   table-layout: fixed;
   width: 100%;
+}
+
+.tier-features__table.tier-features-desktop {
+  display: table;
+}
+
+.tier-features__table.tier-features-mobile {
+  display: none;
 }
 
 .tier-features__table th {

@@ -1,7 +1,7 @@
 <!--
   templateType: search_results_page
   isAvailableForNewContent: true
-  label: Boilerplate - search results
+  label: Search Results
   screenshotPath: ../../images/template-previews/search-results.png
 -->
 {% set template_css = "../../css/templates/system.css" %}
@@ -20,7 +20,9 @@
         {% end_module_attribute %}
       {% end_module_block %}
       {% module "search_results"
-        path="@hubspot/search_results" %}
+        path="@hubspot/search_results",
+        display_featured_images="true",
+        extra_classes="custom-search-results" %}
     </div>
   </section>
 {% endblock body %}

@@ -79,6 +79,24 @@
   padding-top: 0.7rem;
 }
 
+/* Custom Search Results Page */
+.custom-search-results ul {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.custom-search-results ul > li {
+  display: flex;
+  gap: 0;
+}
+
+.custom-search-results img {
+  height: 285px;
+  width: 23%;
+}
+
 /* Password prompt */
 
 .password-prompt input[type=password] {

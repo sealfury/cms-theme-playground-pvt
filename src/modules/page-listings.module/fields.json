@@ -6,6 +6,13 @@
     "default": "Page Category"
   },
   {
+    "label": "Use Vertical Card Orientation?",
+    "name": "use_vertical",
+    "type": "boolean",
+    "display": "toggle",
+    "default": false
+  },
+  {
     "label": "Pages To Feature",
     "name": "pages",
     "id": "pages",

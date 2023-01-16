@@ -81,7 +81,7 @@
 
 .blog-related-posts__image {
   height: 226px;
-  object-fit: contain;
+  object-fit: cover;
   width: 180px;
 }
 
