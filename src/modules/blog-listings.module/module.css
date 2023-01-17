@@ -9,11 +9,34 @@
   padding: 0 1rem 2rem;
 }
 
+.blog-index__post-link {
+  display: block;
+  height: 95%;
+  opacity: 0;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.blog-index__post:hover .blog-index__post-button {
+  background-color: transparent;
+  border-color: #00B9BC;
+  color: #396D78;
+  filter: brightness(0.9);
+}
+
 .blog-index__post {
   align-items: center;
   display: flex;
   flex: 0 0 100%;
   padding: 1rem 0;
+  position: relative;
+}
+
+.blog-index__post:hover {
+  filter: brightness(1.05);
 }
 
 /* Need to change to slideshow view */

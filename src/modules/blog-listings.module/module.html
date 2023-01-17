@@ -179,6 +179,7 @@
       aria-label="Blog post summary: {{ content.name }}"
       id="post-{{ loop.index }}"
     >
+    <a class="blog-index__post-link" href="{{ content.absolute_url }}"></a>
       {# Featured image #}
 
       {% if content.featured_image and module.featured_image %}

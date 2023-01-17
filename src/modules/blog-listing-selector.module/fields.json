@@ -87,7 +87,7 @@
     "locked": false,
     "name": "blog_selector_buttons",
     "occurrence": {
-      "max": 5,
+      "max": null,
       "default": 5
     },
     "required": false,

@@ -4,19 +4,31 @@
     {% scope_css %}
 
       {% set inputIcon = "../../images/module-icons/search-icon-black.png" %}
+      {% set linkIcon = "../../images/module-icons/arrow-right-teal.png" %}
 
       {# Seach bar #}
       .search-field__input--icon::before {
         content: "";
         background: url("{{ get_asset_url(inputIcon) }}") no-repeat;
         height: 40px;
-        left: 91%;
+        left: 87.5%;
         padding: 1%;
         position: absolute;
         top: 29%;
         transform: scale(1.15);
         width: 40px;
         z-index: 99;
+      }
+
+      {# Search Result List Item #}
+      .search-field__suggestions li > a:after {
+        background: url("{{ get_asset_url(linkIcon) }}") no-repeat;
+        content: '';
+        display: inline-block;
+        filter: brightness(1.6);
+        height: 20px;
+        transform: translate(25%, 35%);
+        width: 26px;
       }
 
     {% end_scope_css %}

@@ -3,7 +3,12 @@
 <div class="blog-selector__container">
   {% for button in module.blog_selector_buttons %}
   {% set pageContent = blog_by_id(button.selector) %}
-  <a class="blog-selector__button-wrapper" href="{{ pageContent.absolute_url }}">
+  {% if request.path|split("/")|last == pageContent.absolute_url|split("/")|last %}
+    {% set activeClass = "active-page" %}
+  {% else %}
+    {% set activeClass = "" %}
+  {% endif %}
+  <a class="blog-selector__button-wrapper {{ activeClass }}" href="{{ pageContent.absolute_url }}">
     <img class="image blog-selector__button-image" src="{{ get_asset_url(button.button_display.icon_src) }}" alt="{{ button.button_display.icon_alt }}" />
     <img
       class="image blog-selector__button-image--hover"

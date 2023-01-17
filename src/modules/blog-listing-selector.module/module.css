@@ -49,6 +49,28 @@
   cursor: pointer;
 }
 
+.blog-selector__button-wrapper.active-page {
+  background-color: #0F1E2D;
+  border-color: #0F1E2D;
+  transition: all 0.3s ease;
+}
+
+.blog-selector__button-wrapper.active-page:hover {
+  filter: brightness(0.75) invert(0.1);
+}
+
+.blog-selector__button-wrapper.active-page p {
+  color: #FFF;
+}
+
+.blog-selector__button-wrapper.active-page .blog-selector__button-image {
+  display: none;
+}
+
+.blog-selector__button-wrapper.active-page .blog-selector__button-image--hover {
+  display: block;
+}
+
 .blog-selector__button-wrapper:hover p {
   color: #FFF;
 }
