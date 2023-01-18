@@ -150,7 +150,7 @@
           {% endfor %}
         </ul>
         <div class="price-card__button-container">
-          <a class="price-card__button">{{ card.button_text }}</a>
+          <a class="price-card__button" href="{{ card.button_link.url.href }}">{{ card.button_text }}</a>
         </div>
       </card>
     {% endfor %}

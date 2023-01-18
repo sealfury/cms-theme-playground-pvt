@@ -27,7 +27,6 @@
         {% module "table-of-contents"
           path="../modules/table-of-contents" %}
       </div>
-      {{ parentBlogNameArr|first|lower|pprint }}
     {% else %}
 
       {# Blog post #}
@@ -90,20 +89,21 @@
               class="blog-related-posts__post"
               aria-label="Blog post summary: {{ post.name }}"
             >
+              <a
+                class="blog-related-posts__post-link"
+                href="{{ post.absolute_url }}"
+                aria-label="{% if post.featured_image_alt_text %} Featured image: {{ post.featured_image_alt_text }} - {% endif %}Read full post: {{ post.name }}"
+              ></a>
               {% if post.featured_image %}
-                <a
-                  class="blog-related-posts__post-image-wrapper"
-                  href="{{ post.absolute_url }}"
-                  aria-label="{% if post.featured_image_alt_text %} Featured image: {{ post.featured_image_alt_text }} - {% endif %}Read full post: {{ post.name }}"
-                >
-                  <img
-                    class="blog-related-posts__image"
-                    src="{{ post.featured_image }}"
-                    loading="lazy"
-                    width="352"
-                    alt="{{ post.featured_image_alt_text }}"
-                  />
-                </a>
+
+                <img
+                  class="blog-related-posts__image"
+                  src="{{ post.featured_image }}"
+                  loading="lazy"
+                  width="352"
+                  alt="{{ post.featured_image_alt_text }}"
+                />
+
               {% endif %}
               <div class="blog-related-posts__content">
                 <h3 class="blog-related-posts__title">

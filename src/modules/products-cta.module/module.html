@@ -38,7 +38,7 @@
       <span>{{ cta.eyebrow }}</span>
       <h3>{{ cta.header }}</h3>
       <p>{{ cta.description }}</p>
-      {% if module.button|length >= 1 %}
+      {% if cta.button.link.url.href %}
         <a
           class="button"
           href="{{ cta.button.link.url.href }}"

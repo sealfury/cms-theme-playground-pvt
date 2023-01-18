@@ -99,13 +99,17 @@
         "default": "Start free trial"
       },
       {
-        "label": "PLACEHOLDER FOR FUTURE BUTTON FIELDS",
-        "name": "card_field_placeholder_1",
-        "type": "text",
-        "visibility": {
-          "controlling_field": "card.button_text",
-          "controlling_value_regex": "a a a a a a",
-          "operator": "EQUAL"
+        "label": "Button link",
+        "name": "button_link",
+        "id": "card.button_link",
+        "type": "link",
+        "supported_types": ["EXTERNAL", "CONTENT"],
+        "default": {
+          "url": {
+            "content_id": null,
+            "type": "CONTENT",
+            "href": ""
+          }
         }
       },
       {
