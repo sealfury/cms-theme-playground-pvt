@@ -12,7 +12,7 @@
     '.header--element, .header--toggle'
   );
   var emailGlobalUnsub = document.querySelector('input[name="globalunsub"]');
-  var header = document.querySelector('header.header');
+  var header = document.querySelector('header');
   var headerTopRow = header.querySelector('.header__row-1');
 
   // Functions
@@ -28,12 +28,15 @@
 
   // Function to toggle scroll class in header
   function toggleScrollClass() {
-    if (document.body.scrollTop > 72) {
-      header.classList.add('scroll');
-    }
+    console.log(window.scrollY);
+    if (window.innerWidth > 767) {
+      if (window.scrollY > 94) {
+        header.classList.add('scroll');
+      }
 
-    if (document.body.scrollTop < 68) {
-      header.classList.remove('scroll');
+      if (window.scrollY < 96) {
+        header.classList.remove('scroll');
+      }
     }
   }
 
@@ -114,9 +117,9 @@
       return;
     } else {
       // Function dependent on language switcher
-      if (langSwitcher) {
-        langToggle.addEventListener('click', toggleLang);
-      }
+      // if (langSwitcher) {
+      //   langToggle.addEventListener('click', toggleLang);
+      // }
 
       // Function dependent on navigation
       if (navToggle) {
@@ -142,7 +145,7 @@
       window.addEventListener('keydown', handleFirstTab);
 
       // Add scroll event listener for header transform
-      window.addEventListener('scroll', toggleScrollClass);
+      document.addEventListener('scroll', toggleScrollClass);
     }
   });
 })();

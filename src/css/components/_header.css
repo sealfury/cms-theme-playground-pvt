@@ -62,6 +62,13 @@
 }
 
 /* Header scroll behavior */
+.header.scroll {
+  background-color: #FFF;
+  position: fixed;
+  width: 100vw;
+  z-index: 9999;
+}
+
 .header.scroll .header__row-1 {
   height: 0;
   padding: 0;
@@ -74,11 +81,15 @@
 
 .header.scroll .header__row-1 > div {
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateY(-100%);
 }
 
 .header.scroll .header__row-2 {
   padding-top: 1rem;
+}
+
+.header.scroll .menu__wrapper > .logo--show-scroll {
+  display: block;
 }
 
 /* Navigation skipper */
@@ -560,7 +571,7 @@
   .header__navigation,
   .header__search,
   .header__language-switcher {
-    display: none;
+    /* display: none; */
     width: 100%;
   }
 
