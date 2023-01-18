@@ -169,12 +169,14 @@
     "responsive": true,
     "resizeable": true,
     "default": {
-      "size_type": "auto",
+      "size_type": "exact",
       "src": "",
       "alt": "maintmaster-hero-logo-image",
       "loading": "lazy",
-      "max_height": 420,
-      "max_width": 500
+      "height": null,
+      "width": 600,
+      "max_height": null,
+      "max_width": 720
     },
     "visbility_rules": "ADVANCED",
     "advanced_visibility": {

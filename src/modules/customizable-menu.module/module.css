@@ -38,6 +38,10 @@
 
 /* Menu items */
 
+.logo--show-scroll {
+  display: none;
+}
+
 .menu__item {
   position: relative;
 }

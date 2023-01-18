@@ -9,14 +9,14 @@
     {% set activeClass = "" %}
   {% endif %}
   <a class="blog-selector__button-wrapper {{ activeClass }}" href="{{ pageContent.absolute_url }}">
-    <img class="image blog-selector__button-image" src="{{ get_asset_url(button.button_display.icon_src) }}" alt="{{ button.button_display.icon_alt }}" />
+    <img class="image blog-selector__button-image" src="{{ button.button_display.icon.src }}" alt="{{ button.button_display.icon.alt }}" />
     <img
       class="image blog-selector__button-image--hover"
-      src="{{ get_asset_url(button.button_display.icon_hover_src) }}"
-      alt="{{ button.button_display.icon_alt }}"
+      src="{{ button.button_display.hover_icon.src }}"
+      alt="{{ button.button_display.hover_icon.alt }}"
     />
     <p class="blog-selector__button-text">
-      {{ button.button_display.selector_text }}
+      {{ button.button_display.text }}
     </p>
   </a>
   {% endfor %}

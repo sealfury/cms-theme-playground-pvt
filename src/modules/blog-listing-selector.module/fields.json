@@ -1,97 +1,128 @@
 [
   {
+    "label": "Blog Selector Buttons",
+    "name": "blog_selector_buttons",
+    "id": "blog_selector_buttons",
+    "type": "group",
+    "occurrence": {
+      "max": null,
+      "default": 5
+    },
     "children": [
       {
-        "default": 54820904135,
-        "display_width": null,
-        "id": "a8bf9a9c-07f9-7730-ce76-93fbb8a23147",
-        "label": "selector",
-        "locked": false,
+        "label": "Selector",
         "name": "selector",
+        "id": "blog_selector_buttons.selector",
         "placeholder": "Selector",
-        "required": false,
         "type": "blog"
       },
       {
-        "type": "group",
-        "id": "788990db-994e-936c-69dd-506fafdea5a5",
         "label": "Button Display",
+        "id": "blog_selector_buttons.button_display",
+        "name": "button_display",
+        "type": "group",
         "children": [
           {
+            "label": "Button Text",
+            "name": "text",
+            "id": "button_display.text",
             "type": "text",
-            "id": "3718c24d-eb15-6c64-431f-b8a943574921",
-            "validation_regex": "",
-            "label": "Text",
-            "name": "selector_text",
-            "default": "All",
-            "required": true
+            "default": "All"
+          },
+          {
+            "label": "Button Icon",
+            "name": "icon",
+            "id": "button_display.icon",
+            "type": "image",
+            "show_loading": false,
+            "responsive": true,
+            "resizable": true,
+            "default": {
+              "size_type": "exact",
+              "src": "",
+              "alt": "icon-alt-text",
+              "loading": "lazy"
+            }
+          },
+          {
+            "label": "Button Hover Icon",
+            "name": "hover_icon",
+            "id": "button_display.hover_icon",
+            "type": "image",
+            "show_loading": false,
+            "responsive": true,
+            "resizable": true,
+            "default": {
+              "size_type": "exact",
+              "src": "",
+              "alt": "hover-icon-alt-text",
+              "loading": "lazy"
+            }
           }
-        ],
-        "name": "button_display",
-        "default": {
-          "selector_text": "All"
-        }
+        ]
       }
     ],
     "default": [
       {
         "selector": 54820904135,
         "button_display": {
-          "selector_text": "All",
-          "icon_src": "../../images/module-icons/all-icon-black.png",
-          "icon_hover_src": "../../images/module-icons/all-icon-teal.png",
-          "icon_alt": "icon for all"
+          "text": "All",
+          "icon": {
+            "src": "../../images/module-icons/all-icon-black.png"
+          },
+          "hover_icon": {
+            "src": "../../images/module-icons/all-icon-teal.png"
+          }
         }
       },
       {
         "selector": 54820904135,
         "button_display": {
-          "selector_text": "Blog",
-          "icon_src": "../../images/module-icons/blog-icon-black.png",
-          "icon_hover_src": "../../images/module-icons/blog-icon-teal.png",
-          "icon_alt": "icon for blog"
+          "text": "Blog",
+          "icon": {
+            "src": "../../images/module-icons/blog-icon-black.png"
+          },
+          "hover_icon": {
+            "src": "../../images/module-icons/blog-icon-teal.png"
+          }
         }
       },
       {
         "selector": 54820904135,
         "button_display": {
-          "selector_text": "Webinar & event",
-          "icon_src": "../../images/module-icons/webinar-icon-black.png",
-          "icon_hover_src": "../../images/module-icons/webinar-icon-teal.png",
-          "icon_alt": "icon for webinar and event"
+          "text": "Webinar & Event",
+          "icon": {
+            "src": "../../images/module-icons/webinar-icon-black.png"
+          },
+          "hover_icon": {
+            "src": "../../images/module-icons/webinar-icon-teal.png"
+          }
         }
       },
       {
         "selector": 54820904135,
         "button_display": {
-          "selector_text": "E-book & guide",
-          "icon_src": "../../images/module-icons/book-icon-black.png",
-          "icon_hover_src": "../../images/module-icons/book-icon-teal.png",
-          "icon_alt": "icon for e-book and guide"
+          "text": "Ebooks & Guides",
+          "icon": {
+            "src": "../../images/module-icons/book-icon-black.png"
+          },
+          "hover_icon": {
+            "src": "../../images/module-icons/book-icon-teal.png"
+          }
         }
       },
       {
         "selector": 54820904135,
         "button_display": {
-          "selector_text": "Courses",
-          "icon_src": "../../images/module-icons/course-icon-black.png",
-          "icon_hover_src": "../../images/module-icons/course-icon-teal.png",
-          "icon_alt": "icon for courses"
+          "text": "Courses",
+          "icon": {
+            "src": "../../images/module-icons/course-icon-black.png"
+          },
+          "hover_icon": {
+            "src": "../../images/module-icons/course-icon-teal.png"
+          }
         }
       }
-    ],
-    "display_width": null,
-    "expanded": false,
-    "id": "blog_selector_buttons",
-    "label": "Blog selector buttons",
-    "locked": false,
-    "name": "blog_selector_buttons",
-    "occurrence": {
-      "max": null,
-      "default": 5
-    },
-    "required": false,
-    "tab": "CONTENT",
-    "type": "group"
+    ]
   }
 ]

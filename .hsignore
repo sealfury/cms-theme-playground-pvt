@@ -1,9 +1,6 @@
 **/*/cms-deploy.yaml
 hubspot.deploy
 src/templates/resources-rework.html
-src/templates/partials/header.html
-src/templates/partials/footer.html
-src/css/components/_footer.css
 
 
 src/templates/webinar-as-blog-post.html

@@ -209,13 +209,16 @@
   </div>
   <div class="hero-banner__media-section {{ module.column }}-section">
     {% if module.column == "logo" or module.column == "video" %}
-      <img src="{{ module.logo_image.src }}" class="hero-banner__logo" />
+      <img src="{{ module.logo_image.src }}" width="{{ module.logo_image.width }}" height="{{ module.logo_image.height }}" class="hero-banner__logo" />
     {% endif %}
 
     {% if module.column == "video" %}
       <div class="hero-media-player__wrapper">
         {% video_player 
-          player_id="{{ module.video.player_id }}"
+          player_id="{{ module.video.player_id }}",
+          autoplay="{{ module.video.autoplay }}",
+          hidden_controls="{{ module.video.hide_control}}",
+          loop="{{ module.video.loop_video }}"
         %}
       </div>
     {% endif %}

@@ -102,6 +102,12 @@
 <!-- module html  -->
 <nav class="menu menu--desktop">
   <ul class="menu__wrapper no-list">
+    <li class="logo--show-scroll">
+      {% image "scroll-logo"
+        label="Scroll Logo",
+        src="{{ get_asset_url('../../images/module-icons/logo-symbol-black.png') }}",
+        alt="logo-symbol-show-scroll" %}
+    </li>
     {% for item in module.top_level_item %}
     <li class="menu__item menu__item--depth-1 {{ "menu__item--has-submenu" if item.item_type == "dropdown" }} menu__item--{{ item.menu_type }}">
       {% if item.item_type == "page" %}

@@ -131,6 +131,7 @@ yarn.lock
 
 # Scratch files
 scratch.*
+*.txt
 
 # Temp image files
 *.gif
