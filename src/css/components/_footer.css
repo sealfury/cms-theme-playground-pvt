@@ -9,6 +9,8 @@ footer.footer {
   width: clamp(375px, 100vw, 1440px);
 }
 
+
+
 .footer__container:nth-child(2) {
   padding: 20px 104px 48px;
 }
@@ -210,5 +212,90 @@ footer.footer {
     flex-direction: row;
     flex-wrap: wrap;
     row-gap: 1rem;
+  }
+
+  .footer__container {
+    padding: 6% 4%;
+  }
+
+  .footer__container:nth-child(2) {
+    padding: 3% 7% 4%;
+  }
+  
+  .footer__container:nth-child(2) .row-fluid {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .footer__container:nth-child(2) .row-fluid > .span12 {
+    align-items: center !important;
+    max-width: 98% !important;
+    text-align: center !important;
+  }
+
+  .footer-menu__terms ul {
+    gap: 0.75rem;
+  }
+
+  .footer__menu--terms ul > li {
+    padding-right: 0;
+  }
+
+  #hs_menu_wrapper_footer_menu ul:first-child:not(.inputs-list) {
+    max-height: unset;
+  }
+
+  #hs_menu_wrapper_footer_menu ul:first-child > li:not(.hs-form-booleancheckbox) {
+    padding: 0;
+    width: 100%;
+  }
+
+  #hs_menu_wrapper_footer_menu .hs-menu-children-wrapper {
+    padding: 0 0.5rem;
+  }
+
+  #hs_menu_wrapper_footer_menu ul:first-child > li > a {
+    align-items: stretch;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 2px 14px;
+  }
+
+  #hs_menu_wrapper_footer_menu ul:first-child > li > a:hover {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  #hs_menu_wrapper_footer_menu ul:first-child > li > a:after {
+    background: url('{{ get_asset_url("../../images/module-icons/plus-icon-circle.png") }}');
+    content: '';
+    display: block;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  #hs_menu_wrapper_footer_menu ul:first-child > li > a.mobile-submenu-open:after {
+    background: url('{{ get_asset_url("../../images/module-icons/minus-icon-circle.png") }}');
+    content: '';
+    display: block;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  #hs_menu_wrapper_footer_menu ul:first-child > li > ul {
+    border: none;
+    display: none;
+  }
+
+  #hs_menu_wrapper_footer_menu ul:first-child > li > ul.mobile-submenu-open {
+    display: flex;
+  }
+
+  .footer__download-button .button-wrapper {
+    margin: 1.5rem 0;
+  }
+
+  .footer__download-button .button {
+    margin: 0 auto;
   }
 }

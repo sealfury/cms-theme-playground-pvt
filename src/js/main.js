@@ -28,7 +28,7 @@
 
   // Function to toggle scroll class in header
   function toggleScrollClass() {
-    console.log(window.scrollY);
+    // console.log(window.scrollY);
     if (window.innerWidth > 767) {
       if (window.scrollY > 94) {
         header.classList.add('scroll');

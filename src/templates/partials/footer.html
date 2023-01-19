@@ -11,13 +11,40 @@
       var lastItem = listItems[listItems.length - 1];
       var form = document.getElementById("hs_form_target_stay_up_to_date");
       lastItem.insertAdjacentElement("afterend", form);
+
+      var footerContainer = document.getElementById(
+        "hs_menu_wrapper_footer_menu"
+      );
+      var parentItemsMobile = footerContainer.querySelectorAll(
+        ".hs-item-has-children"
+      );
+      parentItemsMobile.forEach(function (item) {
+        var collapsible = item.querySelector("a");
+        var subMenu = collapsible.nextElementSibling;
+
+        collapsible.addEventListener("click", function () {
+          if (
+            collapsible.classList.contains("mobile-submenu-open") &&
+            subMenu.classList.contains("mobile-submenu-open")
+          ) {
+            collapsible.classList.remove("mobile-submenu-open");
+            subMenu.classList.remove("mobile-submenu-open");
+          } else {
+            collapsible.classList.add("mobile-submenu-open");
+            subMenu.classList.add("mobile-submenu-open");
+          }
+        });
+
+        {# console.log(next); #}
+      });
+      {# console.log(collapsible); #}
     </script>
   {% end_require_js %}
 
-  {% if (content.slug is string_startingwith('sv/')) or (content.slug == "sv") %}
-    {% set siteMapName = 'Footer menu SV' %}
+  {% if (content.slug is string_startingwith("sv/")) or (content.slug == "sv") %}
+    {% set siteMapName = "Footer menu SV" %}
   {% else %}
-    {% set siteMapName = 'Footer menu' %}
+    {% set siteMapName = "Footer menu" %}
   {% endif %}
   {# Menu items #}
   <div class="footer__container">
