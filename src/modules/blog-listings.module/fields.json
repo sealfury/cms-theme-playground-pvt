@@ -19,6 +19,13 @@
     "default": "card"
   },
   {
+    "label": "Show All Results?",
+    "name": "show_all",
+    "type": "boolean",
+    "display": "toggle",
+    "default": false
+  },
+  {
     "label": "Add custom section header?",
     "name": "add_custom_header",
     "id": "add_custom_header",
@@ -147,13 +154,13 @@
   },
   {
     "label": "Override Feature Image",
-    "name": "feature_image",
+    "name": "override_featured_image",
     "type": "image",
     "id": "c8487fd8-4a56-453c-17f4-64bf411fa637",
     "default": {
-      "size_type": "auto",
-      "src": "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/temp-course-bg.png",
-      "alt": "temp-course-bg",
+      "size_type": "exact",
+      "src": "",
+      "alt": "",
       "loading": "lazy",
       "width": 506,
       "height": 536,

@@ -144,6 +144,12 @@
   {% set resultsCount = 3 %}
 {% endif %}
 
+{# Show all results if toggled on #}
+
+{% if module.show_all == true %}
+  {% set resultsCount = 50 %}
+{% endif %}
+
 {# Blog author listing header #}
 
 {% if blog_author %}
@@ -169,6 +175,9 @@
 {# Blog listing #}
 <section class="blog-index">
   {% set contents = blog_recent_posts(module.blog, resultsCount) %}
+  {% if module.blog_tag_listing.filters|length > 0 %}
+    {% set contents = blog_recent_tag_posts(module.blog, module.blog_tag_listing.filters, resultsCount) %}
+  {% endif %}
   {% for content in contents %}
   {% if loop.index <= resultsCount %}
 
@@ -180,9 +189,22 @@
       id="post-{{ loop.index }}"
     >
     <a class="blog-index__post-link" href="{{ content.absolute_url }}"></a>
+      {# Override Featured Image #}
+      {% if module.featured_image == false and module.override_featured_image.src != "" %}
+        <img
+          class="blog-index__post-image blog-index__post-image--{{ list_type }}"
+          src="{{ module.override_featured_image.src }}"
+          loading="lazy"
+          alt="{{ module.override_featured_image.alt }}"
+          width="{{ list_type == "small" ? "180" : "285" }}"
+          height="{{ list_type == "small" ? "226" : "304" }}"
+        />
+      {% endif %}
+
       {# Featured image #}
 
       {% if content.featured_image and module.featured_image %}
+        
         <img
           class="blog-index__post-image blog-index__post-image--{{ list_type }}"
           src="{{ content.featured_image }}"

@@ -3,12 +3,21 @@
 <div class="blog-selector__container">
   {% for button in module.blog_selector_buttons %}
   {% set pageContent = blog_by_id(button.selector) %}
-  {% if request.path|split("/")|last == pageContent.absolute_url|split("/")|last %}
+  {% set href = pageContent.absolute_url %}
+
+  {# Include option to refine by tag #}
+  {% if button.use_tag and blog_tag_url(button.selector, button.tag) %}
+    {% set href = blog_tag_url(button.selector, button.tag) %}
+  {% endif %}
+
+  {# Add active status for button on respective blog/tag page #}
+  {% if request.path|split("/")|last == href|split("/")|last %}
     {% set activeClass = "active-page" %}
   {% else %}
     {% set activeClass = "" %}
   {% endif %}
-  <a class="blog-selector__button-wrapper {{ activeClass }}" href="{{ pageContent.absolute_url }}">
+
+  <a class="blog-selector__button-wrapper {{ activeClass }}" href="{{ href }}">
     <img class="image blog-selector__button-image" src="{{ button.button_display.icon.src }}" alt="{{ button.button_display.icon.alt }}" />
     <img
       class="image blog-selector__button-image--hover"
