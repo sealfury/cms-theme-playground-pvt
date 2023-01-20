@@ -68,7 +68,7 @@ if (menuParentItems) {
 
       // Handle toggle of submenus on click of parent item text or icon
       clickableItems.forEach(function (item) {
-        item.addEventListener('click', function () {
+        item.addEventListener('click', function (e) {
           var parentSiblings = getSiblings(this.parentNode);
 
           if (this.parentNode.classList.contains('menu__item--open')) {
@@ -110,6 +110,8 @@ if (menuParentItems) {
 
             // Toggle overlay
             overlay.classList.add('show-overlay');
+
+            e.preventDefault();
           }
         });
       });

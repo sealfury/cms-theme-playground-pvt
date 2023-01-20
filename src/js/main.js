@@ -146,6 +146,7 @@
 
       // Add scroll event listener for header transform
       document.addEventListener('scroll', toggleScrollClass);
+      document.addEventListener('DOMContentLoaded', toggleScrollClass);
     }
   });
 })();

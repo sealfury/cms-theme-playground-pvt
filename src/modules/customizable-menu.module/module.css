@@ -14,7 +14,7 @@
 
 /* Menu */
 
-.menu--desktop {
+.menu--custom {
   display: block;
 }
 
@@ -33,6 +33,14 @@
 
   .menu--mobile {
     display: block;
+  }
+
+  .menu--custom > ul.no-list {
+    flex-direction: column;
+  }
+
+  .menu__wrapper {
+    gap: 0;
   }
 }
 
@@ -107,12 +115,14 @@
 
 @media (max-width: 767px) {
   .menu__item--depth-1 {
-    border-top: 2px solid #CED4DB;
-    padding: 0;
+    border-top: 1px solid #CED4DB;
+    padding: 0.5rem 0.25rem;
+    white-space: unset;
+    width: 100%;
   }
 
   .menu__item--depth-1 > .menu__link {
-    padding: 0.35rem 1.225rem;
+    padding: 0.5rem 1rem;
   }
 
   .menu__item--depth-1 > .menu__link--active-link:after {
@@ -184,19 +194,19 @@
   transform: unset;
 }
 
-.menu__item--depth-1:nth-child(3) .menu__submenu--level-2 {
+.menu__item--depth-1:nth-child(4) .menu__submenu--level-2 {
   transform: translateX(-14%);
 }
 
-.menu__item--depth-1:nth-child(4) .menu__submenu--level-2 {
+.menu__item--depth-1:nth-child(5) .menu__submenu--level-2 {
   transform: translateX(-27%);
 }
 
-.menu__item--depth-1:nth-child(5) .menu__submenu--level-2 {
+.menu__item--depth-1:nth-child(6) .menu__submenu--level-2 {
   transform: translateX(-37%);
 }
 
-.menu__item--depth-1:nth-child(6) .menu__submenu--level-2 {
+.menu__item--depth-1:nth-child(7) .menu__submenu--level-2 {
   transform: translateX(-46%);
 }
 
@@ -375,6 +385,11 @@
 
 .menu__wrapper--level-2 > .menu__item > .menu__child-toggle {
   display: none;
+}
+
+/* Rearrange submenu position on header scroll */
+header.scroll .menu__item--open > .menu__submenu--level-2 {
+  left: -6rem;
 }
 
 /* Accounts for child toggle */

@@ -8,10 +8,11 @@
     {{ module.header }}
   </h2>
 
-  <div class="page-index__pages">
+  <div class="page-index__pages {{ "card-vertical" if module.use_vertical == true }}">
     {% for p in module.pages %}
     {% set page_content = content_by_id(p.page) %}
     <article class="page-index__post {{ "card-vertical" if module.use_vertical == true }}" id="post-{{ loop.index }}">
+      <a class="page-index__post-link" href="{{ page_content.absolute_url }}"></a>
       {% unless p.override_feature_image == true %}
         {% set imgSrc = page_content.featured_image %}
         {% set imgAlt = page_content.featured_image_alt_text %}
@@ -34,7 +35,7 @@
 
       <div class="page-index__post-content page-index__post-content--{{ "vertical" if module.use_vertical else p.card_type }}">
         {% if p.tag %}
-          <div class="page-indes__post-tags">
+          <div class="page-index__post-tags">
             <span class="page-index__post-tag">{{ p.tag }}</span>
           </div>
         {% endif %}

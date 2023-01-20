@@ -13,7 +13,12 @@
 .page-index__pages {
   display: flex;
   flex-wrap: wrap;
+  gap: 2rem;
   padding: 1.5rem 0;
+}
+
+.page-index__pages.card-vertical {
+  justify-content: center;
 }
 
 .page-index__post {
@@ -29,6 +34,8 @@
 }
 
 .page-index__post.card-vertical .page-index__post-content {
+  border-left: 1px solid #DFE4E9;;
+  border-top: none;
   padding: 1rem 1rem 1.5rem;
   width: 100%;
 }
@@ -76,12 +83,33 @@
   }
 }
 
+.page-index__post-link {
+  display: block;
+  height: 95%;
+  opacity: 0;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.page-index__post:hover .page-index__post-button {
+  background-color: transparent;
+  border-color: #00B9BC;
+  color: #396D78;
+  filter: brightness(0.9);
+}
+
 .page-index__post-content {
   border: 1px solid #DFE4E9;
   border-left: none;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  height: 100%;
+  justify-content: space-between;
+  padding: 1.5% 1%;
 }
 
 .page-index__post--small .page-index__post-content {

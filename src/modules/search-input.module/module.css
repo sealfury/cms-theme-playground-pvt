@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 8px;
   position: relative;
-  width: clamp(340px, 60%, 840px);
+  width: clamp(340px, 100%, 1000px);
 }
 
 .search-field form {
@@ -64,7 +64,7 @@
 }
 
 .search-field__suggestions li {
-  border-bottom: 1px solid #BCBEC0;
+  border-top: 1px solid #ABB0B5;
   display: block;
   margin: 0;
   padding: 3.5% 1%;
@@ -76,16 +76,17 @@
   font-weight: 600;
 }
 
-.search-field__suggestions li:hover {
-  filter: brightness(1.09);
+.search-field__suggestions li:not(#results-for):hover {
+  cursor: pointer;
+  filter: brightness(1.11);
 }
 
-.search-field__suggestions li:last-child {
+/* .search-field__suggestions li:last-child {
   border-bottom: none;
-}
+} */
 
 .search-field__suggestions #results-for {
-  border-color: #EFF3F7;
+  border-top: none;
   color: #EFF3F7;
   font-weight: 700;
 }

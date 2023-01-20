@@ -41,7 +41,8 @@
 }
 
 .header-card__small {
-  margin-right: 14px;
+  padding: 1.5rem 1rem;
+  width: calc(50% - 1rem);
 }
 
 .header-card__large {

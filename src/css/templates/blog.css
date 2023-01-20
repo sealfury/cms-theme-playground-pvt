@@ -49,6 +49,7 @@
   flex-wrap: wrap;
   margin: 0 auto;
   gap: 2rem;
+  justify-content: center;
   padding: 0 1%;
   width: clamp(360px, 100%, 1440px);
 }
@@ -57,7 +58,8 @@
   display: flex;
   flex-direction: column;
   height: clamp(324px, 100%, 390px);
-  width: 25%;
+  position: relative;
+  max-width: 22.5%;
 }
 
 @media screen and (max-width: 767px) {
@@ -90,6 +92,11 @@
   width: 100%;
 }
 
+.blog-related-posts__content h2,
+.blog-related-posts__content h3:not(.blog-related-posts__title) {
+  display: none;
+}
+
 .blog-related-posts__post-link {
   display: block;
   height: 100%;
@@ -99,6 +106,15 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 95%;
+}
+
+.blog-related-posts__post-link:hover .blog-related-posts__readmore-link,
+.blog-related-posts__image:hover .blog-related-posts__readmore-link,
+.blog-related-posts__content:hover > a {
+  background-color: transparent;
+  border-color: #00B9BC;
+  color: #396D78;
+  filter: brightness(0.9);
 }
 
 .blog-related-posts__image {

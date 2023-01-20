@@ -14,6 +14,10 @@
 
 @media (max-width: 767px) {
   .top-menu--desktop {
+    display: none;
+  }
+
+  .top-menu--mobile {
     display: block;
   }
 }
@@ -49,6 +53,13 @@
 .top-menu__item--depth-1 {
   padding: 0.25rem 1rem;
   transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 767px) {
+  .top-menu__item--depth-1 {
+    border-right: none !important;
+    border-bottom: 1px solid #DFE4E9;
+  }
 }
 
 .top-menu__item--depth-1:hover,

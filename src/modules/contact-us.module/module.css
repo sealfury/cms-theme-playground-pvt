@@ -29,6 +29,11 @@
   width: 31%;
 }
 
+.contact__form--form form > .hs-submit {
+  margin: auto;
+  padding: 1rem 2rem 0 0;
+}
+
 .contact__form--form form > .legal-consent-container {
   max-width: 200px;
 }

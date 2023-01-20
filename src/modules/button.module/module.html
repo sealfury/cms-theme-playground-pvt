@@ -10,6 +10,12 @@
         .button-wrapper {
           text-align: {{ module.styles.alignment.alignment.horizontal_align }};
         }
+
+        @media screen and (max-width: 767px) {
+          .button-wrapper {
+            text-align: center;
+          }
+        }
       {% endif %}
 
       {# Button #}
