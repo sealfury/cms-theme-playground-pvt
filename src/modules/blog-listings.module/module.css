@@ -63,11 +63,11 @@
   }
 }
 
-.blog-index__post--combo:first-of-type:nth-of-type(3n + 4) {
+.blog-index__post--combo:first-of-type {
   flex: 0 0 100%;
 }
 
-.blog-index__post--combo:nth-of-type(3n + 2):nth-of-type(3n + 3) {
+.blog-index__post--combo:nth-of-type(n + 2) {
   flex: 0 0 49%;
 }
 

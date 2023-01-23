@@ -14,7 +14,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  padding: 1.5rem 0;
+  padding: 1rem 1rem;
 }
 
 .page-index__pages.card-vertical {

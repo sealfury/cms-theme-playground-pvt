@@ -26,6 +26,30 @@
     "default": false
   },
   {
+    "label": "Show Popular Blog Posts?",
+    "name": "show_popular",
+    "type": "boolean",
+    "display": "toggle",
+    "default": false
+  },
+  {
+    "label": "Length of time filter for popular posts",
+    "name": "popular_time",
+    "type": "choice",
+    "display": "radio",
+    "choices": [
+      ["popular_past_month", "Last Month"],
+      ["popular_past_six_months", "Last 6 Months"],
+      ["popular_past_year", "Last Year"]
+    ],
+    "visibility": {
+      "controlling_field": "show_popular",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "default": null
+  },
+  {
     "label": "Add custom section header?",
     "name": "add_custom_header",
     "id": "add_custom_header",

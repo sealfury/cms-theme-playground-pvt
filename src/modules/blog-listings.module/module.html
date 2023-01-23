@@ -175,6 +175,9 @@
 {# Blog listing #}
 <section class="blog-index">
   {% set contents = blog_recent_posts(module.blog, resultsCount) %}
+  {% if module.show_popular and module.popular_time %}
+    {% set contents = blog_popular_posts(module.blog, resultsCount, module.blog_tag_listing.filters, module.popular_time) %}
+  {% endif %}
   {% if module.blog_tag_listing.filters|length > 0 %}
     {% set contents = blog_recent_tag_posts(module.blog, module.blog_tag_listing.filters, resultsCount) %}
   {% endif %}
@@ -188,7 +191,7 @@
       aria-label="Blog post summary: {{ content.name }}"
       id="post-{{ loop.index }}"
     >
-    <a class="blog-index__post-link" href="{{ content.absolute_url }}"></a>
+      <a class="blog-index__post-link" href="{{ content.absolute_url }}"></a>
       {# Override Featured Image #}
       {% if module.featured_image == false and module.override_featured_image.src != "" %}
         <img
@@ -204,7 +207,7 @@
       {# Featured image #}
 
       {% if content.featured_image and module.featured_image %}
-        
+
         <img
           class="blog-index__post-image blog-index__post-image--{{ list_type }}"
           src="{{ content.featured_image }}"
@@ -274,14 +277,14 @@
               {% if content.name|length > 40 %}
                 {% set charsToTruncate = 80 %}
               {% else %}
-              {% set charsToTruncate = 120 %}
+                {% set charsToTruncate = 120 %}
               {% endif %}
             {% endif %}
             {% if module.layout_style == "combo" and loop.index > 1 %}
               {% if content.name|length > 40 %}
                 {% set charsToTruncate = 80 %}
               {% else %}
-              {% set charsToTruncate = 120 %}
+                {% set charsToTruncate = 120 %}
               {% endif %}
             {% endif %}
             {% if content.post_summary %}
@@ -290,7 +293,7 @@
               {{ content.post_list_content|truncatehtml(charsToTruncate, "...", false) }}
             {% else %}
               <p>
-                {{ content.widgets.hero-banner.body.subheader }}
+                {{ content.widgets.hero - banner.body.subheader }}
               </p>
             {% endif %}
           </div>
