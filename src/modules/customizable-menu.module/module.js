@@ -1,7 +1,7 @@
 // Website header variables
 
 var menuParentItems = document.querySelectorAll(
-  '.menu--desktop .menu__item--has-submenu'
+  '.menu--custom .menu__item--has-submenu'
 );
 var childToggle = document.querySelectorAll(
   '.menu--mobile .menu__child-toggle'

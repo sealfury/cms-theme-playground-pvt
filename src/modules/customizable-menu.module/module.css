@@ -27,9 +27,9 @@
 }
 
 @media (max-width: 767px) {
-  .menu--desktop {
+  /* .menu--desktop {
     display: none;
-  }
+  } */
 
   .menu--mobile {
     display: block;
@@ -48,6 +48,12 @@
 
 .logo--show-scroll {
   display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .logo--show-scroll {
+    display: none;
+  }
 }
 
 .menu__item {

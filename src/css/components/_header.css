@@ -102,6 +102,12 @@
   display: block;
 }
 
+@media screen and (max-width: 767px) {
+  .header.scroll .menu__wrapper > .logo--show-scroll {
+    display: none;
+  }
+}
+
 /* Navigation skipper */
 
 .header__skip {
@@ -593,6 +599,14 @@
     width: 100%;
   }
 
+  .header__row-2 {
+    display: none;
+  }
+
+  .header__row-2.open {
+    display: block;
+  }
+
   .header__navigation.open,
   .header__search.open,
   .header__language-switcher.open {
@@ -624,9 +638,7 @@
   .header__navigation--toggle.open,
   .header__search--toggle.open,
   .header__language-switcher--toggle.open {
-    display: block;
-    margin-left: 0;
-    margin-right: auto;
+    display: none;
   }
 
   .header__navigation--toggle:after,

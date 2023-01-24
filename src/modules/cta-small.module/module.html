@@ -48,8 +48,8 @@
 {% end_require_css %}
 
 {% if module.mode is equalto("light") %}
-  {% set heading = "Free trial <strong>for 30 days</strong>" %}
-  {% set description = "No obligations, no credit card" %}
+  {% set heading = "Free trial <strong>for 30 days</strong>" if not module.heading|length else module.heading %}
+  {% set description = "No obligations, no credit card" if not module.description|length else module.description %}
   {% set button_text = "Get started" %}
 {% elif module.mode is equalto("dark") %}
   {% set heading = "Book <strong>a demo</strong>" %}

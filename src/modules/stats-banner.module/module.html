@@ -12,7 +12,7 @@
 
       {# Add fallback image src #}
       {% if not module.background_image.src %}
-        {% set backgroundImageSrc = "../../images/stock-banner-image-stats.png" %}
+        {% set backgroundImageSrc = get_asset_url("../../images/stock-banner-image-stats.png") %}
       {% else %}
         {% set backgroundImageSrc = module.background_image.src %}
       {% endif %}
@@ -20,7 +20,8 @@
       {# Dynamically set module background #}
       {% if module.background_type == "image" %}
         .stats-banner__wrapper {
-          background: url({{ get_asset_url(backgroundImageSrc) }});
+          background: url({{ backgroundImageSrc }}) no-repeat;
+          background-size: cover;
           border-radius: 4px;
           margin: 0 auto;
         }

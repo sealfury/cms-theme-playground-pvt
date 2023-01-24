@@ -36,10 +36,10 @@
             label="Header Top Menu" %}
         </div>
 
-        {% require_js %}
+        {# {% require_js %}
           <script>
             var languageSwitcher = document.querySelector(
-              ".header__language-switcher"
+              ".header__language-switcher--label-current"
             );
             languageSwitcher.addEventListener("click", function () {
               if (this.classList.contains("open")) {
@@ -49,11 +49,11 @@
               }
             });
           </script>
-        {% end_require_js %}
+        {% end_require_js %} #}
 
-        {# {% if content.translated_content|length or is_listing_view and group.translations %}
+        {% if content.translated_content|length or is_listing_view and group.translations %}
           <div class="header--toggle header__language-switcher--toggle"></div>
-        {% endif %} #}
+        {% endif %}
         {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
           <div class="header__language-switcher header--element">
             <div class="header__language-switcher--label">
@@ -89,6 +89,14 @@
 
   {# Header Navigation - Mobile #}
 
+  {% require_css %}
+    <style>
+    .hs-tools-menu {
+      display: none;
+    }
+    </style>
+  {% end_require_css %}
+
   <div class="header__container mobile content-wrapper">
     <div class="header__navigation header__row-1">
       {% module "site_logo"
@@ -100,6 +108,7 @@
           src="{{ get_asset_url('../../images/module-icons/menu-icon-black.png') }}",
           width="32" %} #}
       </a>
+      <a class="header__close--toggle"></a>
     </div>
 
     <div class="header__navigation header__row-2">
@@ -121,10 +130,19 @@
           menu="Header Top Menu",
           extra_classes="header-top-menu",
           label="Header Top Menu" %}
-          {% module "language-switcher"
+          {# {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
+        <div class="header__language-switcher header--element">
+          <div class="header__language-switcher--label">
+            {% module "language-switcher"
               path="@hubspot/language_switcher",
               label="Language switcher",
               display_mode="localized" %}
+            <div class="header__language-switcher--label-current {{ locale_name(locale)|split(" ")|first|lower }}">
+              {{ locale_name(locale)|split(" ")|first }}
+            </div>
+          </div>
+        </div>
+      {% endif %} #}
       </div>
 
       {% require_js %}

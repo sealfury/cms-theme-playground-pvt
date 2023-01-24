@@ -9,11 +9,12 @@
   var searchToggle = document.querySelector('.header__search--toggle');
   var closeToggle = document.querySelector('.header__close--toggle');
   var allElements = document.querySelectorAll(
-    '.header--element, .header--toggle'
+    '.header--element, .header__navigation--toggle'
   );
   var emailGlobalUnsub = document.querySelector('input[name="globalunsub"]');
   var header = document.querySelector('header');
-  var headerTopRow = header.querySelector('.header__row-1');
+  var mobileHeader = document.querySelector('.header__container.mobile');
+  var headerBottomRow = mobileHeader.querySelector('.header__row-2');
 
   // Functions
 
@@ -42,13 +43,14 @@
 
   // Function for toggling mobile navigation
   function toggleNav() {
-    allToggles.forEach(function (toggle) {
-      toggle.classList.toggle('hide');
-    });
+    console.log(headerBottomRow);
+    console.log(nav);
+    console.log(navToggle);
+    console.log(closeToggle);
 
     nav.classList.toggle('open');
     navToggle.classList.toggle('open');
-
+    headerBottomRow.classList.toggle('open');
     closeToggle.classList.toggle('show');
   }
 

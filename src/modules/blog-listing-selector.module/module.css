@@ -94,3 +94,17 @@
 .blog-selector__button-wrapper:active .blog-selector__button-image {
   display: none;
 }
+
+@media screen and (max-width: 767px) {
+  .blog-selector__container {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+
+  .blog-selector__button-wrapper {
+    height: 74px;
+    margin: 0;
+    width: calc(50% - 1rem);
+  }
+}

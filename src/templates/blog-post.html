@@ -109,7 +109,7 @@
                 <h3 class="blog-related-posts__title">
                   {{ post.name }}
                 </h3>
-                {{ post.post_summary|truncatehtml(180, "...", false) }}
+                {{ post.post_summary|truncatehtml(140, "...", false) }}
                 <a class="blog-related-posts__readmore-link" href="{{ post.absolute_url }}"
                   >Read More</a
                 >

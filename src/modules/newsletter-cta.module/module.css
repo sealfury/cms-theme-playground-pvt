@@ -4,7 +4,7 @@
   justify-content: space-between;
   margin: 0 auto;
   padding: 2.5rem 3rem;
-  width: clamp(320px, 100%, 1240px);
+  width: clamp(365px, 100%, 1240px);
 }
 
 .newsletter-signup__text {
@@ -48,4 +48,19 @@
 
 .newsletter-signup__form input[type='submit'] {
   border-radius: 0 4px 4px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .newsletter-signup__section {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+  }
+
+  .newsletter-signup__text {
+    padding-bottom: 1rem;
+  }
+
+  .newsletter-signup__form form {
+    flex-direction: column;
+  }
 }

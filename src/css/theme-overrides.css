@@ -121,7 +121,7 @@
 {% set nav_drop_down_bg_color = theme.header.menu.drop_downs.background.color %}
 {% set nav_drop_down_border = theme.header.menu.drop_downs.border.border.css %}
 
-{% set header_bg_color = #FFFFFF %}
+{% set header_bg_color = "#FFFFFF" %}
 
 /* 1h. Website footer */
 
@@ -143,6 +143,13 @@
 .dnd-section,
 .content-wrapper--vertical-spacing {
   padding: {{ dnd_section_padding }};
+}
+
+@media screen and (max-width: 767px) {
+  .dnd-section,
+  .content-wrapper--vertical-spacing {
+    padding: 1rem;
+  }
 }
 
 .dnd-section:first-child,
