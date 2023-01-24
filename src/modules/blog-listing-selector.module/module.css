@@ -1,10 +1,12 @@
 .blog-selector__container {
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  /* justify-content: space-between; */
   margin: 0 auto;
   padding-bottom: 4rem;
-  width: clamp(345px, 100%, 1240px);
+  width: clamp(345px, 100%, 1440px);
 }
 
 .blog-selector__button-wrapper {
@@ -16,10 +18,10 @@
   flex-direction: column;
   height: 88px;
   justify-content: center;
-  margin: 0 1.6%;
+  margin: 0;
   padding: 1%;
   transition: all 0.3s ease;
-  width: 20%;
+  width: clamp(165px, 35%, 184px);
 }
 
 .blog-selector__button-text {

@@ -178,7 +178,7 @@
   {% if module.show_popular and module.popular_time %}
     {% set contents = blog_popular_posts(module.blog, resultsCount, module.blog_tag_listing.filters, module.popular_time) %}
   {% endif %}
-  {% if module.blog_tag_listing.filters|length > 0 %}
+  {% if module.blog_tag_listing.filters %}
     {% set contents = blog_recent_tag_posts(module.blog, module.blog_tag_listing.filters, resultsCount) %}
   {% endif %}
   {% for content in contents %}

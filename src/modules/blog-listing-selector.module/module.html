@@ -4,10 +4,12 @@
   {% for button in module.blog_selector_buttons %}
   {% set pageContent = blog_by_id(button.selector) %}
   {% set href = pageContent.absolute_url %}
+  {% set extraText = "blog url" %}
 
   {# Include option to refine by tag #}
-  {% if button.use_tag and blog_tag_url(button.selector, button.tag) %}
+  {% if button.use_tag %}
     {% set href = blog_tag_url(button.selector, button.tag) %}
+    {% set extraText = "blog tag url" %}
   {% endif %}
 
   {# Add active status for button on respective blog/tag page #}
@@ -17,7 +19,7 @@
     {% set activeClass = "" %}
   {% endif %}
 
-  <a class="blog-selector__button-wrapper {{ activeClass }}" href="{{ href }}">
+  <a class="blog-selector__button-wrapper {{ activeClass }}" href="{{ href }}" data-info="{{ extraText }}">
     <img class="image blog-selector__button-image" src="{{ button.button_display.icon.src }}" alt="{{ button.button_display.icon.alt }}" />
     <img
       class="image blog-selector__button-image--hover"

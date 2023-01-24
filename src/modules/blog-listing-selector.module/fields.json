@@ -73,9 +73,9 @@
         "label": "Tag To Use",
         "name": "tag",
         "id": "blog_selector_buttons.tag",
-        "type": "text",
-        "inline_help_text": "Note: tag is case sensitive and must match tags applied to blog!",
-        "default": "",
+        "type": "tag",
+        "tag_value": "SLUG",
+        "default": null,
         "visibility": {
           "controlling_field": "blog_selector_buttons.use_tag",
           "controlling_value_regex": "true",

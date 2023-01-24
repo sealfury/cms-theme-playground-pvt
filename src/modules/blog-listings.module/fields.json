@@ -167,7 +167,9 @@
       {
         "label": "Tag Filters",
         "name": "filters",
-        "type": "text",
+        "type": "tag",
+        "tag_value": "SLUG",
+        "default": null,
         "occurrence": {
           "min": null,
           "max": 10,
