@@ -293,7 +293,7 @@
               {{ content.post_list_content|truncatehtml(charsToTruncate, "...", false) }}
             {% else %}
               <p>
-                {{ content.widgets.hero - banner.body.subheader }}
+                {{ content.widgets|string|split("subheader=")|last|split("}")|first|truncate(charsToTruncate, True, "...") }}
               </p>
             {% endif %}
           </div>
