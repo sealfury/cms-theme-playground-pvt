@@ -195,7 +195,7 @@
 .hero-banner__logo {
   display: block;
   left: 50%;
-  max-width: 600px;
+  /* max-width: 600px; */
   position: absolute;
   top: 55%;
   transform: translate(-37.5%, -40%);
