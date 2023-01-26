@@ -657,7 +657,7 @@
   .header__navigation.open,
   .header__search.open,
   .header__language-switcher.open {
-    background-color: #F8FAFC;
+    background-color: #FFFFFF;
     border-top: 1px solid #DEE2E6;
     display: block;
     left: 0;

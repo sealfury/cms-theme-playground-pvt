@@ -163,12 +163,12 @@
 
 <h2 class="blog-tag-heading">
   {% set firstResult = contents|first %}
-  {% if module.add_custom_header == true and module.custom_header != "" %}
-    {{ module.custom_header }}
-  {% elif module.add_custom_header == false and firstResult.tag_list|length > 0 %}
-    {{ module.blog_tag_listing.subheading }}
-  {% else %}
-    Webinar & Event
+    {% if module.add_custom_header == true and module.custom_header != "" %}
+      {{ module.custom_header }}
+    {% elif module.add_custom_header == false and firstResult.tag_list|length > 0 %}
+      {{ module.blog_tag_listing.subheading }}
+    {% else %}
+      {{ page_meta.html_title|split(' | ')|last }}
   {% endif %}
 </h2>
 
@@ -181,7 +181,27 @@
   {% if module.blog_tag_listing.filters %}
     {% set contents = blog_recent_tag_posts(module.blog, module.blog_tag_listing.filters, resultsCount) %}
   {% endif %}
+  {% set requestPathArr = request.path|split("/") %}
+  {% if requestPathArr is containing("tag") %}
+    {% set tagFilters = requestPathArr|last %}
+    {% set blogName = requestPathArr. %}
+    {% if locale_name(locale)|split(" ")|first|lower != "english" %}
+      {% set blogName = requestPathArr. %}
+    {% endif %}
+    {% set contents = blog_recent_tag_posts(blogName, tagFilters|capitalize, 250) %}
+  {% endif %}
+
   {% for content in contents %}
+  {% set topicList = content.topic_list %}
+  {% for topic in topicList %}
+  {% if loop.last %}
+    {% if topic.name is string_containing("&") %}
+      {% set topicName = topic.name|lower|split(" & ")|join("-") %}
+    {% else %}
+      {% set topicName = topic.name|lower|split(" ")|join("-") %}
+    {% endif %}
+  {% endif %}
+  {% endfor %}
   {% if loop.index <= resultsCount %}
 
     {# Blog listing article #}

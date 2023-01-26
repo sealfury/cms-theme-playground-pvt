@@ -208,3 +208,11 @@
 .customer-stories__container .blog-post__meta {
   display: none;
 }
+
+.customer-stories__container .logo-box__logo {
+  align-self: center;
+}
+
+.customer-stories__container .logo-box__text {
+  text-align: unset;
+}

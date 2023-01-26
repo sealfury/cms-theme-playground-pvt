@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  /* justify-content: space-between; */
+  justify-content: center;
   margin: 0 auto;
   padding-bottom: 4rem;
   width: clamp(345px, 100%, 1440px);
@@ -31,6 +31,7 @@
   line-height: 26px;
   margin: 0;
   padding: 7% 0 0;
+  text-align: center;
 }
 
 .image {

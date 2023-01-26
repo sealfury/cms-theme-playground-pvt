@@ -1,6 +1,6 @@
 // Menu variables
 var parentMenuItems = document.querySelectorAll(
-  '.top-menu--desktop .top-menu__item--has-submenu'
+  '.top-menu .top-menu__item--has-submenu'
 );
 var menuChildToggle = document.querySelectorAll(
   '.top-menu--mobile .top-menu__child-toggle'

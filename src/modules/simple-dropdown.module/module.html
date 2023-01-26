@@ -11,8 +11,14 @@
         {{ module.styles.border.border.css }}
       }
 
-      .top-menu__item--depth-1 .top-menu__link {
-        color: {{ module.styles.text.color.color }};
+      @media (min-width: 767px) {
+        .top-menu__item--depth-1 .top-menu__link {
+          color: {{ module.styles.text.color.color }};
+        }
+
+        .top-menu__item--open .top-menu__link {
+          color: {{ module.styles.hover.color.color }};
+        }
       }
 
       .top-menu__item--depth-1 > a {
@@ -38,10 +44,6 @@
         background: url({{ get_asset_url(hoverCheveronPath) }}) no-repeat;
       }
 
-      .top-menu__item--open .top-menu__link {
-        color: {{ module.styles.hover.color.color }};
-      }
-
       .top-menu__item--open:hover .top-menu__link--toggle,
       .top-menu__item--open:hover .top-menu__link--toggle {
         color: #202225;
@@ -60,37 +62,40 @@
 
     {# Menu items - submenus #}
 
-    .top-menu .top-menu__submenu {
-      {{ module.styles.dropdowns.border.border.css }}
-      {% if module.styles.dropdowns.background.color.color %}
-        background-color: rgba({{ module.styles.dropdowns.background.color.color|convert_rgb }}, {{ module.styles.dropdowns.background.color.opacity / 100 }});
-      {% endif %}
-    }
-
     @media (min-width: 767px) {
-    .top-menu__submenu--level-2::before {
-      {{ module.styles.dropdown.border.border.bottom.css }}
-      {{ module.styles.dropdown.border.border.left.css }}
-      {% if module.styles.dropdowns.background.color.color %}
-        background-color: rgba({{ module.styles.dropdowns.background.color.color|convert_rgb }}, {{ module.styles.dropdowns.background.color.opacity / 100 }});
-      {% endif %}
+      .top-menu .top-menu__submenu {
+        {{ module.styles.dropdowns.border.border.css }}
+        {% if module.styles.dropdowns.background.color.color %}
+          background-color: rgba({{ module.styles.dropdowns.background.color.color|convert_rgb }}, {{ module.styles.dropdowns.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .top-menu__submenu--level-2::before {
+        {{ module.styles.dropdown.border.border.bottom.css }}
+        {{ module.styles.dropdown.border.border.left.css }}
+        {% if module.styles.dropdowns.background.color.color %}
+          background-color: rgba({{ module.styles.dropdowns.background.color.color|convert_rgb }}, {{ module.styles.dropdowns.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .top-menu__submenu .top-menu__link {
+        {% if module.styles.dropdowns.background.color.color %}
+          color: rgba({{ module.styles.dropdowns.text.color.color|convert_rgb }}, {{ module.styles.dropdowns.text.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .top-menu__submenu .top-menu__link:hover,
+      .top-menu__submenu .top-menu__link:focus {
+        {% if module.styles.dropdowns.text.color.color %}
+          color: rgba({{ module.styles.dropdowns.text.color.color|convert_rgb }}, 1);
+        {% endif %}
       }
     }
 
-    .top-menu__submenu .top-menu__link {
-      {% if module.styles.dropdowns.background.color.color %}
-        color: rgba({{ module.styles.dropdowns.text.color.color|convert_rgb }}, {{ module.styles.dropdowns.text.color.opacity / 100 }});
-      {% endif %}
-    }
-
-    .top-menu__submenu .top-menu__link:hover,
-    .top-menu__submenu .top-menu__link:focus {
-      {% if module.styles.dropdowns.text.color.color %}
-        color: rgba({{ module.styles.dropdowns.text.color.color|convert_rgb }}, 1);
-      {% endif %}
-    }
+    
 
     {# Assign appropriate icons to submenu list items #}
+
     {% set basePath = "../../images/module-icons/" %}
     {# TODO: change these when you get the proper icons #}
     {% set menuIcons = ["book-icon-teal.png", "course-icon-teal.png", "all-icon-teal.png"] %}
@@ -107,9 +112,26 @@
     {% for icon in hoverIcons %}
       {% set icon = basePath ~ icon %}
 
-        .top-menu__item--depth-2:nth-child({{ loop.index }}) .top-menu__link:hover::before {
-          background: url("{{ get_asset_url(icon) }}") no-repeat;
-          filter: brightness(1.2) invert(1);
+        @media (min-with: 768px) {
+          .top-menu__item--depth-2:nth-child({{ loop.index }}) .top-menu__link:hover::before {
+            background: url("{{ get_asset_url(icon) }}") no-repeat;
+            filter: brightness(1.2) invert(1);
+          }
+        }
+    {% endfor %}
+
+    {# Change icons for use in mobile menu #}
+
+    {% set mobileMenuIcons = ["user-icon-grey.png", "course-icon-grey.png", "support-icon-grey.png"] %}
+    {% for icon in mobileMenuIcons %}
+      {% set icon = basePath ~ icon %}
+
+        @media screen and (max-width: 767px) {
+          .top-menu__item--depth-2:nth-child({{ loop.index }}) .top-menu__link::before {
+            background: url("{{ get_asset_url(icon) }}") no-repeat;
+            margin-right: 4px;
+            transform: translateY(10%);
+          }
         }
     {% endfor %}
 
