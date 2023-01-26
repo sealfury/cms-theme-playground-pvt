@@ -7,6 +7,7 @@
 
       {# Menu items - top level #}
       {% set toggleIconUrl = "../../images/module-icons/chevron-icon-black.png" %}
+      {% set mobileToggleUrl = "../../images/module-icons/arrow-right-black.png" %}
 
       .menu__child-toggle-icon {
         background: url("{{ get_asset_url(toggleIconUrl) }}") no-repeat;
@@ -15,6 +16,31 @@
         height: 16px;
         transition: all 0.2s ease;
         width: 16px;
+      }
+
+      @media screen and (max-width: 767px) {
+        .menu__child-toggle-icon {
+          background: url("{{ get_asset_url(mobileToggleUrl) }}");
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .menu__child-toggle-back-icon {
+          align-items: center;
+          display: inline-flex;
+          font-size: 14px;
+          font-weight: 600;
+          gap: 4px;
+          text-transform: uppercase;
+        }
+
+        .menu__child-toggle-back-icon::before {
+          background: url("{{ get_asset_url(mobileToggleUrl) }}");
+          content: "";
+          height: 16px;
+          transform: rotate(180deg) translate(0, 1px);
+          width: 16px;
+        }
       }
 
       {% if module.styles.text.color.color %}
@@ -150,7 +176,7 @@
                 id="hs_menu_wrapper_navigation-primary_{{ item.menu_type }}_simple_menu"
                 class="hs-menu-wrapper hs-menu-flow-horizontal"
               >
-                <ul role="menu">
+                <ul class="dropdown-links-menu" role="menu">
                   {% for link in item.help_links %}
                   <li class="hs-menu-item hs-menu-depth-1" role="none">
                     <a href="{{ link.page.url.href }}" role="menuitem">{{ link.text }}</a>
@@ -161,6 +187,16 @@
             {% endif %}
 
             <div class="menu__wrapper--level-2 {{ item.menu_type }}">
+              <button
+                class="menu__child-toggle-mobile no-button"
+                aria-expanded="false"
+              >
+                <span class="show-for-sr"
+                  >Hide Submenu for
+                  {{ item.item_name }}</span
+                >
+                <span class="menu__child-toggle-back-icon">back</span>
+              </button>
               {% for product in item.products %}
               {% set size = "large" if product.use_large is truthy else "small" %}
               {% set cards = product.large if product.use_large is truthy else product.small %}
@@ -186,6 +222,16 @@
           {% elif item.menu_type == "why" %}
             {% set dataMenuType = item.menu_type %}
             <div class="menu__wrapper--level-2">
+              <button
+                class="menu__child-toggle-mobile no-button"
+                aria-expanded="false"
+              >
+                <span class="show-for-sr"
+                  >Hide Submenu for
+                  {{ item.item_name }}</span
+                >
+                <span class="menu__child-toggle-back-icon">back</span>
+              </button>
               {% for li in item.why %}
               <li class="menu__item menu__item--depth-2">
                 <span class="menu__link menu__link--toggle"
@@ -213,6 +259,16 @@
           {% elif item.menu_type == "cases" %}
             {% set dataMenuType = item.menu_type %}
             <div class="menu__wrapper--level-2 client-{{ item.menu_type }}">
+              <button
+                class="menu__child-toggle-mobile no-button"
+                aria-expanded="false"
+              >
+                <span class="show-for-sr"
+                  >Hide Submenu for
+                  {{ item.item_name }}</span
+                >
+                <span class="menu__child-toggle-back-icon">back</span>
+              </button>
               {% for case in item.cases %}
               <li class="menu__item menu__item--depth-2 menu__item--has-submenu">
                 <span class="menu__link menu__link--toggle"
@@ -239,6 +295,16 @@
           {% elif item.menu_type == "resources" %}
             {% set dataMenuType = item.menu_type %}
             <div class="menu__wrapper--level-2">
+              <button
+                class="menu__child-toggle-mobile no-button"
+                aria-expanded="false"
+              >
+                <span class="show-for-sr"
+                  >Hide Submenu for
+                  {{ item.item_name }}</span
+                >
+                <span class="menu__child-toggle-back-icon">back</span>
+              </button>
               {% for resource in item.resources %}
               <li class="menu__item menu__item--depth-2 menu__item--has-submenu">
                 <span class="menu__link menu__link--toggle"

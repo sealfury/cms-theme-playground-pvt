@@ -99,8 +99,11 @@
 
   <div class="header__container mobile content-wrapper">
     <div class="header__navigation header__row-1">
-      {% module "site_logo"
-        path="@hubspot/logo" %}
+      {% logo "site_logo"
+        override_inherited_src=True,
+        src="{{ get_asset_url('../../images/module-icons/logo-symbol-black.png') }}",
+        width=39,
+        height=32 %}
       <a class="header__navigation--toggle" href="#">
         {# {% image "hamburger_toggle"
           label="Hamburger Icon",
@@ -114,7 +117,8 @@
     <div class="header__navigation header__row-2">
       <div class="header__navigation header--element">
         {% module "custom-header"
-          path="../../modules/customizable-menu" %}
+          path="../../modules/customizable-menu",
+          extra_classes="menu--mobile" %}
       </div>
 
       <div class="header__navigation header--element">

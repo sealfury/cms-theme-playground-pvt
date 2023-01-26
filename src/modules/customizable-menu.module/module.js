@@ -6,6 +6,9 @@ var menuParentItems = document.querySelectorAll(
 var childToggle = document.querySelectorAll(
   '.menu--mobile .menu__child-toggle'
 );
+var mobileBackToggle = document.querySelectorAll(
+  '.menu--mobile .menu__child-toggle-mobile'
+);
 var overlay = document.getElementById('overlay');
 var mainContent = document.getElementById('main-content');
 var dropdownSubmenus = document.querySelectorAll('.menu__item--depth-2');
@@ -159,10 +162,17 @@ if (productsMenuItems) {
 
 // Handles toggle of submenus
 
+if (window.innerWidth < 767) {
+  var mobileHeader = document.querySelector('.header__container.mobile');
+  var menuMobile = mobileHeader.querySelector('.menu');
+  menuMobile.classList.add('menu--mobile');
+}
+
 if (childToggle) {
   Array.prototype.forEach.call(childToggle, function (el) {
     el.addEventListener('click', function () {
       this.classList.toggle('menu__child-toggle--open');
+      this.parentNode.classList.toggle('menu__item--open');
       if (this.parentNode.classList.contains('menu__item--open')) {
         this.parentNode.classList.remove('menu__item--open');
         this.parentNode
@@ -179,6 +189,23 @@ if (childToggle) {
         this.parentNode
           .querySelector('button')
           .setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+}
+
+if (mobileBackToggle) {
+  mobileBackToggle.forEach(function (toggle) {
+    toggle.addEventListener('click', function () {
+      var parentMenuItem = toggle.parentNode.parentNode.parentNode;
+      if (parentMenuItem.classList.contains('menu__item--open')) {
+        parentMenuItem.classList.remove('menu__item--open');
+        parentMenuItem
+          .querySelector('a')
+          .setAttribute('aria-expanded', 'false');
+        parentMenuItem
+          .querySelector('button')
+          .setAttribute('aria-expanded', 'false');
       }
     });
   });

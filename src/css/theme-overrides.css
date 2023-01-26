@@ -148,7 +148,7 @@
 @media screen and (max-width: 767px) {
   .dnd-section,
   .content-wrapper--vertical-spacing {
-    padding: 1rem;
+    padding: 1rem 0;
   }
 }
 
@@ -783,4 +783,13 @@ tfoot td {
   display: block;
   opacity: 1;
   z-index: 10;  
+}
+
+@media screen and (max-width: 767px) {
+  .overlay, 
+  .show-overlay {
+    display: none;
+    height: 0;
+    width: 0;
+  }
 }

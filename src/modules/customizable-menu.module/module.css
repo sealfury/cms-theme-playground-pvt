@@ -121,14 +121,26 @@
 
 @media (max-width: 767px) {
   .menu__item--depth-1 {
-    border-top: 1px solid #CED4DB;
-    padding: 0.5rem 0.25rem;
+    border-top: 1px solid #DFE4E9;
+    padding: 10px 0;
     white-space: unset;
     width: 100%;
   }
 
+  .menu__item {
+    border-bottom: none;
+  }
+
+  .menu__item--open {
+    border-color: revert;
+  }
+
+  .menu__item--has-submenu.menu__item--products {
+    border-top: none;
+  }
+
   .menu__item--depth-1 > .menu__link {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
   }
 
   .menu__item--depth-1 > .menu__link--active-link:after {
@@ -192,6 +204,15 @@
 .hs-menu-depth-1 > a:hover {
   border-bottom: 2px solid #00B9BC;
   filter: brightness(100%);
+}
+
+@media screen and (max-width: 767px) {
+  .hs-menu-wrapper.hs-menu-flow-horizontal .dropdown-links-menu {
+    background-color: #FFF;
+    flex-direction: row;
+    justify-content: center;
+    padding-right: 5%;
+  }
 }
 
 /* Keeps the first menu item's drop down menu aligned to the left of the top level menu item */
@@ -473,12 +494,105 @@ header.scroll .menu__item--open > .menu__submenu--level-2 {
     transition: none;
   }
 
+  .menu__item, .menu__item--open {
+    border: none;
+  }
+
+  .menu__item--open > .menu__submenu--level-2 {
+    border-top: none;
+    left: 50%;
+    margin: 0 auto;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -8mm);
+    width: 100vw;
+  }
+
+  .menu__item--open > .menu__submenu--level-2:not(:has(.products)) {
+    flex-direction: column-reverse;
+  }
+
+  .menu__item--depth-1:nth-child(4) .menu__submenu--level-2 {
+    transform: translate(-50%, -38mm);
+  }
+
+  .menu__item--depth-1:nth-child(5) .menu__submenu--level-2 {
+    transform: translate(-50%, -55mm);
+  }
+
+  .menu__item--depth-1:nth-child(6) .menu__submenu--level-2 {
+    transform: translate(-50%, -71mm);
+  }
+
+  .menu__item--depth-1:nth-child(7) .menu__submenu--level-2 {
+    transform: translate(-50%, -85mm);
+  }
+
+  .menu__wrapper--level-2 {
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: flex-start;
+    width: 100% !important;
+  }
+
+  .menu__item--depth-2 {
+    flex-direction: column;
+    width: 100% !important;
+  }
+
+  .menu__submenu--level-2 .menu__item--depth-2 {
+    border: none;
+    max-width: 100%;
+  }
+
+  .menu__item--depth-2 > .menu__link {
+    font-size: 14px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .menu__item--has-submenu > .menu__link {
-    width: 70%;
+    width: 100%;
+  }
+
+  .menu__submenu--level-3 .menu__item--depth-3 {
+    border-top: none;
   }
 
   .menu__submenu--level-3 .menu__item .menu__link {
-    padding: 0.7rem 3rem;
+    padding: 4px 0;
+    width: 100%;
+  }
+
+  .dropdown-links-menu .hs-menu-depth-1 {
+    padding: 0.75rem 1rem;
+  }
+
+  .dropdown-links-menu .hs-menu-depth-1 > a {
+    border-bottom: 2px solid #00B9BC;
+    padding: 2px;
+  }
+
+  .client-cases > .menu__item--depth-2 {
+    margin-bottom: 0;
+  }
+
+  .client-cases > .menu__item--depth-2 > .menu__link {
+    border-bottom: 1px solid #BBC1C9;
+  }
+
+  .menu__item--depth-3[data-menu-type="why"] > a,
+  .menu__item--depth-3[data-menu-type="resources"] > a {
+    border: none;
+    translate: unset;
+  }
+
+  .menu__submenu--main-link {
+    border-bottom: 2px solid #00B9BC;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 0 2px;
   }
 }
 
@@ -499,6 +613,10 @@ header.scroll .menu__item--open > .menu__submenu--level-2 {
     transform: rotate(-180deg);
   }
 
+  .menu__child-toggle-mobile {
+    display: none;
+  }
+
   /* .menu__item--depth-1 > .menu__child-toggle {
     position: static;
     right: 0;
@@ -511,17 +629,19 @@ header.scroll .menu__item--open > .menu__submenu--level-2 {
 
 @media (max-width: 767px) {
   .menu__child-toggle {
-    background-position: center right 30px;
+    background-color: #F0F5FA;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: 20px;
     border: none;
+    border-radius: 100%;
     cursor: pointer;
-    height: 55px;
-    padding: 15px 0;
+    height: 32px;
+    padding: 4px;
     position: absolute;
     right: 0;
-    top: 0;
-    width: 30%;
+    top: 25%;
+    width: 32px;
   }
 
   .menu__child-toggle-icon {
@@ -538,6 +658,15 @@ header.scroll .menu__item--open > .menu__submenu--level-2 {
   .menu__item--open > .menu__child-toggle .menu__child-toggle-icon {
     transform: rotate(45deg);
     transition: transform 0.4s;
+  }
+
+  .menu__child-toggle-mobile {
+    background-color: transparent;
+    display: block;
+    margin-bottom: -2rem;
+    padding: 0.5rem 1rem 0.5rem 0;
+    position: relative;
+    width: 65%;
   }
 }
 
