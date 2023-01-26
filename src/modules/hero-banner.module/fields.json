@@ -268,7 +268,7 @@
         "show_advanced_rel_options": false,
         "occurrence": {
           "min": 2,
-          "max": 5,
+          "max": null,
           "default": 3
         },
         "children": [
