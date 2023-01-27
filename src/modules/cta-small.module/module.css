@@ -39,6 +39,11 @@
 }
 
 @media screen and (max-width: 767px) {
+  .cta-banner-section.dnd_area-row-8-padding {
+    padding-bottom: 0 !important;
+    padding-top: 1rem !important;
+  }
+
   .cta-banner-section > .row-fluid {
     align-items: center;
     flex-direction: column;

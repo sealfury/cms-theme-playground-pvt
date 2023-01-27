@@ -21,7 +21,7 @@
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  width: clamp(340px, 100%, 1440px);
+  width: clamp(345px, 100%, 1440px);
 }
 
 .hero-banner__text-section {
@@ -29,7 +29,7 @@
   flex-direction: column;
   gap: 8px;
   padding: 1rem 0 0;
-  width: clamp(320px, 57%, 705px);
+  width: clamp(340px, 100%, 705px);
 }
 
 .hero-banner__text-section h1, h2, h3 {
@@ -226,6 +226,34 @@
 
   .hero-banner__container {
     flex-direction: column;
+    padding: 1rem;
+  }
+
+  .hero-banner__subheader > p {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+
+  .hero-banner__buttons {
+    gap: 0.75rem;
+  }
+
+  .hero-banner__buttons > span {
+    padding: 0.75rem;
+  }
+
+  .hero-banner__buttons a {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .hero-banner__buttons .button--teal {
+    padding: 0.5rem 2rem;
+  }
+
+  .hero-banner__buttons .button--transparent {
+    border-color: #00B9BC;
+    margin-bottom: 2px;
   }
 
   .hero-banner__media-section {
@@ -237,9 +265,5 @@
     max-width: 100%;
     position: unset;
     transform: translate(0, 10%);
-  }
-
-  .button--teal {
-    padding: 0.5rem 1.9rem;
   }
 }
