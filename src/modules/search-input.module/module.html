@@ -11,13 +11,21 @@
         content: "";
         background: url("{{ get_asset_url(inputIcon) }}") no-repeat;
         height: 40px;
-        left: 87.5%;
+        left: 92%;
         padding: 1%;
         position: absolute;
         top: 29%;
-        transform: scale(1.15);
+        transform: scale(1.05);
         width: 40px;
         z-index: 2;
+      }
+
+      @media screen and (max-width: 767px) {
+        .search-field__input--icon::before {
+          left: 87.5%;
+          top: 22%;
+          transform: scale(0.9);
+        }
       }
 
       {# Search Result List Item #}

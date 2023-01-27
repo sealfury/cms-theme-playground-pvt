@@ -24,6 +24,10 @@
   width: 100%;
 }
 
+.search-field__bar label[for="term"] {
+  display: none;
+}
+
 .search-field__input--icon {
   padding: 16px;
   position: relative;
@@ -146,4 +150,14 @@
   position: relative;
   transform: translate(30%, 5%);
   width: 28px;
+}
+
+@media screen and (max-width: 767px) {
+  .search-field form input[type="text"] {
+    font-size: 14px;
+  }
+
+  .search-field__input--icon {
+    padding: 0.5rem 0.25rem;
+  }
 }
