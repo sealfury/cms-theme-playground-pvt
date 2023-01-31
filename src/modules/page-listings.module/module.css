@@ -17,7 +17,7 @@
   padding: 1rem 1rem;
 }
 
-.page-index__pages.card-vertical {
+.page-index__pages.card--vertical {
   justify-content: center;
 }
 
@@ -28,20 +28,20 @@
   position: relative;
 }
 
-.page-index__post.card-vertical {
+.page-index__post.card--vertical {
   display: flex;
   flex: 0 0 23%;
   flex-direction: column;
 }
 
-.page-index__post.card-vertical .page-index__post-content {
+.page-index__post.card--vertical .page-index__post-content {
   border-left: 1px solid #DFE4E9;;
   border-top: none;
   padding: 1rem 1rem 1.5rem;
   width: 100%;
 }
 
-.page-index__post.card-vertical h2 {
+.page-index__post.card--vertical h2 {
   margin-bottom: 1.5rem;
 }
 
@@ -51,7 +51,12 @@
 }
 
 @media screen and (min-width: 768px) {
-  .page-index__post--small {
+  .page-index__pages:not(:is(.card--vertical)) {
+    column-gap: 0;
+    row-gap: 1rem;
+  }
+
+  .page-index__post.card--small {
     flex: 0 0 calc(100% / 2);
   }
 
@@ -75,12 +80,12 @@
 }
 
 @media screen and (min-width: 1000px) {
-  .page-index__post--small {
-    flex: 0 0 49%;
+  .page-index__pages:not(:is(.card--vertical)) {
+    gap: 2rem;
   }
 
-  .page-index__post--small:nth-of-type(2n) {
-    margin-left: 2%;
+  .page-index__post.card--small {
+    flex: 0 0 calc(50% - 2rem);
   }
 }
 
@@ -113,8 +118,9 @@
   padding: 3% 4%;
 }
 
-.page-index__post--small .page-index__post-content {
+.page-index__post-content--small {
   height: 226px;
+  justify-content: space-evenly;
   padding: 0 1.875rem;
   width: calc(100% - 180px);
 }
@@ -196,6 +202,10 @@
 
 @media screen and (max-width: 620px) {
   .page-index {
+    padding: 0;
+  }
+
+  .page-index__pages {
     flex-wrap: nowrap;
     margin: 0 auto;
     overflow-x: scroll;
@@ -204,8 +214,20 @@
   }
 
   .page-index__post {
+    border: 1px solid #DFE4E9;
     flex-direction: column;
+    margin-right: 1rem;
     min-width: calc(100vw - 2.75rem);
     scroll-snap-align: center;
+    padding: 0;
+  }
+
+  .page-index__post-image {
+    width: 100%;
+  }
+
+  .page-index__post-content {
+    border: none;
+    width: 100% !important;
   }
 }

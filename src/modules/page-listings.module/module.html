@@ -11,13 +11,13 @@
   <div class="page-index__pages {{ "card-vertical" if module.use_vertical == true }}">
     {% for p in module.pages %}
     {% set page_content = content_by_id(p.page) %}
-    <article class="page-index__post {{ "card-vertical" if module.use_vertical == true }}" id="post-{{ loop.index }}">
+    <article class="page-index__post {{ "card--vertical" if module.use_vertical == true else "card--" ~ p.card_type }}" id="post-{{ loop.index }}">
       <a class="page-index__post-link" href="{{ page_content.absolute_url }}"></a>
-      {% if p.override_feature_image == false %}
+      {% if p.override_feature_image == false and page_content.featured_image != "" %}
         {% set imgSrc = page_content.featured_image %}
         {% set imgAlt = page_content.featured_image_alt_text %}
       {% endif %}
-      {% if p.override_feature_image == true and p.new_image.src != "" %}
+      {% if p.override_feature_image == true and p.new_image.src %}
         {% set imgSrc = p.new_image.src %}
         {% set imgAlt = p.new_image.alt ? p.new_image.alt : "page-featured-image-alt" %}
       {% endif %}
