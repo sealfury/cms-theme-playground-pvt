@@ -31,12 +31,12 @@
             {{ content.post_body }}
           </div>
           {% if content.tag_list %}
-            <div>
+            {# <div>
               {% for tag in content.tag_list %}
               <a href="{{ blog_tag_url(group.id, tag.slug) }}" rel="tag">{{ tag.name }}</a>
               {% if not loop.last %},{% endif %}
               {% endfor %}
-            </div>
+            </div> #}
           {% endif %}
         </article>
         {% module "logo-section"
