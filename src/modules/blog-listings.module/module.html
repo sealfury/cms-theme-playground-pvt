@@ -192,16 +192,18 @@
   {% endif %}
 
   {% for content in contents %}
-  {% set topicList = content.topic_list %}
-  {% for topic in topicList %}
-  {% if loop.last %}
-    {% if topic.name is string_containing("&") %}
-      {% set topicName = topic.name|lower|split(" & ")|join("-") %}
-    {% else %}
-      {% set topicName = topic.name|lower|split(" ")|join("-") %}
-    {% endif %}
-  {% endif %}
-  {% endfor %}
+
+    {% set topicList = content.topic_list %}
+    {% for topic in topicList %}
+      {% if loop.last %}
+        {% if topic.name is string_containing("&") %}
+          {% set topicName = topic.name|lower|split(" & ")|join("-") %}
+        {% else %}
+          {% set topicName = topic.name|lower|split(" ")|join("-") %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
   {% if loop.index <= resultsCount %}
 
     {# Blog listing article #}
@@ -292,7 +294,6 @@
 
         {% if module.description %}
           <div class="blog-index__post-summary" data-loop-index="post-{{ loop.index }}">
-            {# {{ content.widgets['hero-banner']['body']|attr("subheader") }} #}
             {% if module.layout_style == "card" %}
               {% if content.name|length > 40 %}
                 {% set charsToTruncate = 80 %}
