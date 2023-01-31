@@ -136,6 +136,11 @@
 {##################   2. Containers / Grid / DND areas   ###################}
 {###########################################################################}
 
+/* Hide content on mobile menu open */
+main#main-content.hide-on-open-mobile {
+  display: none;
+}
+
 .content-wrapper {
   max-width: {{ container_width }};
 }
@@ -591,6 +596,11 @@ tfoot td {
 {###########################################################################}
 {###########################   8. Website footer   #########################}
 {###########################################################################}
+
+/* Hide footer on mobile menu open */
+footer.hide-on-open-mobile {
+  display: none;
+}
 
 .footer {
   background-color: {{ footer_bg_color }};

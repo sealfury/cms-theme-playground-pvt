@@ -206,6 +206,12 @@ if (mobileBackToggle) {
         parentMenuItem
           .querySelector('button')
           .setAttribute('aria-expanded', 'false');
+      } else {
+        parentMenuItem.classList.add('menu__item--open');
+        parentMenuItem.querySelector('a').setAttribute('aria-expanded', 'true');
+        parentMenuItem
+          .querySelector('button')
+          .setAttribute('aria-expanded', 'true');
       }
     });
   });
