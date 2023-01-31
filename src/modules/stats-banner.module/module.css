@@ -81,11 +81,22 @@
 }
 
 @media screen and (max-width: 767px) {
+  .stats-banner__container {
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .stats-container--light,
+  .stats-container--image {
+    padding: 7.5% 3.2% 5%;
+  }
+
   .stats-banner__headline {
-    font-size: 20px;
-    line-height: 24px;
-    padding: 0 4px;
-    text-align: center;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 0;
+    padding: 0 0.5rem;
+    width: 100%;
   }
 
   .stats-banner__features-list {

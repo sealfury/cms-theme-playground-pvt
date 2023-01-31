@@ -40,6 +40,12 @@
         width: clamp(328px, 100vw, {{ maxWidth }});
       }
 
+      @media screen and (max-width: 767px) {
+        .stats-banner__wrapper {
+          border-radius: 0;
+        }
+      }
+
       .stats-banner__headline {
         {{ module.styles.description.text.font.css }}
       }

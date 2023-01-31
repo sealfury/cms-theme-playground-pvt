@@ -18,7 +18,7 @@
   justify-content: space-between;
   margin: 0 auto;
   padding: 3rem;
-  width: clamp(365px, 90%, 1440px);
+  width: clamp(375px, 90%, 1440px);
 }
 
 .products-cta__text-section {
@@ -65,5 +65,15 @@
   .products-cta__text-section > h3 {
     font-size: 22px;
     line-height: 30px;
+  }
+
+  .products-cta__media-section {
+    padding: 0 0.5rem 0.5rem;
+    max-width: 100%;
+  }
+
+  .products-cta__media--image {
+    object-fit: contain;
+    width: 100%;
   }
 }
