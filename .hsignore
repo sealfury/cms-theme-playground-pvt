@@ -3,3 +3,4 @@ hubspot.deploy
 src/templates/resources-rework.html
 
 src/templates/webinar-as-blog-post.html
+src/modules/key-feature-original.module

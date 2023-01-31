@@ -1,0 +1,415 @@
+[
+  {
+    "label": "Key Features",
+    "name": "key_features",
+    "id": "features",
+    "type": "group",
+    "required": false,
+    "locked": false,
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "label": "Feature",
+        "name": "feature",
+        "id": "51f63819-c828-905c-8f2d-f65f30503d57",
+        "type": "group",
+        "occurrence": {
+          "min": 3,
+          "max": 9,
+          "default": 6,
+          "sorting_label_field": "feature.feature_title"
+        },
+        "children": [
+          {
+            "label": "Image Options",
+            "name": "image_options",
+            "id": "feature.image_options",
+            "type": "group",
+            "expanded": false,
+            "required": false,
+            "locked": false,
+            "tab": "CONTENT",
+            "children": [
+              {
+                "label": "Image",
+                "name": "image",
+                "id": "feature.image_options.image",
+                "type": "image",
+                "required": false,
+                "locked": false,
+                "responsive": true,
+                "resizable": true,
+                "show_loading": true,
+                "help_text": "Supported format: .gif",
+                "default": {
+                  "loading": "lazy"
+                }
+              },
+              {
+                "label": "Auto-play",
+                "name": "autoplay",
+                "id": "feature.image_options.autoplay",
+                "type": "boolean",
+                "display": "toggle",
+                "help_text": "Toggle on to remove play button and auto-play gifs",
+                "required": false,
+                "locked": false,
+                "visibility": {
+                  "operator": "NOT_EMPTY",
+                  "controlling_field": "feature.image_options.image"
+                },
+                "default": true
+              }
+            ],
+            "default": {
+              "image": {
+                "loading": "lazy"
+              },
+              "autoplay": true
+            }
+          },
+          {
+            "label": "Feature Title",
+            "name": "feature_title",
+            "id": "feature.feature_title",
+            "type": "group",
+            "expanded": true,
+            "required": false,
+            "locked": false,
+            "tab": "CONTENT",
+            "children": [
+              {
+                "label": "Title",
+                "name": "title",
+                "id": "feature.feature_title.title",
+                "type": "text",
+                "locked": false,
+                "allow_new_line": false,
+                "show_emoji_picker": false,
+                "required": true,
+                "default": "Scheduling tool"
+              },
+              {
+                "label": "Icon",
+                "name": "icon",
+                "id": "feature.feature_title.icon",
+                "type": "image",
+                "locked": false,
+                "required": false,
+                "responsive": false,
+                "resizeable": false,
+                "show_loading": false,
+                "default": {
+                  "src": "",
+                  "alt": null,
+                  "size_type": "exact",
+                  "width": 40,
+                  "height": 40,
+                  "max_width": 40,
+                  "max_height": 40,
+                  "loading": "eager"
+                }
+              }
+            ],
+            "default": {
+              "title": "Scheduling tool",
+              "icon": {
+                "src": "",
+                "loading": "eager",
+                "width": 40,
+                "height": 40,
+                "max_width": 40,
+                "max_height": 40,
+                "size_type": "exact"
+              }
+            }
+          },
+          {
+            "label": "Feature Description",
+            "name": "feature_description",
+            "id": "feature.feature_description",
+            "type": "text",
+            "locked": false,
+            "required": false,
+            "show_emoji_picker": false,
+            "allow_new_line": true,
+            "default": "Etiam porta sem malesuada magna mollis eusimod. Aenean lacinia bibendum nilla sed consectetur. Donec ullamcorper nilla non metus auctor fringilla. Pollentesque ernare sem"
+          },
+          {
+            "label": "Read More Link",
+            "name": "feature_link",
+            "id": "feature.feature_link",
+            "type": "group",
+            "locked": false,
+            "required": false,
+            "expanded": true,
+            "tab": "CONTENT",
+            "children": [
+              {
+                "label": "Link URL",
+                "name": "url",
+                "id": "feature.feature_link.url",
+                "type": "url",
+                "supported_types": ["EXTERNAL", "CONTENT", "FILE", "BLOG"],
+                "locked": false,
+                "required": false,
+                "default": {
+                  "content_id": "54406970346",
+                  "href": "",
+                  "type": "CONTENT"
+                }
+              },
+              {
+                "label": "Link Text",
+                "name": "text",
+                "id": "feature.feature_link.text",
+                "type": "text",
+                "locked": false,
+                "required": false,
+                "allow_new_line": false,
+                "show_emoji_picker": false,
+                "default": "Read more"
+              }
+            ],
+            "default": {
+              "url": {
+                "content_id": "54406970346",
+                "href": "",
+                "type": "CONTENT"
+              },
+              "text": "Read more"
+            }
+          }
+        ],
+        "default": [
+          {
+            "feature_title": {
+              "title": "Scheduling tool",
+              "icon": {
+                "src": "../../images/module-icons/scheduling-icon-teal.png",
+                "alt": "scheduling-tool-icon",
+                "size_type": "exact",
+                "width": 40,
+                "height": 40,
+                "max_width": 40,
+                "max_height": 40,
+                "loading": "eager"
+              }
+            },
+            "image_options": {
+              "image": {
+                "loading": "lazy"
+              },
+              "autoplay": true
+            },
+            "feature_link": {
+              "url": {
+                "content_id": "54406970346",
+                "href": "",
+                "type": "CONTENT"
+              },
+              "text": "Read more"
+            },
+            "feature_description": "Etiam porta sem malesuada magna mollis eusimod. Aenean lacinia bibendum nilla sed consectetur. Donec ullamcorper nilla non metus auctor fringilla. Pollentesque ernare sem."
+          },
+          {
+            "feature_title": {
+              "title": "Picture navigation",
+              "icon": {
+                "src": "../../images/module-icons/picture-icon-teal.png",
+                "alt": "picture-navigation-icon",
+                "size_type": "exact",
+                "width": 40,
+                "height": 40,
+                "max_width": 40,
+                "max_height": 40,
+                "loading": "eager"
+              }
+            },
+            "image_options": {
+              "image": {
+                "loading": "lazy"
+              },
+              "autoplay": true
+            },
+            "feature_link": {
+              "url": {
+                "content_id": "54406970346",
+                "href": "",
+                "type": "CONTENT"
+              },
+              "text": "Read more"
+            },
+            "feature_description": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Sed posuere consectetur est at lobortis."
+          },
+          {
+            "feature_title": {
+              "title": "QR codes and voice recognition",
+              "icon": {
+                "src": "../../images/module-icons/qr-icon-teal.png",
+                "alt": "qr-codes-icon",
+                "size_type": "exact",
+                "width": 40,
+                "height": 40,
+                "max_width": 40,
+                "max_height": 40,
+                "loading": "eager"
+              }
+            },
+            "image_options": {
+              "image": {
+                "loading": "lazy"
+              },
+              "autoplay": true
+            },
+            "feature_link": {
+              "url": {
+                "content_id": "54406970346",
+                "href": "",
+                "type": "CONTENT"
+              },
+              "text": "Read more"
+            },
+            "feature_description": "Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nilla sed consectetur. Donec ullamcorper nilla non metus auctor fringilla. Pollentesque ernare sem."
+          },
+          {
+            "feature_title": {
+              "title": "Analyze with filter and trendlines",
+              "icon": {
+                "src": "../../images/module-icons/analyze-icon-teal.png",
+                "alt": "analyze-icon",
+                "size_type": "exact",
+                "width": 40,
+                "height": 40,
+                "max_width": 40,
+                "max_height": 40,
+                "loading": "eager"
+              }
+            },
+            "image_options": {
+              "image": {
+                "loading": "lazy"
+              },
+              "autoplay": true
+            },
+            "feature_link": {
+              "url": {
+                "content_id": "54406970346",
+                "href": "",
+                "type": "CONTENT"
+              },
+              "text": "Read more"
+            },
+            "feature_description": "Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus partitor. Aenean eu leo quam. Pollentesque ernare sem lacinia quam venenatis."
+          },
+          {
+            "feature_title": {
+              "title": "IT ipsum dolor",
+              "icon": {
+                "src": "../../images/module-icons/itmanager-icon-teal.png",
+                "alt": "it-manager-icon",
+                "size_type": "exact",
+                "width": 40,
+                "height": 40,
+                "max_width": 40,
+                "max_height": 40,
+                "loading": "eager"
+              }
+            },
+            "image_options": {
+              "image": {
+                "loading": "lazy"
+              },
+              "autoplay": true
+            },
+            "feature_link": {
+              "url": {
+                "content_id": "54406970346",
+                "href": "",
+                "type": "CONTENT"
+              },
+              "text": "Read more"
+            },
+            "feature_description": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Sed posuere consectetur est at lobortis."
+          },
+          {
+            "feature_title": {
+              "title": "Editor commodo cursus magna",
+              "icon": {
+                "src": "../../images/module-icons/edit-icon-teal.png",
+                "alt": "edit-icon",
+                "size_type": "exact",
+                "width": 40,
+                "height": 40,
+                "max_width": 40,
+                "max_height": 40,
+                "loading": "eager"
+              }
+            },
+            "image_options": {
+              "image": {
+                "loading": "lazy"
+              },
+              "autoplay": true
+            },
+            "feature_link": {
+              "url": {
+                "content_id": "54406970346",
+                "href": "",
+                "type": "CONTENT"
+              },
+              "text": "Read more"
+            },
+            "feature_description": "Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nilla sed consectetur. Donec ullamcorper nilla non metus auctor fringilla. Pollentesque ernare sem."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Section Header",
+    "name": "header",
+    "type": "richtext",
+    "id": "header",
+    "required": false,
+    "locked": false,
+    "default": "Key features <strong>you will enjoy</strong>"
+  },
+  {
+    "label": "Background Color",
+    "name": "background_color",
+    "id": "background_color",
+    "type": "choice",
+    "display": "radio",
+    "locked": false,
+    "multiple": false,
+    "required": false,
+    "reordering_enabled": true,
+    "choices": [
+      ["teal", "Teal"],
+      ["purple", "Purple"],
+      ["grey", "Grey"]
+    ],
+    "default": "teal"
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Player Circle Background Color",
+        "name": "circle_bg_color",
+        "type": "choice",
+        "choices": [
+          ["teal", "Teal"],
+          ["purple", "Purple"],
+          ["grey", "Grey"]
+        ],
+        "default": "teal"
+      }
+    ]
+  }
+]
