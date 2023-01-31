@@ -16,7 +16,6 @@
       {% else %}
         background: #0F1E2D;
       {% endif %}
-        padding: 3.5rem 6.5rem; 
     }
 
     {% set menuItemIconUrl = get_asset_url("../../images/module-icons/process-icon-white.png") %}
@@ -77,6 +76,9 @@
     {% else %}
       {% set arrowIconUrl = get_asset_url("../../images/module-icons/arrow-right-black.png") %}
     {% endif %}
+    {% set plusIconUrl = get_asset_url("../../images/module-icons/plus-icon-black.png") %}
+    {% set minusIconUrl = get_asset_url("../../images/module-icons/minus-icon-black.png") %}
+
       .teams-menu__menu--item span::after {
         background: url("{{ arrowIconUrl }}") no-repeat;
         content: '';
@@ -92,6 +94,21 @@
         opacity: 1;
       }
 
+      @media screen and (max-width: 767px) {
+        .teams-menu__menu--item span::after {
+          background: url("{{ plusIconUrl }}") no-repeat;
+          filter: invert(1);
+          height: 16px;
+          opacity: 1;
+          transition: unset;
+          width: 16px;
+        }
+
+        .teams-menu__menu--item.open span::after {
+          background: url("{{ minusIconUrl }}") no-repeat;
+          filter: invert(0);
+        }
+      }
 
     {% end_scope_css %}
   </style>
@@ -109,11 +126,31 @@
         <li class="teams-menu__menu--item item--{{ loop.index }}">
           <span>{{ item.category.title }}</span>
         </li>
+        <li class="cases-mobile">
+          <ul class="teams-menu__cases--mobile cases--{{ loop.index }}">
+            {% for case in item.category.cases %}
+
+              {% if case.link.url.type == "CONTENT" and case.link.url.content_id %}
+                {% set content = content_by_id(case.link.url.content_id) %}
+                {% set linkHref = content.absolute_url %}
+              {% else %}
+                {% set linkHref = case.link.url.href %}
+              {% endif %}
+      
+              <li class="teams-menu__cases--case">
+                <img class="teams-menu__cases--logo" width="{{ case.logo.max_width }}" src="{{ case.logo.src }}" />
+                <span class="teams-menu__cases--quote" >{{ case.quote }}</span>
+                <span class="teams-menu__cases--attribution">{{ case.attribution }}</span>
+                <a class="teams-menu__cases--link" href="{{ linkHref }}">{{ case.link.text }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
       {% endfor %}
     </ul>
     
     {% for item in module.menu_items %}
-    <ul class="teams-menu__cases cases--{{ loop.index }} {{ "show" if loop.index == 1 }}">
+    <ul class="teams-menu__cases cases--{{ loop.index }} {{ "show" if loop.index == 1 }} cases-desktop">
       {% for case in item.category.cases %}
 
         {% if case.link.url.type == "CONTENT" and case.link.url.content_id %}

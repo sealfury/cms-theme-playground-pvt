@@ -24,21 +24,64 @@ if (menuItems && subMenuItems) {
 
     var i = (index + 1).toString();
 
-    item.addEventListener('mouseover', function () {
-      var subMenuItem = this.parentNode.parentNode.querySelector(
-        '.cases--' + i
-      );
-      var siblingItems = getSiblings(subMenuItem);
+    if (window.innerWidth > 767) {
+      item.addEventListener('mouseover', function () {
+        var subMenuItem = this.parentNode.parentNode.querySelector(
+          '.cases--' + i
+        );
+        var siblingItems = getSiblings(subMenuItem);
 
-      if (!subMenuItem.classList.contains('show')) {
-        subMenuItem.classList.add('show');
-      }
-
-      siblingItems.forEach(function (sibling) {
-        if (sibling.classList.contains('show')) {
-          sibling.classList.remove('show');
+        if (!subMenuItem.classList.contains('show')) {
+          subMenuItem.classList.add('show');
         }
+
+        siblingItems.forEach(function (sibling) {
+          if (sibling.classList.contains('show')) {
+            sibling.classList.remove('show');
+          }
+        });
       });
-    });
+    }
+
+    if (window.innerWidth < 767) {
+      item.addEventListener('click', function () {
+        var mobileSubmenuItem = this.nextSibling.nextSibling;
+        var mobileSiblingItems = getSiblings(mobileSubmenuItem);
+        var parentItemSiblings = getSiblings(this);
+
+        if (
+          !this.classList.contains('open') &&
+          !mobileSubmenuItem.classList.contains('show')
+        ) {
+          this.classList.add('open');
+        } else {
+          this.classList.remove('open');
+        }
+
+        if (mobileSubmenuItem.classList.contains('show')) {
+          mobileSubmenuItem.classList.remove('show');
+        } else {
+          mobileSubmenuItem.classList.add('show');
+        }
+
+        mobileSiblingItems.forEach(function (sibling) {
+          if (
+            sibling.classList.contains('cases-mobile') &&
+            sibling.classList.contains('show')
+          ) {
+            sibling.classList.remove('show');
+          }
+        });
+
+        parentItemSiblings.forEach(function (sibling) {
+          if (
+            sibling.classList.contains('teams-menu__menu--item') &&
+            sibling.classList.contains('open')
+          ) {
+            sibling.classList.remove('open');
+          }
+        });
+      });
+    }
   });
 }
