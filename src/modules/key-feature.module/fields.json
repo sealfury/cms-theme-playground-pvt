@@ -12,7 +12,7 @@
       {
         "label": "Feature",
         "name": "feature",
-        "id": "51f63819-c828-905c-8f2d-f65f30503d57",
+        "id": "features.feature",
         "type": "group",
         "occurrence": {
           "min": 3,
@@ -41,33 +41,18 @@
                 "responsive": true,
                 "resizable": true,
                 "show_loading": true,
-                "help_text": "Supported format: .gif",
                 "default": {
-                  "loading": "lazy"
+                  "size_type": "auto_custom_max",
+                  "src": "",
+                  "alt": "key-feature-image-alt",
+                  "loading": "lazy",
+                  "height": null,
+                  "width": null,
+                  "max_height": 420,
+                  "max_width": 400
                 }
-              },
-              {
-                "label": "Auto-play",
-                "name": "autoplay",
-                "id": "feature.image_options.autoplay",
-                "type": "boolean",
-                "display": "toggle",
-                "help_text": "Toggle on to remove play button and auto-play gifs",
-                "required": false,
-                "locked": false,
-                "visibility": {
-                  "operator": "NOT_EMPTY",
-                  "controlling_field": "feature.image_options.image"
-                },
-                "default": true
               }
-            ],
-            "default": {
-              "image": {
-                "loading": "lazy"
-              },
-              "autoplay": true
-            }
+            ]
           },
           {
             "label": "Feature Title",

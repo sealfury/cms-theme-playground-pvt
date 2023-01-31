@@ -46,6 +46,19 @@
         color: #00b9bc;
       }
 
+      {% set firstFeature = module.key_features.feature|first %}
+      {% set firstFeatureImgWidth = firstFeature.image_options.image.width %}
+      @media screen and (max-width: {{ firstFeatureImgWidth ~ 'px' }}) {
+        .key-features__image-container {
+          padding: 0;
+        }
+
+        .key-features__image {
+          object-fit: contain;
+          width: 100%;
+        }
+      }
+
     {% end_scope_css %}
   </style>
 {% end_require_css %}
@@ -64,19 +77,26 @@
     {% set linkHref = feature.feature_link.url.href %}
   {% endif %}
 
+  {% set img = feature.image_options.image %}
+
   <div class="key-features__feature">
-    <div class="key-features__player">
-      <div class="key-features__player--background"></div>
-      <div class="key-features__player--phone-grey">
-        <div class="key-features__player--phone-black">
-          {% if feature.image_options.autoplay == false %}
-            <span class="autoplay__overlay">
-              <span class="autoplay__button" data-source="{{ feature.image_options.image.src }}"></span>
-            </span>
-          {% endif %}
-          <img class="key-features__player--img {{ "not-playing" if feature.image_options.autoplay == false }}" src="{{ feature.image_options.image.src }}" />
-        </div>
-      </div>
+    <div class="key-features__image-container">
+      {% if img.src %}
+        {% set sizeAttrs = "width=\"{{ img.width }}\" height=\"{{ img.height }}\"" %}
+        {% if img.size_type == "auto" %}
+          {% set sizeAttrs = "style=\"max-width: 100%; height: auto;\"" %}
+        {% elif img.size_type == "auto_custom_max" %}
+          {% set sizeAttrs = "width\"{{ img.max_width }}\" height=\"{{ img.max_height }}\" style=\"max-width: 100%; max-height: auto;\"" %}
+        {% endif %}
+        {% set loadingAttr = img.loading != "disabled" ? "loading=\"{{ img.loading }}\"" : "" %}
+        <img
+          class="key-features__image"
+          src="{{ img.src }}"
+          alt="{{ img.alt }}"
+          {{ loadingAttr }}
+          {{ sizeAttrs }}
+        />
+      {% endif %}
     </div>
     <div class="key-features__text-container">
       <span class="key-features__title">{{ feature.feature_title.title }}</span>

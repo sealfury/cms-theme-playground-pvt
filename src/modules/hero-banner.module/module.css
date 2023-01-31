@@ -262,6 +262,7 @@
   }
 
   .hero-banner__logo {
+    height: unset;
     max-width: 100%;
     position: unset;
     transform: translate(0, 10%);
