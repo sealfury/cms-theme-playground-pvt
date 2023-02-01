@@ -60,7 +60,7 @@
     {% form
       form_key="{{ module.choice }}--form",
       form_to_use="{{ module.form.form_id }}",
-      title="{{ module.form.title }}" %}
+      title="{{ module.form.title or module.form_header }}" %}
     {% set link = module.form_section_link.link_info.link %}
     {% if link.url.href %}
       <div class="trial-demo__form-section--link">
