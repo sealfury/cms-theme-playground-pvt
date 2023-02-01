@@ -3,7 +3,7 @@
     {% scope_css %}
 
       {# Control max wrapper size based on background #}
-      {% if module.background_type == "image" %}
+      {% if module.background_type == "none" %}
         {% set maxWidth = 1240 %}
       {% else %}
         {% set maxWidth = 1440 %}

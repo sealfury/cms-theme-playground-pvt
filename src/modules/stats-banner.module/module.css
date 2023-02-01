@@ -16,11 +16,11 @@
 }
 
 .stats-container--light,
-.stats-container--none {
-  padding: 4.4% 7.3%;
+.stats-container--image {
+  padding: 5% 7% 5% 5%;
 }
 
-.stats-container--image {
+.stats-container--none {
   padding: 3.9% 3.2% 4.5%;
 }
 
@@ -35,7 +35,8 @@
 .stats-banner__headline {
   font-size: 30px;
   line-height: 38px;
-  width: clamp(340px, 69%, 840px);
+  padding: 0 1rem;
+  width: clamp(340px, 90%, 880px);
 }
 
 .stats-banner__features-list {

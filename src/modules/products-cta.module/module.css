@@ -1,3 +1,7 @@
+.dnd-section > .row-fluid:has(.products-cta) {
+  max-width: 1620px;
+}
+
 .products-cta {
   align-items: center;
   display: flex;
@@ -10,7 +14,7 @@
 
 .products-cta h2 {
   text-align: center;
-  width: clamp(340px, 100%, 740px);
+  width: clamp(340px, 100%, 810px);
 }
 
 .products-cta__item {
