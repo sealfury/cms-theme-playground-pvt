@@ -2,41 +2,36 @@
   <style>
     {% scope_css %}
 
-    {# Toggled light/dark mode styles #}
-    {% if not module.light_mode %}
-      {% set background_color = module.styles.darkmode_background.color %}
-      {% set text_color = module.styles.darkmode_text.color %}
-    {% elif module.light_mode %}
-      {% set background_color = module.styles.lightmode_background.color %}
-      {% set text_color = module.styles.lightmode_text.color %}
-    {% endif %}
+      {# Toggled light/dark mode styles #}
+      {% if not module.light_mode %}
+        {% set background_color = module.styles.darkmode_background.color %}
+        {% set text_color = module.styles.darkmode_text.color %}
+      {% elif module.light_mode %}
+        {% set background_color = module.styles.lightmode_background.color %}
+        {% set text_color = module.styles.lightmode_text.color %}
+      {% endif %}
 
-    .logo-box__container {
-      background-color: {{ background_color }};
-    }
+      .logo-box__container {
+        background-color: {{ background_color }};
+      }
 
-    .logo-box__text {
-      color: {{ text_color }};
-      {# text-align: center; #}
-    }
+      .logo-box__text {
+        color: {{ text_color }};
+        {# text-align: center; #}
+      }
 
     {% end_scope_css %}
   </style>
 {% end_require_css %}
 
-
-<div class="logo-box__container">
-  {% set logo = module.logo %}
-  {% if logo.src %}
-    {% set sizeAttrs = "width=\"{{ logo.width }}\" height=\"{{ logo.height }}\"" %}
-    {% set loadingAttr = logo.loading != "disabled" ? "loading=\"{{ logo.loading }}\"" : "" %}
-    <img 
-      class="logo-box__logo"
-      src="{{ logo.src }}"
-      alt="{{ logo.alt }}"
-      {{ loadingAttr }}
-      {{ sizeAttrs }}
-    />
-  {% endif %}
-  <h5 class="logo-box__text">{{ module.text }}</h5>
-</div>
+{% if module.remove_toggle == false %}
+  <div class="logo-box__container">
+    {% set logo = module.logo %}
+    {% if logo.src %}
+      {% set sizeAttrs = "width=\"{{ logo.width }}\" height=\"{{ logo.height }}\"" %}
+      {% set loadingAttr = logo.loading != "disabled" ? "loading=\"{{ logo.loading }}\"" : "" %}
+      <img class="logo-box__logo" src="{{ logo.src }}" alt="{{ logo.alt }}" {{ loadingAttr }} {{ sizeAttrs }} />
+    {% endif %}
+    <h5 class="logo-box__text">{{ module.text }}</h5>
+  </div>
+{% endif %}

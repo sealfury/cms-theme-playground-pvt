@@ -1,5 +1,13 @@
 [
   {
+    "label": "Remove Logo Box Section?",
+    "name": "remove_toggle",
+    "type": "boolean",
+    "display": "toggle",
+    "inline_help_text": "Toggling this on will remove the entire logo box section from the page!",
+    "default": false
+  },
+  {
     "label": "Customer Logo",
     "name": "logo",
     "type": "image",
@@ -10,7 +18,7 @@
       "size_type": "exact",
       "src": "",
       "alt": "logo-image-alt-text",
-      "loading": "lazy", 
+      "loading": "lazy",
       "width": 256,
       "height": 256,
       "max_width": 256,

@@ -183,7 +183,8 @@
 
 /* Customer Stories Blog Posts */
 
-.customer-stories__container {
+.customer-stories__container:has(.logo-box__container) {
+  align-items: start;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
@@ -192,12 +193,28 @@
   width: 101%;
 }
 
+.customer-stories__container {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  width: 80%;
+}
+
 .customer-stories__container > article {
   border-bottom: 2px solid #DFE4E9;
+  margin: 0;
+}
+
+.customer-stories__container:has(.logo-box__container) > article {
   grid-column: 1 / span 7;
   grid-row: 1;
-  margin: 0;
   padding: 0 0 3rem;
+}
+
+.customer-stories__container:not(:has(.logo-box__container)) > article {
+  max-width: 100%;
 }
 
 .customer-stories__container > div:has(.logo-box__container) {

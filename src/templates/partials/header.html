@@ -91,9 +91,9 @@
 
   {% require_css %}
     <style>
-    .hs-tools-menu {
-      display: none;
-    }
+      .hs-tools-menu {
+        display: none;
+      }
     </style>
   {% end_require_css %}
 
@@ -134,14 +134,14 @@
           menu="Header Top Menu",
           extra_classes="header-top-menu",
           label="Header Top Menu" %}
-          {# {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
+        {# {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
         <div class="header__language-switcher header--element">
           <div class="header__language-switcher--label">
             {% module "language-switcher"
               path="@hubspot/language_switcher",
               label="Language switcher",
               display_mode="localized" %}
-            <div class="header__language-switcher--label-current {{ locale_name(locale)|split(" ")|first|lower }}">
+            <div class="header__language-switcher--label-current npe1_">
               {{ locale_name(locale)|split(" ")|first }}
             </div>
           </div>
@@ -171,7 +171,7 @@
               path="@hubspot/language_switcher",
               label="Language switcher",
               display_mode="localized" %}
-            <div class="header__language-switcher--label-current {{ locale_name(locale)|split(" ")|first|lower }}">
+            <div class="header__language-switcher--label-current npe1_">
               {{ locale_name(locale)|split(" ")|first }}
             </div>
           </div>
