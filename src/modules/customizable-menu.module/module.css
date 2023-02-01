@@ -525,7 +525,9 @@ header.scroll .menu__item--open > .menu__submenu--level-2 {
   }
 
   .menu__item--depth-1:nth-child(7) .menu__submenu--level-2 {
-    transform: translate(-50%, -85mm);
+    /* temp padding value to hide parent menu, remove if menu items expand menu height */
+    padding-bottom: 10rem;
+    transform: translate(-50%, -90mm);
   }
 
   .menu__wrapper--level-2 {
