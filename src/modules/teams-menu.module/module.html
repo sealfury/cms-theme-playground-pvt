@@ -36,7 +36,7 @@
         {% set height = item.category.icon.height ~ "px" %}
       {% endif %}
 
-      .teams-menu__menu--item:nth-child({{ loop.index }})::before {
+      .teams-menu__menu--item.item--{{ loop.index }}::before {
         background: url("{{ menuItemIconUrl }}") no-repeat;
         content: '';
         display: block;
@@ -46,7 +46,7 @@
         width: {{ width }};
       }
 
-      .teams-menu__menu--item:nth-child({{ loop.index }}):hover::before {
+      .teams-menu__menu--item.item--{{ loop.index }}:hover::before {
         background: url("{{ menuItemIconHover }}") no-repeat;
         content: '';
         display: block;
