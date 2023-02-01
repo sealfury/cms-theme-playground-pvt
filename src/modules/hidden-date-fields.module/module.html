@@ -1,0 +1,19 @@
+<div class="upcoming">
+  <div class="upcoming__header">{{ module.header }}</div>
+  <div class="upcoming__table">
+    <table class="upcoming__dates">
+      <tr class="upcoming__dates--header-row">
+        <th scope="column">{{ module.start_date_text }}</th>
+        <th scope="column">{{ module.end_date_text }}</th>
+        <th scope="column">{{ module.location_text }}</th>
+      </tr>
+      {% for occasion in module.occasion %}
+      <tr class="upcoming__dates--occasion">
+        <td>{{ occasion.start|format_date("dd.MM.yyyy", "Europe/Stockholm") }}</td>
+        <td>{{ occasion.end|format_date("dd.MM.yyyy", "Europe/Stockholm") }}</td>
+        <td>{{ occasion.location }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>

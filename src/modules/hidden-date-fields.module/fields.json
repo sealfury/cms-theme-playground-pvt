@@ -1,0 +1,64 @@
+[
+  {
+    "label": "Section Header",
+    "name": "header",
+    "type": "richtext",
+    "default": "<h2>Upcoming Occasions:</h2>"
+  },
+  {
+    "label": "Start Date Text",
+    "name": "start_date_text",
+    "type": "text",
+    "default": "Start Date",
+    "help_text": "These fields are included so that they can be translated for translated pages"
+  },
+  {
+    "label": "End Date Text",
+    "name": "end_date_text",
+    "type": "text",
+    "default": "End Date",
+    "help_text": "These fields are included so that they can be translated for translated pages"
+  },
+  {
+    "label": "Location Text",
+    "name": "location_text",
+    "type": "text",
+    "default": "Location",
+    "help_text": "These fields are included so that they can be translated for translated pages"
+  },
+  {
+    "label": "Occasion Information",
+    "name": "occasion",
+    "id": "occasion",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": null,
+      "default": null
+    },
+    "children": [
+      {
+        "label": "Start Date",
+        "name": "start",
+        "id": "occasion.start",
+        "required": false,
+        "locked": false,
+        "type": "date"
+      },
+      {
+        "label": "End Date",
+        "name": "end",
+        "id": "occasion.end",
+        "required": false,
+        "locked": false,
+        "type": "date"
+      },
+      {
+        "label": "Location",
+        "name": "location",
+        "id": "occasion.location",
+        "type": "text"
+      }
+    ]
+  }
+]
