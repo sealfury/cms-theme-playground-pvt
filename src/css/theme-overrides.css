@@ -198,6 +198,7 @@ p {
 
 a {
   {{ anchor_font.style }};
+  border-bottom: 2px solid transparent;
   color: {{ anchor_font.color }};
   font-size: {{ anchor_font.size ~ anchor_font.size_unit }};
 }
@@ -211,6 +212,7 @@ a {
 a:hover,
 a:focus {
   {{ anchor_font.style }};
+  border-color: #00B9BC;
   color: {{ color_variant(anchor_font.color, -20) }};
 }
 

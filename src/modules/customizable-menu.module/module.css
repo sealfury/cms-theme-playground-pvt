@@ -354,13 +354,12 @@
 .menu__item--depth-3[data-menu-type="why"] > a:hover,
 .menu__item--depth-3[data-menu-type="resources"] > a:hover {
   border-color: #00B9BC;
-  filter: brightness(1.05);
 }
 
 .menu__item--depth-3[data-menu-type="resources"] > a:hover {
+  background-color: #FFFFFF;
   border-color: #15CCCF;
   color: #396D78;
-  filter: brightness(0.9);
 }
 
 .menu__item--depth-3 > span {
