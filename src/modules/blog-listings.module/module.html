@@ -215,7 +215,7 @@
     >
       <a class="blog-index__post-link" href="{{ content.absolute_url }}"></a>
       {# Override Featured Image #}
-      {% if module.featured_image == false and module.override_featured_image.src != "" %}
+      {% if module.featured_image == false or module.override_featured_image.src != "" %}
         <img
           class="blog-index__post-image blog-index__post-image--{{ list_type }}"
           src="{{ module.override_featured_image.src }}"
