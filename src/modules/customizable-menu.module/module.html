@@ -165,7 +165,9 @@
 
         <ul class="menu__submenu menu__submenu--level-2">
           {% if item.include_overview and item.overview|length > 0 %}
-            <a class="menu__submenu--main-link" href="{{ item.overview.link.url.href }}"
+            {# Remove hsLang query string from end of url #}
+            {% set href = item.overview.link.url.href|split("?")|first %}
+            <a class="menu__submenu--main-link" href="{{ href }}"
               >{{ item.overview.text }}</a
             >
           {% endif %}
