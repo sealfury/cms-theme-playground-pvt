@@ -26,16 +26,8 @@
 
       @media screen and (max-width: 767px) {
         .prices-section {
-          {# {% if module.translate > 20 %}
-            {% set translateVal = 17 %}
-          {% else %}
-            {% set translateVal = module.translate %}
-          {% endif %} #}
-          {% set translateVal = module.translate > 20 ? 17 : module.translate %}
-          transform: translateY(-{{ translateVal }}%);
-          {% if module.translate > 0 %}
-            margin-bottom: -{{ translateVal * 5.5 }}%;
-          {% endif %}
+          transform: translateY(0);
+          margin-bottom: 0;
         }
       }
 
@@ -114,13 +106,20 @@
 
 {# Price card section #}
 <section class="prices-section">
-  
   {# Currency selector #}
   <div class="currency-selector">
     <ul class="currency-selector__choices">
       {% for choice in currencyChoices %}
+      {% set sanitizedPath = request.path|split('/')|last %}
+      {% if choice == "gbp" %}
+        {% set currencyHref = request.full_url|replace(request.path, '/{{ sanitizedPath }}') %}
+      {% elif choice == "euro" %}
+        {% set currencyHref = request.full_url|replace(request.path, '/{{ sanitizedPath }}?hsLang=de') %}
+      {% elif choice == "sek" %}
+        {% set currencyHref = request.full_url|replace(request.path, '/{{ sanitizedPath }}?hsLang=sv') %}
+      {% endif %}
         <li class="currency-selector__choices--choice {{ "selected" if choice == module.currency }}">
-          {{ choice }}
+          <a class="hs-skip-lang-url-rewrite" href="{{ currencyHref }}">{{ choice }}</a>
         </li>
       {% endfor %}
     </ul>
