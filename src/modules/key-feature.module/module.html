@@ -48,7 +48,7 @@
 
       {% set firstFeature = module.key_features.feature|first %}
       {% set firstFeatureImgWidth = firstFeature.image_options.image.width %}
-      @media screen and (max-width: {{ firstFeatureImgWidth ~ 'px' }}) {
+      @media screen and (max-width: {{ firstFeatureImgWidth ~ "px" }}) {
         .key-features__image-container {
           padding: 0;
         }
@@ -70,13 +70,7 @@
 <section class="key-features">
   {% for feature in module.key_features.feature %}
 
-  {% if feature.feature_link.url.type == "CONTENT" and feature.feature_link.url.content_id %}
-    {% set content = content_by_id(feature.feature_link.url.content_id) %}
-    {% set linkHref = content.absolute_url %}
-  {% else %}
-    {% set linkHref = feature.feature_link.url.href %}
-  {% endif %}
-
+  {% set linkHref = feature.feature_link.url.href %}
   {% set img = feature.image_options.image %}
 
   <div class="key-features__feature">
@@ -101,7 +95,9 @@
     <div class="key-features__text-container">
       <span class="key-features__title">{{ feature.feature_title.title }}</span>
       <p class="key-features__description">{{ feature.feature_description }}</p>
-      <a class="key-features__link" href="{{ linkHref }}">{{ feature.feature_link.text }}</a>
+      <a class="key-features__link hs-skip-lang-url-rewrite" href="{{ linkHref }}"
+        >{{ feature.feature_link.text }}</a
+      >
     </div>
   </div>
 
