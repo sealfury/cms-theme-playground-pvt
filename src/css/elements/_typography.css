@@ -89,3 +89,9 @@ img {
   font-size: 0.583rem;
   word-break: normal;
 }
+
+@media screen and (width <= 767px) {
+  img {
+    max-width: 100%;
+  }
+}
