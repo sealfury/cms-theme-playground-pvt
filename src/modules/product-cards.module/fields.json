@@ -35,8 +35,8 @@
         "type": "group",
         "occurrence": {
           "min": 1,
-          "max": 2,
-          "default": 2
+          "max": null,
+          "default": 1
         },
         "visibility": {
           "controlling_field": "use_large",
@@ -111,9 +111,9 @@
         "name": "small",
         "type": "group",
         "occurrence": {
-          "min": 3,
-          "max": 6,
-          "default": 6
+          "min": null,
+          "max": null,
+          "default": 3
         },
         "visibility": {
           "controlling_field": "use_large",

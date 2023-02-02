@@ -4,23 +4,22 @@
   <style>
     {% scope_css %}
 
-    {# Add checkmarks to features #}
+      {# Add checkmarks to features #}
 
-    {% set checkmarkPath = "../../images/module-icons/checkmark-icon-light.png" %}
+      {% set checkmarkPath = "../../images/module-icons/checkmark-icon-light.png" %}
 
-    .header-card__feature::before {
-      background: url("{{ get_asset_url(checkmarkPath) }}") no-repeat;
-      content: "";
-      display: block;
-      height: 14px;
-      margin-right: 6px;
-      width: 14px;
-    }
+      .header-card__feature::before {
+        background: url("{{ get_asset_url(checkmarkPath) }}") no-repeat;
+        content: "";
+        display: block;
+        height: 14px;
+        margin-right: 6px;
+        width: 14px;
+      }
 
     {% end_scope_css %}
   </style>
 {% end_require_css %}
-
 
 <section class="product-cards">
   <div class="product-cards__header">
@@ -30,18 +29,24 @@
 
   <div class="product-cards__cards">
     {% for card in module.cards %}
+
     {% set size = "large" if card.use_large is truthy else "small" %}
     {% set sectionCards = card.large if card.use_large is truthy else card.small %}
     {% set features = sectionCards.features if size == "large" else [] %}
-      <li class="menu__item menu__item--depth-2">
-        <ul class="menu__submenu menu__submenu--level-3 menu__submenu--products">
-          <div class="menu__wrapper--level-3">
-            {% for c in sectionCards %}
-              {{ headerCard(c.title, size, c.link.url.href, c.description, features, c.icon) }}
-            {% endfor %}
-          </div>
-        </ul>
+
+    <ul class="menu__submenu--level-3 menu__submenu--products submenu-{{ size }}">
+      <li class="menu__wrapper--level-3 card-menu">
+        {% for c in sectionCards %}
+        {% if size == "small" %}
+          {% set desc = c.description|striptags|truncate(100, False, "...") %}
+        {% elif size == "large" %}
+          {% set desc = c.description|striptags|truncate(140, False, "...") %}
+        {% endif %}
+        {{ headerCard(c.title, size, c.link.url.href, desc, features, c.icon) }}
+        {% endfor %}
       </li>
+    </ul>
+
     {% endfor %}
   </div>
 </section>
