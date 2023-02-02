@@ -1,6 +1,8 @@
 // Nodule variables
 var menuItems = document.querySelectorAll('.teams-menu__menu--item');
-var subMenuItems = document.querySelectorAll('.teams-menu__cases');
+var subMenuItems = document.querySelectorAll(
+  '.teams-menu__cases.cases-desktop'
+);
 
 // Show relevant submenu on hover of menu items, hide only on hover of siblings (not mouseout)
 if (menuItems && subMenuItems) {
@@ -26,9 +28,13 @@ if (menuItems && subMenuItems) {
 
     if (window.innerWidth > 767) {
       item.addEventListener('mouseover', function () {
-        var subMenuItem = this.parentNode.parentNode.querySelector(
-          '.cases--' + i
-        );
+        // Ensure only desktop instances of submenu are selected
+        var desktopCasesClass = '.cases--' + i;
+        desktopCasesClass += '.cases-desktop';
+
+        var subMenuItem =
+          this.parentNode.parentNode.querySelector(desktopCasesClass);
+
         var siblingItems = getSiblings(subMenuItem);
 
         if (!subMenuItem.classList.contains('show')) {

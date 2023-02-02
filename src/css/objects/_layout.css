@@ -69,3 +69,22 @@
     width: calc(8.33% - var(--gap));
   }
 }
+
+@media (width <= 767px) {
+  .row-fluid:has(.span2) {
+    justify-content: space-between;
+    padding: 0 0.5rem;
+  }
+
+  .row-fluid .span2 {
+    width: 45%;
+  }
+
+  .span2 .widget-type-linked_image {
+    padding: 0;
+  }
+
+  .hs_cos_wrapper_type_rich_text > p {
+    margin: 0;
+  }
+}
