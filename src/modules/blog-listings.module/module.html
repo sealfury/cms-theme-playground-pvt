@@ -122,6 +122,18 @@
 
       {% endif %}
 
+      {# Arrow icon for link to blog #}
+      {% if module.add_link_to_blog == true %}
+        .blog-index__link-all-link:after {
+          background: url("{{ get_asset_url("../../images/module-icons/arrow-right-teal.png") }}") no-repeat;
+          content: '';
+          display: block;
+          height: 1rem;
+          margin: -2px 0 0 10px;
+          width: 1rem;
+        }
+      {% endif %}
+
     {% end_scope_css %}
   </style>
 {% end_require_css %}
@@ -332,6 +344,13 @@
       </div>
     </article>
   {% endif %}
-
   {% endfor %}
+
+  {% if module.add_link_to_blog == true %}
+    {% set blog_to_link = blog_by_id(module.blog) %}
+    {% set link_text = module.link_text if module.link_text else "All {{ blog_to_link.html_title }}" %}
+    <div class="blog-index__link-all-wrapper">
+      <a class="blog-index__link-all-link" href="{{ blog_to_link.absolute_url }}">{{ link_text }}</a>
+    </div>
+  {% endif %}
 </section>

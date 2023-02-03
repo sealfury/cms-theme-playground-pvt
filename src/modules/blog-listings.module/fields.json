@@ -19,6 +19,24 @@
     "default": "card"
   },
   {
+    "label": "Add Link To Blog Page?",
+    "name": "add_link_to_blog",
+    "type": "boolean",
+    "display": "toggle",
+    "default": false
+  },
+  {
+    "label": "Link Text",
+    "name": "link_text",
+    "type": "text",
+    "default": null,
+    "visibility": {
+      "controlling_field": "add_link_to_blog",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    }
+  },
+  {
     "label": "Show All Results?",
     "name": "show_all",
     "type": "boolean",
