@@ -232,6 +232,11 @@ span[data-hs-cost-type="rich_text"] a:hover {
   border-color: #00B9BC;
 }
 
+a[data-hs-anchor="true"] {
+  position: absolute;
+  transform: translateY(-20vh);
+}
+
 /* Headings */
 
 h1,
