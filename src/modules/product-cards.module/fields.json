@@ -55,7 +55,7 @@
             "name": "link",
             "type": "link",
             "placeholder": "Page to link to",
-            "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+            "supported_types": ["CONTENT", "BLOG"],
             "default": {
               "url": {
                 "content_id": null,
@@ -64,8 +64,7 @@
               },
               "open_in_new_tab": false,
               "no_follow": false,
-              "sponsored": false,
-              "user_generated_content": false
+              "sponsored": false
             }
           },
           {
@@ -130,9 +129,9 @@
           {
             "label": "Page Link",
             "name": "link",
-            "type": "page",
+            "type": "link",
             "placeholder": "Page to link to",
-            "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+            "supported_types": ["CONTENT", "BLOG"],
             "default": {
               "url": {
                 "content_id": null,
@@ -141,8 +140,7 @@
               },
               "open_in_new_tab": false,
               "no_follow": false,
-              "sponsored": false,
-              "user_generated_content": false
+              "sponsored": false
             }
           },
           {
