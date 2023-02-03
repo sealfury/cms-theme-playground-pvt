@@ -12,6 +12,10 @@
     {% set extraText = "blog tag url" %}
   {% endif %}
 
+  {% if button.override_selector == true %}
+    {% set href = button.external_link.url.href %}
+  {% endif %}
+
   {# Add active status for button on respective blog/tag page #}
   {% if request.path|split("/")|last == href|split("/")|last %}
     {% set activeClass = "active-page" %}

@@ -81,6 +81,35 @@
           "controlling_value_regex": "true",
           "operator": "EQUAL"
         }
+      },
+      {
+        "label": "Override Blog Selector With External Link?",
+        "name": "override_selector",
+        "id": "blog_selector_buttons.override_selector",
+        "type": "boolean",
+        "display": "toggle",
+        "default": false
+      },
+      {
+        "label": "External Link",
+        "name": "external_link",
+        "type": "link",
+        "placeholder": "External page to link to",
+        "supported_types": ["EXTERNAL"],
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": true,
+          "no_follow": false,
+          "sponsored": false
+        },
+        "visibility": {
+          "controlling_field": "blog_selector_buttons.override_selector",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        }
       }
     ],
     "default": [
