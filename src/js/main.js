@@ -138,6 +138,33 @@
     }
   }
 
+  // Function to globally prevent addition of hsLang query strings to anchor tags
+  function skipLangUrlRewrite() {
+    var anchorElements = document.querySelectorAll('a');
+    anchorElements.forEach(function (el) {
+      if (!el.classList.contains('hs-skip-lang-url-rewrite')) {
+        el.classList.add('hs-skip-lang-url-rewrite');
+      }
+    });
+
+    var headerLinks = headerBottomRow.querySelectorAll('a');
+    headerLinks.forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (href.endsWith('?hsLang=de') || href.endsWith('?hsLang=sv')) {
+        var newHref = href.slice(-0, -10);
+        link.setAttribute('href', newHref);
+        /*
+         * var newHref = href.split('?')[0]
+         * if (newHref == '') {
+         *   newHref += '/'
+         * }
+         */
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', skipLangUrlRewrite);
+
   // Execute JavaScript on document ready
   domReady(function () {
     if (!document.body) {
