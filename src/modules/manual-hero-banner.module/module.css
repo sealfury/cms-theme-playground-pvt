@@ -22,6 +22,10 @@
   position: relative;
 }
 
+#manual-hero-banner .hero-banner__container:has(.hero-banner__logo-section) > .hero-banner__text-section {
+  width: clamp(345px, 70%, 760px);
+}
+
 #manual-hero-banner form {
   align-items: center;
   background-color: transparent;
@@ -54,6 +58,11 @@
   width: clamp(320px, 57%, 705px);
 }
 
+.hero-banner__text-section h1,
+.hero-banner__text-section h2 {
+  margin: 0;
+}
+
 .hero-banner__header {
   margin: 0;
 }
@@ -63,6 +72,10 @@
   line-height: 30px;
   margin-bottom: 0.5rem;
   padding: 0.5rem 0;
+}
+
+#manual-hero-banner .hero-banner__container:has(.hero-banner__logo-section) .hero-banner__subheader {
+  font-size: 18px;
 }
 
 .hero-banner__breadcrumb {
@@ -142,10 +155,10 @@
   gap: 10%;
   height: 92%;
   justify-content: center;
-  left: 50%;
+  left: 67%;
   position: absolute;
-  top: 50%;
-  transform: translate(25%, -33.3%);
+  top: 0;
+  transform: translate(-6.25rem, 6.25rem);
   width: clamp(340px, 40%, 540px);
 }
 
