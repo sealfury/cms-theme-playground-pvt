@@ -743,16 +743,18 @@
   }
 
   .header__close--toggle {
-    background-image: url("{{ get_asset_url('../../images/module-icons/close-icon-black.png') }}");
-    background-repeat: no-repeat;
-    background-size: cover;
     display: none;
-    height: 32px;
-    margin-right: 0;
-    width: 32px;
+    margin: 0;
+    transform: translateX(5px);
   }
 
   .header__close--toggle.show {
     display: block;
+  }
+
+  .header__close--toggle.show > span {
+    height: 42px;
+    padding: 4px 4px 4px 6px;
+    width: 44px;
   }
 }
