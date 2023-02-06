@@ -154,12 +154,13 @@
     flex-direction: column;
   }
 
-  .prodcut-cards__header > h2 {
+  .prodcut-cards__header h2 {
     width: 100%;
   }
 
-  .product-cards__header > p {
+  .product-cards__header p {
     font-size: 18px;
     line-height: 28px;
+    width: 100%;
   }
 }
