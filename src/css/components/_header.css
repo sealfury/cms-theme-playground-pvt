@@ -412,23 +412,24 @@
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
-  left: 0;
+  left: -100%;
   opacity: 0;
-  min-width: 143px;
-  padding: 0 0.5rem;
+  min-width: 152px;
+  padding: 0;
   position: absolute;
   text-align: left;
-  top: 117%;
-  transition: all 0.3s ease-in-out;
-  transform: none;
+  top: 100%;
+  transition: opacity 0.3s ease-in-out, visibility 0.2s ease-in-out;
+  transform: translate(-67%, 17%);
   visibility: hidden;
+  z-index: 999;
 }
 
 .header__language-switcher.open .lang_list_class {
+  background-color: #0F1E2D;
   opacity: 1;
-  transition: all 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, visibility 0.2s ease-in-out;
   visibility: visible;
-  z-index: 999;
 }
 
 .header__language-switcher .lang_list_class:before {
@@ -453,15 +454,19 @@
   display: none;
 }
 
+.header__language-switcher .lang_list_class:hover {
+  
+}
+
 .header__language-switcher .lang_list_class li {
-  background-color: inherit;
+  background-color: #0F1E2D;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-left: none;
   border-right: none;
   border-top: none;
-  color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
-  padding: 0;
+  padding: 0 0.5rem;
+  transition: all 0.2s ease;
   width: 100%;
 }
 
@@ -476,27 +481,30 @@
 }
 
 .header__language-switcher .lang_list_class li:hover {
-  transition: background-color 0.3s;
+  filter: brightness(1.05);
 }
 
-.header__language-switcher .lang_switcher_link {
+.header__language-switcher .lang_list_class .lang_switcher_link {
   align-items: center;
   color: rgba(255, 255, 255, 0.7);
   display: flex;
   font-size: 14px;
-  padding: 1rem 0;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem;
+  transition: all 0.2s ease;
 }
 
-.header__language-switcher .lang_switcher_link:hover {
+.header__language-switcher .lang_list_class .lang_switcher_link:hover {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.header__language-switcher .lang_switcher_link:before {
+.header__language-switcher .lang_list_class .lang_switcher_link:before {
   content: '';
   display: block;
-  height: 18px;
-  margin: 0.25rem 0.5rem 2px 0.75rem;
+  height: 22px;
+  margin-top: 1px;
   min-width: 28px;
+  transform: scale(0.9);
 }
 
 .lang_switcher_link[data-language="en"]:before {
@@ -521,6 +529,7 @@
   cursor: pointer;
   height: 16px;
   margin: 10px 0 8px 8px;
+  position: relative;
   transition: all 0.1s ease-in-out;
   width: 16px;
 }
@@ -538,14 +547,9 @@
   cursor: pointer;
 }
 
-.header__language-switcher--label:hover
-.header__language-switcher--label-current {
+.header__language-switcher:hover > .header__language-switcher--label-current {
   color: #777E89;
   filter: brightness(0.93);
-}
-
-.header__language-switcher--label:hover .globe_class {
-  filter: invert(0.35) brightness(1.25);
 }
 
 .header__language-switcher--label-current {

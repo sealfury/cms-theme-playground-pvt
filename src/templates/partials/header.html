@@ -36,8 +36,8 @@
             label="Header Top Menu" %}
         </div>
 
-        {# {% require_js %}
-          <script>
+        {% require_js %}
+          {# <script>
             var languageSwitcher = document.querySelector(
               ".header__language-switcher--label-current"
             );
@@ -48,12 +48,12 @@
                 this.classList.add("open");
               }
             });
-          </script>
-        {% end_require_js %} #}
+          </script> #}
+        {% end_require_js %}
 
-        {% if content.translated_content|length or is_listing_view and group.translations %}
+        {# {% if content.translated_content|length or is_listing_view and group.translations %}
           <div class="header--toggle header__language-switcher--toggle"></div>
-        {% endif %}
+        {% endif %} #}
         {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
           <div class="header__language-switcher header--element">
             <div class="header__language-switcher--label">

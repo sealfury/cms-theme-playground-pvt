@@ -5,7 +5,7 @@
   var search = document.querySelector('.header__search');
   var allToggles = document.querySelectorAll('.header--toggle');
   var navToggle = document.querySelector('.header__navigation--toggle');
-  var langToggle = document.querySelector('.header__language-switcher--toggle');
+  var langToggle = document.querySelector('.header__language-switcher--label');
   var searchToggle = document.querySelector('.header__search--toggle');
   var closeToggle = document.querySelector('.header__close--toggle');
   var allElements = document.querySelectorAll(
@@ -81,14 +81,7 @@
 
   // Function for toggling mobile language selector
   function toggleLang() {
-    allToggles.forEach(function (toggle) {
-      toggle.classList.toggle('hide');
-    });
-
-    langSwitcher.classList.toggle('open');
-    langToggle.classList.toggle('open');
-
-    closeToggle.classList.toggle('show');
+    console.log(document.querySelector('.globe_class'));
   }
 
   // Function for toggling mobile search field
