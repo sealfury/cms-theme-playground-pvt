@@ -8,7 +8,7 @@
   margin: 0 auto;
   min-height: 406px;
   padding: 2.5rem 4rem;
-  width: clamp(375px, 100vw, 1640px);
+  width: clamp(375px, 100%, 1640px);
 }
 
 @media screen and (max-width: 1440px) {
@@ -221,6 +221,7 @@
 
 @media screen and (max-width: 767px) {
   .hero-banner {
+    margin-bottom: 1.5rem;
     padding: 0;
   }
 
@@ -229,22 +230,28 @@
     padding: 1rem;
   }
 
+  .hero-banner__subheader {
+    font-size: 18px;
+  }
+
   .hero-banner__subheader > p {
     font-size: 18px;
     margin-bottom: 0;
   }
 
   .hero-banner__buttons {
-    gap: 0.75rem;
+    flex-direction: column;
+    gap: 0;
   }
 
   .hero-banner__buttons > span {
-    padding: 0.75rem;
+    font-size: 16px;
+    padding: 0.5rem;
   }
 
   .hero-banner__buttons a {
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 26px;
   }
 
   .hero-banner__buttons .button--teal {

@@ -1,6 +1,6 @@
-.dnd-section > .row-fluid:has(#stats-banner) {
+/* .dnd-section > .row-fluid:has(#stats-banner) {
   max-width: 1440px;
-}
+} */
 
 .stats-banner__wrapper {
   height: fit-content;

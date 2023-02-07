@@ -300,9 +300,8 @@
 }
 
 @media screen and (max-width: 767px) {
-  .header-card {
-    padding: 1.5rem 1rem;
-    width: 100%;
+  .header-card__small {
+    margin: 0 !important;
   }
 
   .header-card__title > span {
@@ -312,6 +311,14 @@
   .header-card__title > img {
     margin-right: -2px;
     transform: translate(-15%, -8%);
+  }
+
+  .header-card__content--large {
+    gap: 0.75rem !important;
+  }
+
+  .header-card__subtitle--large {
+    padding:
   }
 }
 

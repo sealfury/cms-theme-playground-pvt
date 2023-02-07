@@ -22,7 +22,7 @@
   justify-content: space-between;
   margin: 0 auto;
   padding: 3rem;
-  width: clamp(375px, 90%, 1440px);
+  width: clamp(375px, 95%, 1440px);
 }
 
 .products-cta__text-section {

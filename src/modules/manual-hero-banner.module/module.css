@@ -7,7 +7,7 @@
   display: flex;
   margin: 0 auto;
   padding: 2.5rem 6.25rem;
-  width: clamp(375px, 100vw, 1640px);
+  width: clamp(375px, 100%, 1640px);
 }
 
 @media screen and (max-width: 1440px) {

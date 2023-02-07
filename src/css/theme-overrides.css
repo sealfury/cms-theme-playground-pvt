@@ -142,7 +142,9 @@ main#main-content.hide-on-open-mobile {
 }
 
 .content-wrapper {
+  min-width: 375px;
   max-width: {{ container_width }};
+  width: 100%;
 }
 
 .dnd-section,
@@ -155,6 +157,11 @@ main#main-content.hide-on-open-mobile {
   .content-wrapper--vertical-spacing {
     padding: 1rem 0;
   }
+
+  .dnd-section > .row-fluid {
+    max-width: 100%;
+    padding: 0;
+  }
 }
 
 .dnd-section:first-child,
@@ -162,8 +169,10 @@ main#main-content.hide-on-open-mobile {
   padding-top: 0;
 }
 
-.dnd-section > .row-fluid {
-  max-width: {{ container_width }};
+@media screen and (width >= 768px) {
+  .dnd-section > .row-fluid {
+    max-width: {{ container_width }};
+  }
 }
 
 {###########################################################################}

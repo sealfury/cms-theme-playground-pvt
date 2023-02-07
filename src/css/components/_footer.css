@@ -215,7 +215,7 @@ footer.footer {
   }
 
   .footer__container {
-    padding: 6% 4%;
+    padding: 3% 4% 6%;
   }
 
   .footer__container:nth-child(2) {

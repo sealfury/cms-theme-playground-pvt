@@ -4,7 +4,7 @@
   justify-content: space-between;
   gap: 22px;
   margin: 0 auto;
-  width: clamp(365px, 100vw, 1440px);
+  width: clamp(365px, 100%, 1440px);
 }
 
 @media screen and (min-width: 767px) and (max-width: 1440px) {
@@ -89,7 +89,11 @@
   .key-features__feature {
     margin: 0 auto;
     min-width: 100vw;
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.75rem;
     scroll-snap-align: center;
+  }
+
+  .key-features__link {
+    font-size: 16px;
   }
 }

@@ -1,6 +1,6 @@
 .tier-features__container {
   margin: 2.5rem auto;
-  width: clamp(375px, 100vw, 1240px);
+  width: clamp(375px, 100%, 1240px);
 }
 
 .tier-features__table {

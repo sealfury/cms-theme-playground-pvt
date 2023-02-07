@@ -18,6 +18,11 @@
 }
 
 @media (max-width: 767px) {
+  .body-wrapper {
+    overflow-x: clip;
+    margin: 0 auto;
+  }
+
   .dnd-section .dnd-column {
     padding: 0;
   }
