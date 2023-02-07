@@ -464,6 +464,10 @@ header.scroll .menu__item--open > .menu__submenu--level-2 {
 }
 
 @media (max-width: 767px) {
+  .menu__wrapper {
+    overflow-x: clip;
+  }
+
   .menu__submenu {
     border: none;
     border-radius: 0;
@@ -497,14 +501,26 @@ header.scroll .menu__item--open > .menu__submenu--level-2 {
     border: none;
   }
 
+  .menu__submenu--level-2 {
+    display: flex;
+    height: fit-content;
+    left: 200%;
+    position: absolute;
+    top: 45%;
+    transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transform: translate(-50%, -8mm);
+    width: 0;
+  }
+
   .menu__item--open > .menu__submenu--level-2 {
     border-top: none;
+    height: fit-content;
     left: 50%;
     margin: 0 auto;
     padding: 1rem;
     position: absolute;
     top: 50%;
-    transform: translate(-50%, -8mm);
+    transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
     width: 100vw;
   }
 
