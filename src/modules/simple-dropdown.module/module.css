@@ -93,6 +93,7 @@
   }
 
   .top-menu__item--depth-1 .top-menu__link {
+    color: #777E89;
     font-size: 16px;
     padding: 0.5rem;
   }

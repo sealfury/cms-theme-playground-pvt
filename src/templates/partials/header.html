@@ -36,21 +36,6 @@
             label="Header Top Menu" %}
         </div>
 
-        {% require_js %}
-          {# <script>
-            var languageSwitcher = document.querySelector(
-              ".header__language-switcher--label-current"
-            );
-            languageSwitcher.addEventListener("click", function () {
-              if (this.classList.contains("open")) {
-                this.classList.remove("open");
-              } else {
-                this.classList.add("open");
-              }
-            });
-          </script> #}
-        {% end_require_js %}
-
         {# {% if content.translated_content|length or is_listing_view and group.translations %}
           <div class="header--toggle header__language-switcher--toggle"></div>
         {% endif %} #}
@@ -140,19 +125,19 @@
           menu="Header Top Menu",
           extra_classes="header-top-menu",
           label="Header Top Menu" %}
-        {# {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
-        <div class="header__language-switcher header--element">
-          <div class="header__language-switcher--label">
-            {% module "language-switcher"
-              path="@hubspot/language_switcher",
-              label="Language switcher",
-              display_mode="localized" %}
-            <div class="header__language-switcher--label-current npe1_">
-              {{ locale_name(locale)|split(" ")|first }}
+        {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
+          <div class="header__language-switcher header--element">
+            <div class="header__language-switcher--label">
+              {% module "language-switcher"
+                path="@hubspot/language_switcher",
+                label="Language switcher",
+                display_mode="localized" %}
+              <div class="header__language-switcher--label-current {{ locale_name(locale)|split(" ")|first|lower }}">
+                {{ locale_name(locale)|split(" ")|first }}
+              </div>
             </div>
           </div>
-        </div>
-      {% endif %} #}
+        {% endif %}
       </div>
 
       {% require_js %}
@@ -169,20 +154,6 @@
           });
         </script>
       {% end_require_js %}
-
-      {# {% if content.translated_content.values()|selectattr("published")|length or is_listing_view and group.translations %}
-        <div class="header__language-switcher header--element">
-          <div class="header__language-switcher--label">
-            {% module "language-switcher"
-              path="@hubspot/language_switcher",
-              label="Language switcher",
-              display_mode="localized" %}
-            <div class="header__language-switcher--label-current npe1_">
-              {{ locale_name(locale)|split(" ")|first }}
-            </div>
-          </div>
-        </div>
-      {% endif %} #}
     </div>
   </div>
 </header>
