@@ -131,27 +131,35 @@
     }
   }
 
-  // Function to globally prevent addition of hsLang query strings to anchor tags
+  // Function to globally prevent addition of hsLang query strings to anchor elements
   function skipLangUrlRewrite() {
     var anchorElements = document.querySelectorAll('a');
     anchorElements.forEach(function (el) {
       if (!el.classList.contains('hs-skip-lang-url-rewrite')) {
         el.classList.add('hs-skip-lang-url-rewrite');
       }
-    });
 
-    var headerLinks = headerBottomRow.querySelectorAll('a');
-    headerLinks.forEach(function (link) {
-      var href = link.getAttribute('href');
-      if (href.endsWith('?hsLang=de') || href.endsWith('?hsLang=sv')) {
-        var newHref = href.slice(-0, -10);
-        link.setAttribute('href', newHref);
-        /*
-         * var newHref = href.split('?')[0]
-         * if (newHref == '') {
-         *   newHref += '/'
-         * }
-         */
+      var href = el.getAttribute('href');
+      if (href) {
+        // Ensure only language query strings are clipped (not searches)
+        var regex = /\?hsLang/g;
+        var index = href.search(regex);
+
+        let newHref;
+        // Don't change href of anchor links using #
+        if (index < 0) {
+          newHref = href;
+        }
+        // Clear language rewrites from links to home or current page
+        if (index == 0) {
+          newHref = '/';
+        }
+        // Remove lang query string from all other links
+        if (index > 0) {
+          newHref = href.split('?')[0];
+        }
+
+        el.setAttribute('href', newHref);
       }
     });
   }
@@ -165,7 +173,7 @@
     } else {
       // Function dependent on language switcher
       if (langSwitcher) {
-        langToggle.addEventListener('click', toggleLang);
+        // langToggle.addEventListener('click', toggleLang);
       }
 
       // Function dependent on navigation
