@@ -587,12 +587,16 @@
 
 @media (max-width: 767px) {
   .header__language-switcher {
-    border-bottom: 2px solid #DFE4E9;
+    border-bottom: 1px solid #DFE4E9;
     padding: 0.5rem 0;
   }
 
   .header__language-switcher--label {
     justify-content: space-between;
+  }
+
+  .header__language-switcher--label.open {
+    padding-bottom: 1rem;
   }
 
   .header__language-switcher--label-current {
@@ -617,12 +621,19 @@
     display: flex;
     flex-direction: column;
     left: 95%;
-    opacity: 1;
+    opacity: 0;
     padding: 0;
     top: 25%;
-    transform: translate(-95%, 25%);
-    visibility: visible;
+    transform: translate(-95%, 25%) rotate(0deg) !important;
+    transition: all 0.2s ease-out;
+    visibility: hidden;
     width: 100vw;
+  }
+
+  .header__language-switcher .lang_list_class.open {
+    margin-top: 1rem;
+    opacity: 1;
+    visibility: visible;
   }
 
   .header__language-switcher .lang_list_class li:nth-child(n) {
@@ -632,20 +643,20 @@
 
   .header__language-switcher .lang_list_class li:nth-child(n):not(:last-child) {
     border: none;
-    padding-top: 4px;
+    margin-top: 4px;
   }
 
   .header__language-switcher .lang_list_class li:last-child {
-    border-bottom: 2px solid #DFE4E9;
-    padding-bottom: 8px;
-    padding-top: 2px;
+    border-bottom: 1px solid #DFE4E9;
+    margin-bottom: 8px;
+    margin-top: 2px;
   }
 
   .header__language-switcher .lang_list_class .lang_switcher_link {
     color: rgba(15, 30, 45, 0.6);
     font-size: 1rem;
     gap: 9px;
-    padding: 0.75rem 7px;
+    padding: 0.75rem 3px;
   }
 
   .header__language-switcher .lang_list_class .lang_switcher_link:before {
@@ -653,12 +664,30 @@
   }
 
   .header__language-switcher .globe_class {
-    background-image: url("{{ get_asset_url('../../images/module-icons/chevron-icon-light.png') }}");
-    margin: 0 4px 0 6px;
+    background: none;
+    height: 22px;
+    margin: 0;
+    padding: 4px;
+    width: 24px;
+  }
+
+  .header__language-switcher .globe_class:before {
+    background: url("{{ get_asset_url('../../images/module-icons/chevron-icon-light.png') }}") no-repeat;
+    content: '';
+    display: block;
+    height: 16px;
+    margin: 0;
+    position: relative;
+    transition: transform 0.2s ease;
+    width: 16px;
+  }
+
+  .header__language-switcher .globe_class:before .open {
+    transform: rotate(180deg);
   }
 
   .globe_class:hover .lang_list_class {
-    display: flex;
+    display: flex !important;
   }
 
   .header__language-switcher .lang_list_class li:hover{
