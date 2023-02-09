@@ -1,5 +1,4 @@
 .upcoming {
-  align-items: center;
   display: flex;
   flex-direction: column;
   width: clamp(375px, 100%, 600px);

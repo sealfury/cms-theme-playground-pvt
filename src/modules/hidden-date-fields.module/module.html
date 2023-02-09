@@ -7,8 +7,13 @@
         <th scope="column">{{ module.end_date_text }}</th>
         <th scope="column">{{ module.location_text }}</th>
       </tr>
+
       {% for occasion in module.occasion %}
-      <tr class="upcoming__dates--occasion">
+      {# Get date formats to compare to today's date w/ JS & delete elapsed events #}
+      {% set data_start_date = occasion.start|format_date("MM/dd/yyyy", "Europe/Stockholm") %}
+      {% set data_end_date = occasion.end|format_date("MM/dd/yyyy", "Europe/Stockholm") %}
+
+      <tr class="upcoming__dates--occasion" data-start-date="{{ data_start_date }}">
         <td>{{ occasion.start|format_date("dd.MM.yyyy", "Europe/Stockholm") }}</td>
         <td>{{ occasion.end|format_date("dd.MM.yyyy", "Europe/Stockholm") }}</td>
         <td>{{ occasion.location }}</td>
