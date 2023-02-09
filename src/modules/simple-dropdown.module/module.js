@@ -2,8 +2,9 @@
 var parentMenuItems = document.querySelectorAll(
   '.top-menu .top-menu__item--has-submenu'
 );
-var menuChildToggle = document.querySelectorAll(
-  '.top-menu--mobile .top-menu__child-toggle'
+var topMenuMobile = document.querySelector('.top-menu--mobile');
+var mobileSubmenus = topMenuMobile.querySelectorAll(
+  '.top-menu__submenu--level-2'
 );
 
 // Document variables
@@ -20,6 +21,12 @@ if (parentMenuItems) {
 
     childToggles.forEach(function (toggle) {
       toggle.addEventListener('click', function () {
+        var submenuItems = this.parentNode.querySelectorAll(
+          '.top-menu__item--depth-2'
+        );
+        var itemHeight = 2.75;
+        var marginVal = itemHeight * submenuItems.length;
+
         if (this.parentNode.classList.contains('top-menu__item--open')) {
           this.parentNode.classList.remove('top-menu__item--open');
           this.parentNode
@@ -36,6 +43,20 @@ if (parentMenuItems) {
           this.parentNode
             .querySelector('button')
             .setAttribute('aria-expanded', 'true');
+        }
+
+        if (window.innerWidth <= 767 && submenuItems.length) {
+          submenuItems.forEach(function (s) {
+            s.setAttribute('style', 'height: ' + itemHeight + 'rem;');
+          });
+
+          this.parentNode.classList.contains('top-menu__item--open') &&
+          !this.parentNode.getAttribute('style')
+            ? this.parentNode.setAttribute(
+                'style',
+                'margin-bottom: ' + marginVal + 'rem;'
+              )
+            : this.parentNode.removeAttribute('style');
         }
       });
     });
