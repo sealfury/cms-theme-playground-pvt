@@ -16,7 +16,8 @@
     "required": false,
     "show_advanced_rel_options": false,
     "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS"],
-    "type": "link"
+    "type": "link",
+    "help_text": "If using an anchor link to the same page, only include #{id-of-element-to-jump-to} (exclude brackets), full URL is only needed if linking to an anchor on another page. \nAlternatively, tick the \"Use as anchor link?\" checkbox below and follow instructions in the field that will become visible."
   },
   {
     "label": "Use as anchor link?",

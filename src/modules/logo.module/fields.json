@@ -28,7 +28,8 @@
   {
     "label": "Section Text",
     "name": "text",
-    "type": "richtext"
+    "type": "richtext",
+    "help_text": "Text left-aligned by default.  To center/right-align text, use alignment features in richtext editor."
   },
   {
     "label": "Toggle Light Mode",
