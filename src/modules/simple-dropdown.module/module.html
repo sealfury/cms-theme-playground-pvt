@@ -96,44 +96,25 @@
 
     {# Assign appropriate icons to submenu list items #}
 
-    {% set basePath = "../../images/module-icons/" %}
-    {# TODO: change these when you get the proper icons #}
-    {% set menuIcons = ["book-icon-teal.png", "course-icon-teal.png", "all-icon-teal.png"] %}
-    {% for icon in menuIcons %}
-      {% set icon = basePath ~ icon %}
-
+    {% for icon in module.icons %}
       .top-menu__item--depth-2:nth-child({{ loop.index }}) .top-menu__link::before {
-        background: url("{{ get_asset_url(icon) }}") no-repeat;
-        filter: brightness(1) invert(0);
+        background: url("{{ icon.src }}") no-repeat;
+        opacity: {{ module.styles.dropdowns.text.color.opacity / 100 }};
+      }
+
+      @media (min-width: 768px) {
+        .top-menu__item--depth-2:nth-child({{ loop.index }}) .top-menu__link:hover::before {
+          opacity: 1;
+        }
       }
     {% endfor %}
 
-    {% set hoverIcons = ["book-icon-black.png", "course-icon-black.png", "all-icon-black.png"] %}
-    {% for icon in hoverIcons %}
-      {% set icon = basePath ~ icon %}
-
-        @media (min-with: 768px) {
-          .top-menu__item--depth-2:nth-child({{ loop.index }}) .top-menu__link:hover::before {
-            background: url("{{ get_asset_url(icon) }}") no-repeat;
-            filter: brightness(1.2) invert(1);
-          }
-        }
-    {% endfor %}
-
-    {# Change icons for use in mobile menu #}
-
-    {% set mobileMenuIcons = ["user-icon-grey.png", "course-icon-grey.png", "support-icon-grey.png"] %}
-    {% for icon in mobileMenuIcons %}
-      {% set icon = basePath ~ icon %}
-
-        @media screen and (max-width: 767px) {
-          .top-menu__item--depth-2:nth-child({{ loop.index }}) .top-menu__link::before {
-            background: url("{{ get_asset_url(icon) }}") no-repeat;
-            margin-right: 4px;
-            transform: translateY(10%);
-          }
-        }
-    {% endfor %}
+    @media (max-width: 767px) {
+      .top-menu__item--depth-2:nth-child(n) .top-menu__link::before {
+        filter: invert(0.7);
+        opacity: 1;
+      }
+    }
 
     {% end_scope_css %}
   </style>

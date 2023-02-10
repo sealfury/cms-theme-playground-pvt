@@ -19,6 +19,38 @@
     "default": 2
   },
   {
+    "label": "Assign Dropdown Icons",
+    "name": "icons",
+    "id": "icons",
+    "type": "group",
+    "occurrence": {
+      "min": null,
+      "max": null,
+      "default": 1,
+      "sorting_label_field": null
+    },
+    "inline_help_text": "<p style=\"font-size: 14px;\">Attach icons here.  The order icons are attached corresponds to which menu item they are applied to (i.e. first attached icon to first menu item). <br/><br/> <i style=\"color: #6734ff;\">Note: Use white icons to match text color & hover color!</i><p>",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "label": "Icon",
+        "name": "icon",
+        "id": "icons.icon",
+        "type": "image",
+        "required": false,
+        "locked": false,
+        "default": {
+          "size_type": "exact",
+          "src": "",
+          "alt": "",
+          "height": 32,
+          "width": 32
+        }
+      }
+    ]
+  },
+  {
     "label": "Styles",
     "name": "styles",
     "type": "group",

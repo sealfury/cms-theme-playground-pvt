@@ -160,8 +160,9 @@
 .top-menu__submenu .top-menu__link {
   align-items: center;
   display: inline-flex;
-  padding: 12px;
-  transition: all 0.3s ease-in-out;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  transition: opacity 0.2s ease;
   width: 100%;
 }
 
@@ -169,9 +170,7 @@
   content: '';
   display: block;
   height: 32px;
-  margin-right: 8px;
-  transform: translateY(0);
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease;
   width: 32px;
 }
 
