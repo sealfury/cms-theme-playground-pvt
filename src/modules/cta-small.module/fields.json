@@ -46,6 +46,13 @@
     }
   },
   {
+    "label": "Link Text",
+    "name": "link_text",
+    "type": "text",
+    "required": false,
+    "locked": false
+  },
+  {
     "id": "fe66e761-ecfb-f413-3333-4fcf5d39aedf",
     "name": "mode",
     "display_width": null,

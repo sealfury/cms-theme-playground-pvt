@@ -11,16 +11,6 @@ image=null) %}
     {% set subtitle = sub %}
   {% endif %}
 
-  {% if not features.length %}
-    {% set features_group = [
-      "Flexible, efficient & dynamic",
-      "The right information at the right time",
-      "Report within 30 seconds"
-    ] %}
-  {% else %}
-    {% set features_group = features %}
-  {% endif %}
-
   {% set title_string = title|string|lower|split(" ", 3) %}
   {% set title_class = title_string.pop(0) %}
 
@@ -35,8 +25,8 @@ image=null) %}
       <li class="header-card__subtitle--{{ size }}">
         <span>{{ subtitle }}</span>
       </li>
-      {% if (features_group|length > 0) and (size == "large") %}
-        {% for feature in features_group %}
+      {% if (features|length > 0) and (size == "large") %}
+        {% for feature in features %}
         <li class="header-card__feature">
           {{ feature }}
         </li>

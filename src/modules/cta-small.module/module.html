@@ -48,13 +48,13 @@
 {% end_require_css %}
 
 {% if module.mode is equalto("light") %}
-  {% set heading = "Free trial <strong>for 30 days</strong>" if not module.heading|length else module.heading %}
-  {% set description = "No obligations, no credit card" if not module.description|length else module.description %}
-  {% set button_text = "Get started" %}
+  {% set heading = "Free trial <strong>for 30 days</strong>" if not module.heading else module.heading %}
+  {% set description = "No obligations, no credit card" if not module.description else module.description %}
+  {% set button_text = "Get started" if not module.link_text else module.link_text %}
 {% elif module.mode is equalto("dark") %}
-  {% set heading = "Book <strong>a demo</strong>" %}
-  {% set description = "Learn more about the system" %}
-  {% set button_text = "Book demo" %}
+  {% set heading = "Book <strong>a demo</strong>" if not module.heading else module.heading %}
+  {% set description = "Learn more about the system" if not module.description else module.description %}
+  {% set button_text = "Book demo" if not module.link_text else module.link_text %}
 {% endif %}
 
 <div class="cta-small">
