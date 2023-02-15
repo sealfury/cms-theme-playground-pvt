@@ -36,7 +36,7 @@
 /* Blog related posts */
 
 .blog-related-posts {
-  background-color: #F8FAFC;
+  background-color: inherit;
 }
 
 .blog-related-posts h2 {

@@ -56,6 +56,10 @@
               {% set parentBlog = blog_by_id(group.id) %}
               {% set sectionHeader = "More {{ parentBlog.htmlTitle }}" %}
             {% endif %}
+            {% if content.language.language == "sv" %}
+              {% set parentBlog = blog_by_id(group.id) %}
+              {% set sectionHeader = "Läs mer {{ parentBlog.htmlTitle }}" %}
+            {% endif %}
             <h2>{% text "related-posts"
                   noWrapper=True,
                   label="Learn More Section Header",
