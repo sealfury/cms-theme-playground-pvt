@@ -26,12 +26,12 @@ var rowWrapper = contentContainer.querySelectorAll(
   '.row-fluid-wrapper.dnd-section'
 );
 
-if (!editorPathParams.length) {
-  var chapterNum = pathLinkParam.replace('-', ' ');
-  var chapterHTML =
-    '<span class="manual__chapter--eyebrow">' + chapterNum + '</span>';
-  var row = rowWrapper[0].insertAdjacentHTML('afterbegin', chapterHTML);
-}
+// if (!editorPathParams.length) {
+//   var chapterNum = pathLinkParam.replace('-', ' ');
+//   var chapterHTML =
+//     '<span class="manual__chapter--eyebrow">' + chapterNum + '</span>';
+//   var row = rowWrapper[0].insertAdjacentHTML('afterbegin', chapterHTML);
+// }
 
 // if (!editorPathParams.length) {
 //   rowWrapper.forEach(function (row) {
