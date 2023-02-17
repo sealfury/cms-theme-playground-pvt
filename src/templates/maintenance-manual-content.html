@@ -13,7 +13,7 @@
       grid-gap: 30px;
       grid-template-rows: auto;
       margin: 1rem auto 2rem;
-      width: 1440px;
+      width: clamp(390px, 100vw, 1440px);
     }
 
     .manual__chapter--content {
@@ -123,6 +123,48 @@
     .eyebrow-container li > a:hover {
       border-bottom: none;
     }
+
+    .collapse-toc-hide-desktop {
+      display: none;
+    }
+
+    @media screen and (max-width: 767px) {
+      .manual__chapter {
+        align-items: center;
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 0 0.5rem;
+      }
+
+      .eyebrow-container ul[role='menu'] {
+        flex-direction: row !important;
+        padding: 0.25rem 0.5rem;
+        width: 100%;
+      }
+
+      .collapse-toc-hide-desktop {
+        align-items: center;
+        background-color: #EFF3F7;
+        display: inline-flex;
+        justify-content: space-between;
+        padding: 1rem;
+        width: 100%;
+      }
+
+      .collapse-toc-hide-desktop > span {
+        color: #0F1E2D;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      {# .collapse-toc-hide-desktop > span:after {
+        background: url("{{ get_asset_url("../images/module-icons/chevron-icon-black.png") }}");
+        content: "";
+        display: inline-block;
+        height: 20px;
+        width: 26px
+      } #}
+    }
   </style>
 {% end_require_css %}
 
@@ -155,11 +197,21 @@
         {% module "donwload-button"
           path="../modules/button.module" %}
       </div>
+      <a class="collapse-toc-hide-desktop" aria-expanded="false" aria-haspopup="false">
+        <span class="collapse-toc-text">
+          {% text "collapse_button_text"
+            label="Collapse TOC menu button text",
+            value="Expand Table Of Contents" %}
+        </span>
+        {% image "chevron" 
+          label="Chevron",
+          alt="black chevron downward",
+          src="{{ get_asset_url('../images/module-icons/chevron-icon-black.png') }}",
+          loading="lazy",
+          width="20" %}
+      </a>
       {% module "toc-sidebar"
         path="../modules/toc-side-menu.module" %}
-      {# {% simple_menu "toc_sidebar"
-        orientation="vertical",
-        label="TOC Sidebar" %} #}
     </div>
   </div>
 
