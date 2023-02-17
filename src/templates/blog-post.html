@@ -79,10 +79,20 @@
       {% if count == 1 %}
         <section class="blog-related-posts">
           <div class="content-wrapper">
+          {% if content.language.language == "en" %}
+            {% set parentBlog = blog_by_id(group.id) %}
+            {% set sectionHeader = "Discover More {{ parentBlog.htmlTitle }}" %}
+            {% set readmoreText = "Read more" %}
+          {% endif %}
+          {% if content.language.language == "sv" %}
+            {% set parentBlog = blog_by_id(group.id) %}
+            {% set sectionHeader = "Upptäck mer {{ parentBlog.htmlTitle }}" %}
+            {% set readmoreText = "Läs mer" %}
+          {% endif %}
             <h2>{% text "related-posts"
                   noWrapper=True,
                   label="Learn More Section Header",
-                  value="{{ context.value or 'Discover More ' ~ group.html_title }}" %}</h2>
+                  value="{{ context.value or sectionHeader }}" %}</h2>
             <div class="blog-related-posts__list">
             {% endif %}
             <article
@@ -111,7 +121,7 @@
                 </h3>
                 {{ post.post_summary|truncatehtml(84, "...", false) }}
                 <a class="blog-related-posts__readmore-link" href="{{ post.absolute_url }}"
-                  >Read More</a
+                  >{{ readmoreText }}</a
                 >
               </div>
             </article>
