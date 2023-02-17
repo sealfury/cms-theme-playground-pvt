@@ -319,6 +319,14 @@ h6,
   .h4 {
     font-size: {{ h4_font.size|divide(1.2) ~ h4_font.size_unit }};
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 1.5rem 0 0.5rem;
+  }
 }
 
 /* Blockquote */
@@ -367,7 +375,7 @@ form,
 .submitted-message {
   {{ body_font.style }};
   {{ form_spacing }};
-  background-color: {{ form_background_color }};
+  background-color: transparent;
 }
 
 /* Form title */
