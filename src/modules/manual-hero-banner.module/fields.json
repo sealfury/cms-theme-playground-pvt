@@ -60,7 +60,7 @@
         "name": "link",
         "id": "breadcrumb.link",
         "type": "link",
-        "supported_types": ["CONTENT"],
+        "supported_types": ["CONTENT", "BLOG"],
         "default": {
           "url": {
             "content_id": null,
