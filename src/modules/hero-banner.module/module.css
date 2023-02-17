@@ -32,7 +32,9 @@
   width: clamp(340px, 100%, 705px);
 }
 
-.hero-banner__text-section h1, h2, h3 {
+.hero-banner__text-section h1, 
+.hero-banner__text-section h2, 
+.hero-banner__text-section h3 {
   margin-bottom: 0;
 }
 
@@ -273,5 +275,13 @@
     max-width: 100%;
     position: unset;
     transform: translate(0, 10%);
+  }
+
+  .hero-banner__breadcrumb-menu {
+    background-color: #EFF3F7;
+    margin-bottom: -5%;
+    padding: 0.25rem 1rem;
+    transform: translate(-1rem, -150%);
+    width: 100vw;
   }
 }
