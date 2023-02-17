@@ -197,7 +197,7 @@
     {% if module.buttons|length > 0 %}
     <div class="hero-banner__buttons">
       {% for button in module.buttons %}
-        <a href="{{ button.link_url }}" class="hero-banner__button button{{"--" ~ button.type if module.mode == "light" }}">{{ button.text }}</a>
+        <a href="{{ button.link_url.href }}" class="hero-banner__button button{{"--" ~ button.type if module.mode == "light" }}">{{ button.text }}</a>
 
         {% if loop.index == 1 %}
           <span>{{ joiningWord }}</span>
