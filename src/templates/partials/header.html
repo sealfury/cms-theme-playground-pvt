@@ -76,8 +76,10 @@
 
   {% require_css %}
     <style>
-      .hs-tools-menu {
-        display: none;
+      @media screen and (max-width: 767px) {
+        .hs-tools-menu {
+          display: none;
+        }
       }
     </style>
   {% end_require_css %}

@@ -166,7 +166,6 @@
 {% endif %}
 
 {% set langTag = content.language.details.tag %}
-{% set pageName = request.path|split("/")|last|split("-")|map("capitalize")|join(" ") %}
 
 <section class="hero-banner" id="hero-banner">
   <div class="hero-banner__container">
@@ -180,7 +179,7 @@
           </li>
         {% endfor %}
         <li class="breadcrumb__menu-item active-page">
-          <span>{{ pageName }}</span>
+          <span>{{ content.html_title }}</span>
         </li>
       </ol>
     {% endif %}
