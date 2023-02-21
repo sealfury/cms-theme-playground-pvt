@@ -110,13 +110,12 @@
   <div class="currency-selector">
     <ul class="currency-selector__choices">
       {% for choice in currencyChoices %}
-      {% set sanitizedPath = request.path|split('/')|last %}
       {% if choice == "gbp" %}
-        {% set currencyHref = request.full_url|replace(request.path, '/{{ sanitizedPath }}') %}
+        {% set currencyHref = content.translated_content['en'].absolute_url|last %}
       {% elif choice == "euro" %}
-        {% set currencyHref = request.full_url|replace(request.path, '/{{ sanitizedPath }}?hsLang=de') %}
+        {% set currencyHref = content.translated_content['de'].absolute_url|last %}
       {% elif choice == "sek" %}
-        {% set currencyHref = request.full_url|replace(request.path, '/{{ sanitizedPath }}?hsLang=sv') %}
+        {% set currencyHref = content.translated_content['sv'].absolute_url|last %}
       {% endif %}
         <li class="currency-selector__choices--choice {{ "selected" if choice == module.currency }}">
           <a class="hs-skip-lang-url-rewrite" href="{{ currencyHref }}">{{ choice }}</a>
