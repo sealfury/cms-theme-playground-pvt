@@ -145,28 +145,94 @@
       .collapse-toc-hide-desktop {
         align-items: center;
         background-color: #EFF3F7;
+        border-bottom: 2px solid transparent;
         display: inline-flex;
         justify-content: space-between;
+        margin-bottom: 0;
         padding: 1rem;
+        transition: background-color 0.1s ease border-color 0.1s ease;
         width: 100%;
       }
 
-      .collapse-toc-hide-desktop > span {
+      .collapse-toc-hide-desktop.toc-open {
+        background-color: #DFE4E9;
+        border-color: #BCBEC0;
+        margin-bottom: -1rem;
+        transition: all 0.1s ease;
+      }
+
+      .collapse-toc-hide-desktop > span:nth-child(-n + 2) {
         color: #0F1E2D;
         font-size: 1rem;
         font-weight: 600;
       }
 
-      {# .collapse-toc-hide-desktop > span:after {
-        background: url("{{ get_asset_url("../images/module-icons/chevron-icon-black.png") }}");
-        content: "";
-        display: inline-block;
-        height: 20px;
-        width: 26px
-      } #}
+      .collapse-toc-hide-desktop .collapse-toc-text {
+        display: none;
+      }
+
+      .collapse-toc-hide-desktop .expand-toc-text {
+        display: block;
+      }
+
+      .collapse-toc-hide-desktop.toc-open .collapse-toc-text {
+        display: block;
+      }
+
+      .collapse-toc-hide-desktop.toc-open .expand-toc-text {
+        display: none;
+      }
+
+      .collapse-toc-hide-desktop span:nth-child(3) > img {
+        transform: translate(-4px, 2px);
+        transition: all 0.2s ease;
+      }
+
+      .collapse-toc-hide-desktop.toc-open span:nth-child(3) > img {
+        transform: translate(-4px, 2px) rotate(180deg);
+      }
+
+      .toc-sidebar__menu {
+        height: 0;
+        opacity: 0;
+        margin-bottom: -10%;
+        transform: translateY(-1.5rem);
+        transition: all 0.2s ease-out;
+      }
+
+      .toc-sidebar__menu.open {
+        height: 100%;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .manual__chapter--sidebar {
+        padding-bottom: 0;
+      }
     }
   </style>
 {% end_require_css %}
+
+{% require_js %}
+  <script>
+    var collapseToc = document.querySelector('.collapse-toc-hide-desktop');
+    var tocMenu = document.querySelector('.toc-sidebar__menu');
+
+    if (window.innerWidth <= 767) {
+      collapseToc.addEventListener('click', function () {
+        if (!this.classList.contains('toc-open')) {
+          this.setAttribute('aria-expanded', 'true');
+          collapseToc.classList.add('toc-open');
+          tocMenu.classList.add('open');
+        } else {
+          this.setAttribute('aria-expanded', 'false');
+          this.classList.remove('toc-open');
+          tocMenu.classList.remove('open');
+        }
+      });
+    }
+  </script>
+{% end_require_js %}
 
 {% block body %}
   <div class="eyebrow-container">
@@ -198,10 +264,15 @@
           path="../modules/button.module" %}
       </div>
       <a class="collapse-toc-hide-desktop" aria-expanded="false" aria-haspopup="false">
-        <span class="collapse-toc-text">
-          {% text "collapse_button_text"
-            label="Collapse TOC menu button text",
+        <span class="expand-toc-text">
+          {% text "expand_button_text"
+            label="Expand TOC menu button text",
             value="Expand Table Of Contents" %}
+        </span>
+        <span class="collapse-toc-text">
+          {% text "collapse_button_text" 
+            label="Collapse TOC menu button text",
+            value="Collapse Table Of Contents" %}
         </span>
         {% image "chevron" 
           label="Chevron",

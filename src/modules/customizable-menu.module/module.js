@@ -41,7 +41,6 @@ if (menuParentItems) {
       var childToggle = el.querySelector('.menu__child-toggle');
       var toggleText = el.querySelector('.menu__link--toggle');
       var clickableItems = Array.from([childToggle, toggleText]);
-      console.log(clickableItems);
 
       // DOM Manipulation helper functions
       var closeTopMenus = function (queryClass, openClass) {
