@@ -228,16 +228,16 @@ a:active {
   color: {{ color_variant(anchor_font.color, 20) }};
 }
 
-.widget-type-rich_text a,
-.hs_cos_wrapper_type_rich_text a,
-span[data-hs-cos-type="rich_text"] a {
+.widget-type-rich_text a:not(.cta_button),
+.hs_cos_wrapper_type_rich_text a:not(.cta_button),
+span[data-hs-cos-type="rich_text"] a:not(.cta_button) {
   border-bottom: 2px solid transparent;
   font-size: inherit;
 }
 
-.widget-type-rich_text a:hover,
-.hs_cos_wrapper_type_rich_text a:hover,
-span[data-hs-cost-type="rich_text"] a:hover {
+.widget-type-rich_text a:not(.cta_button):hover,
+.hs_cos_wrapper_type_rich_text a:not(.cta_button):hover,
+span[data-hs-cost-type="rich_text"] a:not(.cta_button):hover {
   border-color: #00B9BC;
 }
 
@@ -341,7 +341,7 @@ blockquote {
 
 button,
 .button {
-  {{ button_border }}
+  /* {{ button_border }} */
   {{ button_spacing }}
   {{ button_font.style }};
   background-color: {{ button_bg_color }};
@@ -355,16 +355,14 @@ button:hover,
 button:focus,
 .button:hover,
 .button:focus {
-  {{ button_font.style }};
-  
-  border-color: {{ color_variant(theme.buttons.border.border.top.color, -40) }};
+  /* border-color: {{ color_variant(theme.buttons.border.border.top.color, -40) }}; */
 }
 
 button:active,
 .button:active {
   {{ button_font.style }};
   
-  border-color: {{ color_variant(theme.buttons.border.border.top.color, 40) }};
+  /* border-color: {{ color_variant(theme.buttons.border.border.top.color, 40) }}; */
 }
 
 {###########################################################################}

@@ -7,6 +7,11 @@ button,
   white-space: normal;
 }
 
+button:hover,
+.button:hover {
+  filter: brightness(0.95);
+}
+
 button:disabled,
 .button:disabled {
   background-color: #D0D0D0;
