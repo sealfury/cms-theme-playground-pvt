@@ -16,12 +16,12 @@
         label="Search results heading",
         path="@hubspot/rich_text" %}
         {% module_attribute "html" %}
-          <h1>Results for "{{ request.query_dict.term|escape }}"</h1>
+          <h1>Results for <span class="teal">{{ request.query_dict.term|escape }}</span></h1>
         {% end_module_attribute %}
       {% end_module_block %}
       {% module "search_results"
         path="@hubspot/search_results",
-        display_featured_images="true",
+        display_featured_images="false",
         extra_classes="custom-search-results" %}
     </div>
   </section>

@@ -716,8 +716,17 @@ footer.hide-on-open-mobile {
 {###########################################################################}
 
 .hs-search-results__title {
-  {{ h1_font.style }};
   color: {{ h1_font.color }};
+  font-family: {{ h1_font.font }};
+  font-weight: 600;
+}
+
+.hs-search-results__title:hover {
+  font-family: {{ h1_font.font }};
+}
+
+.error-page:before {
+  font-family: {{ secondary_font.font }};
 }
 
 {###########################################################################}
