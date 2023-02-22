@@ -9,6 +9,31 @@
 {# pageTitle is used on system templates for setting a value for the title tag #}
 {% set pageTitle = "Search results" %}
 
+{# Remove '>' from Next page link and replace with arrow #}
+{% require_js %}
+  <script>
+    function changeInnerText(_resultsClass) {
+      var resultsClass = document.querySelector(_resultsClass);
+      var nextPage = resultsClass.querySelector(".hs-search-results__next-page");
+      var prevPage = resultsClass.querySelector(".hs-search-results__prev-page");
+
+      setTimeout(() => {
+        if (nextPage) {
+          var newNextText = nextPage.innerText.slice(0, -2);
+          nextPage.innerText = newNextText;
+        }
+        if (prevPage) {
+          prevPage.innerText = prevPage.innerText.slice(2);
+        }
+      }, 100);
+    }
+
+    window.addEventListener("load", function () {
+      changeInnerText("div.hs-search-results");
+    });
+  </script>
+{% end_require_js %}
+
 {% block body %}
   <section class="content-wrapper">
     <div class="systems-page systems-page--search-results">
@@ -16,7 +41,9 @@
         label="Search results heading",
         path="@hubspot/rich_text" %}
         {% module_attribute "html" %}
-          <h1>Results for <span class="teal">{{ request.query_dict.term|escape }}</span></h1>
+          <h1>
+            Results for <span class="teal">{{ request.query_dict.term|escape }}</span>
+          </h1>
         {% end_module_attribute %}
       {% end_module_block %}
       {% module "search_results"
