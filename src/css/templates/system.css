@@ -117,6 +117,41 @@
   width: 23%;
 }
 
+@media screen and (max-width: 767px) {
+  .systems-page--search-results {
+    margin-bottom: 4rem;
+    padding: 0;
+  }
+
+  .systems-page--search-results span[data-hs-cos-type='rich_text'] {
+    padding: 0;
+  }
+
+  .custom-search-results ul {
+    margin-bottom: 2rem;
+  }
+
+  .custom-search-results ul > li {
+    border-left: none;
+    border-top: 0.5rem solid #DFE4E9;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: unset;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    padding-top: 1rem;
+  }
+
+  .hs-search-results__title {
+    width: 100%;
+  }
+
+  .hs-search-results__description {
+    height: unset;
+    width: 100%;
+  }
+}
+
 /* Password prompt */
 
 .password-prompt input[type=password] {
