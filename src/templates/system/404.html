@@ -4,28 +4,142 @@
   label: Boilerplate - 404 error
   screenshotPath: ../../images/template-previews/404.png
 -->
+{# Import language glossaries #}
+{% import '../../utils/i18n/404english.html' as english %}
+{% import '../../utils/i18n/404svenska.html' as swedish %}
+
 {% set template_css = "../../css/templates/system.css" %}
 {% extends "../layouts/base.html" %}
+
+{% if request.referrer is string_containing '/en' or request.path is string_containing '/en' %}
+  {% set lang = english %}
+{% else %}
+  {% set lang = swedish %}
+{% endif %}
+
+{% set cards = lang.cards %}
+
+{# Clean up url retrieval for use below #}
+{% macro getPageUrl(id) %}
+  {% if id and id is number %}
+    {{ content_by_id(id).absolute_url }}
+  {% else %}
+    {{ '/' }}
+  {% endif %}
+{% endmacro %}
+
+{# Get image alt from src to avoid unnecessary translation fields #}
+{% macro createAlt(src) %}
+  {% if src and src is string %}
+    {{ src|split('/')|last|split('.')|first }}
+  {% else %}
+    {{ null }}
+  {% endif %}
+{% endmacro %}
+
 {# pageTitle is used on system templates for setting a value for the title tag #}
-{% set pageTitle = "Error 404 | Page not found" %}
+{% set pageTitle = "404 | {{ lang.header }}" %}
 
 {% block body %}
   <section class="content-wrapper">
     <div class="error-page" data-error="404">
       {% module "content"
         path="@hubspot/rich_text",
-        html="<h1>Page not found.</h1>" %}
-      {% module "button"
-        path="../../modules/button",
-        button_text="Go Home",
-        link={
-          "url": {
-            "type": "EXTERNAL",
-            "href": "/"
-          },
-          "open_in_new_tab": false,
-          "no_follow": false
-        } %}
+        html="<h1>{{ lang.header }}</h1>" %}
     </div>
+    <h5 class="return-links-title">{{ lang.subheader }}</h5>
+    {% module_block module "return-links", 
+      path="../../modules/product-cards.module",
+      label="Product Cards",
+      extra_classes="return-links"
+      use_large="false" %}
+      {% module_attribute "cards"
+        is_json=True %}
+        [
+          {
+            "small": [
+              {
+                "title": "{{ cards[0].pageName }}",
+                "link": {
+                  "url": {
+                    "type": "CONTENT",
+                    "href": "{{ getPageUrl(cards[0].pageId) }}"
+                  }
+                },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards[0].iconSrc)|trim }}",
+                  "src": "{{ cards[0].iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards[1].pageName }}",
+                "link": {
+                  "url": {
+                    "type": "CONTENT",
+                    "href": "{{ getPageUrl(cards[1].pageId) }}"
+                  }
+                },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards[1].iconSrc)|trim }}",
+                  "src": "{{ cards[1].iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards[2].pageName }}",
+                "link": {
+                  "url": {
+                    "type": "CONTENT",
+                    "href": "{{ getPageUrl(cards[2].pageId) }}"
+                  }
+                },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards[2].iconSrc)|trim }}",
+                  "src": "{{ cards[2].iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards[3].pageName }}",
+                "link": {
+                  "type": "CONTENT",
+                  "href": "{{ getPageUrl(cards[3].pageId) }}"
+                },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards[3].iconSrc)|trim }}",
+                  "src": "{{ cards[3].iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards[4].pageName }}",
+                "link": {
+                  "type": "CONTENT",
+                  "href": "{{ getPageUrl(cards[4].pageId) }}"
+                },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards[4].iconSrc)|trim }}",
+                  "src": "{{ cards[4].iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards[5].pageName }}",
+                "link": {
+                  "type": "CONTENT",
+                  "href": "{{ getPageUrl(cards[5].pageId) }}"
+                },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards[5].iconSrc)|trim }}",
+                  "src": "{{ cards[5].iconSrc }}"
+                }
+              }
+            ]
+          }
+        ]
+      {% end_module_attribute %}
+    {% end_module_block %}
   </section>
 {% endblock body %}
