@@ -387,6 +387,31 @@
             "default": "Automotive"
           },
           {
+            "label": "Parent Blog Link",
+            "name": "category_link",
+            "type": "link",
+            "placeholder": "Blog to link to",
+            "supported_types": ["CONTENT", "BLOG"],
+            "default": {
+              "url": {
+                "content_id": null,
+                "type": "BLOG",
+                "href": ""
+              },
+              "open_in_new_tab": false,
+              "no_follow": false,
+              "sponsored": false,
+              "user_generated_content": false
+            }
+          },
+          {
+            "label": "Category Tag",
+            "name": "category_tag",
+            "type": "tag",
+            "tag_value": "SLUG",
+            "default": null
+          },
+          {
             "label": "Client Info",
             "name": "client_info",
             "type": "group",

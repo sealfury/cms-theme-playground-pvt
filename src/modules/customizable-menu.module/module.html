@@ -273,9 +273,14 @@
               </button>
               {% for case in item.cases %}
               <li class="menu__item menu__item--depth-2 menu__item--has-submenu">
-                <span class="menu__link menu__link--toggle"
-                  >{{ case.category }}</span
-                >
+                {% if case.category_link.url.type == "CONTENT" or !case.category_tag %}
+                  {% set href = case.category_link.url.href %}
+                {% elif case.category_link.url.type == "BLOG" and case.category_tag %}
+                  {% set href = blog_tag_url(case.category_link.url.content_id, case.category_tag) %}
+                {% endif %}
+                <a class="menu__link menu__link--toggle" href="{{ href }}">
+                  <span>{{ case.category }}</span>
+                </a>
                 <ul class="menu__submenu menu__submenu--level-3">
                   <div class="menu__wrapper--level-3">
                     {% for info in case.client_info %}
@@ -313,21 +318,24 @@
                   >{{ resource.category }}</span
                 >
                 <ul class="menu__submenu menu__submenu--level-3">
-                  <div class="menu__wrapper--level-3">
-                    {% for r in resource.resource %}
+                  {% for r in resource.resource %}
                     <li
                       class="menu__item menu__item--depth-3"
                       data-menu-type="{{ dataMenuType }}"
                     >
-                      <a class="menu__link" href="{{ r.page_type == "blog" ? r.blog.absolute_url : r.page.url.href }}">{{ r.type }}</a>
+                      <a class="menu__link" href="{{ r.page_type == "blog" ? r.blog.absolute_url : r.page.url.href }}">
+                        <span>{{ r.type }}</span>
+                        {% if r.description %}
+                        <span class="menu__link">{{ r.description }}</span>
+                        {% endif %}
+                      </a>
                     </li>
-                    {% if r.description %}
+                    {# {% if r.description %}
                       <li class="menu__item menu__item--depth-3">
                         <span class="menu__link">{{ r.description }}</span>
                       </li>
-                    {% endif %}
-                    {% endfor %}
-                  </div>
+                    {% endif %} #}
+                  {% endfor %}
                 </ul>
               </li>
               {% endfor %}

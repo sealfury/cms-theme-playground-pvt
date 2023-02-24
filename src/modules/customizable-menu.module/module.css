@@ -281,6 +281,12 @@
   line-height: 28px;
   padding-bottom: 8px;
   padding-left: 2px;
+  transition: all 0.3s ease;
+}
+
+.client-cases > .menu__item--depth-2 > .menu__link:hover {
+  border-color: #396D78;
+  color: #396D78 !important;
 }
 
 .menu__submenu .menu__link--client-cases {
@@ -351,15 +357,58 @@
   width: fit-content;
 }
 
-.menu__item--depth-3[data-menu-type="why"] > a:hover,
-.menu__item--depth-3[data-menu-type="resources"] > a:hover {
+.menu__item--depth-3[data-menu-type="why"] > a:hover {
   border-color: #00B9BC;
 }
 
+.menu__item--depth-3[data-menu-type="resources"] > a {
+  border: none;
+  border-radius: 8px;
+  margin: 2px 0;
+  padding: 6px 12px;
+  transform: translateX(-9px);
+  width: 95%;
+}
+
 .menu__item--depth-3[data-menu-type="resources"] > a:hover {
-  background-color: #FFFFFF;
-  border-color: #15CCCF;
-  color: #396D78;
+  background-color: #EFF3F7;
+}
+
+.menu__item--resources .menu__submenu--level-2 {
+  padding: 2.25rem 3rem;
+}
+
+.menu__item--resources .menu__submenu--main-link {
+  margin-bottom: 1rem;
+  padding-left: 12px;
+}
+
+.menu__item--resources .menu__submenu--level-3 {
+  width: 100%;
+}
+
+.menu__item--depth-3[data-menu-type="resources"] span:first-child {
+  border-bottom: 1px solid transparent;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  padding: 0 1px 1px;
+  transition: all 0.2s ease-in;
+}
+
+.menu__item--depth-3[data-menu-type="resources"] > a:hover span:first-child {
+  border-color: #396D78;
+}
+
+.menu__item--depth-3[data-menu-type="resources"] span.menu__link {
+  color: rgb(15 30 45 / 75%);
+  font-weight: 400;
+  padding: 4px 1px 0;
+  white-space: pre-wrap;
+}
+
+.menu__item--depth-3[data-menu-type="resources"] span.menu__link:hover {
+  background-color: transparent;
 }
 
 .menu__item--depth-3 > span {
