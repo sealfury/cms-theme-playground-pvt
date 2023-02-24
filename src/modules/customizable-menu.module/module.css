@@ -430,18 +430,6 @@
   pointer-events: none;
 }
 
-/* .menu__item--why .menu__item--depth-3:hover span {
-  color: #396D78;
-  cursor: unset;
-  font-weight: 500;
-}
-
-.menu__item--resources .menu__item--depth-3:hover span {
-  color: #396D78;
-  cursor: unset;
-  font-weight: 500;
-} */
-
 .menu__submenu .menu__item {
   padding: 0;
   width: 100%;
@@ -651,7 +639,12 @@ header.scroll .menu__item--open > .menu__submenu--level-2 {
   .menu__item--depth-3[data-menu-type="why"] > a,
   .menu__item--depth-3[data-menu-type="resources"] > a {
     border: none;
+    transform: unset;
     translate: unset;
+  }
+
+  .menu__item--depth-3[data-menu-type="resources"] span.menu__link {
+    font-size: 12px;
   }
 
   .menu__submenu--main-link {
