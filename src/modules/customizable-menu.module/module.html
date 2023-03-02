@@ -202,8 +202,6 @@
               {% for product in item.products %}
               {% set size = "large" if product.use_large is truthy else "small" %}
               {% set cards = product.large if product.use_large is truthy else product.small %}
-              {% set features = card.features if size == "large" else [] %}
-
               <li class="menu__item menu__item--depth-2">
                 <span class="menu__link menu__link--toggle"
                   >{{ product.section_title }}</span
@@ -213,6 +211,7 @@
                 >
                   <div class="menu__wrapper--level-3">
                     {% for card in cards %}
+                    {% set features = card.features if product.use_large is truthy else [] %}
                     {{ headerCard(card.title, size, card.link.url.href, card.description, features, card.icon) }}
                     {% endfor %}
                   </div>
