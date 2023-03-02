@@ -18,7 +18,7 @@ image=null) %}
     <ul class="header-card__content--{{ size }}">
       <li class="header-card__title header-card__title--{{ title_class }}">
         {% if image is mapping %}
-          <img width="{{ image.width }}" src="{{ image.src }}" alt="{{ image.alt or 'card-icon' }}" />
+          <img width="{{ image.width }}" src="{{ image.src }}" alt="{{ image.alt or "card-icon" }}" />
         {% endif %}
         <span>{{ title }}</span>
       </li>

@@ -1,7 +1,7 @@
 <!--
-  templateType: blog_post
-  isAvailableForNewContent: true
-  label: E-book Table of Contents
+    templateType: blog_post
+    label: Events Post
+    isAvailableForNewContent: true
 -->
 {% set template_css = "../../css/templates/blog.css" %}
 {% extends "./layouts/base.html" %}
@@ -9,41 +9,62 @@
 {% block body %}
   <div class="body-container body-container--blog-post">
     {% module "hero-banner"
-      path="../modules/manual-hero-banner.module",
-      header="{{ content.name }}",
-      subheader="Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus partitor. Duis mollis, est non commodo luctus nis.",
-      buttons=null %}
+      path="../modules/hero-banner.module",
+      header="<strong>Customer Story:</strong> Edit module to edit text",
+      subheader="Edit module to edit text field",
+      buttons=null,
+      column="form" %}
 
+    {# Blog post #}
     <div class="content-wrapper">
-      <div class="toc__section-header">
-        {% rich_text "section-header"
-          label="Section Header",
-          html="<h2>Content</h2>" %}
-        {% module "social-icons"
-          path="../modules/social-follow" %}
+      <div class="customer-stories__container">
+        <article class="blog-post">
+          <div class="blog-post__meta">
+            <a href="{{ blog_author_url(group.id, content.blog_post_author.slug) }}" rel="author">
+              {{ content.blog_post_author.display_name }}
+            </a>
+            <time>
+              {{ content.publish_date_localized }}
+            </time>
+          </div>
+          <div>
+            {{ content.post_body }}
+          </div>
+          {% if content.tag_list %}
+            {# <div>
+              {% for tag in content.tag_list %}
+              <a href="npe2_" rel="tag">{{ tag.name }}</a>
+              {% if not loop.last %},{% endif %}
+              {% endfor %}
+            </div> #}
+          {% endif %}
+        </article>
+        {% module "upcoming-dates"
+          path="../modules/hidden-date-fields.module",
+          header="<h2>Upcoming dates</h2>" %}
       </div>
-      {% module "table-of-contents"
-        path="../modules/table-of-contents" %}
     </div>
+
+    {# End blog post #}
 
     {% macro related_posts(post, count, total) %}
       {% if count == 1 %}
         <section class="blog-related-posts">
           <div class="content-wrapper">
-          {% if content.language.language == "en" %}
-            {% set parentBlog = blog_by_id(group.id) %}
-            {% set sectionHeader = "More {{ parentBlog.htmlTitle }}" %}
-            {% set readmoreText = "Read more" %}
-          {% endif %}
-          {% if content.language.language == "sv" %}
-            {% set parentBlog = blog_by_id(group.id) %}
-            {% set sectionHeader = "Läs mer {{ parentBlog.htmlTitle }}" %}
-            {% set readmoreText = "Läs mer" %}
-          {% endif %}
+            {% if content.language.language == "en" %}
+              {% set parentBlog = blog_by_id(group.id) %}
+              {% set sectionHeader = "More {{ parentBlog.htmlTitle }}" %}
+              {% set readmoreText = "Read more" %}
+            {% endif %}
+            {% if content.language.language == "sv" %}
+              {% set parentBlog = blog_by_id(group.id) %}
+              {% set sectionHeader = "Läs mer {{ parentBlog.htmlTitle }}" %}
+              {% set readmoreText = "Läs mer" %}
+            {% endif %}
             <h2>{% text "related-posts"
                   noWrapper=True,
                   label="Learn More Section Header",
-                  value="{{ context.value or 'Discover More ' ~ group.html_title }}" %}</h2>
+                  value="{{ context.value or sectionHeader }}" %}</h2>
             <div class="blog-related-posts__list">
             {% endif %}
             <article
@@ -63,7 +84,6 @@
                   width="352"
                   alt="{{ post.featured_image_alt_text }}"
                 />
-
               {% endif %}
               <div class="blog-related-posts__content">
                 <h3 class="blog-related-posts__title">
