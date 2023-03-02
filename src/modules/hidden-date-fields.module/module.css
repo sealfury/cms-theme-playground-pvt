@@ -4,6 +4,16 @@
   width: clamp(375px, 100%, 600px);
 }
 
+.upcoming__header {
+  text-align: center;
+}
+
+.upcoming__header > h1,
+.upcoming__header > h2,
+.upcoming__header > h3 {
+  margin-bottom: 0.5rem;
+}
+
 .upcoming__table {
   padding: 1rem;
   width: 100%;

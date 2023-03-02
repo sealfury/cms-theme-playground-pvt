@@ -196,7 +196,7 @@
   {% set requestPathArr = request.path|split("/") %}
   {% if requestPathArr is containing("tag") %}
     {% set tagFilters = requestPathArr|last %}
-    {% set blogName = requestPathArr. %}
+    {% set blogName = requestPathArr %}
     {% if locale_name(locale)|split(" ")|first|lower != "english" %}
       {% set blogName = requestPathArr. %}
     {% endif %}
@@ -340,6 +340,20 @@
               >{{ module.button_text }}</a
             >
           </div>
+        {% endif %}
+
+        {% set sanitizedTitle = group.html_title|lower %}
+        {% if sanitizedTitle is string_containing 'events' %}
+          <div class="blog-index__event-details">
+          {# {{ content.widgets|string|split('subheader=')|last|split('}')|first|striptags|pprint }} #}
+            {% set location = content.widgets|string|split('location=')|last|split(',')|first %}
+            <span class="blog-index__event--location" data-location="{{ location }}">{{ location }}</span>
+            {# {{ content.widgets|string|split('start=')|last|split('}')|first|pprint }} #}
+            {% set unformatted = content.widgets|string|split('start=')|last|split('}')|first %}
+            <span class="blog-index__event--location" data-date="{{ unformatted }}"></span>
+            </div>
+
+          {# TODO: JS TO ADD DATA-DATE attr to element content #}
         {% endif %}
       </div>
     </article>
