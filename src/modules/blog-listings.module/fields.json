@@ -213,6 +213,59 @@
     }
   },
   {
+    "label": "Is This An Event / Webinar Listing?",
+    "name": "is_event",
+    "id": "is_event",
+    "type": "boolean",
+    "display": "toggle",
+    "default": false
+  },
+  {
+    "label": "Extra Event Field Icons",
+    "name": "event_icons",
+    "id": "event_icons",
+    "type": "group",
+    "visibility": {
+      "controlling_field": "is_event",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "children": [
+      {
+        "label": "Location Icon",
+        "name": "location",
+        "id": "event_icons.location",
+        "type": "image",
+        "default": {
+          "size_type": "exact",
+          "src": "",
+          "alt": "",
+          "loading": "lazy",
+          "width": 32,
+          "height": 32,
+          "max_width": 40,
+          "max_height": 40
+        }
+      },
+      {
+        "label": "Date Icon",
+        "name": "date",
+        "id": "event_icons.date",
+        "type": "image",
+        "default": {
+          "size_type": "exact",
+          "src": "",
+          "alt": "",
+          "loading": "lazy",
+          "width": 32,
+          "height": 32,
+          "max_width": 40,
+          "max_height": 40
+        }
+      }
+    ]
+  },
+  {
     "label": "Styles",
     "name": "styles",
     "type": "group",

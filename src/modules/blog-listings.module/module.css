@@ -173,6 +173,35 @@
   filter: brightness(0.9);
 }
 
+.blog-index__event-details {
+  display: flex;
+  gap: 3rem;
+  padding: 0.5rem 0;
+}
+
+.blog-index__event-details > span {
+  align-items: center;
+  color: rgb(15 30 45 / 80%);
+  display: flex;
+  gap: 6px;
+  font-weight: 600;
+  padding: 0.25rem 0;
+}
+
+.blog-index__event-details--img {
+  transform: translateY(-2px);
+}
+
+.blog-index__post--small.events .blog-index__post-content {
+  height: calc(226px + 2rem);
+  gap: 6px;
+  padding: 2% 4%;
+}
+
+.blog-index__post--small.events .blog-index__post-image--small {
+  height: calc(226px + 2rem);
+}
+
 .blog-index__post-title--large {
   font-size: 24px;
   line-height: 33px;
