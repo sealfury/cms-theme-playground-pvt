@@ -17,7 +17,7 @@
 
     {# Blog post #}
     <div class="content-wrapper">
-      <div class="customer-stories__container">
+      <div class="events-post__container">
         <article class="blog-post">
           <div class="blog-post__meta">
             <a href="{{ blog_author_url(group.id, content.blog_post_author.slug) }}" rel="author">
@@ -41,7 +41,8 @@
         </article>
         {% module "upcoming-dates"
           path="../modules/hidden-date-fields.module",
-          header="<h2>Upcoming dates</h2>" %}
+          header="<h2>Upcoming dates</h2>",
+          extra_classes="upcoming-dates" %}
       </div>
     </div>
 
