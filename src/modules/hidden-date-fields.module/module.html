@@ -1,3 +1,12 @@
+{# Configure date format according to region #}
+{% if content.language.languageTag == "en"  %}
+  {% set dateFormat = "dd.MM.yyyy" %}
+  {% set timezone = "Europe/London" %}
+{% else %}
+  {% set dateFormat = "yyyy-MM-dd" %}
+  {% set timezone = "Europe/Berlin" %}
+{% endif %}
+
 <div class="upcoming">
   <div class="upcoming__header">{{ module.header }}</div>
   <div class="upcoming__table">
@@ -9,13 +18,14 @@
       </tr>
 
       {% for occasion in module.occasion %}
+
       {# Get date formats to compare to today's date w/ JS & delete elapsed events #}
       {% set data_start_date = occasion.start|format_date("MM/dd/yyyy", "Europe/Stockholm") %}
       {% set data_end_date = occasion.end|format_date("MM/dd/yyyy", "Europe/Stockholm") %}
 
       <tr class="upcoming__dates--occasion" data-start-date="{{ data_start_date }}">
-        <td>{{ occasion.start|format_date("dd.MM.yyyy", "Europe/Stockholm") }}</td>
-        <td>{{ occasion.end|format_date("dd.MM.yyyy", "Europe/Stockholm") }}</td>
+        <td>{{ occasion.start|format_date(dateFormat, timezone) }}</td>
+        <td>{{ occasion.end|format_date(dateFormat, timezone) }}</td>
         <td>{{ occasion.location }}</td>
       </tr>
       {% endfor %}
