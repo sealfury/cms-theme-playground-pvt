@@ -27,7 +27,7 @@
               {{ content.publish_date_localized }}
             </time>
           </div>
-          <div>
+          <div class="blog-post__body">
             {{ content.post_body }}
           </div>
           {% if content.tag_list %}
@@ -49,25 +49,25 @@
     {# End blog post #}
 
     {% macro related_posts(post, count, total) %}
+      {% if content.language.language == "en" %}
+        {% set parentBlog = blog_by_id(group.id) %}
+        {% set sectionHeader = "More {{ parentBlog.htmlTitle }}" %}
+        {% set readmoreText = "Read more" %}
+      {% endif %}
+      {% if content.language.language == "sv" %}
+        {% set parentBlog = blog_by_id(group.id) %}
+        {% set sectionHeader = "Läs mer {{ parentBlog.htmlTitle }}" %}
+        {% set readmoreText = "Läs mer" %}
+      {% endif %}
+
       {% if count == 1 %}
         <section class="blog-related-posts">
-          <div class="content-wrapper">
-            {% if content.language.language == "en" %}
-              {% set parentBlog = blog_by_id(group.id) %}
-              {% set sectionHeader = "More {{ parentBlog.htmlTitle }}" %}
-              {% set readmoreText = "Read more" %}
-            {% endif %}
-            {% if content.language.language == "sv" %}
-              {% set parentBlog = blog_by_id(group.id) %}
-              {% set sectionHeader = "Läs mer {{ parentBlog.htmlTitle }}" %}
-              {% set readmoreText = "Läs mer" %}
-            {% endif %}
             <h2>{% text "related-posts"
                   noWrapper=True,
                   label="Learn More Section Header",
                   value="{{ context.value or sectionHeader }}" %}</h2>
             <div class="blog-related-posts__list">
-            {% endif %}
+      {% endif %}
             <article
               class="blog-related-posts__post"
               aria-label="Blog post summary: {{ post.name }}"
@@ -82,7 +82,7 @@
                   class="blog-related-posts__image"
                   src="{{ post.featured_image }}"
                   loading="lazy"
-                  width="352"
+                  width="180"
                   alt="{{ post.featured_image_alt_text }}"
                 />
               {% endif %}
@@ -90,7 +90,15 @@
                 <h3 class="blog-related-posts__title">
                   {{ post.name }}
                 </h3>
-                {{ post.post_summary|truncatehtml(84, "...", false) }}
+
+                {% if post.name|length > 44 %}
+                  {% set charsToTruncate = 80 %}
+                {% else %}
+                  {% set charsToTruncate = 120 %}
+                {% endif %}
+
+                {{ post.post_summary|truncatehtml(charsToTruncate, "...", false) }}
+
                 <a class="blog-related-posts__readmore-link" href="{{ post.absolute_url }}"
                   >{{ readmoreText }}</a
                 >
@@ -98,7 +106,6 @@
             </article>
             {% if count == total %}
             </div>
-          </div>
         </section>
       {% endif %}
     {% endmacro %}
