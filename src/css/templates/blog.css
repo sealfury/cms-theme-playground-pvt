@@ -88,6 +88,32 @@
   width: calc(100% - 180px);
 }
 
+.blog-index__event-details {
+  display: flex;
+  gap: 3rem;
+  padding: 0.5rem 0;
+}
+
+.blog-index__event-details > span {
+  align-items: center;
+  color: rgb(15 30 45 / 80%);
+  display: flex;
+  gap: 6px;
+  font-weight: 600;
+  padding: 0.25rem 0;
+}
+
+.blog-index__event-details--img {
+  transform: translateY(-2px);
+}
+
+.blog-index__post-tag {
+  color: #525E6A;
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
 .blog-related-posts__content h2,
 .blog-related-posts__content h3:not(.blog-related-posts__title) {
   display: none;
