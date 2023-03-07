@@ -86,3 +86,153 @@ includeLangOpts=true) -%}
   {{ pageName }}
 
 {%- endmacro %}
+
+
+{% macro related_events(post, count, total) %}
+  {% if content.language.language == "en" %}
+    {% set parentBlog = blog_by_id(group.id) %}
+    {% set sectionHeader = "More {{ parentBlog.htmlTitle }}" %}
+    {% set readmoreText = "Read more" %}
+  {% endif %}
+  {% if content.language.language == "sv" %}
+    {% set parentBlog = blog_by_id(group.id) %}
+    {% set sectionHeader = "Läs mer {{ parentBlog.htmlTitle }}" %}
+    {% set readmoreText = "Läs mer" %}
+  {% endif %}
+
+  {% if count == 1 %}
+    <section class="blog-related-posts">
+        <h2>{% text "related-posts"
+              noWrapper=True,
+              label="Learn More Section Header",
+              value="{{ context.value or sectionHeader }}" %}</h2>
+        <div class="blog-related-posts__list">
+  {% endif %}
+        <article
+          class="blog-related-posts__post"
+          aria-label="Blog post summary: {{ post.name }}"
+        >
+          <a
+            class="blog-related-posts__post-link"
+            href="{{ post.absolute_url }}"
+            aria-label="{% if post.featured_image_alt_text %} Featured image: {{ post.featured_image_alt_text }} - {% endif %}Read full post: {{ post.name }}"
+          ></a>
+          {% if post.featured_image %}
+            <img
+              class="blog-related-posts__image"
+              src="{{ post.featured_image }}"
+              loading="lazy"
+              width="180"
+              alt="{{ post.featured_image_alt_text }}"
+            />
+          {% endif %}
+          <div class="blog-related-posts__content">
+            <div class="blog-index__event-details">
+            {% set location = post.widgets|string|split('location=')|last|split(',')|first %}
+            <span class="blog-index__event--location" data-location="{{ location }}">
+              <img
+                src="{{ locationIcon.src }}"
+                alt="{{ locationIcon.alt }}"
+                loading="{{ locationIcon.loading }}"
+                width="{{ locationIcon.width }}"
+                class="blog-index__event-details--img"
+              />
+              {{ location }}
+            </span>
+            {% set unformatted = post.widgets|string|split('start=')|last|split('}')|first %}
+            <span class="blog-index__event--date" data-date="{{ unformatted }}">
+              <img
+                src="{{ dateIcon.src }}"
+                alt="{{ dateIcon.alt }}"
+                loading="{{ dateIcon.loading }}"
+                width="{{ dateIcon.width }}"
+                class="blog-index__event-details--img"
+              />
+            </span>
+          </div>
+
+          {% if post.tag_list|length > 0 %}
+            <div class="blog-index__post-tags">
+              <span class="blog-index__post-tag">{{ post.tag_list|first }}</span>
+            </div>
+          {% endif %}
+
+            <h3 class="blog-related-posts__title">
+              {{ post.name }}
+            </h3>
+
+            {% if post.name|length > 44 %}
+              {% set charsToTruncate = 68 %}
+            {% else %}
+              {% set charsToTruncate = 100 %}
+            {% endif %}
+
+            {{ post.post_summary|truncatehtml(charsToTruncate, "...", false) }}
+
+            <a class="blog-related-posts__readmore-link" href="{{ post.absolute_url }}"
+              >{{ readmoreText }}</a
+            >
+          </div>
+        </article>
+        {% if count == total %}
+        </div>
+    </section>
+  {% endif %}
+{% endmacro %}
+
+{# This macro is used to format each recent post card and gets passed to the related_blog_posts HubL tag below #}
+
+{% macro related_posts(post, count, total) %}
+  {% if content.language.language == "en" %}
+    {% set parentBlog = blog_by_id(group.id) %}
+    {% set sectionHeader = "Discover More {{ parentBlog.htmlTitle }}" %}
+    {% set readmoreText = "Read more" %}
+  {% endif %}
+  {% if content.language.language == "sv" %}
+    {% set parentBlog = blog_by_id(group.id) %}
+    {% set sectionHeader = "Upptäck mer {{ parentBlog.htmlTitle }}" %}
+    {% set readmoreText = "Läs mer" %}
+  {% endif %}
+  {% if count == 1 %}
+    <section class="blog-related-posts">
+      
+      <h2>{% text "related-posts"
+            noWrapper=True,
+            label="Learn More Section Header",
+            value="{{ context.value or sectionHeader }}" %}</h2>
+      <div class="blog-related-posts__list">
+  {% endif %}
+      <article
+        class="blog-related-posts__post"
+        aria-label="Blog post summary: {{ post.name }}"
+      >
+        <a
+          class="blog-related-posts__post-link"
+          href="{{ post.absolute_url }}"
+          aria-label="{% if post.featured_image_alt_text %} Featured image: {{ post.featured_image_alt_text }} - {% endif %}Read full post: {{ post.name }}"
+        ></a>
+        {% if post.featured_image %}
+          <img
+            class="blog-related-posts__image"
+            src="{{ post.featured_image }}"
+            loading="lazy"
+            width="180"
+            alt="{{ post.featured_image_alt_text }}"
+          />
+        {% endif %}
+
+        <div class="blog-related-posts__content">
+          <h3 class="blog-related-posts__title">
+            {{ post.name }}
+          </h3>
+          {{ post.post_summary|truncatehtml(84, "...", false) }}
+          <a class="blog-related-posts__readmore-link" href="{{ post.absolute_url }}"
+            >{{ readmoreText }}</a
+          >
+        </div>
+      </article>
+  {% if count == total %}
+      </div>
+    </section>
+  {% endif %}
+{% endmacro %}
