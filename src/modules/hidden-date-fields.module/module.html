@@ -1,5 +1,5 @@
 {# Configure date format according to region #}
-{% if content.language.languageTag == "en"  %}
+{% if content.language.languageTag == "en" %}
   {% set dateFormat = "dd.MM.yyyy" %}
   {% set timezone = "Europe/London" %}
 {% else %}
@@ -7,7 +7,19 @@
   {% set timezone = "Europe/Berlin" %}
 {% endif %}
 
-<div class="upcoming">
+{% if blog and not is_listing_view %}
+  {% set hiddenClass = "hide-for-events-post" %}
+{% else %}
+  {% set hiddenClass = "" %}
+{% endif %}
+
+{% if request.postDict.inpageEditorUI %}
+  {% if module.show_module == true %}
+    {% set hiddenClass = "" %}
+  {% endif %}
+{% endif %}
+
+<div class="upcoming {{ hiddenClass }}">
   <div class="upcoming__header">{{ module.header }}</div>
   <div class="upcoming__table">
     <table class="upcoming__dates">

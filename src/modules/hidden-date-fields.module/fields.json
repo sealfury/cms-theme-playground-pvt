@@ -3,26 +3,36 @@
     "label": "Section Header",
     "name": "header",
     "type": "richtext",
+    "required": false,
+    "locked": false,
     "default": "<h2>Upcoming Occasions:</h2>"
   },
   {
     "label": "Start Date Text",
     "name": "start_date_text",
     "type": "text",
+    "required": false,
+    "locked": false,
     "default": "Start Date",
-    "help_text": "These fields are included so that they can be translated for translated pages"
+    "help_text": "These fields are included so that they can be translated for translated pages",
+    "display_width": "half_width"
   },
   {
     "label": "End Date Text",
     "name": "end_date_text",
     "type": "text",
+    "required": false,
+    "locked": false,
     "default": "End Date",
-    "help_text": "These fields are included so that they can be translated for translated pages"
+    "help_text": "These fields are included so that they can be translated for translated pages",
+    "display_width": "half_width"
   },
   {
     "label": "Location Text",
     "name": "location_text",
     "type": "text",
+    "required": false,
+    "locked": false,
     "default": "Location",
     "help_text": "These fields are included so that they can be translated for translated pages"
   },
@@ -31,6 +41,9 @@
     "name": "occasion",
     "id": "occasion",
     "type": "group",
+    "required": true,
+    "locked": false,
+    "inline_help_text": "<i style=\"color: #6734ff;\">This field is required! Please add at least one 'occasion'.</i>",
     "occurrence": {
       "min": 1,
       "max": null,
@@ -43,7 +56,8 @@
         "id": "occasion.start",
         "required": false,
         "locked": false,
-        "type": "date"
+        "type": "date",
+        "display_width": "half_width"
       },
       {
         "label": "End Date",
@@ -51,7 +65,9 @@
         "id": "occasion.end",
         "required": false,
         "locked": false,
-        "type": "date"
+        "type": "date",
+        "help_text": "End date can be the same as the start date if the event only lasts one day",
+        "display_width": "half_width"
       },
       {
         "label": "Location",
@@ -60,5 +76,16 @@
         "type": "text"
       }
     ]
+  },
+  {
+    "label": "Show module in content?",
+    "name": "show_module",
+    "type": "boolean",
+    "display": "toggle",
+    "inline_help_text": "Toggle on to show module in content.  This is for editing purposes only - the module will remain invisible on the actual published page.",
+    "help_text": "Toggle this on if you would like to visualise your dates selection on the screen instead of only in the module fields.",
+    "default": false,
+    "required": false,
+    "locked": false
   }
 ]

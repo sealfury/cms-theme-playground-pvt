@@ -4,6 +4,10 @@
   width: clamp(375px, 100%, 600px);
 }
 
+.upcoming.hide-for-events-post {
+  display: none;
+}
+
 .upcoming__header {
   text-align: center;
 }
