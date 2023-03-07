@@ -196,9 +196,13 @@
   {% set requestPathArr = request.path|split("/") %}
   {% if requestPathArr is containing("tag") %}
     {% set tagFilters = requestPathArr|last %}
-    {% set blogName = requestPathArr %}
+    {% set blogName = requestPathArr|first %}
     {% if locale_name(locale)|split(" ")|first|lower != "english" %}
-      {% set blogName = requestPathArr. %}
+      {% for element in requestPathArr %}
+        {% if loop.index == 2 %}
+          {% set blogName = element %}
+        {% endif %}
+      {% endfor %}
     {% endif %}
     {% set contents = blog_recent_tag_posts(blogName, tagFilters|capitalize, 250) %}
   {% endif %}
@@ -256,6 +260,41 @@
       {# Article content #}
 
       <div class="blog-index__post-content blog-index__post-content--{{ list_type }}">
+        {# Add extra row to listing card content for events w/ Location and Date #}
+
+        {% if sanitizedTitle is string_containing 'events' %}
+
+          {% set locationIcon = module.event_icons.location %}
+          {% set dateIcon = module.event_icons.date %}
+
+          <div class="blog-index__event-details">
+            {# {{ content.widgets|string|split('subheader=')|last|split('}')|first|striptags|pprint }} #}
+            {% set location = content.widgets|string|split('location=')|last|split(',')|first %}
+            <span class="blog-index__event--location" data-location="{{ location }}">
+              <img
+                src="{{ locationIcon.src }}"
+                alt="{{ locationIcon.alt }}"
+                loading="{{ locationIcon.loading }}"
+                width="{{ locationIcon.width }}"
+                class="blog-index__event-details--img"
+              />
+              {{ location }}
+            </span>
+            {# {{ content.widgets|string|split('start=')|last|split('}')|first|pprint }} #}
+            {% set unformatted = content.widgets|string|split('start=')|last|split('}')|first %}
+            <span class="blog-index__event--date" data-date="{{ unformatted }}">
+              <img
+                src="{{ dateIcon.src }}"
+                alt="{{ dateIcon.alt }}"
+                loading="{{ dateIcon.loading }}"
+                width="{{ dateIcon.width }}"
+                class="blog-index__event-details--img"
+              />
+            </span>
+          </div>
+
+        {% endif %}
+
         {# Tags #}
 
         {% if module.tags and content.tag_list %}
@@ -313,7 +352,13 @@
               {% else %}
                 {% set charsToTruncate = 120 %}
               {% endif %}
+              {% if group.name is string_containing 'Events' and content.name|length > 40 %}
+                {% set charsToTruncate = 68 %}
+              {% elif group.name is string_containing 'Events' and content.name|length < 40 %}
+                {% set charsToTruncate = 100 %}
+              {% endif %}
             {% endif %}
+
             {% if module.layout_style == "combo" and loop.index > 1 %}
               {% if content.name|length > 40 %}
                 {% set charsToTruncate = 80 %}
@@ -341,93 +386,6 @@
               >{{ module.button_text }}</a
             >
           </div>
-        {% endif %}
-
-        {# Add extra row to listing card content for events w/ Location and Date #}
-
-        {% if sanitizedTitle is string_containing 'events' %}
-
-        {% if module.is_event %}
-          {% set locationIcon = module.event_icons.location %}
-          {% set dateIcon = module.event_icons.date %}
-        {% endif %}
-
-          <div class="blog-index__event-details">
-            {# {{ content.widgets|string|split('subheader=')|last|split('}')|first|striptags|pprint }} #}
-            {% set location = content.widgets|string|split('location=')|last|split(',')|first %}
-            <span class="blog-index__event--location" data-location="{{ location }}">
-              <img
-                src="{{ locationIcon.src }}"
-                alt="{{ locationIcon.alt }}"
-                loading="{{ locationIcon.loading }}"
-                width="{{ locationIcon.width }}"
-                class="blog-index__event-details--img"
-              />
-              {{ location }}
-            </span>
-            {# {{ content.widgets|string|split('start=')|last|split('}')|first|pprint }} #}
-            {% set unformatted = content.widgets|string|split('start=')|last|split('}')|first %}
-            <span class="blog-index__event--date" data-date="{{ unformatted }}">
-              <img
-                src="{{ dateIcon.src }}"
-                alt="{{ dateIcon.alt }}"
-                loading="{{ dateIcon.loading }}"
-                width="{{ dateIcon.width }}"
-                class="blog-index__event-details--img"
-              />
-            </span>
-          </div>
-
-          {% require_js %}
-            <script>
-              // Get unixdatestamp from element attribute and format it
-              function insertDate () {
-                var pageLocale = getPageLocale();
-                console.log(pageLocale);
-                var dateElement = document.querySelector('.blog-index__event--date');
-                var dateAttr = dateElement.getAttribute('data-date');
-                var unformatted = new Date(dateAttr * 1);
-                console.log(unformatted);
-                var options = {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                }
-                var dateFormatted = unformatted.toLocaleDateString(pageLocale, options);
-                dateElement.insertAdjacentText('beforeend', dateFormatted);
-              }
-
-              // Use page lang to format date according to user's region
-              function getPageLocale () {
-                var pageLang = document.documentElement.lang;
-                if (pageLang.includes('-')) {
-                  pageLang = pageLang.split('-')[0];
-                }
-                var locale;
-                switch (pageLang) {
-                  case 'en':
-                    locale = 'en-UK';
-                    break;
-                  case 'sv':
-                    locale = 'sv-SV';
-                    break;
-                  case 'de':
-                    locale = 'de-DE';
-                    break;
-                  case 'pl':
-                    locale = 'pl-PL';
-                    break;
-                  default:
-                    locale = 'en-UK';
-                }
-                return locale;
-              }
-
-              // Insert date into DOM
-              document.addEventListener('DOMContentLoaded', insertDate);
-            </script>
-          {% end_require_js %}
-
         {% endif %}
       </div>
     </article>
