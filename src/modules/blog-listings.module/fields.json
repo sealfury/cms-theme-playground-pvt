@@ -213,9 +213,9 @@
     }
   },
   {
-    "label": "Is This An Event / Webinar Listing?",
-    "name": "is_event",
-    "id": "is_event",
+    "label": "Override default date and/or location icon(s)?",
+    "name": "override_icons",
+    "id": "override_icons",
     "type": "boolean",
     "display": "toggle",
     "default": false
@@ -226,7 +226,7 @@
     "id": "event_icons",
     "type": "group",
     "visibility": {
-      "controlling_field": "is_event",
+      "controlling_field": "override_icons",
       "controlling_value_regex": "true",
       "operator": "EQUAL"
     },
@@ -238,8 +238,8 @@
         "type": "image",
         "default": {
           "size_type": "exact",
-          "src": "",
-          "alt": "",
+          "src": "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/map_pin_purple.png",
+          "alt": "purple map marker icon",
           "loading": "lazy",
           "width": 32,
           "height": 32,
@@ -254,8 +254,8 @@
         "type": "image",
         "default": {
           "size_type": "exact",
-          "src": "",
-          "alt": "",
+          "src": "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/scheduling_icon_teal.png",
+          "alt": "teal calendar icon",
           "loading": "lazy",
           "width": 32,
           "height": 32,
