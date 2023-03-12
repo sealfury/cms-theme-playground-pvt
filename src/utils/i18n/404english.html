@@ -1,7 +1,7 @@
 {#  
-## I denna fil ska du redigera värde till text och länkar som ska visas på 404-sidan
-## när användaren kommer fel från en svensk sida.  Var god och inte ändra variabelnamn osv
-## utan bara redigera värde som vistas nedan.
+## Here you can provide the english translation of text & objects used
+## in system pages (e.g 404, search results) as well as globally translated text 
+## content not added on the module level
 #}
 
 {# 'Page not found' #}
@@ -47,3 +47,14 @@
 {# Blog posts - 'Read more' / 'Discover more' section headers #}
 {% set readmore = "Read more" %}
 {% set discover = "More" %}
+
+{# CTA Banner values - NB <strong> tag in header is needed to colour text teal #}
+{# 'Light' mode #}
+{% set ctaHeaderLight = "Free trial <strong>for 30 days</strong>" %}
+{% set ctaDescriptionLight = "No obligations, no credit card" %}
+{% set ctaButtonTextLight = "Get started" %}
+
+{# 'Dark' mode #}
+{% set ctaHeaderDark = "Book <strong> a demo</strong>" %}
+{% set ctaDescriptionDark = "Learn more about the system" %}
+{% set ctaButtonTextDark = "Book demo" %}
