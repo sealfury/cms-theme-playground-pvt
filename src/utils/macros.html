@@ -1,3 +1,7 @@
+{# Import language glossaries #}
+{% import '../../utils/i18n/404english.html' as english %}
+{% import '../../utils/i18n/404svenska.html' as swedish %}
+
 {# Header nav menu card #}
 
 {% macro headerCard(title, size, href,
@@ -90,15 +94,14 @@ includeLangOpts=true) -%}
 
 {% macro related_events(post, count, total) %}
   {% if content.language.language == "en" %}
-    {% set parentBlog = blog_by_id(group.id) %}
-    {% set sectionHeader = "More {{ parentBlog.htmlTitle }}" %}
-    {% set readmoreText = "Read more" %}
+    {% set lang = english %}
+  {% elif content.language.language == "sv" %}
+    {% set lang = swedish %}
   {% endif %}
-  {% if content.language.language == "sv" %}
-    {% set parentBlog = blog_by_id(group.id) %}
-    {% set sectionHeader = "Läs mer {{ parentBlog.htmlTitle }}" %}
-    {% set readmoreText = "Läs mer" %}
-  {% endif %}
+
+  {% set parentBlog = blog_by_id(group.id) %}
+  {% set sectionHeader = lang.discover ~ " {{ parentBlog.htmlTitle }}" %}
+  {% set readmoreText = lang.readmore %}
 
   {% if count == 1 %}
     <section class="blog-related-posts">
@@ -184,15 +187,15 @@ includeLangOpts=true) -%}
 
 {% macro related_posts(post, count, total) %}
   {% if content.language.language == "en" %}
-    {% set parentBlog = blog_by_id(group.id) %}
-    {% set sectionHeader = "Discover More {{ parentBlog.htmlTitle }}" %}
-    {% set readmoreText = "Read more" %}
+    {% set lang = english %}
+  {% elif content.language.language == "sv" %}
+    {% set lang = swedish %}
   {% endif %}
-  {% if content.language.language == "sv" %}
-    {% set parentBlog = blog_by_id(group.id) %}
-    {% set sectionHeader = "Upptäck mer {{ parentBlog.htmlTitle }}" %}
-    {% set readmoreText = "Läs mer" %}
-  {% endif %}
+
+  {% set parentBlog = blog_by_id(group.id) %}
+  {% set sectionHeader = lang.discover ~ " {{ parentBlog.htmlTitle }}" %}
+  {% set readmoreText = lang.readmore %}
+
   {% if count == 1 %}
     <section class="blog-related-posts">
       

@@ -1,0 +1,49 @@
+{#  
+## I denna fil ska du redigera värde till text och länkar som ska visas på 404-sidan
+## när användaren kommer fel från en svensk sida.  Var god och inte ändra variabelnamn osv
+## utan bara redigera värde som vistas nedan.
+#}
+
+{# 'Page not found' #}
+{% set header = "Sidan ej hittats" %}
+
+{# 'Sorry, we couldn't find...' #}
+{% set subheader = "Tyvärr kunde vi inte hitta denna sida. Gärna besök oss här:" %}
+
+{# Link cards.  Needed values: Page ID, Icon SRC URL #}
+{% set cards = [
+  {
+    pageName: "MaintMaster CMMS",
+    pageId: 56402538725,
+    iconSrc: "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/maintenance-icon-light-petrol.png"
+  },
+  {
+    pageName: "Varför MaintMaster?",
+    pageId: 61258675918,
+    iconSrc: "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/all_icon_teal.png"
+  },
+  {
+    pageName: "Prova gratis",
+    pageId: 59076127734,
+    iconSrc: "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/maintenance-icon-light-petrol.png"
+  },
+  {
+    pageName: "Resurser",
+    pageId: 56936624570,
+    iconSrc: "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/maintenance-icon-light-petrol.png"
+  },
+  {
+    pageName: "Boka en demo",
+    pageId: 57910938101,
+    iconSrc: "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/all_icon_teal.png"
+  },
+  {
+    pageName: "Om MaintMaster",
+    pageId: 56400921279,
+    iconSrc: "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/maintenance-icon-light-petrol.png"
+  }
+] %}
+
+{# Blog posts - 'Read more' / 'Discover more' section headers #}
+{% set readmore = "Läs mer" %}
+{% set discover = "Upptäck fler" %}
