@@ -112,7 +112,7 @@ includeLangOpts=true) -%}
         <div class="blog-related-posts__list">
   {% endif %}
         <article
-          class="blog-related-posts__post"
+          class="blog-related-posts__post events"
           aria-label="Blog post summary: {{ post.name }}"
         >
           <a
@@ -133,11 +133,12 @@ includeLangOpts=true) -%}
             <div class="blog-index__event-details">
             {% set location = post.widgets|string|split('location=')|last|split(',')|first %}
             <span class="blog-index__event--location" data-location="{{ location }}">
+              {% set locationIcon = get_asset_url('../images/module-icons/location_icon_dark_petrol_30.png') %}
               <img
-                src="{{ locationIcon.src }}"
-                alt="{{ locationIcon.alt }}"
-                loading="{{ locationIcon.loading }}"
-                width="{{ locationIcon.width }}"
+                src="{{ get_asset_url('../images/module-icons/location_icon_dark_petrol_30.png')  }}"
+                alt="location icon dark petrol"
+                loading="lazy"
+                width="30"
                 class="blog-index__event-details--img"
               />
               {{ location }}
@@ -145,10 +146,10 @@ includeLangOpts=true) -%}
             {% set unformatted = post.widgets|string|split('start=')|last|split('}')|first %}
             <span class="blog-index__event--date" data-date="{{ unformatted }}">
               <img
-                src="{{ dateIcon.src }}"
-                alt="{{ dateIcon.alt }}"
-                loading="{{ dateIcon.loading }}"
-                width="{{ dateIcon.width }}"
+                src="{{ get_asset_url('../images/module-icons/scheduling_icon_dark_petrol_30.png') }}"
+                alt="scheduling icon dark petrol"
+                loading="lazy"
+                width="28"
                 class="blog-index__event-details--img"
               />
             </span>
