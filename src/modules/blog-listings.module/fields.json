@@ -238,13 +238,13 @@
         "type": "image",
         "default": {
           "size_type": "exact",
-          "src": "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/map_pin_purple.png",
-          "alt": "purple map marker icon",
+          "src": "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/location_icon_dark_petrol_30.png",
+          "alt": "location icon dark petrol",
           "loading": "lazy",
-          "width": 32,
-          "height": 32,
-          "max_width": 40,
-          "max_height": 40
+          "width": 30,
+          "height": 30,
+          "max_width": 32,
+          "max_height": 32
         }
       },
       {
@@ -254,13 +254,13 @@
         "type": "image",
         "default": {
           "size_type": "exact",
-          "src": "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/scheduling_icon_teal.png",
-          "alt": "teal calendar icon",
+          "src": "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/scheduling_icon_dark_petrol_30.png",
+          "alt": "scheduling icon dark petrol",
           "loading": "lazy",
-          "width": 32,
-          "height": 32,
-          "max_width": 40,
-          "max_height": 40
+          "width": 28,
+          "height": 28,
+          "max_width": 32,
+          "max_height": 32
         }
       }
     ]
