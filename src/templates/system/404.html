@@ -58,21 +58,72 @@
       use_large="false" %}
       {% module_attribute "cards"
         is_json=True %}
-        [ { "small": [ { "title": "{{ cards..pageName }}", "link": { "url": { "type":
-        "CONTENT", "href": "{{ getPageUrl(cards..pageId) }}" } }, "icon": { "width": 28, "alt":
-        "{{ createAlt(cards..iconSrc)|trim }}", "src": "{{ cards..iconSrc }}" } }, { "title": "{{ cards..pageName }}",
-        "link": { "url": { "type": "CONTENT", "href": "{{ getPageUrl(cards..pageId) }}" } },
-        "icon": { "width": 28, "alt": "{{ createAlt(cards..iconSrc)|trim }}", "src": "{{ cards..iconSrc }}"
-        } }, { "title": "{{ cards..pageName }}", "link": { "url": { "type": "CONTENT",
-        "href": "{{ getPageUrl(cards..pageId) }}" } }, "icon": { "width": 28, "alt": "{{ createAlt(cards..iconSrc)|trim }}",
-        "src": "{{ cards..iconSrc }}" } }, { "title": "{{ cards..pageName }}",
-        "link": { "type": "CONTENT", "href": "{{ getPageUrl(cards..pageId) }}" }, "icon": {
-        "width": 28, "alt": "{{ createAlt(cards..iconSrc)|trim }}", "src": "{{ cards..iconSrc }}" }
-        }, { "title": "{{ cards..pageName }}", "link": { "type": "CONTENT", "href": "{{ getPageUrl(cards..pageId) }}"
-        }, "icon": { "width": 28, "alt": "{{ createAlt(cards..iconSrc)|trim }}", "src": "{{ cards..iconSrc }}"
-        } }, { "title": "{{ cards..pageName }}", "link": { "type": "CONTENT", "href":
-        "{{ getPageUrl(cards..pageId) }}" }, "icon": { "width": 28, "alt": "{{ createAlt(cards..iconSrc)|trim }}",
-        "src": "{{ cards..iconSrc }}" } } ] } ]
+        [
+          {
+            "small": [
+              {
+                "title": "{{ cards.pageName }}",
+                "link": {
+                  "url": { "type": "CONTENT", "href": "{{ getPageUrl(cards.pageId) }}" }
+                },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards.iconSrc)|trim }}",
+                  "src": "{{ cards.iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards.pageName }}",
+                "link": {
+                  "url": { "type": "CONTENT", "href": "{{ getPageUrl(cards.pageId) }}" }
+                },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards.iconSrc)|trim }}",
+                  "src": "{{ cards.iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards.pageName }}",
+                "link": {
+                  "url": { "type": "CONTENT", "href": "{{ getPageUrl(cards.pageId) }}" }
+                },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards.iconSrc)|trim }}",
+                  "src": "{{ cards.iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards.pageName }}",
+                "link": { "type": "CONTENT", "href": "{{ getPageUrl(cards.pageId) }}" },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards.iconSrc)|trim }}",
+                  "src": "{{ cards.iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards.pageName }}",
+                "link": { "type": "CONTENT", "href": "{{ getPageUrl(cards.pageId) }}" },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards.iconSrc)|trim }}",
+                  "src": "{{ cards.iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards.pageName }}",
+                "link": { "type": "CONTENT", "href": "{{ getPageUrl(cards.pageId) }}" },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards.iconSrc)|trim }}",
+                  "src": "{{ cards.iconSrc }}"
+                }
+              }
+            ]
+          }
+        ]
       {% end_module_attribute %}
     {% end_module_block %}
   </section>
