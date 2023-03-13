@@ -9,6 +9,12 @@
   }
 }
 
+@media screen and (width > 1440px) {
+  .content-wrapper {
+    padding: 0;
+  }
+}
+
 .dnd-section > .row-fluid {
   margin: 0 auto;
 }
