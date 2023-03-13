@@ -1,6 +1,10 @@
 {# Breadcrumb menu constructor macro #}
 {% from "../../utils/macros.html" import createBreadcrumbMenu %}
 
+{% set chevronPath = "../../images/module-icons/breadcrumbs-chevron.png" %}
+{% set chevronFsUrl = "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/module-icons/breadcrumbs-chevron.png" %}
+{% set chevronUrl = get_asset_url(checkmarkPath) != "" ? get_asset_url(chevronPath) : chevronFsUrl %}
+
 {% require_css %}
   <style>
     {% scope_css %}
@@ -140,14 +144,14 @@
       {% endif %}
 
       {# Add chevron to breadcrumb menu #}
-      {% set chevronPath = "../../images/module-icons/breadcrumbs-chevron.png" %}
+
       .breadcrumb__menu-item:not(.active-page):after {
-        background: url("{{ get_asset_url(chevronPath) }}") no-repeat;
+        background: url("{{ chevronUrl }}") no-repeat;
         content: '';
         display: inline-block;
         height: 1rem;
         width: 1rem;
-        transform: translateY(22.5%);
+        transform: translateY(25%);
       }
     
     {% end_scope_css %}
@@ -212,13 +216,21 @@
     {% endif %}
 
     {% if module.column == "video" %}
-      <div class="hero-media-player__wrapper">
+      <div class="hero-media-player__wrapper" data-has-popup="{{ module.enable_popup }}">
+        {% if module.enable_popup %}
+          <a class="hero-media-player__popup"></a>
+        {% endif %}
         {% video_player 
           player_id="{{ module.video.player_id }}",
           autoplay="{{ module.video.autoplay }}",
-          hide_control="{{ module.video.hide_control}}",
+          hide_control="{{ module.video.hide_control }}",
           loop="{{ module.video.loop_video }}"
         %}
+      </div>
+      <div class="popup-overlay"></div>
+      <div class="popup-container">
+        <span class="popup-close fade">&#10006;</span>
+        <div class="popup-iframe-container"></div>
       </div>
     {% endif %}
 

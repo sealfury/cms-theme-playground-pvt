@@ -213,6 +213,18 @@
     }
   },
   {
+    "label": "Enable popup-on-click functionality to video?",
+    "name": "enable_popup",
+    "type": "boolean",
+    "display": "toggle",
+    "default": false,
+    "visibility": {
+      "controlling_field": "column",
+      "controlling_value_regex": "video",
+      "operator": "EQUAL"
+    }
+  },
+  {
     "label": "Form Section",
     "name": "form_section",
     "type": "group",
