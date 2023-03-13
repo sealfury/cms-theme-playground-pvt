@@ -5,3 +5,5 @@ src/modules/key-features.module/module.html
 src/modules/hero-banner.module/module.html
 src/modules/teams-menu.module/module.html
 src/modules/prices-card.module/module.html
+src/templates/system/404.html
+src/templates/system/500.html
