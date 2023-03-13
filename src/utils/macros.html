@@ -1,6 +1,6 @@
 {# Import language glossaries #}
-{% import '../../utils/i18n/404english.html' as english %}
-{% import '../../utils/i18n/404svenska.html' as swedish %}
+{% import "../../utils/i18n/english.html" as english %}
+{% import "../../utils/i18n/svenska.html" as swedish %}
 
 {# Header nav menu card #}
 
@@ -91,7 +91,6 @@ includeLangOpts=true) -%}
 
 {%- endmacro %}
 
-
 {% macro related_events(post, count, total) %}
   {% if content.language.language == "en" %}
     {% set lang = english %}
@@ -105,37 +104,37 @@ includeLangOpts=true) -%}
 
   {% if count == 1 %}
     <section class="blog-related-posts">
-        <h2>{% text "related-posts"
-              noWrapper=True,
-              label="Learn More Section Header",
-              value="{{ context.value or sectionHeader }}" %}</h2>
-        <div class="blog-related-posts__list">
-  {% endif %}
-        <article
-          class="blog-related-posts__post events"
-          aria-label="Blog post summary: {{ post.name }}"
-        >
-          <a
-            class="blog-related-posts__post-link"
-            href="{{ post.absolute_url }}"
-            aria-label="{% if post.featured_image_alt_text %} Featured image: {{ post.featured_image_alt_text }} - {% endif %}Read full post: {{ post.name }}"
-          ></a>
-          {% if post.featured_image %}
-            <img
-              class="blog-related-posts__image"
-              src="{{ post.featured_image }}"
-              loading="lazy"
-              width="180"
-              alt="{{ post.featured_image_alt_text }}"
-            />
-          {% endif %}
-          <div class="blog-related-posts__content">
-            <div class="blog-index__event-details">
-            {% set location = post.widgets|string|split('location=')|last|split(',')|first %}
+      <h2>{% text "related-posts"
+            noWrapper=True,
+            label="Learn More Section Header",
+            value="{{ context.value or sectionHeader }}" %}</h2>
+      <div class="blog-related-posts__list">
+      {% endif %}
+      <article
+        class="blog-related-posts__post events"
+        aria-label="Blog post summary: {{ post.name }}"
+      >
+        <a
+          class="blog-related-posts__post-link"
+          href="{{ post.absolute_url }}"
+          aria-label="{% if post.featured_image_alt_text %} Featured image: {{ post.featured_image_alt_text }} - {% endif %}Read full post: {{ post.name }}"
+        ></a>
+        {% if post.featured_image %}
+          <img
+            class="blog-related-posts__image"
+            src="{{ post.featured_image }}"
+            loading="lazy"
+            width="180"
+            alt="{{ post.featured_image_alt_text }}"
+          />
+        {% endif %}
+        <div class="blog-related-posts__content">
+          <div class="blog-index__event-details">
+            {% set location = post.widgets|string|split("location=")|last|split(",")|first %}
             <span class="blog-index__event--location" data-location="{{ location }}">
-              {% set locationIcon = get_asset_url('../images/module-icons/location_icon_dark_petrol_30.png') %}
+              {% set locationIcon = get_asset_url("../images/module-icons/location_icon_dark_petrol_30.png") %}
               <img
-                src="{{ get_asset_url('../images/module-icons/location_icon_dark_petrol_30.png')  }}"
+                src="{{ get_asset_url("../images/module-icons/location_icon_dark_petrol_30.png") }}"
                 alt="location icon dark petrol"
                 loading="lazy"
                 width="30"
@@ -143,10 +142,10 @@ includeLangOpts=true) -%}
               />
               {{ location }}
             </span>
-            {% set unformatted = post.widgets|string|split('start=')|last|split('}')|first %}
+            {% set unformatted = post.widgets|string|split("start=")|last|split("}")|first %}
             <span class="blog-index__event--date" data-date="{{ unformatted }}">
               <img
-                src="{{ get_asset_url('../images/module-icons/scheduling_icon_dark_petrol_30.png') }}"
+                src="{{ get_asset_url("../images/module-icons/scheduling_icon_dark_petrol_30.png") }}"
                 alt="scheduling icon dark petrol"
                 loading="lazy"
                 width="28"
@@ -161,25 +160,25 @@ includeLangOpts=true) -%}
             </div>
           {% endif %}
 
-            <h3 class="blog-related-posts__title">
-              {{ post.name }}
-            </h3>
+          <h3 class="blog-related-posts__title">
+            {{ post.name }}
+          </h3>
 
-            {% if post.name|length > 44 %}
-              {% set charsToTruncate = 68 %}
-            {% else %}
-              {% set charsToTruncate = 100 %}
-            {% endif %}
+          {% if post.name|length > 44 %}
+            {% set charsToTruncate = 68 %}
+          {% else %}
+            {% set charsToTruncate = 100 %}
+          {% endif %}
 
-            {{ post.post_summary|truncatehtml(charsToTruncate, "...", false) }}
+          {{ post.post_summary|truncatehtml(charsToTruncate, "...", false) }}
 
-            <a class="blog-related-posts__readmore-link" href="{{ post.absolute_url }}"
-              >{{ readmoreText }}</a
-            >
-          </div>
-        </article>
-        {% if count == total %}
+          <a class="blog-related-posts__readmore-link" href="{{ post.absolute_url }}"
+            >{{ readmoreText }}</a
+          >
         </div>
+      </article>
+      {% if count == total %}
+      </div>
     </section>
   {% endif %}
 {% endmacro %}
@@ -199,13 +198,12 @@ includeLangOpts=true) -%}
 
   {% if count == 1 %}
     <section class="blog-related-posts">
-      
       <h2>{% text "related-posts"
             noWrapper=True,
             label="Learn More Section Header",
             value="{{ context.value or sectionHeader }}" %}</h2>
       <div class="blog-related-posts__list">
-  {% endif %}
+      {% endif %}
       <article
         class="blog-related-posts__post"
         aria-label="Blog post summary: {{ post.name }}"
@@ -235,7 +233,7 @@ includeLangOpts=true) -%}
           >
         </div>
       </article>
-  {% if count == total %}
+      {% if count == total %}
       </div>
     </section>
   {% endif %}
