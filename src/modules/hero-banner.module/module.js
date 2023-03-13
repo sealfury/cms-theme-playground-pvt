@@ -5,7 +5,6 @@ var iframeContainer = document.querySelector('.popup-iframe-container');
 var videoIframe = document.getElementById('popup-iframe');
 var closeButton = document.querySelector('.popup-close');
 
-
 // Use existing video iframe in modal instead of creating new
 function cloneIframe(parent, container) {
   var iframe = parent.querySelector('iframe');
@@ -20,13 +19,13 @@ function activatePopup() {
     popupContainer,
     popupOverlay,
     iframeContainer,
-    closeButton
+    closeButton,
   ]);
-  var closePopupClickables = Array.from([ closeButton, popupOverlay ]);
+  var closePopupClickables = Array.from([closeButton, popupOverlay]);
 
-  if (heroBannerVideo.getAttribute('data-has-popup') == "true") {
+  if (heroBannerVideo.getAttribute('data-has-popup') == 'true') {
     var clickToPopupLink = document.querySelector('.hero-media-player__popup');
-  
+
     clickToPopupLink.addEventListener('click', function (e) {
       e.preventDefault();
 
@@ -50,7 +49,7 @@ function activatePopup() {
   }
 }
 
-if (heroBannerVideo.children.length) {
+if (heroBannerVideo.children.length && !window.location.pathname.includes('editor')) {
   document.addEventListener('DOMContentLoaded', function () {
     // Wait for hubspot video iframe to load before trying to clone
     setTimeout(() => {
