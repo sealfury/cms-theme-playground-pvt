@@ -1,5 +1,6 @@
 {% import "../../utils/i18n/english.html" as english %}
 {% import "../../utils/i18n/svenska.html" as swedish %}
+{% import "../../utils/i18n/deutsch.html" as german %}
 
 {# Module Variables #}
 {% if module.mode == "light" %}
@@ -54,6 +55,8 @@
   {% set lang = english %}
 {% elif content.language.language == "sv" %}
   {% set lang = swedish %}
+{% elif content.language.language == "de" %}
+  {% set lang = german %}
 {% endif %}
 
 {% if module.mode is equalto("light") %}

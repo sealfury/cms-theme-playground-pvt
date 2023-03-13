@@ -7,14 +7,17 @@
 {# Import language glossaries #}
 {% import "../../utils/i18n/english.html" as english %}
 {% import "../../utils/i18n/svenska.html" as swedish %}
+{% import "../../utils/i18n/deutsch.html" as german %}
 
 {% set template_css = "../../css/templates/system.css" %}
 {% extends "../layouts/base.html" %}
 
-{% if request.referrer is string_containing("/en" or request.path is string_containing("/en")) %}
-  {% set lang = english %}
-{% else %}
+{% if request.referrer is string_containing("/sv") or request.path is string_containing("/sv") %}
   {% set lang = swedish %}
+{% elif request.referrer is string_containing("/de") or request.path is string_containing("/de") %}
+  {% set lang = german %}
+{% else %}
+  {% set lang = english %}
 {% endif %}
 
 {% set cards = lang.cards %}

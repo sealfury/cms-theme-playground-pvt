@@ -1,6 +1,7 @@
 {# Import language glossaries #}
 {% import "../../utils/i18n/english.html" as english %}
 {% import "../../utils/i18n/svenska.html" as swedish %}
+{% import "../../utils/i18n/deutsch.html" as german %}
 
 {# Header nav menu card #}
 
@@ -96,10 +97,15 @@ includeLangOpts=true) -%}
     {% set lang = english %}
   {% elif content.language.language == "sv" %}
     {% set lang = swedish %}
+  {% elif content.language.language == "de" %}
+    {% set lang = german %}
   {% endif %}
 
+  {# Set language specific test - use array for German due to grammar requirements #}
   {% set parentBlog = blog_by_id(group.id) %}
-  {% set sectionHeader = lang.discover ~ " {{ parentBlog.htmlTitle }}" %}
+  {% set sectionHeader = content.language.language == "de" 
+    ? lang.discover|first ~ "{{ parentBlog.htmlTitle }}" ~ lang.discover|last 
+    : lang.discover ~ " {{ parentBlog.htmlTitle }}" %}
   {% set readmoreText = lang.readmore %}
 
   {% if count == 1 %}
@@ -190,10 +196,15 @@ includeLangOpts=true) -%}
     {% set lang = english %}
   {% elif content.language.language == "sv" %}
     {% set lang = swedish %}
+  {% elif content.language.language == "de" %}
+    {% set lang = german %}
   {% endif %}
 
+  {# Set language specific test - use array for German due to grammar requirements #}
   {% set parentBlog = blog_by_id(group.id) %}
-  {% set sectionHeader = lang.discover ~ " {{ parentBlog.htmlTitle }}" %}
+  {% set sectionHeader = content.language.language == "de" 
+    ? lang.discover|first ~ "{{ parentBlog.htmlTitle }}" ~ lang.discover|last 
+    : lang.discover ~ " {{ parentBlog.htmlTitle }}" %}
   {% set readmoreText = lang.readmore %}
 
   {% if count == 1 %}
