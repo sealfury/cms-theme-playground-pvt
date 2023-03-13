@@ -10,6 +10,7 @@
         class="toc-sidebar__menu--link {{ "active-page" if pathChapter == sanitizedParams }}"
         href="{{ item.url }}{{ not item.linkParams ? "" : item.linkParams }}"
         data-link-params="{{ sanitizedParams }}"
+        {{ "target=\"" ~ item.linkTarget ~ "\"" if item.linkTarget }}
         >{{ item.linkLabel }}</a
       >
     </li>
