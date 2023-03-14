@@ -4,6 +4,7 @@
 ## content not added on the module level
 #}
 
+{# 404 Errors #}
 {# 'Page not found' #}
 {% set header = "Page not found" %}
 
@@ -43,6 +44,17 @@
     iconSrc: "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/maintenance-icon-light-petrol.png"
   }
 ] %}
+
+{# 500 Errors #}
+{# 'Something went wrong' #}
+{% set header505 = "Something went wrong" %}
+
+{# 'Sorry, an internal server error...' #}
+{% set subheader505 = "Sorry, an internal server error occurred.  Whilst we fix this, please visit us here:" %}
+
+{# Search results #}
+{% set searchResults = "Search results" %}
+{% set resultsFor = "Results for" %}
 
 {# Blog posts - 'Read more' / 'Discover more' section headers #}
 {% set readmore = "Read more" %}

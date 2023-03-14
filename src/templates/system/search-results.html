@@ -4,10 +4,24 @@
   label: Search Results
   screenshotPath: ../../images/template-previews/search-results.png
 -->
+{# Import language glossaries #}
+{% import "../../utils/i18n/english.html" as english %}
+{% import "../../utils/i18n/svenska.html" as swedish %}
+{% import "../../utils/i18n/deutsch.html" as german %}
+
 {% set template_css = "../../css/templates/system.css" %}
 {% extends "../layouts/base.html" %}
+
+{% if request.referrer is string_containing("/sv") or request.path is string_containing("/sv") %}
+  {% set lang = swedish %}
+{% elif request.referrer is string_containing("/de") or request.path is string_containing("/de") %}
+  {% set lang = german %}
+{% else %}
+  {% set lang = english %}
+{% endif %}
+
 {# pageTitle is used on system templates for setting a value for the title tag #}
-{% set pageTitle = "Search results" %}
+{% set pageTitle = lang.searchResults %}
 
 {# Remove '>' from Next page link and replace with arrow #}
 {% require_js %}
@@ -42,7 +56,7 @@
         path="@hubspot/rich_text" %}
         {% module_attribute "html" %}
           <h1>
-            Results for <span class="teal">{{ request.query_dict.term|escape }}</span>
+            {{ resultsFor }} <span class="teal">{{ request.query_dict.term|escape }}</span>
           </h1>
         {% end_module_attribute %}
       {% end_module_block %}

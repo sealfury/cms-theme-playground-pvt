@@ -44,6 +44,17 @@
   }
 ] %}
 
+{# 500 Errors #}
+{# 'Something went wrong' #}
+{% set header505 = "Etwas ist schief gelaufen" %}
+
+{# 'Sorry, an internal server error...' #}
+{% set subheader505 = "Entschuldigung, es ist ein interner Serverfehler aufgetreten.  Während wir dies beheben, besuchen Sie uns bitte hier:" %}
+
+{# Search results #}
+{% set searchResults = "Suchergebnisse" %}
+{% set resultsFor = "Ergebnisse für" %}
+
 {# Blog posts - 'Read more' button / 'Discover more' section headers #}
 {% set readmore = "Weiterlesen" %}
 {% set discover = [ "weiter", "entdecken"] %}

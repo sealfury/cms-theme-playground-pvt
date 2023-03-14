@@ -4,17 +4,127 @@
   label: Boilerplate - 500 error
   screenshotPath: ../../images/template-previews/500.png
 -->
+{# Import language glossaries #}
+{% import "../../utils/i18n/english.html" as english %}
+{% import "../../utils/i18n/svenska.html" as swedish %}
+{% import "../../utils/i18n/deutsch.html" as german %}
+
 {% set template_css = "../../css/templates/system.css" %}
 {% extends "../layouts/base.html" %}
+
+{% if request.referrer is string_containing("/sv") or request.path is string_containing("/sv") %}
+  {% set lang = swedish %}
+{% elif request.referrer is string_containing("/de") or request.path is string_containing("/de") %}
+  {% set lang = german %}
+{% else %}
+  {% set lang = english %}
+{% endif %}
+
+{% set cards = lang.cards %}
+
+{# Clean up url retrieval for use below #}
+{% macro getPageUrl(id) %}
+  {% if id and id is number %}
+    {{ content_by_id(id).absolute_url }}
+  {% else %}
+    {{ "/" }}
+  {% endif %}
+{% endmacro %}
+
+{# Get image alt from src to avoid unnecessary translation fields #}
+{% macro createAlt(src) %}
+  {% if src and src is string %}
+    {{ src|split("/")|last|split(".")|first }}
+  {% else %}
+    {{ null }}
+  {% endif %}
+{% endmacro %}
+
 {# pageTitle is used on system templates for setting a value for the title tag #}
-{% set pageTitle = "Error 500 | Server error" %}
+{% set pageTitle = "500 | {{ lang.header505 }}" %}
 
 {% block body %}
   <section class="content-wrapper">
     <div class="error-page" data-error="500">
       {% module "content"
         path="@hubspot/rich_text",
-        html="<h1>Something isn't quite right</h1><p>Sorry, an internal server error occurred. But have no fear, we're on the case!</p>" %}
+        html="<h1>{{ lang.header505 }}</h1>" %}
     </div>
+    <h5 class="return-links-title">{{ lang.subheader505 }}</h5>
+    {% module_block module "return-links"
+      path="../../modules/product-cards.module",
+      label="Product Cards",
+      extra_classes="return-links",
+      use_large="false" %}
+      {% module_attribute "cards"
+        is_json=True %}
+        [
+          {
+            "small": [
+              {
+                "title": "{{ cards.pageName }}",
+                "link": {
+                  "url": { "type": "CONTENT", "href": "{{ getPageUrl(cards.pageId) }}" }
+                },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards.iconSrc)|trim }}",
+                  "src": "{{ cards.iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards.pageName }}",
+                "link": {
+                  "url": { "type": "CONTENT", "href": "{{ getPageUrl(cards.pageId) }}" }
+                },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards.iconSrc)|trim }}",
+                  "src": "{{ cards.iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards.pageName }}",
+                "link": {
+                  "url": { "type": "CONTENT", "href": "{{ getPageUrl(cards.pageId) }}" }
+                },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards.iconSrc)|trim }}",
+                  "src": "{{ cards.iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards.pageName }}",
+                "link": { "type": "CONTENT", "href": "{{ getPageUrl(cards.pageId) }}" },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards.iconSrc)|trim }}",
+                  "src": "{{ cards.iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards.pageName }}",
+                "link": { "type": "CONTENT", "href": "{{ getPageUrl(cards.pageId) }}" },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards.iconSrc)|trim }}",
+                  "src": "{{ cards.iconSrc }}"
+                }
+              },
+              {
+                "title": "{{ cards.pageName }}",
+                "link": { "type": "CONTENT", "href": "{{ getPageUrl(cards.pageId) }}" },
+                "icon": {
+                  "width": 28,
+                  "alt": "{{ createAlt(cards.iconSrc)|trim }}",
+                  "src": "{{ cards.iconSrc }}"
+                }
+              }
+            ]
+          }
+        ]
+      {% end_module_attribute %}
+    {% end_module_block %}
   </section>
 {% endblock body %}
