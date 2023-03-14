@@ -1,0 +1,119 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Dynamic Course Listings
+  screenshotPath: ../images/template-previews/mm-preview-home.png
+-->
+{% set template_css = "../../css/templates/course.css" %}
+{% extends "./layouts/base.html" %}
+
+
+{% set locationIconPath = "../images/module-icons/location_icon_dark_petrol_30.png" %}
+{% set locationIconFsUrl = "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/location_icon_dark_petrol_30.png" %}
+{% set locationIconUrl = get_asset_url(locationIconPath) != "" ? get_asset_url(locationIconPath) : locationIconFsUrl %}
+
+{% set dateIconPath = "../images/module-icons/scheduling_icon_dark_petrol_30.png" %}
+{% set dateIconFsUrl = "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/scheduling_icon_dark_petrol_30.png" %}
+{% set dateIconUrl = get_asset_url(dateIconPath) != "" ? get_asset_url(dateIconPath) : dateIconFsUrl %}
+
+{% if content.language.languageTag == "en" %}
+  {% set dateFormat = "dd.MM.yyyy" %}
+  {% set timezone = "Europe/London" %}
+{% else %}
+  {% set dateFormat = "yyyy-MM-dd" %}
+  {% set timezone = "Europe/Berlin" %}
+{% endif %}
+
+{% block body %}
+
+  {{ require_css(get_asset_url('../modules/blog-listings.module/module.css')) }}
+
+  {% if dynamic_page_hubdb_row %}
+    {% module "hero-banner" 
+      path="../modules/hero-banner.module",
+      header_text="{{ dynamic_page_hubdb_row.name }}"
+      eyebrow="Advanced course",
+      column="logo",
+      buttons=null %}
+    
+    <section class="advanced-course__single">
+      <div class="advanced-course__single--col-1">
+        <h2>About</h2>
+        <div><p>{{ dynamic_page_hubdb_row.description }}</p></div>
+      </div>
+      <div class="advanced-course__single--col-2">
+        <h2>When & Where</h2>
+        <ul>
+          <li>Location: {{ dynamic_page_hubdb_row.location }}</li>
+          <li>
+            Required skills: <br/>
+            {% for skill in dynamic_page_hubdb_row.required_skills %}
+            &nbsp;&nbsp;{{ skill.name }}{% if not loop.last %}<br/>{% endif %}
+            {% endfor %}
+          </li>
+          <li>Start date: {{ dynamic_page_hubdb_row.start_date|format_date(dateFormat, timezone) }}</li>
+          <li>End date: {{ dynamic_page_hubdb_row.end_date|format_date(dateFormat, timezone) }}</li>
+          <li>Price: {{ dynamic_page_hubdb_row.price }}</li>
+        </ul>
+
+        <h2>Book a seat</h2>
+        <p>Send an email to <b>education@maintmaster.com</b> or call {{ dynamic_page_hubdb_row.contact_phone }}</p>
+      </div>
+    </section>
+
+  {% elif dynamic_page_hubdb_table_id %}
+    <section class="course-index">
+      {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id) %}
+        <article class="course-index__post course-index__post--small">
+          <a class="course-index__post-link" href="{{ request.path }}/{{ row.hs_path }}"></a>
+          {% if row.featured_image %}
+            <img 
+              class="course-index__post-image course-index__post-image--small"
+              src="{{ row.featured_image.url }}"
+              alt="{{ row.featured_image.altText }}"
+              width="180"
+              height="226"
+              loading="lazy"
+            />
+          {% endif %}
+
+          <div class="course-index__post-content course-index__post-content--small">
+            <div class="course-index__event-details">
+              <span class="course-index__event--location" data-location="{{ row.location }}">
+                <img 
+                  src="{{ locationIconUrl }}"
+                  alt="location icon dark petrol"
+                  loading="lazy"
+                  class="course-index__event-details--img"
+                />
+                {{ row.location }}
+              </span>
+              <span class="course-index__event--date" data-date="{{ row.start_date }}">
+                <img 
+                  src="{{ dateIconUrl }}"
+                  alt="scheduling icon dark petrol"
+                  loading="lazy"
+                  class="course-index__event-details--img"
+                />
+                {{ row.start_date|format_date(dateFormat, timezone) }}
+              </span>
+            </div>
+
+            <h2 class="blog-index__post-title--small">
+              {{ row.name }}
+            </h2>
+
+            <div class="blog-index__post-summary">
+              <p>{{ row.description|truncate(80, True, "...") }}</p>
+            </div>
+
+            <div class="course-index__post-button-wrapper">
+              <a class="course-index__post-button" href="{{ request.path }}/{{ row.hs_path }}">Find out more</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </section>
+  {% endif %}
+
+{% endblock body %}
