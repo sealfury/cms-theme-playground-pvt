@@ -6,6 +6,7 @@
 -->
 {% set template_css = "../../css/templates/course.css" %}
 {% extends "./layouts/base.html" %}
+{% from '../utils/macros.html' import getParentUrl %}
 
 
 {% set locationIconPath = "../images/module-icons/location_icon_dark_petrol_30.png" %}
@@ -26,6 +27,12 @@
 {% set logoFsUrl = "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/mm-stylized-symbol.png" %}
 {% set logoUrl = get_asset_url(logoPath) != "" ? get_asset_url(logoPath) : logoFsUrl %}
 
+{# TODO: MAYBE EXTRACT THIS TO MACRO SANITIZING SEVERAL IMG SRCS AND SHUFFLING TO RETURN RANDOM IMG CHOICE #}
+{% set backgroundPath = "../images/stock-banner-image-stats.png" %}
+{% set backgroundFsUrl = "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/stock-banner-image-stats.png" %}
+{% set backgroundUrl = get_asset_url(backgroundPath) != "" ? get_asset_url(backgroundPath) : backgroundFsUrl %}
+
+{# Add page language based date formatting #}
 {% if content.language.languageTag == "en" %}
   {% set dateFormat = "dd.MM.yyyy" %}
   {% set timezone = "Europe/London" %}
@@ -39,11 +46,101 @@
   {{ require_css(get_asset_url('../modules/blog-listings.module/module.css')) }}
 
   {% if dynamic_page_hubdb_row %}
+
+    {# Clip & reassemble course name to utilise hero banner styles #}
+    {% if dynamic_page_hubdb_row.name is string_containing ':' %}
+      {% set splitName = dynamic_page_hubdb_row.name|split(':', 2) %}
+      {% set pageHeader = '{{ splitName|first|trim }}: <strong>{{ splitName|last|trim }}</strong>'%}
+    {% elif dynamic_page_hubdb_row.name is string_containing '-' %}
+      {% set splitName = dynamic_page_hubdb_row.name|split('-', 2) %}
+      {% set pageHeader = '{{ splitName|first|trim }}: <strong>{{ splitName|last|trim }}</strong>'%}
+    {% else %}
+      {% set pageHeader = dynamic_page_hubdb_row.name %}
+    {% endif %}
+
+    {# Can replace w/ dynamic IDs from glossaries #}
+    {% set resourcesContent = content_by_id(56850376898) %}
+    
+    {# Use helper macro to get parent page URL #}
+    {% set parentUrl = getParentUrl() %}
+
+    {# Get names & URLs of other rows in table #}
+    {% set rowNames = [] %}
+    {% set rowUrls = [] %}
+    {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, 'random()&limit=8') %}
+      {% unless row.hs_id == dynamic_page_hubdb_row.hs_id %}
+        {% set rowUrl = parentUrl|trim ~ row.hs_path|trim %}
+        {% set rowInfo = row.name ~ ' - ' ~ row.start_date|format_date(dateFormat, timeZone) %}
+        {% do rowNames.append(rowInfo) %}
+        {% do rowUrls.append(rowUrl) %}
+      {% endunless %}
+    {% endfor %}
+
+    {# Initialise links menu array #}
+    {% set courseLinks = [
+      {
+        'text': '',
+        'link': {
+          'url': {
+            'href': ''
+          }
+        }
+      }
+    ] %}
+
+    {# Insert course info w/ correct link menu structure into array #}
+    {% for name in rowNames %}
+      {% do courseLinks.append({
+        'text': name,
+        'link': {
+          'url': {
+            'href': rowUrls[loop.index]
+          }
+        }
+      }) %}
+    {% endfor %}
+
     {% module "hero-banner" 
       path="../modules/hero-banner.module",
-      header_text="{{ dynamic_page_hubdb_row.name }}"
+      header_text="{{ pageHeader }}",
+      subheader={{ context.subheader or 
+        'Find out more about course details, prices, locations, and the dates this course is being offered below' }},
       eyebrow="Advanced course",
-      column="logo",
+      mode="image",
+      column="links",
+      links_menu=[
+        {
+          header: "Why not check out some other courses?",
+          links: courseLinks
+        }
+      ],
+      background_image={
+        src: context.src or backgroundUrl
+      },
+      logo_image={
+        src: context.src or logoUrl,
+        width: context.width or 468,
+        height: context.height or 388,
+        loading: context.loading or 'lazy'
+      },
+      breadcrumb=[
+        {
+          text: resourcesContent.title,
+          link: {
+            url: {
+              href: resourcesContent.absolute_url
+            }
+          }          
+        },
+        {
+          text: 'Academy Courses',
+          link: {
+            url: {
+              href: parentUrl
+            }
+          }
+        }
+      ],
       buttons=null %}
     
     <section class="advanced-course__single">
@@ -67,17 +164,22 @@
         </ul>
 
         <h2>Book a seat</h2>
-        <p>Send an email to <b>education@maintmaster.com</b> or call {{ dynamic_page_hubdb_row.contact_phone }}</p>
+        <p>
+          Send an email to 
+          <a href="mailto:education@maintmaster.com">education@maintmaster.com</a> 
+          or call {{ dynamic_page_hubdb_row.contact_phone }}
+        </p>
       </div>
     </section>
 
   {% elif dynamic_page_hubdb_table_id %}
     {% set table_info = hubdb_table(dynamic_page_hubdb_table_id) %}
     {% set defaultHeaderText = "Discover MaintMaster's <strong>{{ table_info.name }}</strong>" %}
+
     <div class="course-index__header">
       {% module 'hero_banner' 
         path="../modules/hero-banner.module",
-        mode="dark",
+        mode={{ context.mode or 'dark' }},
         column="logo",
         header_text={{ context.header_text or defaultHeaderText }},
         subheader={{ context.subheader or 
@@ -155,7 +257,15 @@
             {% endif %}
 
             <h2 class="blog-index__post-title--small">
-              {{ row.name }}
+              {# Only preserve course's main title in listing to avoid overlong listing card headers #}
+              {% if row.name is string_containing ":" %}
+                {% set rowName = row.name|split(':')|first|trim %}
+              {% elif row.name is string_containing '-' %}
+                {% set rowName = row.name|split('-')|first|trim %}
+              {% else %}
+                {% set rowName = row.name %}
+              {% endif %}
+              {{ rowName }}
             </h2>
 
             <div class="blog-index__post-summary">
