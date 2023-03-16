@@ -42,6 +42,30 @@ image=null) %}
 
 {% endmacro %}
 
+{# Get parent page URL helper macro #}
+
+{% macro getParentUrl() %}
+  {% set slug = [] %}
+
+  {# Ignore https:// and current page slug #}
+  {% for item in request.full_url|split('/') %}
+    {% if loop.index > 2 and not loop.last %}
+    {% do slug.append(item) %}
+    {% endif %}
+  {% endfor %}
+
+  {% set pageBaseUrl = { 'value': request.scheme ~ '://' ~ request.domain ~ '/' } %}
+  
+  {# Append slugs in order up to base URL #}
+  {% for s in slug %}
+    {% do pageBaseUrl.update({ 'value': pageBaseUrl['value'] ~ s ~ '/' }) %}
+  {% endfor %}
+
+  {# Sanitize and return new page URL #}
+  {% set pageUrl = pageBaseUrl['value'] %}
+  {{ pageUrl }}
+{% endmacro %}
+
 {# Breadcrumb Menu & Translation Overrides #}
 
 {% macro createBreadcrumbMenu(
