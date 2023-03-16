@@ -20,7 +20,11 @@
 }
 
 .dnd-section .dnd-column {
-  padding: 0 1rem;
+  padding: 0;
+}
+
+.dnd-section .dnd-column:has(.product-cards) {
+  padding: 0;
 }
 
 @media (max-width: 767px) {

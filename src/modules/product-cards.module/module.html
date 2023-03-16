@@ -1,7 +1,7 @@
 {% from "../../utils/macros.html" import headerCard %}
 
 {% set checkmarkPath = "../../images/module-icons/checkmark-icon-light.png" %}
-{% set checkmarkFsUrl = "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/module-icons/breadcrumbs-chevron.png" %}
+{% set checkmarkFsUrl = "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/module-icons/checkmark-icon-light.png" %}
 {% set checkmarkUrl = get_asset_url(checkmarkPath) != "" ? get_asset_url(checkmarkPath) : checkmarkFsUrl %}
 
 {% require_css %}
@@ -26,7 +26,9 @@
 <section class="product-cards">
   <div class="product-cards__header">
     <h2>{{ module.section_title }}</h2>
-    <p>{{ module.section_description }}</p>
+    {% if module.section_description != "" %}
+      <p>{{ module.section_description }}</p>
+    {% endif %}
   </div>
 
   <div class="product-cards__cards">
