@@ -1,10 +1,11 @@
 /* All course listings */
 .course-index {
+  column-gap: 2rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  margin: 0 auto;
-  padding: 1rem 0 2rem;
+  margin: 2rem auto;
+  padding: 2rem 0;
+  row-gap: 2.5rem;
   width: clamp(390px, 100%, 1440px);
 }
 
@@ -30,7 +31,7 @@
   align-items: center;
   display: flex;
   flex: 0 0 100%;
-  padding: 1rem 0;
+  /* padding: 0; */
   position: relative;
 }
 
@@ -40,7 +41,7 @@
 
 @media screen and (min-width: 1000px) {
   .course-index__post--small {
-    flex: 0 0 49%;
+    flex: 0 0 48.8%;
   }
 }
 
@@ -51,10 +52,17 @@
   flex-direction: column;
 }
 
+.course-index__post-content h2,
+.course-index__post-content h3,
+.course-index__post-content h4,
+.course-index__post-content h5,
+.course-index__post-content p {
+  margin-bottom: 0;
+}
+
 .course-index__post-content > h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 24px;
+  line-height: 24px;
   margin: 0;
   font-weight: 600;
   text-transform: none;
@@ -81,15 +89,17 @@
 
 .course-index__post--small .course-index__post-content {
   gap: 0.25rem;
-  height: 226px;
+  height: 248px;
   justify-content: space-between;
   padding: 1% 4% 2%;
   width: calc(100% - 180px);
 }
 
+/* Prepare to remove height & change object-fit to 'none' if post tags are removed */
 .course-index__post--small .course-index__post-image {
   border: none;
-  object-fit: none;
+  height: 248px;
+  object-fit: initial;
 }
 
 .course-index__event-details {

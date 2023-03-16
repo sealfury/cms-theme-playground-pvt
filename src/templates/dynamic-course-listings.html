@@ -16,6 +16,16 @@
 {% set dateIconFsUrl = "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/scheduling_icon_dark_petrol_30.png" %}
 {% set dateIconUrl = get_asset_url(dateIconPath) != "" ? get_asset_url(dateIconPath) : dateIconFsUrl %}
 
+{# TODO: CHANGE PRICE ICON TO MORE SUITABLE ICON #}
+{% set priceIconPath = "../images/module-icons/energy-icon-teal.png" %}
+{% set priceIconFsUrl = "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/module-icons/energy-icon-teal.png" %}
+{% set priceIconUrl = get_asset_url(priceIconPath) != "" ? get_asset_url(priceIconPath) : priceIconFsUrl %}
+
+{# TODO: UPDATE LOGO PATH TO CORRECT ONE #}
+{% set logoPath = "../images/mm-stylized-symbol.png" %}
+{% set logoFsUrl = "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/mm-stylized-symbol.png" %}
+{% set logoUrl = get_asset_url(logoPath) != "" ? get_asset_url(logoPath) : logoFsUrl %}
+
 {% if content.language.languageTag == "en" %}
   {% set dateFormat = "dd.MM.yyyy" %}
   {% set timezone = "Europe/London" %}
@@ -62,6 +72,25 @@
     </section>
 
   {% elif dynamic_page_hubdb_table_id %}
+    {% set table_info = hubdb_table(dynamic_page_hubdb_table_id) %}
+    {% set defaultHeaderText = "Discover MaintMaster's <strong>{{ table_info.name }}</strong>" %}
+    <div class="course-index__header">
+      {% module 'hero_banner' 
+        path="../modules/hero-banner.module",
+        mode="dark",
+        column="logo",
+        header_text={{ context.header_text or defaultHeaderText }},
+        subheader={{ context.subheader or 
+          "Take your skills to the next level with one of our Advanced Course offerings.  Click on a course to discover more." }},
+        logo_image={
+          src: context.src or logoUrl,
+          width: context.width or 468,
+          height: context.height or 388,
+          loading: context.loading or 'lazy'
+        },
+        buttons=null %}
+    </div>
+
     <section class="course-index">
       {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id) %}
         <article class="course-index__post course-index__post--small">
@@ -97,14 +126,40 @@
                 />
                 {{ row.start_date|format_date(dateFormat, timezone) }}
               </span>
+
+              {% unless row.price is none %}
+                <span class="course-index__event--price" data-price="{{ row.price }}">
+                  <img 
+                    src="{{ priceIconUrl }}"
+                    alt="price icon teal"
+                    loading="lazy"
+                    class="course-index__event-details--img"
+                  />
+                  {{ row.price }}
+                </span>
+              {% endunless %}
             </div>
+
+            {% if row.required_skills|length > 0 %}
+              <div class="course-index__post-tags">
+                {% for skill in row.required_skills %}
+                  {% if loop.index < 3 %}
+                    {% if not loop.last and loop.length > 1 %}
+                      <span class="course-index__post-tag">{{ skill.name }},&nbsp;</span>
+                    {% else %}
+                      <span class="course-index__post-tag">{{ skill.name }}</span>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
 
             <h2 class="blog-index__post-title--small">
               {{ row.name }}
             </h2>
 
             <div class="blog-index__post-summary">
-              <p>{{ row.description|truncate(80, True, "...") }}</p>
+              <p>{{ row.description|striptags|truncate(80, false, "...") }}</p>
             </div>
 
             <div class="course-index__post-button-wrapper">
