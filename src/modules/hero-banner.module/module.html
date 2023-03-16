@@ -153,6 +153,33 @@
         .breadcrumb__menu-item:not(.active-page):after {
           filter: invert(1);
         }
+
+        .hero-banner__links--menu {
+          background-color: #EFF3F7;
+          border-radius: 8px;
+          display: flex;
+          gap: 1.5rem;
+          margin: 5% 0 0;
+          padding: 1rem 0;
+        }
+
+        .hero-banner__links--submenu > span {
+          color: #2F3C49;
+        }
+
+        .hero-banner__links--submenu > a {
+          border-bottom: 2px solid transparent;
+          color: #0F1E2D;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .hero-banner__links--submenu > a:hover {
+          border-color: #00B9BC;
+        }
+
+        .hero-banner__links--submenu:nth-child(2) {
+          border-left: 2px solid rgba(0 0 0 / 0.8);
+        }
       {% endif %}
 
       {# Optional User Override of BG Color #}
