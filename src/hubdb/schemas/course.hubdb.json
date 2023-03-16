@@ -1,0 +1,234 @@
+{
+  "name": "course",
+  "useForPages": true,
+  "label": "Course",
+  "allowChildTables": false,
+  "allowPublicApiAccess": false,
+  "dynamicMetaTags": { "DESCRIPTION": 1, "FEATURED_IMAGE_URL": 9 },
+  "enableChildTablePages": false,
+  "columns": [
+    { "name": "name", "label": "Name", "limit": 10000, "type": "TEXT" },
+    {
+      "name": "start_date",
+      "label": "Start Date",
+      "description": "A start date of the course",
+      "type": "DATE"
+    },
+    {
+      "name": "end_date",
+      "label": "End Date",
+      "description": "The corresponding end date of the course",
+      "type": "DATE"
+    },
+    {
+      "name": "location",
+      "label": "Location",
+      "description": "Location of the event",
+      "limit": 10000,
+      "type": "TEXT"
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "description": "A description of the course, will be viewed on page level",
+      "limit": 65000,
+      "type": "RICHTEXT"
+    },
+    {
+      "name": "price",
+      "label": "Price",
+      "description": "Price (text value)",
+      "limit": 10000,
+      "type": "TEXT"
+    },
+    {
+      "name": "required_skills",
+      "label": "Required Skills",
+      "options": [
+        {
+          "id": "1",
+          "name": "System introduction",
+          "label": "System introduction",
+          "type": "option",
+          "order": null
+        },
+        {
+          "id": "2",
+          "name": "The system as a tool",
+          "label": "The system as a tool",
+          "type": "option",
+          "order": null
+        },
+        {
+          "id": "3",
+          "name": "Some other skill",
+          "label": "Some other skill",
+          "type": "option",
+          "order": null
+        }
+      ],
+      "description": "",
+      "type": "MULTISELECT",
+      "optionCount": 3
+    },
+    {
+      "name": "contact_phone",
+      "label": "Contact Phone",
+      "description": "",
+      "limit": 10000,
+      "type": "TEXT"
+    },
+    {
+      "name": "featured_image",
+      "label": "Featured Image",
+      "description": "",
+      "type": "IMAGE"
+    }
+  ],
+  "rows": [
+    {
+      "path": "maintenance-course",
+      "name": "Maintenance Course",
+      "values": {
+        "end_date": 1679443200000,
+        "contact_phone": "+46 13 377 912",
+        "price": "990 EUR",
+        "required_skills": [
+          {
+            "id": "1",
+            "name": "System introduction",
+            "label": "System introduction",
+            "type": "option",
+            "order": 0
+          },
+          {
+            "id": "3",
+            "name": "Some other skill",
+            "label": "Some other skill",
+            "type": "option",
+            "order": 2
+          }
+        ],
+        "name": "Maintenance course",
+        "description": "<p>It’s only once you have a common way to work in a system, when everyone is doing the same way, that it’s starting to be useful. Since you now know how use the advanced functions, you should continue to learn on how to adopt it to the way that you work.</p>\n<p>For you to work standardized and to handle your tasks in the same way, you will learn how to identify the work flow that you have and to implement a routine for it. There are many processes in maintenance and the goal here is to implement support for each of them in MaintMaster. By having support for your all work flows, you don’t need to worry about what the next step should be, that tasks are lost or forgotten.</p>\n<p>For the education, we will use the incident handling as an example for identifying our process, since it needs to be handled in a clear and structured way. From the activities that we find, you will create a process map, a routine and implement support in MaintMaster. The example will be the incident handling, but the steps that we walk through will be useful for any process that you might find when you’re back at work. With the material that you’ll get you can set up support for any process you’d like.</p>",
+        "location": "Online",
+        "featured_image": {
+          "url": "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/images/Why%20MaintMaster/Industry/general-engineering-factory.png",
+          "width": 365,
+          "height": 270,
+          "altText": "",
+          "type": "image"
+        },
+        "start_date": 1679356800000
+      }
+    },
+    {
+      "path": "maintenance-course-2",
+      "name": "Maintenance Course",
+      "values": {
+        "end_date": 1680652800000,
+        "contact_phone": "+46 13 377 912",
+        "price": "990 EUR",
+        "required_skills": [
+          {
+            "id": "1",
+            "name": "System introduction",
+            "label": "System introduction",
+            "type": "option",
+            "order": 0
+          },
+          {
+            "id": "3",
+            "name": "Some other skill",
+            "label": "Some other skill",
+            "type": "option",
+            "order": 2
+          }
+        ],
+        "name": "Maintenance course",
+        "description": "<p>It’s only once you have a common way to work in a system, when everyone is doing the same way, that it’s starting to be useful. Since you now know how use the advanced functions, you should continue to learn on how to adopt it to the way that you work.</p>\n<p>For you to work standardized and to handle your tasks in the same way, you will learn how to identify the work flow that you have and to implement a routine for it. There are many processes in maintenance and the goal here is to implement support for each of them in MaintMaster. By having support for your all work flows, you don’t need to worry about what the next step should be, that tasks are lost or forgotten.</p>\n<p>For the education, we will use the incident handling as an example for identifying our process, since it needs to be handled in a clear and structured way. From the activities that we find, you will create a process map, a routine and implement support in MaintMaster. The example will be the incident handling, but the steps that we walk through will be useful for any process that you might find when you’re back at work. With the material that you’ll get you can set up support for any process you’d like.</p>",
+        "location": "Online",
+        "featured_image": {
+          "url": "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/images/Why%20MaintMaster/Industry/transport-logistics-trucks.png",
+          "width": 365,
+          "height": 270,
+          "altText": "",
+          "type": "image"
+        },
+        "start_date": 1680566400000
+      }
+    },
+    {
+      "path": "different-course",
+      "name": "A different course",
+      "values": {
+        "end_date": 1683676800000,
+        "contact_phone": "+46 13 377 912",
+        "price": "1500 EUR",
+        "required_skills": [
+          {
+            "id": "2",
+            "name": "The system as a tool",
+            "label": "The system as a tool",
+            "type": "option",
+            "order": 1
+          },
+          {
+            "id": "3",
+            "name": "Some other skill",
+            "label": "Some other skill",
+            "type": "option",
+            "order": 2
+          }
+        ],
+        "name": "A different course",
+        "description": "<p>It’s only once you have a common way to work in a system, when everyone is doing the same way, that it’s starting to be useful. Since you now know how use the advanced functions, you should continue to learn on how to adopt it to the way that you work.</p>\n<p>For you to work standardized and to handle your tasks in the same way, you will learn how to identify the work flow that you have and to implement a routine for it. There are many processes in maintenance and the goal here is to implement support for each of them in MaintMaster. By having support for your all work flows, you don’t need to worry about what the next step should be, that tasks are lost or forgotten.</p>\n<p>For the education, we will use the incident handling as an example for identifying our process, since it needs to be handled in a clear and structured way. From the activities that we find, you will create a process map, a routine and implement support in MaintMaster. The example will be the incident handling, but the steps that we walk through will be useful for any process that you might find when you’re back at work. With the material that you’ll get you can set up support for any process you’d like.</p>",
+        "location": "Linköping",
+        "featured_image": {
+          "url": "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/images/Why%20MaintMaster/Industry/energy-environment-forrest.png",
+          "width": 365,
+          "height": 270,
+          "altText": "",
+          "type": "image"
+        },
+        "start_date": 1683590400000
+      }
+    },
+    {
+      "path": "different-course-2",
+      "name": "A different course",
+      "values": {
+        "end_date": 1686096000000,
+        "contact_phone": "+46 13 377 912",
+        "price": "1500 EUR",
+        "required_skills": [
+          {
+            "id": "2",
+            "name": "The system as a tool",
+            "label": "The system as a tool",
+            "type": "option",
+            "order": 1
+          },
+          {
+            "id": "3",
+            "name": "Some other skill",
+            "label": "Some other skill",
+            "type": "option",
+            "order": 2
+          }
+        ],
+        "name": "A different course",
+        "description": "<p>It’s only once you have a common way to work in a system, when everyone is doing the same way, that it’s starting to be useful. Since you now know how use the advanced functions, you should continue to learn on how to adopt it to the way that you work.</p>\n<p>For you to work standardized and to handle your tasks in the same way, you will learn how to identify the work flow that you have and to implement a routine for it. There are many processes in maintenance and the goal here is to implement support for each of them in MaintMaster. By having support for your all work flows, you don’t need to worry about what the next step should be, that tasks are lost or forgotten.</p>\n<p>For the education, we will use the incident handling as an example for identifying our process, since it needs to be handled in a clear and structured way. From the activities that we find, you will create a process map, a routine and implement support in MaintMaster. The example will be the incident handling, but the steps that we walk through will be useful for any process that you might find when you’re back at work. With the material that you’ll get you can set up support for any process you’d like.</p>",
+        "location": "Linköping",
+        "featured_image": {
+          "url": "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/images/Why%20MaintMaster/Industry/automotive-car-factory.png",
+          "width": 365,
+          "height": 270,
+          "altText": "",
+          "type": "image"
+        },
+        "start_date": 1686009600000
+      }
+    }
+  ]
+}
