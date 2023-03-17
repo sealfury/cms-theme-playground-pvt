@@ -446,7 +446,7 @@
   left: 35%;
   overflow: hidden;
   position: absolute;
-  top: -5%;
+  top: -3.5%;
   transform: rotate(45deg);
   transition: all 0.3s ease-in-out;
   width: 14px;
@@ -584,6 +584,10 @@
 
 .header__language-switcher--label-current.deutsch:before {
   background: url("{{ get_asset_url('../../images/module-icons/flag_ger.png') }}") no-repeat;
+}
+
+.header__language-switcher--label-current.polski:before {
+  background: url("{{ get_asset_url('../../images/module-icons/flag_pol.png') }}") no-repeat;
 }
 
 @media (max-width: 767px) {

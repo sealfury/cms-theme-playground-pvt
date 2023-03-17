@@ -65,7 +65,7 @@ footer.footer {
   flex-direction: column;
   height: fit-content;
   padding: 0 2rem 2.5rem 0;
-  width: 25%;
+  width: 20%;
 }
 
 #hs_menu_wrapper_footer_menu ul:first-child > li:nth-child(n + 7) {
