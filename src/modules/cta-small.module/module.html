@@ -63,10 +63,12 @@
   {% set heading = module.heading|length > 4 ? module.heading : lang.ctaHeaderLight %}
   {% set description = module.description|length > 4 ? module.description : lang.ctaDescriptionLight %}
   {% set button_text = module.link_text|length > 2 ? module.link_text : lang.ctaButtonTextLight %}
+  {% set content = content_by_id(lang.freeTrialId) %}
 {% elif module.mode is equalto("dark") %}
   {% set heading = module.heading|length > 4 ? module.heading : lang.ctaHeaderDark %}
   {% set description = module.description|length > 4 ? module.description : lang.ctaDescriptionDark %}
   {% set button_text = module.link_text|length > 2 ? module.link_text : lang.ctaButtonTextDark %}
+  {% set content = content_by_id(lang.bookDemoId) %}
 {% endif %}
 
 <div class="cta-small">
@@ -74,9 +76,10 @@
   <p class="cta-small__description">{{ description }}</p>
   <div class="cta-small__button-wrapper">
     {% set href = module.cta_link.url.href %}
+    {% set linkHref = content.absolute_url %}
     <a
       class="cta-small__link"
-      href="{{ href }}"
+      href="{{ linkHref }}"
       {% if module.cta_link.open_in_new_tab %}target="_blank"
       {% endif %}
       {% if module.cta_link.rel %}rel="{{ module.cta_link.rel }}"
