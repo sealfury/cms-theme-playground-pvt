@@ -112,10 +112,16 @@
       {% for choice in currencyChoices %}
       {% if choice == "gbp" %}
         {% set currencyHref = content.translated_content['en'].absolute_url|last %}
+        {% set currencySymbol = "£" %}
+        {% set month = 'month' %}  
       {% elif choice == "euro" %}
         {% set currencyHref = content.translated_content['de'].absolute_url|last %}
+        {% set currencySymbol = "€" %}
+        {% set month = "monart" %}
       {% elif choice == "sek" %}
         {% set currencyHref = content.translated_content['sv'].absolute_url|last %}
+        {% set currencySymbol = "sek" %}
+        {% set month = "månad" %}
       {% endif %}
         <li class="currency-selector__choices--choice {{ "selected" if choice == module.currency }}">
           <a class="hs-skip-lang-url-rewrite" href="{{ currencyHref }}">{{ choice }}</a>
@@ -134,7 +140,7 @@
         <h4 class="price-card__tier">{{ card.tier }}</h4>
         <h2 class="price-card__price {{ "use-text" if card.use_text == true }}">
           {% if card.use_text == false %}
-            {{ currencySymbol if currency != "sek" }}{{ card.price }}<strong>{{ currencySymbol if currency == "sek" }} / month</strong>
+            {{ currencySymbol if currency != "sek" }}{{ card.price }}<strong>&nbsp;{{ currencySymbol if currency == "sek" }} / {{ month }}</strong>
           {% else %}
             {{ card.price_info }}
           {% endif %}
