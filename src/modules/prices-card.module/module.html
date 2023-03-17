@@ -2,10 +2,13 @@
 {% set currency = module.currency %}
 {% set currencyChoices = ["euro", "sek", "gbp"] %}
 {% if currency == "euro" %}
+  {% set month = "monart" %}
   {% set currencySymbol = "€" %}
 {% elif currency == "gbp" %}
+  {% set month = 'month' %} 
   {% set currencySymbol = "£" %}
 {% else %}
+  {% set month = "månad" %}
   {% set currencySymbol = "sek" %}
 {% endif %}
 
@@ -112,16 +115,12 @@
       {% for choice in currencyChoices %}
       {% if choice == "gbp" %}
         {% set currencyHref = content.translated_content['en'].absolute_url|last %}
-        {% set currencySymbol = "£" %}
-        {% set month = 'month' %}  
+        {% set currencySymbol = "£" %}  
       {% elif choice == "euro" %}
         {% set currencyHref = content.translated_content['de'].absolute_url|last %}
         {% set currencySymbol = "€" %}
-        {% set month = "monart" %}
       {% elif choice == "sek" %}
         {% set currencyHref = content.translated_content['sv'].absolute_url|last %}
-        {% set currencySymbol = "sek" %}
-        {% set month = "månad" %}
       {% endif %}
         <li class="currency-selector__choices--choice {{ "selected" if choice == module.currency }}">
           <a class="hs-skip-lang-url-rewrite" href="{{ currencyHref }}">{{ choice }}</a>
