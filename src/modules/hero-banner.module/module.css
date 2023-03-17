@@ -150,6 +150,14 @@
   width: 43%;
 }
 
+.hero-media-player__wrapper.hide-if-image {
+  opacity: 0;
+}
+
+.hero-media-player__wrapper.hide-if-image .hero-media-player__popup {
+  transform: translate(-43%, -25%);
+}
+
 /* Popup video iframe styles */
 .hero-media-player__popup {
   background-color: transparent;

@@ -266,7 +266,7 @@
     {% endif %}
 
     {% if module.column == "video" %}
-      <div class="hero-media-player__wrapper" data-has-popup="{{ module.enable_popup }}">
+      <div class="hero-media-player__wrapper {{ 'hide-if-image' if module.logo_image.src != '' and module.enable_popup }}" data-has-popup="{{ module.enable_popup }}">
         {% if module.enable_popup %}
           <a class="hero-media-player__popup"></a>
         {% endif %}
