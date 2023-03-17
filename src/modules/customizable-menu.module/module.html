@@ -322,18 +322,13 @@
                       class="menu__item menu__item--depth-3"
                       data-menu-type="{{ dataMenuType }}"
                     >
-                      <a class="menu__link" href="{{ r.page_type == "blog" ? r.blog.absolute_url : r.page.url.href }}">
+                      <a class="menu__link" href="{{ r.page_type == "blog" ? blog_by_id(r.blog).absolute_url: r.page.url.href }}">
                         <span>{{ r.type }}</span>
                         {% if r.description %}
                         <span class="menu__link">{{ r.description }}</span>
                         {% endif %}
                       </a>
                     </li>
-                    {# {% if r.description %}
-                      <li class="menu__item menu__item--depth-3">
-                        <span class="menu__link">{{ r.description }}</span>
-                      </li>
-                    {% endif %} #}
                   {% endfor %}
                 </ul>
               </li>
