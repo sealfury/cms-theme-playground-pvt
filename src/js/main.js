@@ -221,24 +221,26 @@
     });
   }
 
-  function insertDate () {
+  function insertDate() {
     var pageLocale = getPageLocale();
     console.log(pageLocale);
     var dateElement = document.querySelector('.blog-index__event--date');
-    var dateAttr = dateElement.getAttribute('data-date');
-    var unformatted = new Date(dateAttr * 1);
-    console.log(unformatted);
-    var options = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    if (dateElement) {
+      var dateAttr = dateElement.getAttribute('data-date');
+      var unformatted = new Date(dateAttr * 1);
+      console.log(unformatted);
+      var options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      };
+      var dateFormatted = unformatted.toLocaleDateString(pageLocale, options);
+      dateElement.insertAdjacentText('beforeend', dateFormatted);
     }
-    var dateFormatted = unformatted.toLocaleDateString(pageLocale, options);
-    dateElement.insertAdjacentText('beforeend', dateFormatted);
   }
 
   // Use page lang to format date according to user's region
-  function getPageLocale () {
+  function getPageLocale() {
     var pageLang = document.documentElement.lang;
     if (pageLang.includes('-')) {
       pageLang = pageLang.split('-')[0];

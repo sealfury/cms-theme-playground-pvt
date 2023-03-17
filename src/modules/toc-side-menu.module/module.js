@@ -21,10 +21,10 @@ chapterLinks.forEach(function (link) {
   }
 });
 
-var contentContainer = document.querySelector('.manual__chapter--content');
-var rowWrapper = contentContainer.querySelectorAll(
-  '.row-fluid-wrapper.dnd-section'
-);
+// var contentContainer = document.querySelector('.manual__chapter--content');
+// var rowWrapper = contentContainer.querySelectorAll(
+//   '.row-fluid-wrapper.dnd-section'
+// );
 
 // if (!editorPathParams.length) {
 //   var chapterNum = pathLinkParam.replace('-', ' ');
