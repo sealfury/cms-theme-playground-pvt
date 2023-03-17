@@ -188,6 +188,7 @@ body {
   {{ body_font.style }};
   color: {{ body_font.color }};
   font-size: {{ body_font.size ~ body_font.size_unit }};
+  overflow-x: hidden;
 }
 
 @media screen and (max-width: 767px) {

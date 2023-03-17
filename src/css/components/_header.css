@@ -521,6 +521,10 @@
   background: url("{{ get_asset_url('../../images/module-icons/flag_ger.png') }}") no-repeat;
 }
 
+.lang_switcher_link[data-language="pl"]:before {
+  background: url("{{ get_asset_url('../../images/module-icons/flag_pol.png') }}") no-repeat;
+}
+
 .header__language-switcher .globe_class {
   background: url("{{ get_asset_url('../../images/module-icons/chevron-icon-black.png') }}") no-repeat;
   border-radius: 0;
