@@ -4,27 +4,34 @@ var subMenuItems = document.querySelectorAll(
   '.teams-menu__cases.cases-desktop'
 );
 
+function getSiblings(el) {
+  let siblings = [];
+
+  if (!el.parentNode) {
+    return siblings;
+  }
+
+  let sibling = el.parentNode.firstChild;
+  while (sibling) {
+    if (sibling.nodeType === 1 && sibling !== el) {
+      siblings.push(sibling);
+    }
+    sibling = sibling.nextSibling;
+  }
+  return siblings;
+}
+
 // Show relevant submenu on hover of menu items, hide only on hover of siblings (not mouseout)
 if (menuItems && subMenuItems) {
   menuItems.forEach(function (item, index) {
-    const getSiblings = function (el) {
-      let siblings = [];
-
-      if (!el.parentNode) {
-        return siblings;
-      }
-
-      let sibling = el.parentNode.firstChild;
-      while (sibling) {
-        if (sibling.nodeType === 1 && sibling !== el) {
-          siblings.push(sibling);
-        }
-        sibling = sibling.nextSibling;
-      }
-      return siblings;
-    };
-
     var i = (index + 1).toString();
+
+    // Keep the index 'i' value from 1-6 if there are multiple instances of module on one page
+    if (i > 6) {
+      i = i - 6;
+    } else if (i > 12) {
+      i = i - 12;
+    }
 
     if (window.innerWidth > 767) {
       item.addEventListener('mouseover', function () {
