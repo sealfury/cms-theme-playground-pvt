@@ -24,11 +24,24 @@
   {% endif %}
 
   <a class="blog-selector__button-wrapper {{ activeClass }}" href="{{ href }}" data-info="{{ extraText }}">
-    <img class="image blog-selector__button-image" src="{{ button.button_display.icon.src }}" alt="{{ button.button_display.icon.alt }}" />
+    {% set loadingAttrs = button.button_display.icon.loading != "disabled" 
+      ? 'loading="{{ button.button_display.icon.loading }}"' 
+      : '' %}
+    {% set hoverLoadingAttrs = button.button_display.hover_icon.loading != "disabled" 
+      ? 'loading="{{ button.button_display.hover_icon.loading }}"' 
+      : '' %}
+
+    <img 
+      class="image blog-selector__button-image" 
+      src="{{ button.button_display.icon.src }}" 
+      alt="{{ button.button_display.icon.alt }}"
+      {{ loadingAttrs }} 
+    />
     <img
       class="image blog-selector__button-image--hover"
       src="{{ button.button_display.hover_icon.src }}"
       alt="{{ button.button_display.hover_icon.alt }}"
+      {{ hoverLoadingAttrs }}
     />
     <p class="blog-selector__button-text">
       {{ button.button_display.text }}
