@@ -53,39 +53,44 @@
 
 {% if content.language.language == "en" %}
   {% set lang = english %}
+  {% set freeTrialContent = content_by_id(95959914578) %}
+  {% set bookDemoContent = content_by_id(95589887233) %}
 {% elif content.language.language == "sv" %}
   {% set lang = swedish %}
+  {% set freeTrialContent = content_by_id(102088192373) %}
+  {% set bookDemoContent = content_by_id(102088221252) %}
 {% elif content.language.language == "de" %}
   {% set lang = german %}
+  {% set freeTrialContent = content_by_id(102919637919) %}
+  {% set bookDemoContent = content_by_id(102912904024) %}
 {% endif %}
 
 {% if module.mode is equalto("light") %}
   {% set heading = module.heading|length > 4 ? module.heading : lang.ctaHeaderLight %}
   {% set description = module.description|length > 4 ? module.description : lang.ctaDescriptionLight %}
-  {% set button_text = module.link_text|length > 2 ? module.link_text : lang.ctaButtonTextLight %}
-  {% set content = content_by_id(lang.freeTrialId) %}
+  {% set buttonText = module.link_text|length > 2 ? module.link_text : lang.ctaButtonTextLight %}
+  {% set linkHref = freeTrialContent.absolute_url %}
 {% elif module.mode is equalto("dark") %}
   {% set heading = module.heading|length > 4 ? module.heading : lang.ctaHeaderDark %}
   {% set description = module.description|length > 4 ? module.description : lang.ctaDescriptionDark %}
-  {% set button_text = module.link_text|length > 2 ? module.link_text : lang.ctaButtonTextDark %}
-  {% set content = content_by_id(lang.bookDemoId) %}
+  {% set buttonText = module.link_text|length > 2 ? module.link_text : lang.ctaButtonTextDark %}
+  {% set linkHref = bookDemoContent.absolute_url %}
 {% endif %}
+
+{{ convertedId|pprint }}
 
 <div class="cta-small">
   <h2 class="cta-small__heading">{{ heading }}</h2>
   <p class="cta-small__description">{{ description }}</p>
   <div class="cta-small__button-wrapper">
     {% set href = module.cta_link.url.href %}
-    {% set linkHref = content.absolute_url %}
     <a
       class="cta-small__link"
       href="{{ linkHref }}"
       {% if module.cta_link.open_in_new_tab %}target="_blank"
       {% endif %}
-      {% if module.cta_link.rel %}rel="{{ module.cta_link.rel }}"
-      {% endif %}
     >
-      {{ button_text }}
+      {{ buttonText }}
     </a>
   </div>
 </div>
