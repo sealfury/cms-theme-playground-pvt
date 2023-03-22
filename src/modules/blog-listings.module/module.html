@@ -371,7 +371,6 @@
             {% elif content.post_list_content %}
               {{ content.post_list_content|striptags|truncate(charsToTruncate, True, '...')  }}
             {% else %}
-              {{ content.widgets|string|split("subheader=")|last|split("}")|first|pprint }}
               <p>
                 {{ content.widgets|string|split("subheader=")|last|split("}")|first|truncate(charsToTruncate, True, "...") }}
               </p>
