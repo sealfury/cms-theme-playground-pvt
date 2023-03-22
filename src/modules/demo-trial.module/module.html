@@ -34,7 +34,14 @@
     <p class="trial-demo__text-section--subheader">{{ module.subheader }}</p>
     {% for feature in module.features %}
     <div class="trial-demo__text-section--feature">
-      <img width="{{ feature.icon.width }}" alt="{{ feature.icon.alt }}" src="{{ feature.icon.src }}" />
+      {% set iconLoadingAttr = feature.icon.loading != "disabled" ? "loading=\"{{ feature.icon.loading }}\"" : "" %}
+      <img 
+        src="{{ feature.icon.src }}"
+        height="{{ feature.icon.height }}"
+        width="{{ feature.icon.width }}" 
+        alt="{{ feature.icon.alt }}"
+        {{ iconLoadingAttr }} 
+      />
       <span>{{ feature.feature }}</span>
     </div>
     {% endfor %}

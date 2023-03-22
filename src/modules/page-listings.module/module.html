@@ -16,10 +16,12 @@
       {% if p.override_feature_image == false and page_content.featured_image != "" %}
         {% set imgSrc = page_content.featured_image %}
         {% set imgAlt = page_content.featured_image_alt_text %}
+        {% set loadingAttr = "loading=\"lazy\"" %}
       {% endif %}
       {% if p.override_feature_image == true and p.new_image.src %}
         {% set imgSrc = p.new_image.src %}
         {% set imgAlt = p.new_image.alt ? p.new_image.alt : "page-featured-image-alt" %}
+        {% set loadingAttr = p.new_image.loading != "disabled" ? "loading=\"{{ p.new_image.loading }}\"" : "" %}
       {% endif %}
       {% unless module.use_vertical == true %}
         {% set imgWidth = p.card_type == "small" ? 180 : 285 %}
@@ -31,6 +33,7 @@
         alt="{{ imgAlt }}"
         width="{{ imgWidth }}"
         height="{{ imgHeight }}"
+        {{ loadingAttr }}
       />
 
       <div class="page-index__post-content page-index__post-content--{{ "vertical" if module.use_vertical else p.card_type }}">

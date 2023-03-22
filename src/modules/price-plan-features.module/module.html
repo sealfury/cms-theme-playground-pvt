@@ -38,7 +38,17 @@
       {% for tier in featureTierChoices %}
       <td>
         {% if feature.tiers is containing(tier) %}
-          <img class="tier-features__checkmark" width="{{ module.checkmark.width }}" src="{{ module.checkmark.src }}" />
+          {% set loadingAttr = module.checkmark.loading != "disabled" 
+            ? "loading=\"{{ module.checkmark.loading }}\"" 
+            : "" %}
+          <img 
+            class="tier-features__checkmark" 
+            src="{{ module.checkmark.src }}"
+            alt="{{ module.checkmark.alt }}"
+            height="{{ module.checkmark.height }}"
+            width="{{ module.checkmark.width }}"
+            {{ loadingAttr }}
+          />
         {% else %}
           <span> ~ </span>
         {% endif %}
@@ -62,7 +72,17 @@
         <td class="features-mobile__spacer"></td>
         <td class="features-mobile__supported">
           {% if feature.tiers is containing(tier) %}
-            <img class="tier-features__checkmark" width="{{ module.checkmark.width }}" src="{{ module.checkmark.src }}" />
+            {% set loadingAttr = module.checkmark.loading != "disabled" 
+              ? "loading=\"{{ module.checkmark.loading }}\"" 
+              : "" %}
+            <img 
+              class="tier-features__checkmark" 
+              src="{{ module.checkmark.src }}"
+              alt="{{ module.checkmark.alt }}"
+              height="{{ module.checkmark.height }}"
+              width="{{ module.checkmark.width }}"
+              {{ loadingAttr }}
+            />
           {% else %}
             <span> - </span>
           {% endif %}

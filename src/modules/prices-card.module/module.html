@@ -147,7 +147,16 @@
         <ul class="price-card__features">
           {% for feature in card.features %}
             <li class="price-card__features--feature">
-              <img width="{{ card.feature_icon.width }}" src="{{ card.feature_icon.src }}" />
+              {% set loadingAttr = card.feature_icon.loading != "disabled" 
+                ? "loading=\"{{ card.feature_icon.loading }}\"" 
+                : "" %}
+              <img 
+                src="{{ card.feature_icon.src }}"
+                alt="{{ card.feature_icon.alt }}"
+                height="{{ card.feature_icon.height }}"
+                width="{{ card.feature_icon.width }}"
+                {{ loadingAttr }}
+              />
               <span>{{ feature }}</span>
             </li>
           {% endfor %}

@@ -138,7 +138,14 @@
               {% endif %}
       
               <li class="teams-menu__cases--case">
-                <img class="teams-menu__cases--logo" width="{{ case.logo.max_width }}" src="{{ case.logo.src }}" />
+                <img 
+                  class="teams-menu__cases--logo" 
+                  src="{{ case.logo.src }}"
+                  alt="{{ case.logo.alt }}"
+                  height="{{ case.logo.height }}"
+                  width="{{ case.logo.max_width }}"
+                  loading="{{ case.logo.loading }}"
+                />
                 <span class="teams-menu__cases--quote" >{{ case.quote }}</span>
                 <span class="teams-menu__cases--attribution">{{ case.attribution }}</span>
                 <a class="teams-menu__cases--link" href="{{ linkHref }}">{{ case.link.text }}</a>
@@ -154,7 +161,13 @@
       {% for case in item.category.cases %}
 
         <li class="teams-menu__cases--case">
-          <img class="teams-menu__cases--logo" width="{{ case.logo.max_width }}" src="{{ case.logo.src }}" />
+          <img 
+            class="teams-menu__cases--logo" 
+            src="{{ case.logo.src }}"
+            height="{{ case.logo.height }}"
+            width="{{ case.logo.max_width }}"
+            loading="{{ case.logo.loading }}"
+          />
           <span class="teams-menu__cases--quote" >{{ case.quote }}</span>
           <span class="teams-menu__cases--attribution">{{ case.attribution }}</span>
           <a class="teams-menu__cases--link" href="{{ case.link.url.href }}">{{ case.link.text }}</a>
