@@ -367,10 +367,11 @@
               {% endif %}
             {% endif %}
             {% if content.post_summary %}
-              {{ content.post_summary|truncatehtml(charsToTruncate, "...", false) }}
+              {{ content.post_summary|striptags|truncate(charsToTruncate, True, '...') }}
             {% elif content.post_list_content %}
-              {{ content.post_list_content|truncatehtml(charsToTruncate, "...", false) }}
+              {{ content.post_list_content|striptags|truncate(charsToTruncate, True, '...')  }}
             {% else %}
+              {{ content.widgets|string|split("subheader=")|last|split("}")|first|pprint }}
               <p>
                 {{ content.widgets|string|split("subheader=")|last|split("}")|first|truncate(charsToTruncate, True, "...") }}
               </p>
