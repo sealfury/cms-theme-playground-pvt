@@ -190,23 +190,20 @@
   {% if module.show_popular and module.popular_time %}
     {% set contents = blog_popular_posts(module.blog, resultsCount, module.blog_tag_listing.filters, module.popular_time) %}
   {% endif %}
-  {% if module.blog_tag_listing.filters %}
-    {% set contents = blog_recent_tag_posts(module.blog, module.blog_tag_listing.filters, resultsCount) %}
+  {% if module.blog_tag_listing.filters|length > 0 %}
+    {% set contents = blog_recent_tag_posts(module.blog, module.blog_tag_listing.filters|first, resultsCount) %}
   {% endif %}
+
   {% set requestPathArr = request.path|split("/") %}
-  {% if requestPathArr is containing("tag") %}
+  {% if requestPathArr is containing "tag" %}
     {% set tagFilters = requestPathArr|last %}
     {% set blogName = requestPathArr|first %}
     {% if locale_name(locale)|split(" ")|first|lower != "english" %}
-      {% for element in requestPathArr %}
-        {% if loop.index == 2 %}
-          {% set blogName = element %}
-        {% endif %}
-      {% endfor %}
+      {% set blogName = requestPathArr[1] %}
     {% endif %}
-    {% set contents = blog_recent_tag_posts(blogName, tagFilters|capitalize, 250) %}
+    {% set contents = blog_recent_tag_posts(blogName, tagFilters, 250) %}
   {% endif %}
-
+  
   {% for content in contents %}
 
     {% set topicList = content.topic_list %}
