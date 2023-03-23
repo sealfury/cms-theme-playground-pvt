@@ -3,7 +3,7 @@
     "label": "Blog To Retrieve",
     "name": "blog",
     "type": "blog",
-    "default": "default"
+    "default": null
   },
   {
     "label": "Layout style",
@@ -191,7 +191,7 @@
         "occurrence": {
           "min": null,
           "max": 10,
-          "default": 2
+          "default": 1
         }
       }
     ]
