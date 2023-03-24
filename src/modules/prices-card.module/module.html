@@ -137,13 +137,13 @@
           <span class="price-card__promo-text">{{ card.emphasis }}</span>
         {% endif %}
         <h4 class="price-card__tier">{{ card.tier }}</h4>
-        <h2 class="price-card__price {{ "use-text" if card.use_text == true }}">
-          {% if card.use_text == false %}
-            {{ currencySymbol if currency != "sek" }}{{ card.price }}<strong>&nbsp;{{ currencySymbol if currency == "sek" }} / {{ month }}</strong>
-          {% else %}
-            {{ card.price_info }}
-          {% endif %}
-        </h2>
+        {% if card.use_text == false %}
+          <h2 class="price-card__price {{ "use-text" if card.use_text == true }}">
+            {{ currencySymbol if currency != "sek" }}{{ card.price }}<strong>{{ ' ' ~ currencySymbol if currency == "sek" }} / {{ month }}</strong>
+          </h2>
+        {% else %}
+          {{ card.price_info }}
+        {% endif %}
         <ul class="price-card__features">
           {% for feature in card.features %}
             <li class="price-card__features--feature">
