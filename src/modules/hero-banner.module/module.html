@@ -262,15 +262,17 @@
   </div>
   <div class="hero-banner__media-section {{ module.column }}-section">
     {% if module.column == "logo" or module.column == "video" %}
-      {% set loadingAttrs = module.logo_image.loading != "disabled" ? "loading=\"{{ module.logo_image.loading }}\"" : "" %}
-      <img 
-        class="hero-banner__logo" 
-        src="{{ module.logo_image.src }}" 
-        width="{{ module.logo_image.width }}" 
-        height="{{ module.logo_image.height }}"
-        alt="{{ module.logo_image.alt }}"
-        {{ loadingAttrs }}
-      />
+      {% if module.logo_image.src && module.logo_image.src != "" %}
+        {% set loadingAttrs = module.logo_image.loading != "disabled" ? "loading=\"{{ module.logo_image.loading }}\"" : "" %}
+        <img 
+          class="hero-banner__logo" 
+          src="{{ module.logo_image.src }}" 
+          width="{{ module.logo_image.width }}" 
+          height="{{ module.logo_image.height }}"
+          alt="{{ module.logo_image.alt }}"
+          {{ loadingAttrs }}
+        />
+      {% endif %}
     {% endif %}
 
     {% if module.column == "video" %}
