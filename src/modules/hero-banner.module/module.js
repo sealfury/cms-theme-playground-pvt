@@ -62,16 +62,21 @@ function activatePopup() {
   }
 }
 
-if (heroBannerVideo.children.length && !window.location.pathname.includes('editor')) {
-  document.addEventListener('DOMContentLoaded', function () {
-    // Wait for hubspot video iframe to load before trying to clone
-    setTimeout(() => {
-      cloneIframe(heroBannerVideo, iframeContainer);
-    }, 100);
+if (heroBannerVideo) {
+  if (
+    heroBannerVideo.children.length &&
+    !window.location.pathname.includes('editor')
+  ) {
+    document.addEventListener('DOMContentLoaded', function () {
+      // Wait for hubspot video iframe to load before trying to clone
+      setTimeout(() => {
+        cloneIframe(heroBannerVideo, iframeContainer);
+      }, 100);
 
-    // Wait for successful cloning/placing of iframe before enabling popup features
-    setTimeout(() => {
-      activatePopup();
-    }, 200);
-  });
+      // Wait for successful cloning/placing of iframe before enabling popup features
+      setTimeout(() => {
+        activatePopup();
+      }, 200);
+    });
+  }
 }

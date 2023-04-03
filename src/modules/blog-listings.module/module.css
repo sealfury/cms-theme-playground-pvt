@@ -128,6 +128,10 @@
   padding-top: 2%;
 }
 
+.blog-index__post-content--large .blog-index__event-details {
+  padding-top: 0;
+}
+
 .blog-index__post--combo:first-child .blog-index__post-content {
   height: 304px;
   padding-right: 10%;
