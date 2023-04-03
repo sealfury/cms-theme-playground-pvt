@@ -132,7 +132,7 @@
   width: clamp(345px, 100%, 495px);
 }
 
-@media (width <= 756px) {
+@media screen and (max-width: 756px) {
   .faq-section {
     align-items: center;
     flex-direction: column;
