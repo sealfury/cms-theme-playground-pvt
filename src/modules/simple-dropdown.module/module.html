@@ -100,8 +100,10 @@
       .top-menu__item--depth-2:nth-child({{ loop.index }}) .top-menu__link::before {
         background: url("{{ icon.icon.src }}") no-repeat;
         opacity: {{ module.styles.dropdowns.text.color.opacity / 100 }};
-        {% if icon.icon.width %}
+        {% if icon.icon.width > 40 %}
           width: {{ icon.icon.width ~ 'px' }};
+        {% else %}
+          width: 40px;
         {% endif %}
       }
 

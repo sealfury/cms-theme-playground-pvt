@@ -12,7 +12,7 @@
   display: none;
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .top-menu--desktop {
     display: none;
   }
@@ -40,7 +40,7 @@
   text-decoration: none;
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .top-menu__item {
     display: block;
     width: 100%;
@@ -134,6 +134,7 @@
   opacity: 1;
   top: 100%;
   transition: all 0.3s ease-in-out;
+  width: auto;
   z-index: 999;
 }
 
@@ -170,6 +171,7 @@
   content: '';
   display: block;
   height: 32px;
+  margin-right: 4px;
   transition: opacity 0.2s ease;
   width: 32px;
 }
@@ -211,7 +213,7 @@
 
 /* Triangle for the dropdown menu */
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .top-menu__submenu--level-2::before {
     border-right: none;
     border-top: none;
@@ -223,7 +225,7 @@
     left: 27%;
     overflow: hidden;
     position: absolute;
-    top: -3%;
+    top: -2.5%;
     transform: rotate(45deg);
     transition: all 0.3s ease-in-out;
     width: 14px;
