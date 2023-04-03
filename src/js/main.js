@@ -223,12 +223,11 @@
 
   function insertDate() {
     var pageLocale = getPageLocale();
-    console.log(pageLocale);
+
     var dateElement = document.querySelector('.blog-index__event--date');
     if (dateElement) {
       var dateAttr = dateElement.getAttribute('data-date');
       var unformatted = new Date(dateAttr * 1);
-      console.log(unformatted);
       var options = {
         year: 'numeric',
         month: 'long',
