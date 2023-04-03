@@ -48,8 +48,8 @@
   }
 
   .hero-banner__media-section {
-    position: unset;
-    width: 100%;
+    position: unset !important;
+    width: 100% !important;
   }
 
   .hero-banner__media-section.form-section {
@@ -60,8 +60,8 @@
   .hero-banner__logo {
     height: unset;
     max-width: 100%;
-    position: unset;
-    transform: translate(0, 10%);
+    position: unset !important;
+    transform: translate(0, 10%) !important;
   }
 
   .hero-banner__breadcrumb-menu {
