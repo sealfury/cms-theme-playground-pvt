@@ -9,8 +9,10 @@ var closeButton = document.querySelector('.popup-close');
 function cloneIframe(parent, container) {
   var iframe = parent.querySelector('iframe');
   var clonedIframe = iframe.cloneNode(true);
+  var videoWidget = document.querySelector('.hs-video-widget');
   clonedIframe.setAttribute('id', 'popup-iframe');
   container.insertAdjacentElement('afterbegin', clonedIframe);
+  videoWidget.setAttribute('style', 'display: none;');
 }
 
 // Activate popup video modal on click anywhere in hero banner video
@@ -22,6 +24,10 @@ function activatePopup() {
     closeButton,
   ]);
   var closePopupClickables = Array.from([closeButton, popupOverlay]);
+  var popupIframe = document.getElementById('popup-iframe');
+  var originalIframe = heroBannerVideo.querySelector('iframe');
+  var originalSrc = originalIframe.getAttribute('src');
+  var allowAttr = originalIframe.getAttribute('allow');
 
   if (heroBannerVideo.getAttribute('data-has-popup') == 'true') {
     var clickToPopupLink = document.querySelector('.hero-media-player__popup');
@@ -32,6 +38,11 @@ function activatePopup() {
       popupElements.forEach(function (element) {
         element.classList.add('show-popup');
       });
+
+      if (!popupIframe.getAttribute('src').length) {
+        popupIframe.setAttribute('src', originalSrc);
+        popupIframe.setAttribute('allow', allowAttr);
+      }
     });
 
     // Close popup on click outside or on close icon
@@ -44,6 +55,8 @@ function activatePopup() {
             element.classList.remove('show-popup');
           }
         });
+
+        document.getElementById('popup-iframe').setAttribute('src', '');
       });
     });
   }
