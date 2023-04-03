@@ -98,8 +98,11 @@
 
     {% for icon in module.icons %}
       .top-menu__item--depth-2:nth-child({{ loop.index }}) .top-menu__link::before {
-        background: url("{{ icon.src }}") no-repeat;
+        background: url("{{ icon.icon.src }}") no-repeat;
         opacity: {{ module.styles.dropdowns.text.color.opacity / 100 }};
+        {% if icon.icon.width %}
+          width: {{ icon.icon.width ~ 'px' }};
+        {% endif %}
       }
 
       @media (min-width: 768px) {
