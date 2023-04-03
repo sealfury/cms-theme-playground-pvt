@@ -40,3 +40,9 @@
   margin: 0 0 4px;
 }
 
+@media screen and (max-width: 767px) {
+  .our-story {
+    margin-left: -2rem;
+    width: 100vw !important;
+  }
+}
