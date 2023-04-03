@@ -84,7 +84,7 @@
     {% set href = module.cta_link.url.href %}
     <a
       class="cta-small__link"
-      href="{{ linkHref }}"
+      href="{{ linkHref or href }}"
       {% if module.cta_link.open_in_new_tab %}target="_blank"
       {% endif %}
     >
