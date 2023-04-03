@@ -193,3 +193,26 @@
   font-weight: 600;
   text-decoration: underline;
 }
+
+@media screen and (max-width: 767px) {
+  .hero-banner#manual-hero-banner {
+    max-height: unset;
+    flex-direction: column;
+  }
+
+  .hero-banner__logo-section {
+    height: 180px;
+    left: 0;
+    padding-top: 1.5rem;
+    position: relative;
+    top: 0;
+    transform: unset;
+    width: 100%;
+  }
+
+  .hero-banner__breadcrumb-menu {
+    flex-wrap: wrap;
+    margin-bottom: -13%;
+    transform: translateY(-80%);
+  }
+}

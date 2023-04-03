@@ -4,6 +4,10 @@
 {% set chevronFsUrl = "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/module-icons/breadcrumbs-chevron.png" %}
 {% set chevronUrl = get_asset_url(checkmarkPath) != "" ? get_asset_url(chevronPath) : chevronFsUrl %}
 
+{% set downloadPath = "../../images/module-icons/download-icon-black.png" %}
+{% set downloadFsUrl = "https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/icons/download_icon_black.png" %}
+{% set downloadUrl = get_asset_url(downloadPath) != "" ? get_asset_url(downloadPath) : downloadFsUrl %}
+
 {% require_css %}
   <style>
     {% scope_css %}
@@ -33,9 +37,6 @@
         }
       {% endif %}
 
-      {# Add Download Icon to Submit Button #}
-      {% set downloadIcon = "../../images/module-icons/download-icon-black.png" %}
-
       #manual-hero-banner form .actions {
         align-items: center;
         background-color: #00b9bc;
@@ -49,8 +50,17 @@
         width: fit-content;
       }
 
+      @media screen and (max-width: 767px) {
+        #manual-hero-banner form .actions {
+          gap: 0.25rem;
+          padding-bottom: 0.5rem;
+          padding-top: 0.5rem;
+          width: 100%;
+        }
+      }
+
       #manual-hero-banner form .actions:after {
-        background: url("{{ get_asset_url(downloadIcon) }}") no-repeat;
+        background: url("{{ downloadUrl }}") no-repeat;
         content: "";
         display: inline-block;
         height: 2rem;
@@ -84,6 +94,27 @@
         height: 1rem;
         width: 1rem;
         transform: translateY(22.5%);
+      }
+
+      @media screen and (max-width: 767px) {
+        #manual-hero-banner form {
+          flex-direction: column;
+          padding: 0 0 2.5rem 0;
+        }
+
+        #manual-hero-banner form input[type="submit"] {
+          padding-left: 1rem;
+          width: 40%;
+        }
+
+        {# #manual-hero-banner form .actions {
+          padding: 0;
+          width: 100%;
+        } #}
+
+        #manual-hero-banner form .hs-submit {
+          width: 100%;
+        }
       }
 
     {% end_scope_css %}
