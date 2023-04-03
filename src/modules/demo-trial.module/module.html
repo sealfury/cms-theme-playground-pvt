@@ -32,7 +32,7 @@
   <div class="trial-demo__text-section">
     <div class="trial-demo__text-section--header">{{ module.header }}</div>
     <p class="trial-demo__text-section--subheader">{{ module.subheader }}</p>
-    {% for feature in module.features %}
+    {# {% for feature in module.features %}
     <div class="trial-demo__text-section--feature">
       {% set iconLoadingAttr = feature.icon.loading != "disabled" ? "loading=\"{{ feature.icon.loading }}\"" : "" %}
       <img 
@@ -45,6 +45,7 @@
       <span>{{ feature.feature }}</span>
     </div>
     {% endfor %}
+
     <h4 class="trial-demo__text-section--quote">
       <i>{{ module.quote }}</i>
     </h4>
@@ -60,14 +61,17 @@
         <img src="{{ img.src }}" alt="{{ img.alt }}" {{ loadingAttr }} {{ sizeAttrs }} />
       {% endif %}
       {% endfor %}
-    </div>
+    </div> #}
+    {{ module.first_text_section }}
+    {{ module.second_text_section }}
   </div>
 
   <div class="trial-demo__form-section">
     {% form
       form_key="{{ module.choice }}--form",
       form_to_use="{{ module.form.form_id }}",
-      title="{{ module.form.title or module.form_header }}" %}
+      title="{{ module.form.title or module.form_header }}",
+      extra_classes="trial-form" %}
     {% set link = module.form_section_link.link_info.link %}
     {% if link.url.href %}
       <div class="trial-demo__form-section--link">

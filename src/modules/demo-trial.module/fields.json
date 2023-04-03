@@ -10,6 +10,21 @@
     "name": "subheader",
     "type": "richtext"
   },
+
+  {
+    "name": "first_text_section",
+    "label": "First Rich Text Section",
+    "type": "richtext",
+    "required": false,
+    "locked": false
+  },
+  {
+    "name": "second_text_section",
+    "label": "Second Rich Text Section",
+    "type": "richtext",
+    "required": false,
+    "locked": false
+  },
   {
     "label": "Features",
     "name": "features",
