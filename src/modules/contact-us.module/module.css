@@ -67,3 +67,27 @@
 .contact__sales--image {
   margin-top: 0.5rem;
 }
+
+@media screen and (max-width: 767px) {
+  .contact {
+    flex-direction: column;
+  }
+
+  .contact__form--section {
+    padding: 1rem;
+  }
+
+  .contact__form--section,
+  .contact__sales--section {
+    width: 100%;
+  }
+
+  .contact__form--section form {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .contact__form--form form > .hs-form-field {
+    width: 100%;
+  }
+}

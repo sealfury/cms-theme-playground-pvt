@@ -62,7 +62,7 @@
   <table class="tier-features__table tier-features-mobile">
     {% for feature in module.feature %}
     {% set mobileRowClass = "mobile-group-{{ loop.depth }}" %}
-    <tr class="tier-features__row header-row-{% cycle "odd","even" %}">
+    <tr class="tier-features__row header-row-{% cycle "odd","even" %}" style="display: block;">
       <th scope="row">{{ feature.title }}</th>
     </tr>
 
