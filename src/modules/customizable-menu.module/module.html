@@ -128,13 +128,20 @@
 <!-- module html  -->
 <nav class="menu menu--custom">
   <ul class="menu__wrapper no-list">
+    
+    {% if content.language.language == 'en' %}
+      {% set link = "https://maintmaster.com" %}
+    {% else %}
+      {% set link = "https://maintmaster.com/" ~ content.language.language %}
+    {% endif%}
     <li class="logo--show-scroll">
       {% logo "scroll-logo"
         label="Scroll Logo",
         src="https://20191855.fs1.hubspotusercontent-na1.net/hubfs/20191855/images/website/MaintMaster-icon-logo-website.svg",
         alt="logo-symbol-show-scroll",
         loading="lazy",
-        width=48 %}
+        width=48,
+        link="{{ link }}" %}
     </li>
     {% for item in module.top_level_item %}
     <li class="menu__item menu__item--depth-1 {{ "menu__item--has-submenu" if item.item_type == "dropdown" }} menu__item--{{ item.menu_type }}">
