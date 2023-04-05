@@ -299,3 +299,8 @@ footer.footer {
     margin: 0 auto;
   }
 }
+
+/* Landing Page */
+.footer__container.landing-page {
+  margin-top: 3rem;
+}

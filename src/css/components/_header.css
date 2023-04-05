@@ -850,3 +850,16 @@
     width: 44px;
   }
 }
+
+/* Header no navigation */
+.header--no-navigation {
+  padding-top: 1rem;
+}
+
+.header__logo--no-navigation {
+  max-width: 25%;
+}
+
+.header__drag-and-drop {
+  max-width: 75%;
+}

@@ -15,12 +15,12 @@
       <link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />
     {% endif %}
     <meta name="description" content="{{ page_meta.meta_description }}" />
-    {{ require_css(get_asset_url("../../css/main.css")) }}
+    {{ require_css(get_asset_url("../css/main.css")) }}
     {# This is intended to be used if a template requires template specific style sheets #}
     {% if template_css %}
       {{ require_css(get_asset_url(template_css)) }}
     {% endif %}
-    {{ require_css(get_asset_url("../../css/theme-overrides.css")) }}
+    {{ require_css(get_asset_url("../css/theme-overrides.css")) }}
 
     {{ standard_header_includes }}
   </head>
@@ -41,6 +41,18 @@
           {% end_dnd_area %}
         {% endblock body %}
       </main>
+
+      {% dnd_area "footer"
+        label="Landing Page Footer",
+        class="footer__container landing-page" %}
+
+        {% dnd_section 
+          max_width=1440,
+          horizontal_alignment="CENTER",
+          vertical_alignment="TOP" %}
+        {% end_dnd_section %}
+
+      {% end_dnd_area %}
     </div>
     {{ standard_footer_includes }}
   </body>
