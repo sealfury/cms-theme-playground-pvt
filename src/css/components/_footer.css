@@ -304,3 +304,13 @@ footer.footer {
 .footer__container.landing-page {
   margin-top: 3rem;
 }
+
+.footer__container.landing-page h1,
+.footer__container.landing-page h2,
+.footer__container.landing-page h3,
+.footer__container.landing-page h4,
+.footer__container.landing-page p,
+.footer__container.landing-page span,
+.footer__container.landing-page a {
+  color: #FFFFFF;
+}

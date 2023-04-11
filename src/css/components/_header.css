@@ -854,6 +854,7 @@
 /* Header no navigation */
 .header--no-navigation {
   padding-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .header__logo--no-navigation {
