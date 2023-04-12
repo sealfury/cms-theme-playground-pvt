@@ -140,6 +140,7 @@ includeLangOpts=true) -%}
             value="{{ context.value or sectionHeader }}" %}</h2>
       <div class="blog-related-posts__list">
       {% endif %}
+
       <article
         class="blog-related-posts__post events"
         aria-label="Blog post summary: {{ post.name }}"
@@ -160,7 +161,7 @@ includeLangOpts=true) -%}
         {% endif %}
         <div class="blog-related-posts__content">
           <div class="blog-index__event-details">
-            {% set location = post.widgets|string|split("location=")|last|split(",")|first %}
+          {% set location = post.widgets|attr('upcoming_dates')|string|split('location=')|last|split(', start')|first %}
             <span class="blog-index__event--location" data-location="{{ location }}">
               {% set locationIcon = get_asset_url("../images/module-icons/location_icon_dark_petrol_30.png") %}
               <img
@@ -172,7 +173,7 @@ includeLangOpts=true) -%}
               />
               {{ location }}
             </span>
-            {% set unformatted = post.widgets|string|split("start=")|last|split("}")|first %}
+            {% set unformatted = post.widgets|attr('upcoming_dates')|string|split('start=')|last|split('}')|first %}
             <span class="blog-index__event--date" data-date="{{ unformatted }}">
               <img
                 src="{{ get_asset_url("../images/module-icons/scheduling_icon_dark_petrol_30.png") }}"
