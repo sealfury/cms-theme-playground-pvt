@@ -27,8 +27,21 @@
   <body>
     <div class="body-wrapper {{ builtin_body_classes }}">
       {% block header %}
-        {% global_partial
-          path="./partials/header-no-navigation.html" %}
+        <header class="header header--no-navigation">
+          <div class="header__container desktop content-wrapper">
+            <div class="header__logo">
+              {% module "site_logo"
+                path="@hubspot/logo",
+                img={
+                  "loading": "eager"
+                } %}
+            </div>
+            {% dnd_area "header__drag-and-drop"
+              label="Header Drag and Drop",
+              class="header__drag-and-drop" %}
+            {% end_dnd_area %}
+          </div>
+        </header>
       {% endblock header %}
 
       <main id="main-content" class="body-container-wrapper">
@@ -37,7 +50,6 @@
           {% dnd_area "dnd_area"
             label="Main section",
             class="body-container body-container--landing-page" %}
-
           {% end_dnd_area %}
         {% endblock body %}
       </main>
@@ -46,7 +58,7 @@
         label="Landing Page Footer",
         class="footer__container landing-page" %}
 
-        {% dnd_section 
+        {% dnd_section
           max_width=1440,
           horizontal_alignment="CENTER",
           vertical_alignment="TOP" %}

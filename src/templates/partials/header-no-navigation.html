@@ -1,35 +1,24 @@
 <!--
-  templateType: global_partial
+  templateType: partial
   label: Header no navigation
 -->
 <header class="header header--no-navigation">
   <div class="header__container desktop content-wrapper">
-  {# <div class="header__logo--no-navigation">
-    {% module "linked_image"
-      path="@hubspot/linked_image"
-      src="https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/module-icons/logo-black.png" %}
-  </div> #}
+    <div class="header__logo">
+      {% module "site_logo"
+        path="@hubspot/logo",
+        img={
+          "loading": "eager"
+        } %}
+    </div>
+    {% dnd_area "header__drag-and-drop"
+      label="Header Drag and Drop",
+      class="header__drag-and-drop" %}
+    {% end_dnd_area %}
+  </div>
 
-  {% dnd_area "header__drag-and-drop"
+  {# {% dnd_area "header__drag-and-drop"
     label="Header Drag and Drop",
     class="header__drag-and-drop" %}
-    {% dnd_section %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module "linked_image"
-            path="@hubspot/linked_image"
-            src="https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/module-icons/logo-black.png",
-            offset=0,
-            width=3 %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
-  {% end_dnd_area %}
-
-  {% dnd_area "header__drag-and-drop-2"
-    label="Header Drag and Drop",
-    class="header__drag-and-drop" %}
-  {% end_dnd_area %}
-  <div>
+  {% end_dnd_area %} #}
 </header>
