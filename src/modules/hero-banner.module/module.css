@@ -260,6 +260,12 @@
   }
 }
 
+@media screen and (max-width: 380px) {
+  .hero-media-player__popup {
+    top: 120%;
+  }
+}
+
 
 .hero-banner__media-section.form-section {
   background-color: #0F1E2D;
