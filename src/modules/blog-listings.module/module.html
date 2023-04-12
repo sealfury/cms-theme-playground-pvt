@@ -222,6 +222,7 @@
     {# Blog listing article #}
 
     {% set sanitizedTitle = group.name|lower %}
+
     <article
       class="blog-index__post blog-index__post--{{ list_type }} {{ 'events' if sanitizedTitle is string_containing 'events' }}"
       aria-label="Blog post summary: {{ content.name }}"
@@ -265,8 +266,7 @@
           {% set dateIcon = module.event_icons.date %}
 
           <div class="blog-index__event-details">
-            {# {{ content.widgets|string|split('subheader=')|last|split('}')|first|striptags|pprint }} #}
-            {% set location = content.widgets|string|split('location=')|last|split(',')|first %}
+          {% set location = content.widgets|attr('upcoming_dates')|string|split('location=')|last|split(', start')|first %}
             <span class="blog-index__event--location" data-location="{{ location }}">
               <img
                 src="{{ locationIcon.src }}"
@@ -277,8 +277,7 @@
               />
               {{ location }}
             </span>
-            {# {{ content.widgets|string|split('start=')|last|split('}')|first|pprint }} #}
-            {% set unformatted = content.widgets|string|split('start=')|last|split('}')|first %}
+            {% set unformatted = content.widgets|attr('upcoming_dates')|string|split('start=')|last|split('}')|first %}
             <span class="blog-index__event--date" data-date="{{ unformatted }}">
               <img
                 src="{{ dateIcon.src }}"

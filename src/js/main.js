@@ -224,17 +224,20 @@
   function insertDate() {
     var pageLocale = getPageLocale();
 
-    var dateElement = document.querySelector('.blog-index__event--date');
-    if (dateElement) {
-      var dateAttr = dateElement.getAttribute('data-date');
-      var unformatted = new Date(dateAttr * 1);
-      var options = {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      };
-      var dateFormatted = unformatted.toLocaleDateString(pageLocale, options);
-      dateElement.insertAdjacentText('beforeend', dateFormatted);
+    var dateElements = document.querySelectorAll('.blog-index__event--date');
+
+    if (dateElements.length) {
+      dateElements.forEach(function (dateElement) {
+        var dateAttr = dateElement.getAttribute('data-date');
+        var unformatted = new Date(dateAttr * 1);
+        var options = {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        };
+        var dateFormatted = unformatted.toLocaleDateString(pageLocale, options);
+        dateElement.insertAdjacentText('beforeend', dateFormatted);
+      });
     }
   }
 
