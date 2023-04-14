@@ -71,7 +71,7 @@
   }
 }
 
-@media screen and (width <= 767px) {
+@media screen and (max-width: 767px) {
   /* .row-fluid:has(.span2) {
     justify-content: space-between;
     padding: 0 0.5rem;
@@ -110,5 +110,13 @@
   span[data-hs-cos-type="rich_text"] {
     display: block; 
     padding: 0.5rem 1rem;
+  }
+
+  .hs_cos_wrapper_type_rich_text {
+    padding: 0.5rem 1rem !important;
+  }
+
+  .hs_cos_wrapper_type_module {
+    padding: 0 !important;
   }
 }

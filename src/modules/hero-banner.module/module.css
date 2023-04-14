@@ -361,6 +361,7 @@
   .hero-banner__buttons {
     flex-direction: column;
     gap: 0;
+    margin-bottom: 1rem;
   }
 
   .hero-banner__buttons > span {
@@ -406,7 +407,7 @@
     flex-wrap: wrap;
     margin-bottom: -5%;
     padding: 0.25rem 1rem;
-    transform: translate(-1rem, -70%);
+    transform: translate(-1rem, -45%);
     width: 100vw;
   }
 }
