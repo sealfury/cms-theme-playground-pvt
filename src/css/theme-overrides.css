@@ -324,6 +324,13 @@ h6,
   h1,
   h2,
   h3,
+  h4 {
+    hyphens: auto;
+  }
+
+  h1,
+  h2,
+  h3,
   h4,
   h5 {
     margin: 1.5rem 0 0.5rem;
