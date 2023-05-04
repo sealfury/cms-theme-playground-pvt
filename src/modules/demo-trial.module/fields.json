@@ -31,7 +31,7 @@
     "id": "features",
     "type": "group",
     "occurrence": {
-      "min": 2,
+      "min": null,
       "max": 8,
       "default": 3,
       "sorting_label_field": "features.feature"
@@ -141,7 +141,7 @@
       {
         "label": "Try First/Book Demo Text",
         "name": "text",
-        "type": "text",
+        "type": "richtext",
         "default": "Try first?"
       },
       {
