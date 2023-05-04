@@ -40,13 +40,13 @@
 }
 
 /* Need to change to slideshow view */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1000px) {
   .blog-index__post--small {
     flex: 0 0 calc(100% / 2);
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .blog-index__post--small {
     flex: 0 0 49%;
   }
@@ -334,6 +334,13 @@
 
 .blog-index__link-all-link:hover {
   border-color: #00B9BC;
+}
+
+@media screen and (max-width: 1200px) {
+  .blog-index__post-summary {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 @media screen and (max-width: 620px) {
