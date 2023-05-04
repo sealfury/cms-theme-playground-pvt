@@ -71,6 +71,12 @@
         font-size: 12px;
       }
 
+      a {
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
       /* HEADER STYLES */
 
       #headerTable {
@@ -90,6 +96,23 @@
       #headerTable a .yshortcuts {
         font-weight: normal;
         text-decoration: underline;
+      }
+
+      .header-container-wrapper {
+        background-image: url('{{ get_asset_url('../images/dark-background_water.jpg') }}');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: bottom;
+        padding-bottom: 22px;
+        padding-left: 32px;
+        padding-top: 30px;
+        width: 100%;
+      }
+
+      .readmore-link-wrapper {
+        padding-top: 32px;
+        padding-bottom: 48px;
       }
 
       /* TEMPLATE WRAPPER STYLES */
@@ -121,9 +144,10 @@
 
       a.readmore-link {
         background-color: #6734FF;
-        border-radius: 8px;
+        border-radius: 4px;
+        box-shadow: 2px 2px 6px rgba(15, 30, 45, 0.5);
         color: #FFFFFF;
-        padding: 10px 20px;
+        padding: 8px 24px;
         text-transform: none;
       }
 
@@ -146,15 +170,16 @@
       }
 
       /* FOOTER STYLES */
-      #footerTable {
+      .footer-container-wrapper {
         background-color: #0F1E2D;
       }
 
-      #footerTabble a {
+      #footerTable a {
         color: #FFFFFF;
       }
 
       #footerTable {
+        background-color: #0F1E2D;
         color: #FFFFFF;
         font-family: 'Montserrat', sans-serif;
         font-size: 12px;
@@ -437,8 +462,13 @@
             <tr>
               <td align="center" valign="top">
                 {# Begin Template Preheader #}
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" id="headerTable">
+                <table border="0" align="left" cellpadding="0" cellspacing="0" width="100%" id="headerTable">
                   <div class="header-container-wrapper">
+                    <div class="widget-span widget-type-logo " data-widget-type="logo">
+                      <div class="layout-widget-wrapper">
+                        {% logo "logo_image" suppress_company_name=True, overrideable=True, label="Logo", align="left" %}
+                      </div>
+                    </div>
                     <tr>
                       <td align="center" valign="top" class="bodyContent" width="100%" colspan="12">
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
@@ -474,8 +504,8 @@
                             <td align="center" valign="top" width="100.0%" colspan="12">
                               <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
                                 <tr>
-                                  <td align="center" valign="top" colspan="12" width="100.0%" class="column">
-                                    <div class="widget=span widget-type-logo " style="" data-widget-type="logo">
+                                  <td align="left" valign="top" colspan="12" width="100.0%" class="column">
+                                    <div class="widget-span widget-type-logo " data-widget-type="logo">
                                       <div class="layout-widget-wrapper">
                                         {% logo "logo_image" suppress_company_name=True, overrideable=True, label="Logo" %}
                                       </div>
@@ -489,10 +519,10 @@
                             <td align="center" valign="top" class="bodyContent" width="100%" colspan="12">
                               <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
                                 <tr>
-                                  <td align="center" valign="top" colspan="6" width="100.0%" class="column">
+                                  <td align="left" valign="top" colspan="6" width="50.0%" class="column">
                                     <div class="widget-span widget-type-email_body" style="" data-widget-type="email_body">
                                       {% content_attribute "email_body" %}
-                                        <h2>Sick and tired of managin maintenance with Excel?</h2>
+                                        <h2>Sick and tired of managing maintenance with Excel?</h2>
                                         <p>You're not alone. Most maintenance managers and technicians find Excel painful to work with.</p>
                                         <ul>
                                           <li>It's hard to fill in the right information.</li>
@@ -504,7 +534,7 @@
                                       {% end_content_attribute %}
                                     </div>
                                   </td>
-                                  <td align="center" valign="top" colspan="6" width="100.0%" class="column">
+                                  <td align="right" valign="top" colspan="6" width="50.0%" class="column">
                                     <div class="widget-span widget-type-video_email" data-widget-type="video_email">
                                       {% module "video_email" 
                                         label="Video Email",
@@ -519,24 +549,39 @@
                             <td align="center" valign="top" class="bodyContent" width="100%" colspan="12">
                               <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
                                 <tr>
-                                  <td align="center" valign="top" colspan="4" width="100.0%" class="column">
+                                  {% module "manuals_header"
+                                    label="Manuals Section - Header",
+                                    path="@hubspot/rich_text" %}
+                                </tr>
+                                <tr>
+                                  <td align="left" valign="top" width="32.5%" class="column">
                                     {% module "image_email" 
                                       label="Image Email",
                                       path="@hubspot/image_email" %}
                                   </td>
-                                  <td align="center" valign="top" colspan="4" width="100.0%" class="column">
-                                    {% module "image_email" 
-                                      label="Image Email",
+                                  <td align="left" valign="top" width="32.5%" class="column">
+                                    {% module "image_email_2" 
+                                      label="Image Email 2",
                                       path="@hubspot/image_email" %} 
                                   </td>
-                                  <td align="center" valign="top" colspan="4" width="100.0%" class="column">
-                                    {% module "image_email" 
-                                      label="Image Email",
+                                  <td align="left" valign="top" width="32.5%" class="column">
+                                    {% module "image_email_3" 
+                                      label="Image Email 3",
                                       path="@hubspot/image_email" %}
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td align="center" valign="top" colspan="4" width="100.0%" class="column">
+                                  <td align="left" valign="top" width="32.5%" class="column">
+                                    <div class="readmore-link-wrapper">
+                                      <a class="readmore-link" href="{% text "link_href" label="Link Destination", no_wrapper=True %}">
+                                        {% text "link_text" 
+                                          label="Link Text",
+                                          value="Read more",
+                                          no_wrapper=True %}
+                                      </a>
+                                    </div>
+                                  </td>
+                                  <td align="left" valign="top" width="32.5%" class="column">
                                     <div class="readmore-link-wrapper">
                                       <a class="readmore-link" href="https://maintmaster.com">
                                         {% text "link_text" 
@@ -546,17 +591,7 @@
                                       </a>
                                     </div>
                                   </td>
-                                  <td align="center" valign="top" colspan="4" width="100.0%" class="column">
-                                    <div class="readmore-link-wrapper">
-                                      <a class="readmore-link" href="https://maintmaster.com">
-                                        {% text "link_text" 
-                                          label="Link Text",
-                                          value="Read more",
-                                          no_wrapper=True %}
-                                      </a>
-                                    </div>
-                                  </td>
-                                  <td align="center" valign="top" colspan="4" width="100.0%" class="column">
+                                  <td align="left" valign="top" width="32.5%" class="column">
                                     <div class="readmore-link-wrapper">
                                       <a class="readmore-link" href="https://maintmaster.com">
                                         {% text "link_text" 
@@ -574,19 +609,19 @@
                             <td align="center" valign="top" class="bodyContent" width="100%" colspan="12">
                               <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
                                 <tr>
-                                  <td align="center" valign="top" colspan="4" width="100.0%" class="column">
-                                    {% module "image_email" 
-                                      label="Image Email",
+                                  <td align="center" valign="top" width="30.0%" class="column">
+                                    {% module "image_email_4" 
+                                      label="Image Email 4",
                                       path="@hubspot/image_email" %}
                                   </td>
-                                  <td align="center" valign="top" colspan="4" width="100.0%" class="column">
-                                    {% module "image_email" 
-                                      label="Image Email",
+                                  <td align="center" valign="top" width="30.0%" class="column">
+                                    {% module "image_email_5" 
+                                      label="Image Email 5",
                                       path="@hubspot/image_email" %}
                                   </td>
-                                  <td align="center" valign="top" colspan="4" width="100.0%" class="column">
-                                    {% module "image_email" 
-                                      label="Image Email",
+                                  <td align="center" valign="top" width="30.0%" class="column">
+                                    {% module "image_email_6" 
+                                      label="Image Email 6",
                                       path="@hubspot/image_email" %}
                                   </td>
                                 </tr>
@@ -608,7 +643,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" id="footerTable">
                   <div class="footer-container-wrapper">
                     <tr>
-                      <td align="Center" valign="top" class="bodyContent" width="100%" colspan="12">
+                      <td align="center" valign="top" class="bodyContent" width="100%" colspan="12">
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
                           <tr>
                             <td align="center" valign="top" colspan="12" width="100.0%" class="column">
@@ -631,7 +666,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td align="center" valign="top" colspan="12" width="100.0%" class="column">
+                            <td align="left" valign="top" colspan="12" width="100.0%" class="column">
                               <div class="layout-widget-wrapper">
                                 {% widget_block social_sharing "Social Sharing" label="Social Sharing", use_page_url=False %}
                                 {% end_widget_block %}
