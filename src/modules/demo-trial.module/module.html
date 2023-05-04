@@ -32,36 +32,6 @@
   <div class="trial-demo__text-section">
     <div class="trial-demo__text-section--header">{{ module.header }}</div>
     <p class="trial-demo__text-section--subheader">{{ module.subheader }}</p>
-    {# {% for feature in module.features %}
-    <div class="trial-demo__text-section--feature">
-      {% set iconLoadingAttr = feature.icon.loading != "disabled" ? "loading=\"{{ feature.icon.loading }}\"" : "" %}
-      <img 
-        src="{{ feature.icon.src }}"
-        height="{{ feature.icon.height }}"
-        width="{{ feature.icon.width }}" 
-        alt="{{ feature.icon.alt }}"
-        {{ iconLoadingAttr }} 
-      />
-      <span>{{ feature.feature }}</span>
-    </div>
-    {% endfor %}
-
-    <h4 class="trial-demo__text-section--quote">
-      <i>{{ module.quote }}</i>
-    </h4>
-    <span class="trial-demo__text-section--attribution"
-      >{{ module.attribution }}</span
-    >
-    <div class="trial-demo__logos-section">
-      {% for logo in module.logos %}
-      {% set img = logo.logo %}
-      {% if img.src %}
-        {% set sizeAttrs = "width=\"{{ img.width }}\" height=\"{{ img.height }}\"" %}
-        {% set loadingAttr = img.loading != "disabled" ? "loading=\"{{ img.loading }}\"" : "" %}
-        <img src="{{ img.src }}" alt="{{ img.alt }}" {{ loadingAttr }} {{ sizeAttrs }} />
-      {% endif %}
-      {% endfor %}
-    </div> #}
     {{ module.first_text_section }}
     {{ module.second_text_section }}
   </div>
