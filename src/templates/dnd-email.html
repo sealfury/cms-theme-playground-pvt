@@ -1,0 +1,626 @@
+<!--
+    templateType: email
+    label: Email - Custom
+    isAvailableForNewContent: true
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>{% if content.html_title and content.html_title != "" %}{{ content.html_title }}{% else %}{{ content.body.subject }}{% endif %}</title>
+    <meta property="og:title" content="{% if content.html_title and content.html_title != "" %}{{ content.html_title }}{% else %}{{ content.body.subject }}{% endif %}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {% if content.meta_description %}
+    <meta name="description" content="{{ content.meta_description }}" />
+    {% endif %}
+    <style type="text/css" id="hs-inlne-css">
+      /*<![CDATA[*/
+
+      /* PAGE STYLES */
+
+      body, #backgroundTable {
+        background-color: #FFFFFF;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      #templateTable {
+        width: 1240px;
+        background-color: #FFFFFF;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+        color: #0F1E2D;
+        display: block;
+        line-height: 100%;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+        margin-left: 0;
+        text-align: left;
+      }
+
+      h1, .h1, h2, .h2, h3, .h3 {
+        font-family: 'Josefin-Sans', sans-serif;
+      }
+
+      h4, .h4, h5, .h5, h6, .h6 {
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      h1, .h1 {
+        font-size: 30px;
+      }
+
+      h2, .h2 {
+        font-size: 24px;
+      }
+
+      h3, .h3 {
+        font-size: 18px;
+      }
+
+      h4, .h4 {
+        font-size: 16px;
+      }
+
+      h5, .h5 {
+        font-size: 14px;
+      }
+
+      h6, .h6 {
+        font-size: 12px;
+      }
+
+      a {
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      /* HEADER STYLES */
+
+      #headerTable {
+        background: {{ background_color }};
+        color: {{ primary_font_color }};
+        font-family: 'Montserrat', sans-serif;
+        font-size: 10px;
+        line-height: 120%;
+        text-align: right;
+        border-collapse: separate !important;
+        padding-right: {{ email_body_padding }}px;
+      }
+
+      #headerTable a:link,
+      #headerTable a:visited,
+      /* Yahoo mail override */
+      #headerTable a .yshortcuts {
+        font-weight: normal;
+        text-decoration: underline;
+      }
+
+      .header-container-wrapper {
+        background-image: url('{{ get_asset_url('../images/dark-background_water.jpg') }}');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: bottom;
+        padding-bottom: 22px;
+        padding-left: 32px;
+        padding-top: 30px;
+        width: 100%;
+      }
+
+      .readmore-link-wrapper {
+        padding-top: 32px;
+        padding-bottom: 48px;
+      }
+
+      /* TEMPLATE WRAPPER STYLES */
+
+      #contentCell {
+        padding: 10px 20px;
+        background-color: {{ background_color }};
+      }
+
+      #contentTableOuter {
+        border-collapse: separate !important;
+        background-color: {{ body_color }};
+        padding: {{ email_body_padding }}px;
+      }
+
+      #contentTableInner {
+        width: 1200px;
+      }
+
+      /* BODY STYLES */
+
+      .bodyContent {
+        color: #0F1E2D;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        line-height: 150%;
+        text-align: left;
+      }
+
+      a.readmore-link {
+        background-color: #6734FF;
+        border-radius: 4px;
+        box-shadow: 2px 2px 6px rgba(15, 30, 45, 0.5);
+        color: #FFFFFF;
+        padding: 8px 24px;
+        text-transform: none;
+      }
+
+      /* COLUMN STYLES */
+      table.columnContentTable {
+        border-collapse: separate !important;
+        border-spacing: 0;
+        background-color: {{ body_color }};
+      }
+
+      td[class="columnContent"] {
+        color: {{ primary_font_color }};
+        font-family: {{ primary_font }};
+        font-size: {{ primary_font_size }};
+        line-height: 120%;
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+      }
+
+      /* FOOTER STYLES */
+      .footer-container-wrapper {
+        background-color: #0F1E2D;
+      }
+
+      #footerTable a {
+        color: #FFFFFF;
+      }
+
+      #footerTable {
+        background-color: #0F1E2D;
+        color: #FFFFFF;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        line-height: 120%;
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        text-align: center;
+      }
+
+      #footerTable a:link,
+      #footerTable a:visited,
+      /* Yahoo Mail Override */
+      #footerTable a .yshortcuts {
+        font-weight: normal;
+        text-decoration: underline;
+      }
+
+      .hs-image-social-sharing-24 {
+        max-width: 24px;
+        max-height: 24px;
+      }
+
+      /* STANDARD RESETS */
+
+      /* Force Hotmail to display at fullwidth */
+      .ExternalClass {
+        width: 100%;
+      }
+
+      /* Force Hotmail to display normal line spacing */
+      .ExternalClass,
+      .ExternalClass p,
+      .ExternalClass span,
+      .ExternalClass font,
+      .ExternalClass td,
+      .ExternalClass div {
+        line-height: 100%;
+      }
+
+      /* Prevent WebKit and Windows mobile changing default text sizes */
+      body, table, td, p, a, li, blockquote {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+
+      /* Remove spacing between tables in Outlook */
+      table, td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      /* Allow smoother rendering of resized image in IE */
+      img {
+        vertical-align: bottom;
+        -ms-interpolation-mode: bicubic;
+      }
+
+      /* Reset Styles */
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      table {
+        border-collapse: collapse !important;
+      }
+
+      body, #backgroundTable, #bodyCell {
+        height: 100% !important;
+        margin: 0;
+        padding: 0;
+        width: 100% !important;
+      }
+
+      a:link, a:visited {
+        border-bottom: none;
+      }
+
+      /* Style autogenerated iOS links same as rest of footer text */
+      #footer a {
+        color: #FFFFFF;
+        -webkit-text-size-adjust: none;
+        text-decoration: underline;
+        font-weight: normal;
+      }
+
+      /* Hide preview text on rendering */
+      #preview_text {
+        display: none;
+      }
+    /*]]>*/
+    </style>
+    <style type="text/css" data-hse-inline-css="true">
+      /*<![CDATA[*/
+      /* Mobile Styles */
+      @media screen and (max-width: 650px) {
+        table[id="backgroundTable"] {
+          width: 95% !important;
+        }
+
+        table[id="templateTable"] {
+          max-width: {{ email_body_width }}px !important;
+          width: 100% !important;
+        }
+
+        table[id="contentTableInner"] {
+          max-width: {{ email_body_width }}px !important;
+          width: 100% !important;
+        }
+
+        /* Expand image to take up 100% of width */
+        img {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        #contentCell {
+          padding: 10px 10px !important;
+        }
+
+        #headerTable {
+          padding-right: {{ email_body_padding / 2|int }}px !important;
+        }
+
+        #contentTableOuter {
+          padding: {{ email_body_padding / 2|int }}px !important;
+        }
+      }
+
+      @media only screen and (max-width: 480px) {
+        /* Prevent WebKit platforms from changing default text sizes */
+        body, table, td, p, a, li, blockquote {
+          -webkit-text-size-adjust: none !important;
+        }
+
+        /* Prevent iOS mail from adding padding to the body */
+        body {
+          width: 100% !important;
+          min-width: 100% !important;
+        }
+
+        /* Mobile reset */
+        td[id="bodyCell"] {
+          padding: 10px !important;
+        }
+
+        /* Mobile Template Styles */
+        table[id="templateTable"] {
+          max-width: {{ email_body_width }}px !important;
+          width: 100% !important;
+        }
+
+        table[id="contentTableInner"] {
+          max-width: {{ email_body_width }}px !important;
+          width: 100%;
+        }
+
+        /* BODY STYLES */
+
+        h1, .h1 {
+          font-size: 26px !important;
+        }
+
+        h2, .h2 {
+          font-size: 20px !important;
+        }
+
+        h3, .h3 {
+          font-size: 15px !important;
+        }
+
+        h4, .h4 {
+          font-size: 13px !important;
+        }
+
+        h5, .h5 {
+          font-size: 11px !important;
+        }
+
+        h6, .h6 {
+          font-size: 10px !important;
+        }
+
+        h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+          line-height: 125% !important;
+        }
+
+        td[class="bodyContent"] {
+          font-size: 16px !important;
+          line-height: 145% !important;
+        }
+
+        /* FOOTER STYLES */
+
+        td[id="footerTable"] {
+          padding-left: 0px !important;
+          padding-right: 0px !important;
+          font-size: 12px !important;
+          line-height: 145% !important;
+        }
+
+        /* IMAGE ALIGNMENT */
+
+        table[class="alignImageTable"] {
+          width: 100% !important;
+        }
+
+        td[class="imageTableTop"] {
+          display: none !important;
+        }
+
+        td[class="imageTableRight"] {
+          display: none !important;
+        }
+
+        td[class="imageTableBottom"] {
+          padding-bottom: 10px !important;
+        }
+
+        td[class="imageTableLeft"] {
+          display: none !important;
+        }
+
+        /* COLUMN STYLES */
+
+        td[class~="column"] {
+          display: block !important;
+          width: 100% !important;
+          padding-top: 0 !important;
+          padding-right: 0 !important;
+          padding-bottom: 0 !important;
+          padding-left: 0 !important;
+        }
+
+        td[class~="columnContent"] {
+          font-size: 14px !important;
+          line-height: 145% !important;
+          padding-top: 0 !important;
+          padding-right: 0 !important;
+          padding-bottom: 0 !important;
+          padding-left: 0 !important;
+        }
+
+        #contentCell {
+          padding: 10px 0 !important;
+        }
+
+        #headerTable {
+          padding-right: {{ email_body_padding / 2|int }}px !important;
+        }
+
+        #contentTableOuter {
+          padding: {{ email_body_padding / 2|int }}px !important;
+        }
+      }
+
+      #preview_text {
+        display: none;
+      }
+      /*]]>*/
+    </style>
+  </head>
+
+  <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+    <div id="preview_text" style="display:none!important">
+      {% text "preview_text"
+        label="Preview Text <span class=help-text> This will be used as the preview text that displays in some email clients</span>",
+        value="",
+        no_wrapper=True %}
+    </div>
+
+    {# Background Table #}
+    <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="backgroundTable">
+      <tr>
+        <td align="center" valign="top" id="bodyCell">
+          {# Begin Template Container #}
+          <table border="0" cellpading="0" cellspacing="0" id="templateTable">
+            <tr>
+              <td align="center" valign="top">
+                {# Begin Template Preheader #}
+                <table border="0" align="left" cellpadding="0" cellspacing="0" width="100%" id="headerTable">
+                  <div class="header-container-wrapper">
+                    <div class="widget-span widget-type-logo " data-widget-type="logo">
+                      <div class="layout-widget-wrapper">
+                        {% logo "logo_image" suppress_company_name=True, overrideable=True, label="Logo", align="left" %}
+                      </div>
+                    </div>
+                    <tr>
+                      <td align="center" valign="top" class="bodyContent" width="100%" colspan="12">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
+                          <tr>
+                            <td align="center" valign="top" colspan="12" width="100.0%" class="column">
+                              <div class="widget-span widget-type-email_view_as_web_page" style="" data-widget-type="email_view_as_web_page">
+                                {% if content.create_page %}
+                                  <div>
+                                    Not rendering correctly? View this email as a web page
+                                    <a class="hubspot-mergin" data-viewaswebpage="true" href="{{ view_as_page_url }}">here</a>
+                                  </div>
+                                {% endif %}
+                              </div> {# end widget span #}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </div> {# end header wrapper #}
+                </table>
+                {# End Template Preheader #}
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" id="contentCell">
+                {# Begin Template wrapper #}
+                <table border="0" cellpadding="0" width="100%" id="contentTableOuter">
+                  <tr>
+                    <td aling="center" valign="top">
+                      <table border="0" cellpadding="0" cellspacing="0" id="contentTableInner">
+                        <div class="body-container-wrapper">
+                          <tr>
+                            <td align="center" valign="top" width="100.0%" colspan="12">
+                              <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
+                                <tr>
+                                  <td align="left" valign="top" colspan="12" width="100.0%" class="column">
+                                    <div class="widget-span widget-type-logo " data-widget-type="logo">
+                                      <div class="layout-widget-wrapper">
+                                        {% logo "logo_image" suppress_company_name=True, overrideable=True, label="Logo" %}
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center" valign="top" class="bodyContent" width="100%" colspan="12">
+                              <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
+                                <tr>
+                                  <td align="left" valign="top" colspan="6" width="50.0%" class="column">
+                                    <div class="widget-span widget-type-email_body" style="" data-widget-type="email_body">
+                                      {% content_attribute "email_body" %}
+                                        <h2>Sick and tired of managing maintenance with Excel?</h2>
+                                        <p>You're not alone. Most maintenance managers and technicians find Excel painful to work with.</p>
+                                        <ul>
+                                          <li>It's hard to fill in the right information.</li>
+                                          <li>It's a boring application to work with.</li>
+                                          <li>It's hard to navigate</li>
+                                        </ul>
+                                        <p>After all, it's not made for maintenance. But one solution is...With picture navigation, in-depth analysis, and excellent... </p>
+                                        <a href="https://maintmaster.com" class="readmore-link">Read more</a>
+                                      {% end_content_attribute %}
+                                    </div>
+                                  </td>
+                                  <td align="right" valign="top" colspan="6" width="50.0%" class="column">
+                                    <div class="widget-span widget-type-video_email" data-widget-type="video_email">
+                                      {% module "video_email" 
+                                        label="Video Email",
+                                        path="@hubspot/video_email" %}
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center" valign="top" class="bodyContent" width="100%" colspan="12">
+                              <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
+                                {% module "rich_text_1"
+                                  label="Rich Text Block 1",
+                                  path="@hubspot/rich_text" %}
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center" valign="top" class="bodyContent" width="100%" colspan="12">
+                              <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
+                                {% module "rich_text_2"
+                                  label="Rich Text Block 2",
+                                  path="@hubspot/rich_text" %}
+                              </table>
+                            </td>
+                          </tr>
+                        </div>
+                        {# End body wrapper #}
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                {# End template wrapper #}
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                {# Begin Template Footer #}
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" id="footerTable">
+                  <div class="footer-container-wrapper">
+                    <tr>
+                      <td align="center" valign="top" class="bodyContent" width="100%" colspan="12">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
+                          <tr>
+                            <td align="center" valign="top" colspan="12" width="100.0%" class="column">
+                              <div class="widget-span widget-type-email_can_spam" style="" data-widget-type="email_can_spam">
+                                <p id="footer">
+                                  {{ site_settings.company_name }}
+                                  {{ site_settings.company_street_address_1 }}
+                                  {{ site_settings.company_street_address_2 }}
+                                  {{ site_settings.company_city }}
+                                  {{ site_settings.company_zip }} &nbsp; {{ site_settings.company_state }}
+                                  {{ site_settings.company_country }}
+                                  <br/><br/>
+                                  You received this email because you are subscribed to {{ subscription_name }} from {{ site_settings.company_name }}.
+                                  <br/><br/>
+                                  Update your <a class="hubspot-mergetag" data-unsubscribe="true" href="{{ unsubscribe_link }}">email preferences</a>
+                                  <br/><br/>
+                                  <a class="hubspot-mergetab" data-unsubscribe="true" href="{{ unsubscribe_link_all }}">Unsubscribe from all emails</a>
+                                </p>
+                              </div>
+                            </td>
+                          </tr>
+                          {# <tr>
+                            <td align="left" valign="top" colspan="12" width="100.0%" class="column">
+                              <div class="layout-widget-wrapper">
+                                {% widget_block social_sharing "Social Sharing" label="Social Sharing", use_page_url=False %}
+                                {% end_widget_block %}
+                              </div>
+                            </td>
+                          </tr> #}
+                        </table>
+                      </td>
+                    </tr>
+                  </div>
+                  <tr>
+                    {% hubspot_footer %}
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
