@@ -191,6 +191,8 @@
 @media (max-width: 767px) {
   .header__logo {
     margin: 0 auto;
+    max-width: 100%;
+    padding: 0 1rem;
     width: 100%;
   }
 }
@@ -863,4 +865,11 @@
 
 .header__drag-and-drop {
   max-width: 75%;
+}
+
+@media only screen and (max-width: 767px) {
+  .header--no-navigation {
+    margin-bottom: 1rem;
+    padding-top: 1.25rem;
+  }
 }
