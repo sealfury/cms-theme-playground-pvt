@@ -1,6 +1,6 @@
 <!--
     templateType: email
-    label: Email - Custom
+    label: Flex Content Email
     isAvailableForNewContent: true
 -->
 <!DOCTYPE html>
@@ -139,6 +139,8 @@
         font-family: 'Montserrat', sans-serif;
         font-size: 12px;
         line-height: 150%;
+        margin: 12px auto;
+        padding: 24px 4px;
         text-align: left;
       }
 
@@ -501,21 +503,6 @@
                       <table border="0" cellpadding="0" cellspacing="0" id="contentTableInner">
                         <div class="body-container-wrapper">
                           <tr>
-                            <td align="center" valign="top" width="100.0%" colspan="12">
-                              <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
-                                <tr>
-                                  <td align="left" valign="top" colspan="12" width="100.0%" class="column">
-                                    <div class="widget-span widget-type-logo " data-widget-type="logo">
-                                      <div class="layout-widget-wrapper">
-                                        {% logo "logo_image" suppress_company_name=True, overrideable=True, label="Logo" %}
-                                      </div>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
-                          <tr>
                             <td align="center" valign="top" class="bodyContent" width="100%" colspan="12">
                               <table cellpadding="0" cellspacing="0" border="0" width="100%" class="templateColumnWrapper">
                                 <tr>
@@ -597,6 +584,15 @@
                                   <br/><br/>
                                   <a class="hubspot-mergetab" data-unsubscribe="true" href="{{ unsubscribe_link_all }}">Unsubscribe from all emails</a>
                                 </p>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="left" valign="top" colspan="12" width="100.0%" class="column">
+                              <div class="layout-widget-wrapper">
+                              {% module "rich_text_1"
+                              label="Footer Rich Text",
+                              path="@hubspot/rich_text" %}
                               </div>
                             </td>
                           </tr>
