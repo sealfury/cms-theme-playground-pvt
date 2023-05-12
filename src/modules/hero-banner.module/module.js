@@ -71,12 +71,12 @@ if (heroBannerVideo) {
       // Wait for hubspot video iframe to load before trying to clone
       setTimeout(() => {
         cloneIframe(heroBannerVideo, iframeContainer);
-      }, 100);
+      }, 250);
 
       // Wait for successful cloning/placing of iframe before enabling popup features
       setTimeout(() => {
         activatePopup();
-      }, 200);
+      }, 500);
     });
   }
 }
