@@ -9,6 +9,10 @@
   padding: 0 1rem 2rem;
 }
 
+.blog-index:has(article.events) {
+  flex-direction: column-reverse;
+}
+
 .blog-index__post-link {
   display: block;
   height: 95%;
