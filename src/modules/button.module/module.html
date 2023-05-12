@@ -20,17 +20,31 @@
 
       {# Button #}
 
-      {% set buttonBgColor = "#00B9BC" %}
-      {% set buttonTextColor = "#2F3C49" %}
-      {% set buttonHoverColor = "rgba({{ color_variant(buttonBgColor, -30)|convert_rgb }}, 1)" %}
-      {% if module.button_style is equalto("dark") %}
+      {% if module.button_style == "teal" %}
+        {% set buttonBgColor = "#00B9BC" %}
+        {% set buttonBorderColor = "#00B9BC" %}
+        {% set buttonTextColor = "#2F3C49" %}
+        {% set buttonHoverColor = "rgba({{ color_variant(buttonBgColor, -30)|convert_rgb }}, 1)" %}
+      {% elif module.button_style == "dark" %}
         {% set buttonBgColor = "#0F1E2D" %}
-        {% set buttonTextColor = "#fff" %}
+        {% set buttonBorderColor = "#0F1E2D" %}
+        {% set buttonTextColor = "#FFF" %}
         {% set buttonHoverColor = "rgba({{ color_variant(buttonBgColor, 20)|convert_rgb }}, 1)" %}
-      {% elif module.button_style is equalto("light") %}
-        {% set buttonBgColor = "#FFF" %}
+      {% elif module.button_style == "light" %}
+        {% set buttonBgColor = "#EFF3F7" %}
+        {% set buttonBorderColor = "#EFF3F7" %}
         {% set buttonTextColor = "#2F3C49" %}
         {% set buttonHoverColor = "rgba({{ color_variant(buttonBgColor, -20)|convert_rgb }}, 1)" %}
+      {% elif module.button_style == "purple" %}
+        {% set buttonBgColor = "#6734FF" %}
+        {% set buttonBorderColor = "#6734FF" %}
+        {% set buttonTextColor = "#FFF" %}
+        {% set buttonHoverColor = "rgba({{ color_variant(buttonBgColor, -20)|convert_rgb }}, 1)" %}
+      {% elif module.button_style == "white" %}
+        {% set buttonBgColor = "#FFF" %}
+        {% set buttonBorderColor = "#6734FF" %}
+        {% set buttonTextColor = "#0F1E2D" %}
+        {% set buttonHoverColor = "rgba({{ color_variant(buttonBgColor, -30)|convert_rgb }}, 1)" %}
       {% endif %}
 
       {% if module.arrow %}
@@ -54,7 +68,7 @@
 
         {% if module.button_type is equalto("standard") %}
           background-color: {{ buttonBgColor }};
-          border-color: {{ buttonBgColor }};
+          border-color: {{ buttonBorderColor }};
           border-radius: 24px;
           color: {{ buttonTextColor }};
 

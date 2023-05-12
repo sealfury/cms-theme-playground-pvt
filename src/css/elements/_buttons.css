@@ -41,3 +41,24 @@ button:disabled,
   text-decoration: none;
   transition: none;
 }
+
+/* Custom colour button rules */
+
+.button-purple {
+  background-color: #6734FF;
+  border-color: #6734FF;
+  color: #FFF;
+}
+
+.button-white {
+  background-color: #FFF;
+  border-color: #6734FF;
+  color: #0F1E2D;
+}
+
+.button-purple:hover,
+.button-purple:focus,
+.button-white:hover,
+.button-white:focus {
+  filter: brightness(0.95);
+}

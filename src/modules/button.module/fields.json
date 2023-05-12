@@ -73,7 +73,9 @@
     "choices": [
       ["teal", "Teal"],
       ["dark", "Dark"],
-      ["light", "Light"]
+      ["light", "Light"],
+      ["purple", "Purple"],
+      ["white", "White"]
     ],
     "display": "select",
     "display_width": null,
