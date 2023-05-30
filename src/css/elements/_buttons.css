@@ -44,16 +44,24 @@ button:disabled,
 
 /* Custom colour button rules */
 
+.button-purple,
+.button-white {
+  border: 1px solid #6734FF !important;
+  border-radius: 24px;
+  font-family: 'Monserrat';
+  font-size: 16px;
+  font-weight: 600;
+  padding: 11px 32px;
+}
+
 .button-purple {
-  background-color: #6734FF;
-  border-color: #6734FF;
-  color: #FFF;
+  background-color: #6734FF !important;
+  color: #FFF !important;
 }
 
 .button-white {
-  background-color: #FFF;
-  border-color: #6734FF;
-  color: #0F1E2D;
+  background-color: #FFF !important;
+  color: #0F1E2D !important;
 }
 
 .button-purple:hover,
