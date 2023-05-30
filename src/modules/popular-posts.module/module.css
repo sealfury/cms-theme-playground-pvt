@@ -1,0 +1,49 @@
+.blog-page-heading {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.blog-popular-now {
+  align-items: center;
+  border-top: 2px solid #DFE4E9;
+  border-bottom: 2px solid #DFE4E9;
+  display: flex;
+  padding: 1rem 0;
+}
+
+.blog-popular-post {
+  /* padding: 1rem; */
+  width: 25%;
+}
+
+.blog-popular-post--link {
+  align-items: center;
+  background-color: #FFF;
+  border-radius: 4px;
+  display: flex;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.blog-popular-post--number {
+  color: #2F3C49;
+  font-family: 'Josefin Sans';
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.blog-popular-post--title {
+  color: #0F1E2D;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.blog-popular-post--link:hover {
+  background-color: #F0F5FA;
+}
+
+.blog-popular-post--link:hover > .blog-popular-post--title {
+  text-decoration: underline;
+}

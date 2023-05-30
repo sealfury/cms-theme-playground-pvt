@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Section Header Text",
+    "name": "section_header",
+    "type": "text",
+    "default": "Popular right now"
+  },
+  {
+    "label": "Blog To Retrieve",
+    "name": "blog",
+    "type": "blog",
+    "default": null
+  }
+]
