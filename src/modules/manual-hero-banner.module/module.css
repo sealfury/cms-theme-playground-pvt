@@ -18,19 +18,20 @@
 
 .hero-banner#manual-hero-banner {
   min-height: 406px;
-  max-height: 640px;
+  max-height: fit-content;
   position: relative;
 }
 
 #manual-hero-banner .hero-banner__container:has(.hero-banner__logo-section) > .hero-banner__text-section {
-  width: clamp(345px, 70%, 760px);
+  width: clamp(345px, 58%, 760px);
 }
 
 #manual-hero-banner form {
-  align-items: center;
+  align-items: flex-start;
   background-color: transparent;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 0.875rem;
   padding: 1rem 0.5rem 1rem 0;
 }
@@ -39,14 +40,32 @@
   margin-bottom: 0;
 }
 
+#manual-hero-banner form .hs-input {
+  border-width: 2px;
+  font-size: 1rem;
+  padding: 0.8rem 0.7rem;
+}
+
 #manual-hero-banner form .hs-input[type='email'] {
   border-width: 2px;
   font-size: 1rem;
   padding: 0.9rem 0.7rem;
+  /* width: 22rem; */
+}
+
+#manual-hero-banner form .hs-input[type='email'] {
   width: 22rem;
 }
 
+#manual-hero-banner form .hs-input[type='text'] {
+  width: 17rem;
+}
+
 #manual-hero-banner form .hs-email > label {
+  display: none;
+}
+
+#manual-hero-banner form .hs-form-field > label {
   display: none;
 }
 
