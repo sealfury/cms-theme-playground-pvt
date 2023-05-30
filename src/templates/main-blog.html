@@ -1,0 +1,80 @@
+<!--
+  templateType: blog_listing
+  isAvailableForNewContent: true
+  label: Main Blog Listing
+  screenshotPath: ../images/template-previews/blog-index.png
+-->
+{% set template_css = "../../css/templates/blog.css" %}
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "dnd_area"
+    label="Main section",
+    class="body-container body-container--blog-index" %}
+
+    {# Hero banner #}
+
+    {% dnd_section
+      background_color="#f1f2f7",
+      max_width=1640,
+      padding={
+        "default": {
+          "top": 80,
+          "right": 0,
+          "bottom": 80,
+          "left": 0
+        },
+        "mobile": {
+          "top": 80,
+          "right": 20,
+          "bottom": 80,
+          "left": 20
+        }
+      } %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/rich_text",
+            html="<div style=\"text-align: left; max-width: 60%;\"><h1>Discover Our <span class='teal'>Resources</span></h1><p>Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p></div>" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/blog_subscribe",
+            title="" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {# Blog listings and pagination #}
+
+    {% dnd_section
+      max_width=1280,
+      vertical_alignment="TOP" %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module 
+            path="../modules/popular-posts" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/blog-listings" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/blog-listings" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/blog-pagination" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}
