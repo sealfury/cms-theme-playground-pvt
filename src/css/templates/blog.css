@@ -386,6 +386,17 @@ html:not(.hs-inline-edit) .events-post__container .blog-post__meta {
 
 /* Imported listing page cards */
 
+.listing-page .article-card {
+  background-color: #FFF;
+  border-radius: 4px;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.listing-page .article-card:hover {
+  background-color: #F0F5FA;
+}
+
 .listing-page .article-card .article-header {
 	height: 100%;
 }

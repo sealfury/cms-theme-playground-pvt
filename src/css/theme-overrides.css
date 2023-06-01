@@ -210,6 +210,8 @@ a {
   {{ anchor_font.style }};
   color: {{ anchor_font.color }};
   font-size: {{ anchor_font.size ~ anchor_font.size_unit }};
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @media screen and (max-width: 767px) {
