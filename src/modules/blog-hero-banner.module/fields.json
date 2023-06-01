@@ -1,0 +1,87 @@
+[
+  {
+    "label": "Header Rich Text",
+    "locked": false,
+    "name": "header_richtext",
+    "required": false,
+    "type": "richtext"
+  },
+  {
+    "label": "Subheader",
+    "name": "subheader",
+    "type": "richtext",
+    "locked": false,
+    "required": false
+  },
+  {
+    "label": "Breadcrumbs",
+    "name": "breadcrumb",
+    "id": "breadcrumb",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 6,
+      "default": 0
+    },
+    "children": [
+      {
+        "label": "Breadcrumb Text",
+        "name": "text",
+        "id": "breadcrumb.text",
+        "type": "text"
+      },
+      {
+        "label": "Breadcrumb Page Link",
+        "name": "link",
+        "id": "breadcrumb.link",
+        "type": "link",
+        "supported_types": ["CONTENT", "BLOG"],
+        "default": {
+          "url": {
+            "content_id": null,
+            "href": ""
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "Form",
+    "name": "form",
+    "type": "form",
+    "default": {
+      "form_id": null
+    }
+  },
+  {
+    "label": "Blog",
+    "name": "blog",
+    "type": "blog"
+  },
+  {
+    "label": "Blog Selector Buttons",
+    "name": "blog_selector_buttons",
+    "id": "blog_selector_buttons",
+    "type": "group",
+    "occurrence": {
+      "max": null,
+      "default": 4
+    },
+    "children": [
+      {
+        "label": "Button Text",
+        "name": "text",
+        "id": "blog_selector_buttons.text",
+        "type": "text"
+      },
+      {
+        "label": "Tag To Use",
+        "name": "tag",
+        "id": "blog_selector_buttons.tag",
+        "type": "tag",
+        "tag_value": "SLUG",
+        "default": null
+      }
+    ]
+  }
+]

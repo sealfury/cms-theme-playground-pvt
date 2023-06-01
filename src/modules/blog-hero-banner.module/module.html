@@ -1,0 +1,59 @@
+{% set chevronPath = "../../images/module-icons/breadcrumbs-chevron.png" %}
+{% set chevronFsUrl = "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/module-icons/breadcrumbs-chevron.png" %}
+{% set chevronUrl = get_asset_url(checkmarkPath) != "" ? get_asset_url(chevronPath) : chevronFsUrl %}
+
+<!-- module html  -->
+
+<section class="hero-banner" id="blog-hero-banner">
+  {% set form = module.form %}
+  {% set blog = module.blog %}
+
+  <div class="hero-banner__container">
+    <div class="hero-banner__text-section">
+      {% if module.breadcrumb|length > 0 %}
+        <ol class="hero-banner__breadcrumb-menu breadcrumb-menu">
+        {% for crumb in module.breadcrumb %}
+          <li class="breadcrumb__menu-item">
+            <a href="{{ crumb.link.url.href }}">{{ crumb.text }}</a>
+          </li>
+        {% endfor %}
+          <li class="breadcrumb__menu-item active-page">
+            <span>{{ content.title }}</span>
+          </li>
+        </ol>
+      {% endif %}
+      {{ module.header_richtext }}
+      <div class="hero-banner__subheader">{{ module.subheader }}</div>
+
+      <div class="hero-blog-selector__container">
+        {% for button in module.blog_selector_buttons %}
+          {% set href = blog_tag_url(blog, button.tag) %}
+
+          {% if request.path|split('/')|last == href|split('/')|last %}
+            {% set activeClass = "active-page" %}
+          {% else %}
+            {% set activeClass = "" %}
+          {% endif %}
+
+          <a class="hero-blog-selector__button-wrapper {{ activeClass }}" href="{{ href }}">
+            <p class="hero-blog-selector__button-text">
+              {{ button.text }}
+            </p>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="hero-banner__media-section form-section">
+    {% form 
+      form_key="blog-form",
+      form_to_use="{{ form.form_id }}",
+      no_title=True,
+      response_redirect_url="{{ form.redirect_url }}",
+      response_redirect_id="{{ form.redirect_id }}",
+      response_response_type="{{ form.response_type }}",
+      response_message="{{ form.message }}",
+      gotowebinar_webinar_key="{{ form.gotowebinar_webinar_key }}" %}
+    </div>
+  </div>
+</section>
