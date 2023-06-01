@@ -14,34 +14,21 @@
 
     {# Hero banner #}
 
+    {% dnd_section %}
+      {% dnd_module 
+        path="../modules/blog-hero-banner.module",
+        header="<h2>Maintmaster blog</h2>",
+        subheader="Insights on how you can use maintenance software to improve your maintenance and production departments" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
     {% dnd_section
-      background_color="#f1f2f7",
-      max_width=1640,
-      padding={
-        "default": {
-          "top": 80,
-          "right": 0,
-          "bottom": 80,
-          "left": 0
-        },
-        "mobile": {
-          "top": 80,
-          "right": 20,
-          "bottom": 80,
-          "left": 20
-        }
-      } %}
+      max_width=1400,
+      vertical_alignment="TOP" %}
       {% dnd_column %}
         {% dnd_row %}
           {% dnd_module
-            path="@hubspot/rich_text",
-            html="<div style=\"text-align: left; max-width: 60%;\"><h1>Discover Our <span class='teal'>Resources</span></h1><p>Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p></div>" %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row %}
-          {% dnd_module
-            path="@hubspot/blog_subscribe",
-            title="" %}
+            path="../modules/featured-blog-posts.module" %}
           {% end_dnd_module %}
         {% end_dnd_row %}
       {% end_dnd_column %}
@@ -50,9 +37,14 @@
     {# Blog listings and pagination #}
 
     {% dnd_section
-      max_width=1280,
+      max_width=1400,
       vertical_alignment="TOP" %}
       {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/featured-blog-posts.module" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
         {% dnd_row %}
           {% dnd_module 
             path="../modules/popular-posts" %}
