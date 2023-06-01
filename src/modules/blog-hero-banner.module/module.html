@@ -13,6 +13,28 @@
         transform: translateY(25%);
         width: 1rem;
       }
+
+      .blog-hero-banner__image {
+        position: absolute;
+      }
+
+      .blog-hero-banner__image-wrapper {
+        background-color: #0F1E2D;
+        background-position: 5% 5%;
+        height: {{ module.image.height ~ 'px' }};
+        position: absolute;
+        translate: 5% 7.5%;
+        width: {{ module.image.width  ~ 'px' }};
+      }
+
+      {% if module.skew_image == true %}
+        .blog-hero-banner__image,
+        .blog-hero-banner__image-wrapper {
+          left: 2.5%;
+          transform: skew(-7.5deg);
+          top: 25%;
+        }
+      {% endif %}
     {% end_scope_css %}
   </style>
 {% end_require_css %}
@@ -59,16 +81,27 @@
       </div>
     </div>
 
-    <div class="hero-banner__media-section form-section">
-      {% form
-        form_key="blog-form",
-        form_to_use="{{ form.form_id }}",
-        no_title=True,
-        response_redirect_url="{{ form.redirect_url }}",
-        response_redirect_id="{{ form.redirect_id }}",
-        response_response_type="{{ form.response_type }}",
-        response_message="{{ form.message }}",
-        gotowebinar_webinar_key="{{ form.gotowebinar_webinar_key }}" %}
+    <div class="hero-banner__media-section {{ module.column }}-section">
+      {% if module.column == "form" %}
+        {% form
+          form_key="blog-form",
+          form_to_use="{{ form.form_id }}",
+          no_title=True,
+          response_redirect_url="{{ form.redirect_url }}",
+          response_redirect_id="{{ form.redirect_id }}",
+          response_response_type="{{ form.response_type }}",
+          response_message="{{ form.message }}",
+          gotowebinar_webinar_key="{{ form.gotowebinar_webinar_key }}" %}
+      {% else if module.column == "image" %}
+      <div class="blog-hero-banner__image-wrapper"></div>
+        <img 
+          class="blog-hero-banner__image"
+          src="{{ module.image.src }}"
+          height="{{ module.image.height }}"
+          width="{{ module.image.width }}"
+          loading="{{ module.image.loading }}"
+        />
+      {% endif %}
     </div>
   </div>
 </section>

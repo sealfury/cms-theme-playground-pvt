@@ -46,11 +46,68 @@
     ]
   },
   {
+    "label": "Column Two Content",
+    "name": "column",
+    "id": "column",
+    "type": "choice",
+    "display": "radio",
+    "choices": [
+      ["form", "Form"],
+      ["image", "Image"]
+    ],
+    "default": "form"
+  },
+  {
     "label": "Form",
     "name": "form",
     "type": "form",
     "default": {
       "form_id": null
+    },
+    "visibility": {
+      "controlling_field": "column",
+      "controlling_value_regex": "form",
+      "operator": "EQUAL"
+    }
+  },
+  {
+    "label": "Image",
+    "name": "image",
+    "type": "image",
+    "show_loading": true,
+    "responsive": true,
+    "resizable": true,
+    "default": {
+      "size_type": "exact",
+      "src": "",
+      "alt": "maintmaster-hero-image",
+      "loading": "lazy"
+    },
+    "visiblity": {
+      "controlling_field": "column",
+      "controlling_value_regex": "image",
+      "operator": "EQUAL"
+    }
+  },
+  {
+    "label": "Skew Image?",
+    "name": "skew_image",
+    "type": "boolean",
+    "display": "toggle",
+    "advanced_visibility": {
+      "boolean_operator": "AND",
+      "criteria": [
+        {
+          "controlling_field_path": "column",
+          "controlling_value_regex": "image",
+          "operator": "EQUAL"
+        },
+        {
+          "controlling_field_path": "image.src",
+          "controlling_value_regex": "",
+          "operator": "NOT_EMPTY"
+        }
+      ]
     }
   },
   {
