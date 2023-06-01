@@ -1,5 +1,6 @@
 .dnd-section > .row-fluid:has(#hero-banner),
-.dnd-section > .row-fluid:has(#manual-hero-banner) {
+.dnd-section > .row-fluid:has(#manual-hero-banner),
+.dnd-section > .row-fluid:has(#blog-hero-banner) {
   max-width: 100vw;
 }
 
