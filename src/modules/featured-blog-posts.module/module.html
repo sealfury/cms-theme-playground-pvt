@@ -1,0 +1,156 @@
+<div class="hero-content">
+  <div class="container article-card-grid">
+    <section class="featured-article">
+      <header class="content-header border-bottom-light">
+        <h2 class="c-light text-uppercase-14">{{ module.header_featured_article }}</h2>
+      </header>
+
+      <article class="article-card">
+        {% if content_by_id(module.featured_article).slug is string_startingwith(group.absolute_url) %}
+          <header class="article-header">
+            <a class="article-cover-link" href="{{ content_by_id(module.featured_article).absolute_url }}">
+              {% if content_by_id(module.featured_article).featured_image %}
+                <figure class="article-cover">
+                  <img class="featured-image" src="{{ content_by_id(module.featured_article).featured_image }}" alt="{{ content_by_id(module.featured_article).name }}" />
+                </figure>
+              {% else %}
+                <figure class="article-cover">
+                  <img class="featured-image" src="{{ content.featured_image }}" alt="{{ content.featured_image_alt_text }}" />
+                </figure>
+              {% endif %} </a>
+            ><!-- ARTICLE COVER -->
+
+            <div class="article-content">
+              <a class="article-title-link" href="{{ content_by_id(module.featured_article).absolute_url }}">
+                <h2 class="article-title">{{ content_by_id(module.featured_article).name|truncate(80, True) }}</h2>
+              </a>
+              <div class="featured-summary f-size-16 c-light clamp-3">
+                {{ content_by_id(module.featured_article).post_list_content|truncatehtml(240) }}
+              </div>
+              {% if content_by_id(module.featured_article).blog_post_author %}
+                <div class="header-meta d-flex align-center">
+                  {% if content_by_id(module.featured_article).blog_post_author.avatar %}
+                    <figure class="author-avatar">
+                      <img class="avatar-image" src="{{ content_by_id(module.featured_article).blog_post_author.avatar }}" alt="{{ content_by_id(module.featured_article).blog_post_author.display_name }}" />
+                    </figure>
+                  {% endif %}
+                  <div class="article-meta">
+                    <a class="author-name hover-line" href="{{ group.absolute_url }}/author/{{ content_by_id(module.featured_article).blog_post_author.slug }}"
+                      >{{ content_by_id(module.featured_article).blog_post_author.display_name }}</a
+                    >
+                    <div class="d-flex align-items-center c-lighter">
+                      {% if content_by_id(module.featured_article).topic_list %}
+                        {% for topic in content_by_id(module.featured_article).topic_list %}
+                        <a class="hover-line" href="{{ blog_tag_url(group.id, topic.slug) }}">{{ topic.name }}</a>
+                        {% if not loop.last %},{% endif %}
+                        {% endfor %}
+                      {% endif %}
+                      <span class="separator">•</span>
+                      <span
+                        >{{ content_by_id(module.featured_article).post_body|striptags|wordcount|divide(300)|round }}
+                        min</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- META HEADER -->
+              {% endif %}
+            </div>
+            <!-- ARTICLE CONTENT -->
+          </header>
+
+        {% else %}
+
+          <header class="article-header">
+            <a class="article-cover-link" href="{{ content_by_id(module.featured_article).absolute_url }}">
+              {% if content_by_id(module.featured_article).featured_image %}
+                <figure class="article-cover">
+                  <img class="featured-image" src="{{ content_by_id(module.featured_article).featured_image }}" alt="{{ content_by_id(module.featured_article).name }}" />
+                </figure>
+              {% else %}
+                <figure class="article-cover">
+                  <img
+                    class="featured-image fallback"
+                    src="https://blog.maintmaster.com/hubfs/assets/website/blog/maintmaster-featured-image-fallback.png"
+                    loading="lazy"
+                  />
+                </figure>
+              {% endif %} </a
+            ><!-- ARTICLE COVER -->
+            <div class="article-content">
+              <a class="article-title-link" href="{{ content_by_id(module.featured_article).absolute_url }}">
+                <h2 class="article-title">{{ content_by_id(module.featured_article).title|truncate(80, True) }}</h2>
+              </a>
+              <div class="featured-summary f-size-16 c-light clamp-3">
+                {{ content_by_id(module.featured_article).meta_description|truncatehtml(240) }}
+              </div>
+            </div>
+            <!-- ARTICLE CONTENT -->
+          </header>
+
+        {% endif %}
+      </article>
+    </section>
+
+    <section class="editors-pick">
+      <header class="content-header border-bottom-light">
+        <h2 class="c-light text-uppercase-14">{{ module.header_editors_pick }}</h2>
+      </header>
+
+      <div class="d-grid gap-24">
+        {% for item in module.editors_pick %}
+        <article class="article-card">
+          <header class="article-header d-flex">
+            <div class="flex-1">
+              <a class="article-title-link" href="{{ content_by_id(item).absolute_url }}">
+                <h2 class="article-title clamp-3">{{ content_by_id(item).name|truncate(80, True) }}</h2>
+              </a>
+              {% if content_by_id(item).blog_post_author %}
+                <div class="header-meta d-flex align-items-center">
+                  <div class="article-meta">
+                    <a class="author-name hover-line" href="{{ group.absolute_url }}/author/{{ content_by_id(item).blog_post_author.slug }}"
+                      >{{ content_by_id(item).blog_post_author.display_name }}</a
+                    >
+                    <div class="d-flex align-center c-lighter">
+                      {% if content_by_id(item).topic_list %}
+                        {% for topic in content_by_id(item).topic_list %}
+                        <a class="hover-line" href="{{ blog_tag_url(group.id, topic.slug) }}"
+                          >{{ topic.name }}</a
+                        >
+                        {% if not loop.last %},{% endif %}
+                        {% endfor %}
+                      {% endif %}
+                      <span class="separator">•</span>
+                      <span
+                        >{{ content_by_id(item).post_body|striptags|wordcount|divide(300)|round }}
+                        min</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- META HEADER -->
+              {% endif %}
+            </div>
+            <!-- ARTICLE CONTENT -->
+            <a class="article-cover-link" href="{{ content_by_id(item).absolute_url }}">
+              {% if content_by_id(item).featured_image %}
+                <figure class="article-cover">
+                  <img class="featured-image" src="{{ content_by_id(item).featured_image }}" alt="{{ content_by_id(item).name }}" />
+                </figure>
+              {% else %}
+                <figure class="article-cover">
+                  <img
+                    class="featured-image fallback"
+                    src="https://blog.maintmaster.com/hubfs/assets/website/blog/maintmaster-featured-image-fallback.png"
+                    loading="lazy"
+                  />
+                </figure>
+              {% endif %} </a
+            ><!-- ARTICLE COVER -->
+          </header>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</div>

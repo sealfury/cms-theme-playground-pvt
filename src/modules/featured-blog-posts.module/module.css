@@ -1,0 +1,152 @@
+.featured-article,
+.editors-pick {
+	grid-column: span 12;
+}
+
+.featured-article .article-card .article-title {
+	font-size: 24px;
+	margin: 0;
+}
+
+.featured-article .featured-summary {
+  color: rgba(0, 0, 0, 0.68);
+  display: -webkit-box;
+  font-size: 16px;
+	margin: 8px 0 16px;
+  max-height: 66px;
+	max-width: 480px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.featured-article .article-card .article-cover {
+	padding: 0 0 42%;
+}
+
+.editors-pick .article-card .article-cover {
+	margin: 0 0 0 24px;
+	height: 80px;
+	width: 80px;
+}
+
+.most-popular {
+	grid-column: span 12;
+}
+
+.most-popular-list {
+	counter-reset: li;
+}
+
+.most-popular-list .item {
+	position: relative;
+	padding: 0 0 0 36px;
+}
+
+.most-popular-list .item:before {
+	content: counter(li) ".";
+	counter-increment: li;
+	color: rgba(0,0,0,.16);
+	display: inline-block;
+	font-family: inherit;
+	font-size: 42px;
+	font-weight: var(--f-bolder);
+	float: left;
+	letter-spacing: -2px;
+	line-height: 1;
+	margin: -2px 0 0 -36px;
+}
+
+/* Extra universal styles from imported content */
+
+.content-header {
+  margin: 0 0 32px;
+  padding: 0 0 8px;
+}
+
+.border-bottom-light {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.gap-24 {
+  grid-gap: 24px;
+  gap: 24px;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+  -webkit-box-flex: 1;
+}
+
+.align-items-center {
+  align-items: center;
+  -webkit-box-align: center;
+}
+
+.header-meta .article-meta {
+  font-size: 14px;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-meta .article-meta .author-name {
+  display: inline-block;
+  margin: 0 0 2px;
+}
+
+.hover-line:hover {
+  text-decoration: underline;
+}
+
+.c-lighter {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.header-meta .article-meta .separator {
+  padding: 0 4px;
+}
+
+
+@media (min-width: 760px) {
+
+	.featured-article .article-card .article-title {
+    font-size: 28px;
+  }
+	
+	.editors-pick .article-card .article-cover {
+		height: 120px;
+		width: 120px;
+	}
+}
+
+@media (min-width: 960px) {
+
+	.featured-article {
+    grid-column: span 7;
+  }
+	
+	.editors-pick {
+    grid-column: span 5;
+  }
+	
+	.most-popular {
+    grid-column: span 12;
+  }	
+	
+	.most-popular .most-popular-list {
+		grid-auto-columns: 4fr;
+		grid-auto-flow: column;
+	}
+	
+}

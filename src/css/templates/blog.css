@@ -347,6 +347,80 @@ html:not(.hs-inline-edit) .events-post__container .blog-post__meta {
   grid-row: 1;
 }
 
+/* Imported listing page styles */
+
+.listing-page .main-content {
+	display: grid;
+	grid-gap: 40px 0;
+	gap: 40px 0;
+}
+
+.hero-listing-is-topic-author header {
+	margin: 0 auto;
+	max-width: 600px;
+}
+
+.hero-listing-is-topic-author .title {
+	font-size: 32px;
+}
+
+.hero-listing-is-default .hero-header {
+	margin: 0 auto;
+	max-width: 600px;
+}
+
+.hero-listing-is-default .hero-title {
+	font-size: 32px;
+	margin: 0 0 12px;
+}
+
+.hero-listing-is-default .intro-copy {
+  font-size: 20px;	
+}
+
+.listing-page .article-card-grid {
+	display: grid;
+	grid-gap: 24px;
+	gap: 24px;
+}
+
+/* Imported listing page cards */
+
+.listing-page .article-card .article-header {
+	height: 100%;
+}
+
+.listing-page .article-card .article-cover-link {
+	display: block;
+}
+
+.listing-page .article-card .article-cover {
+	background-color: #252b33;    
+	overflow: hidden;
+	position: relative;
+}
+
+.listing-page .article-card .article-cover .featured-image {
+	display: block;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	position: absolute;
+}
+
+.listing-page .article-card .article-content {
+	padding: 16px 0 0;
+}
+
+.listing-page .article-card .article-title {
+  font-size: 18px;
+	margin: 0 0 16px;
+}
+
+.listing-page .the-latest .article-card .article-cover {
+	padding: 0 0 54%;
+}
+
 @media screen and (max-width: 767px) {
   .blog-related-posts__list {
     flex-wrap: nowrap;
