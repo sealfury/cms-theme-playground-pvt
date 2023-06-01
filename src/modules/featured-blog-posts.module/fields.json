@@ -1,61 +1,60 @@
-[ {
-  "id" : "d0dacd38-2edb-02a3-1686-8ba0662b318e",
-  "name" : "header_featured_article",
-  "display_width" : null,
-  "label" : "Header featured article",
-  "required" : false,
-  "locked" : false,
-  "validation_regex" : "",
-  "allow_new_line" : false,
-  "show_emoji_picker" : false,
-  "type" : "text",
-  "default" : "Featured article"
-}, {
-  "id" : "af73b19e-c9fb-195e-82cc-d70d9df12719",
-  "name" : "featured_article",
-  "display_width" : null,
-  "label" : "Featured Article",
-  "required" : false,
-  "locked" : false,
-  "type" : "page",
-  "default" : 40651498144
-}, {
-  "id" : "27c5fbcf-8d52-8879-3799-2823dc440096",
-  "name" : "header_editors_pick",
-  "display_width" : null,
-  "label" : "Header editors pick",
-  "required" : false,
-  "locked" : false,
-  "validation_regex" : "",
-  "allow_new_line" : false,
-  "show_emoji_picker" : false,
-  "type" : "text",
-  "default" : "Editor's choice "
-}, {
-  "id" : "edb4ac43-8d54-3d35-ec99-dcad2de983dc",
-  "name" : "header_most_popular",
-  "display_width" : null,
-  "label" : "Header most popular",
-  "required" : false,
-  "locked" : false,
-  "validation_regex" : "",
-  "allow_new_line" : false,
-  "show_emoji_picker" : false,
-  "type" : "text",
-  "default" : "Popular right now "
-}, {
-  "id" : "1e74fbd5-54e9-d285-0f0f-d9d34093c170",
-  "name" : "editors_pick",
-  "display_width" : null,
-  "label" : "Editors pick",
-  "required" : false,
-  "locked" : false,
-  "occurrence" : {
-    "min" : 3,
-    "max" : 3,
-    "sorting_label_field" : null,
-    "default" : null
+[
+  {
+    "name": "header_featured_article",
+    "display_width": null,
+    "label": "Header featured article",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "default": "Featured article"
   },
-  "type" : "page",
-  "default" : [ 48243930647, 48243930647, 48243930647 ]
-} ]
+  {
+    "name": "featured_article",
+    "display_width": null,
+    "label": "Featured Article",
+    "required": false,
+    "locked": false,
+    "type": "page"
+  },
+  {
+    "name": "header_editors_pick",
+    "display_width": null,
+    "label": "Header editors pick",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "default": "Editor's choice "
+  },
+  {
+    "name": "header_most_popular",
+    "display_width": null,
+    "label": "Header most popular",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "default": "Popular right now "
+  },
+  {
+    "name": "editors_pick",
+    "display_width": null,
+    "label": "Editors pick",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 3,
+      "max": 3,
+      "sorting_label_field": null,
+      "default": null
+    },
+    "type": "page"
+  }
+]

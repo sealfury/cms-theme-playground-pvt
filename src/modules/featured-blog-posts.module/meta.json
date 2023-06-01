@@ -1,8 +1,12 @@
 {
   "global" : false,
-  "icon" : "fontawesome-5.14.0:Alternate%20List:SOLID",
-  "host_template_types" : [ "BLOG_POST", "BLOG_LISTING" ],
-  "module_id" : 65154419981,
-  "label" : "Listing hero",
-  "is_available_for_new_content" : true
+  "icon": "https://26192282.fs1.hubspotusercontent-eu1.net/hubfs/26192282/module-identifiers/temp-seal-module-icon.svg",
+  "label" : "Featured Blog Listings",
+  "host_template_types": ["BLOG_POST", "BLOG_LISTING"],
+  "is_available_for_new_content" : true,
+  "help_text": "",
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": []
 }
