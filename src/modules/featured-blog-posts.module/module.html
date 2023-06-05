@@ -1,8 +1,13 @@
 <div class="hero-content">
   <div class="container article-card-grid">
+
+    {# FEATURED SECTION #}
+
     <section class="featured-article">
       <header class="content-header border-bottom-light">
-        <h2 class="c-light text-uppercase-14">{{ module.header_featured_article }}</h2>
+        <h4 class="c-light content-header__featured-section">
+          {{ module.header_featured_article }}
+        </h4>
       </header>
 
       <article class="article-card">
@@ -22,7 +27,7 @@
 
             <div class="article-content">
               <a class="article-title-link" href="{{ content_by_id(module.featured_article).absolute_url }}">
-                <h2 class="article-title">{{ content_by_id(module.featured_article).name|truncate(80, True) }}</h2>
+                <h3 class="article-title">{{ content_by_id(module.featured_article).name|truncate(80, True) }}</h3>
               </a>
               <div class="featured-summary f-size-16 c-light clamp-3">
                 {{ content_by_id(module.featured_article).post_list_content|truncatehtml(240) }}
@@ -35,14 +40,14 @@
                     </figure>
                   {% endif %}
                   <div class="article-meta">
-                    <a class="author-name hover-line" href="{{ group.absolute_url }}/author/{{ content_by_id(module.featured_article).blog_post_author.slug }}"
-                      >{{ content_by_id(module.featured_article).blog_post_author.display_name }}</a
+                    <span class="author-name " href="{{ group.absolute_url }}/author/{{ content_by_id(module.featured_article).blog_post_author.slug }}"
+                      >{{ content_by_id(module.featured_article).blog_post_author.display_name }}</span
                     >
                     <div class="d-flex align-items-center c-lighter">
                       {% if content_by_id(module.featured_article).topic_list %}
                         {% for topic in content_by_id(module.featured_article).topic_list %}
-                        <a class="hover-line" href="{{ blog_tag_url(group.id, topic.slug) }}">{{ topic.name }}</a>
-                        {% if not loop.last %},{% endif %}
+                        <a class="" href="{{ blog_tag_url(group.id, topic.slug) }}">{{ topic.name }}</a>
+                        {% if not loop.last %},&nbsp;{% endif %}
                         {% endfor %}
                       {% endif %}
                       <span class="separator">•</span>
@@ -79,7 +84,7 @@
             ><!-- ARTICLE COVER -->
             <div class="article-content">
               <a class="article-title-link" href="{{ content_by_id(module.featured_article).absolute_url }}">
-                <h2 class="article-title">{{ content_by_id(module.featured_article).title|truncate(80, True) }}</h2>
+                <h3 class="article-title">{{ content_by_id(module.featured_article).title|truncate(80, True) }}</h3>
               </a>
               <div class="featured-summary f-size-16 c-light clamp-3">
                 {{ content_by_id(module.featured_article).meta_description|truncatehtml(240) }}
@@ -92,9 +97,11 @@
       </article>
     </section>
 
+    {# EDITORS PICK SECTION #}
+
     <section class="editors-pick">
       <header class="content-header border-bottom-light">
-        <h2 class="c-light text-uppercase-14">{{ module.header_editors_pick }}</h2>
+        <h4 class="c-light content-header__featured-section">{{ module.header_editors_pick }}</h4>
       </header>
 
       <div class="d-grid gap-24">
@@ -103,21 +110,23 @@
           <header class="article-header d-flex">
             <div class="flex-1">
               <a class="article-title-link" href="{{ content_by_id(item).absolute_url }}">
-                <h2 class="article-title clamp-3">{{ content_by_id(item).name|truncate(80, True) }}</h2>
+                <h4 class="article-title clamp-3">{{ content_by_id(item).name|truncate(80, True) }}</h4>
               </a>
               {% if content_by_id(item).blog_post_author %}
                 <div class="header-meta d-flex align-items-center">
                   <div class="article-meta">
-                    <a class="author-name hover-line" href="{{ group.absolute_url }}/author/{{ content_by_id(item).blog_post_author.slug }}"
-                      >{{ content_by_id(item).blog_post_author.display_name }}</a
+                    <span
+                      class="author-name "
+                      href="{{ group.absolute_url }}/author/{{ content_by_id(item).blog_post_author.slug }}"
+                      >{{ content_by_id(item).blog_post_author.display_name }}</span
                     >
                     <div class="d-flex align-center c-lighter">
                       {% if content_by_id(item).topic_list %}
                         {% for topic in content_by_id(item).topic_list %}
-                        <a class="hover-line" href="{{ blog_tag_url(group.id, topic.slug) }}"
-                          >{{ topic.name }}</a
+                        <span class="" href="{{ blog_tag_url(group.id, topic.slug) }}"
+                          >{{ topic.name }}</span
                         >
-                        {% if not loop.last %},{% endif %}
+                        {% if not loop.last %},&nbsp;{% endif %}
                         {% endfor %}
                       {% endif %}
                       <span class="separator">•</span>

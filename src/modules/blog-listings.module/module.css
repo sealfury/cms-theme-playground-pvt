@@ -117,7 +117,7 @@
 .blog-index__post--small .blog-index__post-image {
   border: 1px solid #DFE4E9;
   border-right: none;
-  object-fit: contain;
+  /* object-fit: contain; */
 }
 
 .blog-index__post--large .blog-index__post-content {

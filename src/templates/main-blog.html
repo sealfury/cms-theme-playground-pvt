@@ -10,7 +10,7 @@
 {% block body %}
   {% dnd_area "dnd_area"
     label="Main section",
-    class="body-container body-container--blog-index" %}
+    class="body-container body-container--main-blog" %}
 
     {# Hero banner #}
 
@@ -23,12 +23,13 @@
     {% end_dnd_section %}
 
     {% dnd_section
-      max_width=1400,
+      max_width=1440,
       vertical_alignment="TOP" %}
       {% dnd_column %}
         {% dnd_row %}
           {% dnd_module
-            path="../modules/featured-blog-posts.module" %}
+            path="../modules/featured-blog-posts.module",
+            no_wrapper=True %}
           {% end_dnd_module %}
         {% end_dnd_row %}
       {% end_dnd_column %}
@@ -37,7 +38,7 @@
     {# Blog listings and pagination #}
 
     {% dnd_section
-      max_width=1400,
+      max_width=1440,
       vertical_alignment="TOP" %}
       {% dnd_column %}
         {% dnd_row %}
