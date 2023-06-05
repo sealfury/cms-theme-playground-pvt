@@ -35,6 +35,17 @@
           top: 5%;
         }
       {% endif %}
+
+      @media screen and (max-width: 480px) {
+        .blog-hero-banner__image-wrapper {
+          display: none;
+        }
+
+        .blog-hero-banner__image {
+          position: unset !important;
+          transform: unset;
+        }
+      }
     {% end_scope_css %}
   </style>
 {% end_require_css %}

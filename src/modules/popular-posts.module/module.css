@@ -9,12 +9,13 @@
   border-top: 2px solid #DFE4E9;
   border-bottom: 2px solid #DFE4E9;
   display: flex;
+  flex-wrap: wrap;
   padding: 1rem 0;
 }
 
 .blog-popular-post {
   /* padding: 1rem; */
-  width: 25%;
+  width: 360px;
 }
 
 .blog-popular-post--link {
@@ -47,4 +48,22 @@
 
 .blog-popular-post--link:hover > .blog-popular-post--title {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 480px) {
+  .blog-page-heading {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .blog-popular-now {
+    gap: 0.5rem;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .blog-popular-post--link {
+    background-color: #F0F5FA;
+  }
 }

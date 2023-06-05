@@ -411,6 +411,18 @@ html:not(.hs-inline-edit) .events-post__container .blog-post__meta {
   padding: 0 0 2rem;
 }
 
+@media only screen and (max-width: 760px) {
+  .body-container--main-blog .blog-tag-heading {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .body-container--main-blog .blog-index {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 /* Imported listing page cards */
 
 .article-card {
