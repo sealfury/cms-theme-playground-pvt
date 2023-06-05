@@ -4,6 +4,12 @@
   margin: 0 auto;
 }
 
+@media screen and (min-width: 768px) {
+  .body-container--main-blog .dnd_area-row-2-max-width-section-centering > .row-fluid {
+    max-width: 1440px !important;
+  }
+}
+
 /* Blog post */
 
 .blog-post {
@@ -349,12 +355,6 @@ html:not(.hs-inline-edit) .events-post__container .blog-post__meta {
 
 /* Imported listing page styles */
 
-.listing-page .main-content {
-	display: grid;
-	grid-gap: 40px 0;
-	gap: 40px 0;
-}
-
 .hero-listing-is-topic-author header {
 	margin: 0 auto;
 	max-width: 600px;
@@ -378,40 +378,75 @@ html:not(.hs-inline-edit) .events-post__container .blog-post__meta {
   font-size: 20px;	
 }
 
-.listing-page .article-card-grid {
+.article-card-grid {
 	display: grid;
 	grid-gap: 24px;
 	gap: 24px;
 }
 
+@media only screen and (min-width: 760px) {
+  .article-card-grid {
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 40px 24px;
+    gap: 40px 24px;
+  }
+}
+
+@media only screen and (min-width: 1480px) {
+  .article-card-grid {
+    transform: translateX(-20px);
+    width: 1480;
+  }
+}
+
+/* Blog listing overrides for main blog page */
+
+.body-container--main-blog .blog-tag-heading {
+  color: rgba(0, 0, 0, 0.68);
+  font-size: 24px;
+  padding: 0 0 2rem;
+}
+
+.body-container--main-blog .blog-index {
+  padding: 0 0 2rem;
+}
+
 /* Imported listing page cards */
 
-.listing-page .article-card {
+.article-card {
   background-color: #FFF;
   border-radius: 4px;
   padding: 1rem;
   transition: all 0.2s ease;
 }
 
-.listing-page .article-card:hover {
+.article-card:hover {
   background-color: #F0F5FA;
+  cursor: pointer;
 }
 
-.listing-page .article-card .article-header {
+.article-card:hover h3,
+.article-card:hover h4,
+.article-card:hover span {
+  cursor: pointer;
+  text-transform: underline;
+}
+
+.article-card .article-header {
 	height: 100%;
 }
 
-.listing-page .article-card .article-cover-link {
+.article-card .article-cover-link {
 	display: block;
 }
 
-.listing-page .article-card .article-cover {
+.article-card .article-cover {
 	background-color: #252b33;    
 	overflow: hidden;
 	position: relative;
 }
 
-.listing-page .article-card .article-cover .featured-image {
+.article-card .article-cover .featured-image {
 	display: block;
 	height: 100%;
 	width: 100%;
@@ -419,16 +454,16 @@ html:not(.hs-inline-edit) .events-post__container .blog-post__meta {
 	position: absolute;
 }
 
-.listing-page .article-card .article-content {
+.article-card .article-content {
 	padding: 16px 0 0;
 }
 
-.listing-page .article-card .article-title {
+.article-card .article-title {
   font-size: 18px;
 	margin: 0 0 16px;
 }
 
-.listing-page .the-latest .article-card .article-cover {
+.the-latest .article-card .article-cover {
 	padding: 0 0 54%;
 }
 
