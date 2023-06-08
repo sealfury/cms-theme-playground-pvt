@@ -34,7 +34,7 @@
 }
 
 #blog-hero-banner .hero-banner__text-section {
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .hero-banner__text-section h1, 
@@ -82,6 +82,7 @@
 }
 
 .hero-banner__eyebrow {
+  color: #525E6A;
   text-transform: uppercase;
   padding-bottom: 0.5rem;
 }
@@ -220,7 +221,10 @@
   display: flex;
   gap: 1rem;
   /* justify-content: center; */
-  padding: 1rem 0;
+  margin-block-start: 1rem;
+  margin-block-end: 0.5rem;
+  margin-inline-end: 2px;
+  margin-inline-start: 2px;
 }
 
 .hero-banner__author--avatar {
