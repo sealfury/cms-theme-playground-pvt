@@ -1,0 +1,71 @@
+<!--
+    templateType: blog_post
+    isAvailableForNewContent: true
+    label: Flexible Blog Post
+-->
+{% set template_css = "../../css/templates/blog.css" %}
+{% extends "./layouts/base.html" %}
+{% from "../utils/macros.html" import related_posts %}
+
+{% block body %}
+  <div class="body-container body-container--blog-post">
+    {% module "blog-hero-banner"
+      path="../modules/blog-hero-banner.module",
+      header_richtext="<h1>{{ content.name }}</h1>",
+      subheader="Edit module to edit text field",
+      column="image",
+      skew_image=true %}
+
+    {# Blog post #}
+    <div class="content-wrapper">
+      <div class="simple-post__container">
+        <article class="blog-post">
+          <div class="blog-post__meta">
+            <a href="{{ blog_author_url(group.id, content.blog_post_author.slug) }}" rel="author">
+              {{ content.blog_post_author.display_name }}
+            </a>
+            <time>
+              {{ content.publish_date_localized }}
+            </time>
+          </div>
+          <div>
+            {{ content.post_body }}
+          </div>
+          {% if content.tag_list %}
+            {# <div>
+              {% for tag in content.tag_list %}
+              <a href="npe2_" rel="tag">{{ tag.name }}</a>
+              {% if not loop.last %},{% endif %}
+              {% endfor %}
+            </div> #}
+          {% endif %}
+        </article>
+        <div class="richtext-col-2">
+          {% module "blog-rich-text"
+            path="@hubspot/rich_text" %}
+        </div>
+      </div>
+    </div>
+
+    {# End blog post #}
+
+    {% related_blog_posts
+      limit=4,
+      no_wrapper=True,
+      post_formatter="related_posts" %}
+
+    <div class="blog-post__cta">
+      <div class="blog-post__cta--single">
+        {% module "cta-light"
+          path="../modules/cta-small",
+          mode="light" %}
+      </div>
+      <div class="blog-post__cta--single">
+        {% module "cta-dark"
+          path="../modules/cta-small",
+          mode="dark" %}
+      </div>
+    </div>
+  </div>
+{% endblock body %}
+

@@ -270,6 +270,36 @@
   width: 50%;
 }
 
+/* Simple Blog Post */
+
+.simple-post__container {
+  align-items: start;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 7.3%;
+  margin: 2rem auto;
+  width: 101%;
+}
+
+.simple-post__container > article {
+  grid-column: 1 / span 7;
+  grid-row: 1;
+  padding: 0 0 3rem;
+}
+
+.simple-post__container > .richtext-col-2 {
+  border: 1px solid #F0F5FA;
+  border-radius: 4px;
+  grid-column: 8 / span 5;
+  grid-row: 1;
+  padding: 1.5rem;
+}
+
+.simple-post__container .blog-post__meta {
+  display: none;
+}
+
 /* Customer Stories Blog Posts */
 
 .customer-stories__container:has(.logo-box__container) {
