@@ -7,7 +7,7 @@
     {% scope_css %}
       .breadcrumb__menu-item:not(.active-page):after {
         background: url("{{ chevronUrl }}") no-repeat;
-        content: '';
+        content: "";
         display: inline-block;
         height: 1rem;
         transform: translateY(25%);
@@ -19,12 +19,12 @@
       }
 
       .blog-hero-banner__image-wrapper {
-        background-color: #0F1E2D;
+        background-color: #0f1e2d;
         background-position: 5% 5%;
-        height: {{ module.image.height ~ 'px' }};
+        height: {{ module.image.height ~ "px" }};
         position: absolute;
         translate: 5% 7.5%;
-        width: {{ module.image.width  ~ 'px' }};
+        width: {{ module.image.width ~ "px" }};
       }
 
       {% if module.skew_image == true %}
@@ -52,9 +52,11 @@
 
 <!-- module html  -->
 
+
 <section class="hero-banner" id="blog-hero-banner">
   {% set form = module.form %}
   {% set blog = module.blog %}
+  {% set pageType = content.CMSContentType.valueDescriptor.name %}
 
   <div class="hero-banner__container">
     <div class="hero-banner__text-section">
@@ -70,26 +72,55 @@
           </li>
         </ol>
       {% endif %}
+
+      {% if pageType == "BLOG_POST" %}
+        <span class="hero-banner__eyebrow">{{ content.topic_list|first }}</span>
+      {% endif %}
+
       {{ module.header_richtext }}
-      <div class="hero-banner__subheader">{{ module.subheader }}</div>
 
-      <div class="hero-blog-selector__container">
-        {% for button in module.blog_selector_buttons %}
-        {% set href = blog_tag_url(blog, button.tag) %}
-
-        {% if request.path|split("/")|last == href|split("/")|last %}
-          {% set activeClass = "active-page" %}
-        {% else %}
-          {% set activeClass = "" %}
-        {% endif %}
-
-        <a class="hero-blog-selector__button-wrapper {{ activeClass }}" href="{{ href }}">
-          <p class="hero-blog-selector__button-text">
-            {{ button.text }}
-          </p>
-        </a>
-        {% endfor %}
+      {% if pageType == "BLOG_POST" %}
+        <figure class="hero-banner__article-meta">
+          <img
+            class="hero-banner__author--avatar"
+            src="{{ content.blog_post_author.avatar }}"
+            alt="{{ content.blog_post_author.display_name }}"
+            loading="lazy"
+          />
+          <div class="hero-banner__author--details">
+            <span>{{ content.blog_post_author.display_name }}</span>
+            <span>
+              {{ content.publish_date|format_date('dd MM yyyy') }} 
+              &bull; 
+              {{ content.post_body|striptags|wordcount|divide(300)|round }} min
+            </span>
+          </div>
+        </figure>
+      {% else %}
+      <div class="hero-banner__subheader">
+        {{ module.subheader }}
       </div>
+      {% endif %}
+
+      {% if pageType == "LISTING_PAGE" %}
+        <div class="hero-blog-selector__container">
+          {% for button in module.blog_selector_buttons %}
+          {% set href = blog_tag_url(blog, button.tag) %}
+
+          {% if request.path|split("/")|last == href|split("/")|last %}
+            {% set activeClass = "active-page" %}
+          {% else %}
+            {% set activeClass = "" %}
+          {% endif %}
+
+          <a class="hero-blog-selector__button-wrapper {{ activeClass }}" href="{{ href }}">
+            <p class="hero-blog-selector__button-text">
+              {{ button.text }}
+            </p>
+          </a>
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
 
     <div class="hero-banner__media-section {{ module.column }}-section">
@@ -103,9 +134,9 @@
           response_response_type="{{ form.response_type }}",
           response_message="{{ form.message }}",
           gotowebinar_webinar_key="{{ form.gotowebinar_webinar_key }}" %}
-      {% else if module.column == "image" %}
-      <div class="blog-hero-banner__image-wrapper"></div>
-        <img 
+      {% elif module.column == "image" %}
+        <div class="blog-hero-banner__image-wrapper"></div>
+        <img
           class="blog-hero-banner__image"
           src="{{ module.image.src }}"
           height="{{ module.image.height }}"
