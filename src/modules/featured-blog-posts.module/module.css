@@ -9,7 +9,7 @@
 } */
 
 .featured-article .article-card .article-title {
-  font-family: 'Merriweather', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 	font-size: 24px;
 	margin: 0;
 }
@@ -132,7 +132,7 @@
 }
 
 .c-light {
-  color: rgba(0, 0, 0, 0.68);
+  color: #525E6A;
 }
 
 .c-lighter {

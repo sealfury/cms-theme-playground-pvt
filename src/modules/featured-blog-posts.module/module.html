@@ -116,14 +116,14 @@
                 <div class="header-meta d-flex align-items-center">
                   <div class="article-meta">
                     <span
-                      class="author-name "
+                      class="author-name c-light"
                       href="{{ group.absolute_url }}/author/{{ content_by_id(item).blog_post_author.slug }}"
                       >{{ content_by_id(item).blog_post_author.display_name }}</span
                     >
                     <div class="d-flex align-center c-lighter">
                       {% if content_by_id(item).topic_list %}
                         {% for topic in content_by_id(item).topic_list %}
-                        <span class="" href="{{ blog_tag_url(group.id, topic.slug) }}"
+                        <span class=" c-light" href="{{ blog_tag_url(group.id, topic.slug) }}"
                           >{{ topic.name }}</span
                         >
                         {% if not loop.last %},&nbsp;{% endif %}
