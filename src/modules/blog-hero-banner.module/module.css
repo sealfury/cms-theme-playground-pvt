@@ -82,9 +82,14 @@
 }
 
 .hero-banner__eyebrow {
-  color: #525E6A;
+  color: #525D69;
   text-transform: uppercase;
   padding-bottom: 0.5rem;
+}
+
+.hero-banner__text-section h1,
+.hero-banner__text-section h2 {
+  text-transform: unset;
 }
 
 .hero-banner__subheader > p {
@@ -224,14 +229,13 @@
   margin-block-start: 1rem;
   margin-block-end: 0.5rem;
   margin-inline-end: 2px;
-  margin-inline-start: 2px;
+  margin-inline-start: 0;
 }
 
 .hero-banner__author--avatar {
   border-radius: 100%;
-  height: 40px;
   object-fit: contain;
-  width: 40px;
+  width: 56px;
 }
 
 .hero-banner__author--details {
@@ -242,7 +246,7 @@
 }
 
 .hero-banner__author--details > span {
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .hero-banner__author--details > span:first-child {
@@ -251,7 +255,7 @@
 }
 
 .hero-banner__author--details > span:last-child {
-  color: #525e6A;
+  color: #525D69;
 }
 
 @media screen and (max-width: 767px) {
