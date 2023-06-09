@@ -6,7 +6,7 @@
 {% choice "add_border" 
   label="Add Border Around Section?",
   value="yes",
-  choices="[['no', 'No'], ['yes', 'Yes']]",
+  choices="[[\"no\", \"No\"], [\"yes\", \"Yes\"]]",
   export_to_template_context=True %}
 
 {% require_css %}
@@ -22,9 +22,23 @@
     .richtext-col-2 {
       border: 2px solid {{ borderColor }};
       border-radius: 4px;
-      padding: 2rem;
+      padding: 1rem;
     }
 
+    @media only screen and (max-width: 767px) {
+      .richtext-col-2 {
+        padding: 0 0 0.5rem;
+      }
+
+      .richtext-col-2 p {
+        margin: 1rem 0;
+      }
+
+      .richtext-col-2 h2,
+      .richtext-col-2 h3 {
+        margin-top: 1rem;
+      }
+    }
     {# .simple-post__container .richtext-col-2 {
       grid-column: 8 / span 5;
       grid-row: 1;

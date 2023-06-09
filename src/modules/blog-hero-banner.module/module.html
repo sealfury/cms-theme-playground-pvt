@@ -23,16 +23,16 @@
         background-position: 5% 5%;
         height: {{ module.image.height ~ "px" }};
         position: absolute;
-        translate: 5% 7.5%;
+        translate: 6.5% -7.5%;
         width: {{ module.image.width ~ "px" }};
       }
 
       {% if module.skew_image == true %}
         .blog-hero-banner__image,
         .blog-hero-banner__image-wrapper {
-          left: 20%;
+          left: 22%;
           transform: skew(-7.5deg);
-          top: 5%;
+          top: 14%;
         }
       {% endif %}
 
@@ -90,9 +90,9 @@
           <div class="hero-banner__author--details">
             <span>{{ content.blog_post_author.display_name }}</span>
             <span>
-              {{ content.publish_date|format_date('dd MM yyyy') }} 
-              &bull; 
-              {{ content.post_body|striptags|wordcount|divide(300)|round }} min
+              {{ content.publish_date|format_date('dd MMMM yyyy') }}
+              <span style="font-size: 16px; font-weight: 600; margin: 0 2px;">&bull;</span>
+              {{ content.post_body|striptags|wordcount|divide(250)|round }} min
             </span>
           </div>
         </figure>
