@@ -8,6 +8,10 @@
   .body-container--main-blog .dnd_area-row-2-max-width-section-centering > .row-fluid {
     max-width: 1440px !important;
   }
+
+  .body-container--main-blog .blog-index__post-title--small {
+    line-height: 25px;
+  }
 }
 
 /* Blog post */
@@ -408,7 +412,8 @@
     grid-row: 1;
     grid-column: 2 / -1;
     justify-content: center;
-    width: 100%;
+    min-width: unset;
+    /* width: 100%; */
   }
 
   .simple-blog-post__author-info h4 {
@@ -638,6 +643,10 @@ html:not(.hs-inline-edit) .events-post__container .blog-post__meta {
 }
 
 @media screen and (max-width: 767px) {
+  .article-card {
+    background-color: #F0F5FA;
+  }
+
   .blog-related-posts__list {
     flex-wrap: nowrap;
     overflow-x: scroll;

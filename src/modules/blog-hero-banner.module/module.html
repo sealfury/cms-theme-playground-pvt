@@ -55,18 +55,29 @@
 
 <section class="hero-banner" id="blog-hero-banner">
   {% set form = module.form %}
-  {% set blog = module.blog %}
   {% set pageType = content.CMSContentType.valueDescriptor.name %}
 
   <div class="hero-banner__container">
     <div class="hero-banner__text-section">
-      {% if module.breadcrumb|length > 0 %}
+      {% if module.breadcrumb|length > 0 && pageType != "BLOG_POST" %}
         <ol class="hero-banner__breadcrumb-menu breadcrumb-menu">
           {% for crumb in module.breadcrumb %}
           <li class="breadcrumb__menu-item">
             <a href="{{ crumb.link.url.href }}">{{ crumb.text }}</a>
           </li>
           {% endfor %}
+          <li class="breadcrumb__menu-item active-page">
+            <span>{{ content.title }}</span>
+          </li>
+        </ol>
+      {% else %}
+        <ol class="hero-banner__breadcrumb-menu breadcrumb-menu">
+          {# <li class="breadcrumb__menu-item">
+            <a href="{{ request.domain }}">MaintMaster CMMS</a>
+          </li> #}
+          <li class="breadcrumb__menu-item">
+            <a href="{{ group.absolute_url }}">{{ group.public_title }}</a>
+          </li>
           <li class="breadcrumb__menu-item active-page">
             <span>{{ content.title }}</span>
           </li>
@@ -105,7 +116,7 @@
       {% if pageType == "LISTING_PAGE" %}
         <div class="hero-blog-selector__container">
           {% for button in module.blog_selector_buttons %}
-          {% set href = blog_tag_url(blog, button.tag) %}
+          {% set href = blog_tag_url(module.blog, button.tag) %}
 
           {% if request.path|split("/")|last == href|split("/")|last %}
             {% set activeClass = "active-page" %}

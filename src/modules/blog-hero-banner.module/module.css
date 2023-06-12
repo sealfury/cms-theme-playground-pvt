@@ -87,11 +87,6 @@
   padding-bottom: 0.5rem;
 }
 
-.hero-banner__text-section h1,
-.hero-banner__text-section h2 {
-  text-transform: unset;
-}
-
 .hero-banner__subheader > p {
   font-size: 20px;
   line-height: 30px;
@@ -104,7 +99,7 @@
 
 .hero-banner__breadcrumb {
   font-size: 14px;
-  line-height: 24px;
+  line-height: 16px;
   text-transform: uppercase;
 }
 
@@ -120,13 +115,13 @@
   background-color: #EFF3F7;
   border: 2px solid #00B9BC;
   border-radius: 6px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.75rem;
   transition: all 0.2s ease;
 }
 
 .hero-blog-selector__button-text {
   color: #0F1E2D;
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 500;
   margin: 0;
   text-transform: uppercase;
@@ -300,7 +295,8 @@
 
   .hero-blog-selector__container {
     flex-wrap: wrap;
-    row-gap: 1rem;
+    justify-content: center;
+    gap: 1rem;
   }
 
   .hero-banner__buttons {
@@ -336,7 +332,6 @@
   }
 
   .hero-banner__media-section.form-section {
-    margin-left: -0.5rem;
     position: unset !important;
   }
 
