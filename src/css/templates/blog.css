@@ -558,7 +558,7 @@ html:not(.hs-inline-edit) .events-post__container .blog-post__meta {
 @media only screen and (min-width: 1480px) {
   .article-card-grid {
     transform: translateX(-20px);
-    width: 1480;
+    width: 1480px;
   }
 }
 
