@@ -85,7 +85,14 @@
       {% endif %}
 
       {% if pageType == "BLOG_POST" %}
-        <span class="hero-banner__eyebrow">{{ content.topic_list|first }}</span>
+        {% set tagTopic = content.topic_list|first %}
+        <a 
+          href="{{ blog_tag_url(group.id, tagTopic.slug) }}"
+          target="_blank"
+          class="hero-banner__eyebrow"
+        >
+          {{ tagTopic }}
+        </a>
       {% endif %}
 
       {{ module.header_richtext }}
