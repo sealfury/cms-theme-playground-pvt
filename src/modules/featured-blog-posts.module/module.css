@@ -1,3 +1,7 @@
+.hero-content.hide {
+  display: none;
+}
+
 .featured-article,
 .editors-pick {
 	grid-column: span 12;

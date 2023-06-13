@@ -173,6 +173,7 @@
 
 {# Blog tag listing header #}
 
+{% if request.path is not string_containing "/tag/" or request.path|split('/')|last == module.blog_tag_listing.filters|first %}
 <h2 class="blog-tag-heading">
   {% set firstResult = contents|first %}
     {% if module.add_custom_header == true and module.custom_header != "" %}
@@ -183,6 +184,7 @@
       {{ page_meta.html_title|split(' | ')|last }}
   {% endif %}
 </h2>
+{% endif %}
 
 {# Blog listing #}
 <section class="blog-index">
@@ -201,7 +203,11 @@
     {% if locale_name(locale)|split(" ")|first|lower != "english" %}
       {% set blogName = requestPathArr[1] %}
     {% endif %}
+    {% if module.blog_tag_listing.filters|first == tagFilters %}
     {% set contents = blog_recent_tag_posts(blogName, tagFilters, 250) %}
+    {% else %}
+    {% set contents = [] %}
+    {% endif %}
   {% endif %}
   
   {% for content in contents %}

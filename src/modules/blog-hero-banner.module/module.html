@@ -66,6 +66,11 @@
             <a href="{{ crumb.link.url.href }}">{{ crumb.text }}</a>
           </li>
           {% endfor %}
+          {% if request.full_url is string_containing "/tag/" %}
+            <li class="breadcrumb__menu-item">
+              <a href="{{ group.absolute_url }}">{{ group.public_title }}</a>
+            </li>
+          {% endif %}
           <li class="breadcrumb__menu-item active-page">
             <span>{{ content.title }}</span>
           </li>

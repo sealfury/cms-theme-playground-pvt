@@ -1,4 +1,4 @@
-<div class="hero-content">
+<div class="hero-content {{ "hide" if request.path is string_containing 'tag' }}">
   <div class="container article-card-grid">
 
     {# FEATURED SECTION #}
