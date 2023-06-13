@@ -40,10 +40,10 @@
                     </figure>
                   {% endif %}
                   <div class="article-meta">
-                    <span class="author-name " href="{{ group.absolute_url }}/author/{{ content_by_id(module.featured_article).blog_post_author.slug }}"
-                      >{{ content_by_id(module.featured_article).blog_post_author.display_name }}</span
+                    <a class="author-name " href="{{ group.absolute_url }}/author/{{ content_by_id(module.featured_article).blog_post_author.slug }}"
+                      >{{ content_by_id(module.featured_article).blog_post_author.display_name }}</a
                     >
-                    <div class="d-flex align-items-center c-lighter">
+                    <div class="d-flex align-items-center c-light">
                       {% if content_by_id(module.featured_article).topic_list %}
                         {% for topic in content_by_id(module.featured_article).topic_list %}
                         <a class="" href="{{ blog_tag_url(group.id, topic.slug) }}">{{ topic.name }}</a>
@@ -115,16 +115,16 @@
               {% if content_by_id(item).blog_post_author %}
                 <div class="header-meta d-flex align-items-center">
                   <div class="article-meta">
-                    <span
+                    <a
                       class="author-name c-light"
                       href="{{ group.absolute_url }}/author/{{ content_by_id(item).blog_post_author.slug }}"
-                      >{{ content_by_id(item).blog_post_author.display_name }}</span
+                      >{{ content_by_id(item).blog_post_author.display_name }}</a
                     >
-                    <div class="d-flex align-center c-lighter">
+                    <div class="d-flex align-center c-light">
                       {% if content_by_id(item).topic_list %}
                         {% for topic in content_by_id(item).topic_list %}
-                        <span class=" c-light" href="{{ blog_tag_url(group.id, topic.slug) }}"
-                          >{{ topic.name }}</span
+                        <a class=" c-light" href="{{ blog_tag_url(group.id, topic.slug) }}"
+                          >{{ topic.name }}</a
                         >
                         {% if not loop.last %},&nbsp;{% endif %}
                         {% endfor %}
