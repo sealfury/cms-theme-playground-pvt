@@ -83,8 +83,16 @@
 
 .hero-banner__eyebrow {
   color: #525D69;
+  font-weight: 500;
   text-transform: uppercase;
   padding-bottom: 0.5rem;
+}
+
+a.hero-banner__eyebrow:hover,
+a.hero-banner__eyebrow:focus {
+  color: #525D69;
+  font-weight: 500;
+  text-decoration: underline;
 }
 
 .hero-banner__subheader > p {

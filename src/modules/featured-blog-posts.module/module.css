@@ -71,6 +71,14 @@
 	margin: -2px 0 0 -36px;
 }
 
+.article-title-link:hover {
+  text-decoration: underline;
+}
+
+.article-meta a:hover {
+  text-decoration: underline;
+}
+
 /* Extra universal styles from imported content */
 
 .content-header {
@@ -117,8 +125,9 @@
   -webkit-box-align: center;
 }
 
-.header-meta .article-meta {
+.header-meta .article-meta * {
   font-size: 14px;
+  font-weight: 500;
   line-height: 18px;
   overflow: hidden;
   text-overflow: ellipsis;
